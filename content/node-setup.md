@@ -2,13 +2,13 @@
 title: Setup Rubix Node
 aliases:
   [
-    "/join",
-    "/signup",
-    "/sign-up",
-    "/signing-up",
-    "/contributing/signing-up",
-    "/contributing/sign-up",
-    "/contributing/signup",
+    "/mining",
+    "/setup",
+    "/mine",
+    "/rbt",
+    "/wallet",
+    "/dist",
+    "/start",
   ]
 geekdocBreadcrumb: false
 weight: 1
@@ -16,7 +16,7 @@ weight: 1
 
 Nodes in Rubix mine token by utilizing credits earned by validating transactions in the network.
 
-When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over time common pool will pick the node to validate transactions comming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
+When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over time common pool will pick the node to validate transactions coming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
 
 Number of credits required by a node to mine a token is determined by the current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a token. Credit required to mine a token doubles every time the network level increases.
 

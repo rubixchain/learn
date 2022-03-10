@@ -14,6 +14,14 @@ geekdocBreadcrumb: false
 weight: 1
 ---
 
+Nodes in Rubix mine token by utilizing credits earned by validating transactions in the network.
+
+When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over time common pool will pick the node to validate transactions comming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
+
+Number of credits required by a node to mine a token is determined by the current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a token. Credit required to mine a token doubles every time the network level increases.
+
+To know more about level and credits, please read the [Whitepaper](https://github.com/rubixchain/rubixnetwork/blob/master/RubiX_WhitePaper_R1.7.pdf).
+
 # Prerequisites
 
 Any computer or personal laptop with 8GB of RAM and a decent internet connection can seamlessly run Rubix for token transfers / become validator / mining.
@@ -22,7 +30,7 @@ Any computer or personal laptop with 8GB of RAM and a decent internet connection
 
 ### One Step Installation
 
-Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork) machines. This script will install all the required dependencies and will run the setup script.
+Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/linux-oneClickSetupScript.zip) machines. This script will install all the required dependencies and will run the setup script.
 
 {{< / hint >}}
 
@@ -79,7 +87,9 @@ For help regarding getting notified for releases see [documentation](https://doc
 <br>
 <br>
 
-# Troubleshooting
+# Communication and Troubleshooting
+
+User communicates with node running in the background via below REST APIs.
 
 Common error messages faced by nodes and the known solutions are listed below.
 
@@ -87,17 +97,30 @@ Common error messages faced by nodes and the known solutions are listed below.
 
 {{< tabs "uniqueid" >}}
 {{< tab "API Endpoints" >}}
-| Field | Type | Descripton | Response values |
-| ---------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `Sample` | Long | Lorem Ipsum is simply dummy text of the printing and typesetting industry. | Lorem Ipsum is simply dummy text of the printing and typesetting industry. |
-| `Sample` | String | Lorem Ipsum is simply dummy text of the printing and typesetting industry. | Lorem Ipsum is simply dummy text of the printing and typesetting industry. |
+| Field | Endpoint | Descripton | Sample Request |
+| ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| DID Creation | `/createDID` | Creates a unique Decentralized IDentity | ```curl --location --request POST 'http://localhost:1898/create' --form 'data="Rubik"' --form 'image=@"imagepath"'``` |
+| Initial Setup | `/start` | Does the initial setup of IPFS and syncing the network nodes. | ```curl --header "Content-Type: application/json" --request GET 'http://localhost:1898/start'``` |
+| Transfer Tokens | `/initiateTransaction` | Transfers token(s) from one wallet address to another. | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateTransaction --data '{ "receiver": "<receiver DID here>", "tokenCount":1, "comment":"transaction comments", "type":1}'``` |
+| Account Information | `/getAccountInfo` | Retrieves the user account details. | ```curl --header "Content-Type: application/json" --request GET http://localhost:1898/getAccountInfo``` |
+| ~~Details for Dashboard~~ | `/getDashboard` | Lists all required details of user's wallet. | ```curl --header "Content-Type: application/json" --request GET http://localhost:1898/getDashboard``` |
+| Get Transaction Details with Transaction ID | `/getTxnDetails` | Details of a particular transaction like Quorum involved, token transferred, receiver details, time and more | ```curl --header "Content-Type: application/json" --request POST  http://localhost:1898/getTxnDetails --data '{"transactionID": "<transaction ID here>"}'``` |
+| Get Transaction Details with Date | `/getTxnByDate` | Retrieves the details of all the transactions committed during the specified period | ```curl --header "Content-Type: application/json" --request POST <http://localhost:1898/getTxnByDate> --data-raw '{"sDate":"Wed Jun 09 12:56:04 AST 2021","eDate":"Wed Jun 09 12:57:58 AST 2021"}'``` |
+| Get Transaction Details with Comment | `/getTxnByComment` | Retrieves the details of all the transactions committed with the specified comment. | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/getTxnByComment --data '{"comment":"First"}'``` |
+| Get Transaction Details with Count | `/getTxnByCount` | Retrieves the last specified count of transactions committed | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/getTxnByCount --data '{"txnCount" : 3}'``` |
+|  Get Transaction Details with User's DID | `/getTxnByDID` | Retrieves all the transactions made with the input DID | ```curl --header "Content-Type: application/json" --request POST <http://localhost:1898/getTxnByDID> --data '{"did" : "QmdkrLpyoGFrhsbeuZrXpcvr2QRsLuQnrbXVfJTe1yXqzy"}'``` |
+| Get Transaction Details by Range | `/getTxnByRange` | Retrieves all the transactions made with the input DID | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/getTxnByRange --data-raw '{"startRange":1, "endRange":4}'``` |
+| Synchronise Network Nodes | `/sync` | To synchronize the DIDs of the systems, so that the node will have an updated list of all the DIDs in the network. | ```curl --header "Content-Type: application/json" --request GET http://localhost:1898/sync``` |
+| View bootstraps | `/bootstrap` | Return the list of bootstraps connected to the node | ```curl --header "Content-Type: application/json" --request GET http://localhost:1898/bootstrap``` |
+| Add bootstrap | `/bootstrap` | Add a bootstrap id to the boostrap list | ```ccurl --header "Content-Type: application/json" --request POST http://localhost:1898/bootstrap?id=<bootstrap-id>``` |
+| Remove bootstrap | `/bootstrap` | Remove boostrap id from the boostrap list | ```curl --header "Content-Type: application/json" --request DELETE http://localhost:1898/bootstrap?id=<bootstrap-id>``` |
 
 {{< /tab >}}
 {{< tab "Resolving Error Messages" >}}
 
-| Field                                    | Type   | Descripton                                                                                                                                                                                                          | Response values                                                  |
+| Message                                    | Type   | Descripton                                                                                                                                                                                                          | Response values                                                  |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ~~`Sample`~~                  | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry.. _Deprecated as of 2021-06-30_.                                                       | Lorem Ipsum is simply dummy text of the printing and typesetting industry.      |
+| `Sender Busy`                  | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry.. _Deprecated as of 2021-06-30_.                                                       | Lorem Ipsum is simply dummy text of the printing and typesetting industry.      |
 | `Sample`                     | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry..                                                                                      |Lorem Ipsum is simply dummy text of the printing and typesetting industry..           |
 
 {{< /tab >}}

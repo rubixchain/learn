@@ -1,0 +1,14 @@
+---
+more:
+  # - name: "News"
+  #   ref: "/posts"
+  #   external: false
+  #   icon: "notification"
+  - name: "View source on GitHub"
+    ref: "https://github.com/rubixchain/learn"
+    external: true
+    icon: "github"
+  - name: "Follow @rubixchain"
+    ref: "https://twitter.com/rubixChain"
+    external: true
+    icon: "Rubix"

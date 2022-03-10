@@ -1,0 +1,17 @@
+<footer class="gdoc-footer">
+  <div class="container flex flex-wrap">
+    <span class="gdoc-footer__item">
+      &copy; {{ now.Format "2006" }} Rubix.
+    </span>
+    <span class="gdoc-footer__item">
+      <a href="https://rubix.net/" class="gdoc-footer__link">News</a>
+    </span>
+    <span class="gdoc-footer__item">
+      <a href="https://medium.com/rubixchain" class="gdoc-footer__link">Blog</a>
+    </span>
+    <span class="gdoc-footer__item">
+      <a href="https://t.me/rubixblockchain" class="gdoc-footer__link">Telegram</a>
+    </span>
+  </div>
+</footer>
+{{ if .Params.katex}}{{ partial "katex.html" . }}{{ end }}

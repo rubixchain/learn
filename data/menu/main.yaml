@@ -1,0 +1,21 @@
+---
+main:
+  - name: Setup Rubix Node
+    ref: "faq"
+    sub:
+      - name: FAQs
+        ref: "faq"
+  - name: How to Mine
+    ref: "node-setup"
+    sub:
+      - name: Setup Rubix Node
+        ref: "node-setup"
+      - name: Create Decentralized IDentity
+        ref: "create-did"
+      - name: Earn Proof Credits
+        ref: "proof-credits"
+  # - name: Under the Hood
+  #   ref: ""
+  #   sub:
+  #     - name: Proof of Pledge
+  #       ref: "download-data"

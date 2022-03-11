@@ -1,5 +1,5 @@
 ---
-title: Create Centralized IDentity
+title: Create Decentralized IDentity
 geekdocBreadcrumb: false
 aliases: ["/note-examples", "/examples", "/contributing/examples"]
 ---

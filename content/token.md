@@ -1,7 +1,7 @@
 ---
 title: Token
 geekdocBreadcrumb: false
-aliases: ["/data", "/about/data", "/contributing/data"]
+aliases: ["/token", "/tokenomics", "/rbt"]
 ---
 
  Validators will accumulate proof credits from various transactions across different Proofchains. A validator node can be choosen as Alpha, Beta or as a Gamma node. Alpha nodes are picked based on the credits they have accumulated. When a node accumilates enough Proof Credits equivalent to the current level, the node can convert the proof credits into one new RBT token. Nodes continue to earn proof credits & thereby mine new RBT tokens by participating in consensus of various transactions & perpetually storing the consensus proofs.

@@ -5,11 +5,6 @@ main:
     sub:
       - name: What inspired us
         ref: "inspired"
-  - name: Setup Rubix Node
-    ref: "faq"
-    sub:
-      - name: FAQs
-        ref: "faq"
   - name: How to Mine
     ref: "node-setup"
     sub:
@@ -19,6 +14,17 @@ main:
         ref: "create-did"
       - name: Earn Proof Credits
         ref: "proof-credits"
+  - name: Troubleshooting
+    ref: "faq"
+    sub:
+      - name: FAQs
+        ref: "faq"
+      - name: Linux
+        ref: "linux"
+      - name: MacOS
+        ref: "macos"
+      - name: Windows
+        ref: "windows"
   - name: Terminologies
     ref: "Oracles"
     sub:

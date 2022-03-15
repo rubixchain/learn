@@ -26,7 +26,6 @@ main:
       - name: Windows
         ref: "windows"
   - name: Terminologies
-    ref: "Oracles"
     sub:
       - name: Node
         ref: "node"
@@ -60,10 +59,10 @@ main:
         ref: "nlss"
       - name: Rubix Asset Contract
         ref: "rac"
-      # - name: Peer ID
-      #   ref: "peerid"
       - name: NFT
         ref: "nft"
+      - name: NFT Deep Dive
+        ref: "nft-deep-dive"
       - name: Hot Backups
         ref: "hotbackups"
   # - name: Development Roadmap

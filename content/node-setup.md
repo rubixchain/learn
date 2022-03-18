@@ -41,8 +41,12 @@ Follow the system specific instructions from popular sources for [Linux](https:/
 **go-ipfs 0.6.0**
 Download for [Linux](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_linux-amd64.tar.gz)
 
+After downloading unzipping go-ipfs, Run install.sh script file within a terminal.
+
 **Run IPFS Setup Script**
-Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script for [Linux](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_linux-amd64.tar.gz)
+Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script for [Linux](https://github.com/rubixchain/rubixsetup/raw/main/Linux-SetupScript.zip)
+
+After downloading unzipping SetupScript, Run init.sh script file within a terminal.
 
 {{< /expand >}}
 
@@ -54,8 +58,12 @@ Follow the system specific instructions from popular sources for [Mac](https://t
 **go-ipfs 0.6.0**
 Download for [Mac](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_darwin-amd64.tar.gz)
 
+After downloading unzipping go-ipfs, Run install.sh script file within a terminal.
+
 **Run IPFS Setup Script**
-Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script for [Mac](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_darwin-amd64.tar.gz)
+Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script for [Mac](https://github.com/rubixchain/rubixsetup/raw/main/Mac-SetupScript.zip)
+
+After downloading unzipping SetupScript, Run init.sh script file within a terminal.
 
 {{< /expand >}}
 
@@ -67,8 +75,12 @@ Follow the system specific instructions from popular sources for [Windows](https
 **go-ipfs 0.6.0**
 Download for [Windows](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_windows-amd64.zip)
 
+After downloading unzipping go-ipfs, Run install.bat script file within a terminal.
+
 **Run IPFS Setup Script**
-Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script fo [Windows](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_windows-amd64.zip)
+Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script fo [Windows](https://github.com/rubixchain/rubixsetup/raw/main/Windows-SetupScript.zip)
+
+After downloading unzipping SetupScript, Run init.bat script file within a terminal.
 
 {{< /expand >}}
 

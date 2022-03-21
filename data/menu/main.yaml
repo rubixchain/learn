@@ -10,6 +10,8 @@ main:
   - name: How to Mine
     ref: "node-setup"
     sub:
+      - name: Where to Buy RBT
+        ref: "buy"
       - name: Setup Rubix Node
         ref: "node-setup"
       - name: Create Decentralized IDentity

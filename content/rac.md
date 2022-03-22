@@ -4,7 +4,12 @@ geekdocBreadcrumb: false
 aliases: ["/rac", "/asset", "/standards"]
 ---
 
- Validators will accumulate proof credits from various transactions across different Proofchains. A validator node can be choosen as Alpha, Beta or as a Gamma node. Alpha nodes are picked based on the credits they have accumulated. When a node accumilates enough Proof Credits equivalent to the current level, the node can convert the proof credits into one new RBT token. Nodes continue to earn proof credits & thereby mine new RBT tokens by participating in consensus of various transactions & perpetually storing the consensus proofs.
+The Rubix Asset Contract (RAC) are rules / guidelines to enable users to develop tokens on top of Rubix Blockchain network resulting in Secondary Layer solutions, Decentralized Applications, NFT's and much more. It is a standard by which users can mint/transfer/verify secondary tokens or NFT's transferd/transaction through the Rubix validator network.
+
+Tokens minted in the Rubix network need to adhere to rules stated in the Rubix Asset Contract. These rules/guidelines may include details on what the token structure should look like, how they can be transfered in the network, validated by the quorum and so on.
+
+
+
 
 <!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
 

@@ -30,6 +30,10 @@ main:
       - name: Windows
         ref: "windows"
   - name: Terminologies
+<<<<<<< Updated upstream
+=======
+    ref: "terminologies"
+>>>>>>> Stashed changes
     sub:
       - name: Node
         ref: "node"

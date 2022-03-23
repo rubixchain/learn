@@ -7,7 +7,7 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 Hot backup, also known as dynamic or online backup, is a backup performed on data while the database is actively online and accessible to users.
 
 A hot backup is the standard way of doing most data backups. Rubix has its own principal vendor of the process.
-
+<!--
 <img src = "">
 
 <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">
@@ -34,3 +34,5 @@ Credits required to mine a RBT doubles every time the mining level increases. Fo
 
 {{< / expand >}}
 {{< / hint >}}
+
+-->

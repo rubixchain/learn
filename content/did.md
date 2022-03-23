@@ -4,11 +4,15 @@ geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
 
- Validators will accumulate proof credits from various transactions across different Proofchains. A validator node can be choosen as Alpha, Beta or as a Gamma node. Alpha nodes are picked based on the credits they have accumulated. When a node accumilates enough Proof Credits equivalent to the current level, the node can convert the proof credits into one new RBT token. Nodes continue to earn proof credits & thereby mine new RBT tokens by participating in consensus of various transactions & perpetually storing the consensus proofs.
+ DID /  Decentralized identity is a trust framework in which identifiers, such as usernames, can be replaced with IDs that are self-owned, independent, and enable data exchange using blockchain technology to protect privacy and secure transactions. As our lives are increasingly linked to apps, devices, and services, we’re often subject to data breaches and privacy loss. A standards-based decentralized identity system can provide greater privacy and control over your data. 
+
+Rubix Decentralized IDentity (DID) project is an open standard enabling users to create self-owned identities, and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable.
+Every node joining the Rubix platform creates a unique network Decentralized Identity(DID). dID is a 256x256 PNG image that is self-created but verified decentralized by peers in the network. The dID is ubiquity paired with the Peer ID created on the IPFS.
 
 <!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
+<!--
 
 <br>
 
@@ -26,3 +30,5 @@ Credits required to mine a RBT doubles every time the mining level increases. Fo
 
 {{< / expand >}}
 {{< / hint >}}
+
+-->

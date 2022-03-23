@@ -30,6 +30,7 @@ main:
       - name: Windows
         ref: "windows"
   - name: Terminologies
+    ref: "terminologies"
     sub:
       - name: Node
         ref: "node"

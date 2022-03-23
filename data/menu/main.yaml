@@ -1,21 +1,79 @@
 ---
 main:
-  - name: Setup Rubix Node
-    ref: "faq"
+  - name: Vision
+    ref: "vision"
     sub:
-      - name: FAQs
-        ref: "faq"
+      - name: What inspired us
+        ref: "inspired"
+      - name: Proof-of-Pledge Protocol
+        ref: "pop"
   - name: How to Mine
     ref: "node-setup"
     sub:
+      - name: Where to Buy RBT
+        ref: "buy"
       - name: Setup Rubix Node
         ref: "node-setup"
       - name: Create Decentralized IDentity
         ref: "create-did"
       - name: Earn Proof Credits
         ref: "proof-credits"
-  # - name: Under the Hood
+  - name: Troubleshooting
+    ref: "faq"
+    sub:
+      - name: FAQs
+        ref: "faq"
+      - name: Linux
+        ref: "linux"
+      - name: MacOS
+        ref: "macos"
+      - name: Windows
+        ref: "windows"
+  - name: Terminologies
+    ref: "terminologies"
+    sub:
+      - name: Node
+        ref: "node"
+      - name: Quorum
+        ref: "quorum"
+      - name: IPFS and Peer ID
+        ref: "ipfs"
+      - name: Proof Chain
+        ref: "proofchain"
+      - name: Proof of Pledge
+        ref: "pledge"
+      - name: Oracles
+        ref: "oracles"
+      - name: DID
+        ref: "did"
+      - name: Public Share
+        ref: "public-share"
+      - name: Private Share
+        ref: "private-share"
+      - name: Mine ID
+        ref: "mine-id"
+      - name: Token Chains
+        ref: "tokenchains"
+      - name: Signature and Validation
+        ref: "signature"
+      - name: Wallet
+        ref: "wallet"
+      - name: Token
+        ref: "token"
+      - name: NLSS
+        ref: "nlss"
+      - name: Rubix Asset Contract
+        ref: "rac"
+      - name: NFT
+        ref: "nft"
+      - name: NFT Deep Dive
+        ref: "nft-deep-dive"
+      - name: Hot Backups
+        ref: "hotbackups"
+  # - name: Development Roadmap
   #   ref: ""
   #   sub:
-  #     - name: Proof of Pledge
-  #       ref: "download-data"
+  #     - name: Rust Development
+  #       ref: "rust"
+  #     - name: Java Development
+  #       ref: "java"

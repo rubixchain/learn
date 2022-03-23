@@ -648,7 +648,7 @@ img {
     font-size: 1.5rem
   }
   .gdoc-brand__img {
-    display: none
+    display: overlay
   }
   .gdoc-error {
     padding: 6rem 1rem

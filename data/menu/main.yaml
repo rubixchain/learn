@@ -3,8 +3,8 @@ main:
   - name: Vision
     ref: "vision"
     sub:
-      - name: What inspired us
-        ref: "inspired"
+      # - name: What inspired us
+      #   ref: "inspired"
       - name: Proof-of-Pledge Protocol
         ref: "pop"
   - name: How to Mine

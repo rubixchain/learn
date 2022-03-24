@@ -23,9 +23,10 @@ Learn more about how Rubix works
 
 {{< figure src="images/signup.svg">}}
 
-**[Become a Validator →](./node-setup)**
+**[Become a Subnet Validator →](./node-setup)**
 
-Become a Rubix Validator and mine RBT
+Setup validator for your subnet
+
 
 <---> <!-- magic sparator, between columns -->
 

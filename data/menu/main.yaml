@@ -7,7 +7,7 @@ main:
       #   ref: "inspired"
       - name: Proof-of-Pledge Protocol
         ref: "pop"
-  - name: How to Mine
+  - name: Become a Rubix Node
     ref: "node-setup"
     sub:
       - name: Where to Buy RBT

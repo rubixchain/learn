@@ -8,6 +8,7 @@ Every node joining the Rubix platform creates a unique network Decentralized Ide
 
 
 Significance:
+
 The Public Netwrok Share along with the DID is stored by the node on the [IPFS](https://learn.rubix.net/ipfs/). The IPFS hashes of these two values are then communicated to all peer nodes in the network. This information is used for authentication purposes between nodes.
 
 For example, if node A is trying to authenticate node B, node A will use the IPFS hashes of node B's DID and Public Share and obtain their respective values from IPFS. Post this, it will request node B to send its [Private Share](https://learn.rubix.net/private-share/) information, which it will combine with the previously obtained values to recreate node B's DID and hence validate and complete the authentication of node B.

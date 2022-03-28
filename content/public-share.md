@@ -7,7 +7,7 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 Every node joining the Rubix platform creates a unique network Decentralized Identity (DID). This DID is then split into two shares: Public Share and Private Share. The Public Share is also reffered to as the 'Public Network Share'.
 
 
-Significance:
+### Significance:
 
 The Public Netwrok Share along with the DID is stored by the node on the [IPFS](https://learn.rubix.net/ipfs/). The IPFS hashes of these two values are then communicated to all peer nodes in the network. This information is used for authentication purposes between nodes.
 

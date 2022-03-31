@@ -45,7 +45,7 @@
         Initializing daemon...
         go-ipfs version: 0.6.0
         Repo version: 10
-        System version: amd64/windows
+        System version: amd64/linux
         Golang version: go1.14.4
         Swarm is limited to private network of peers with the swarm key
         Swarm key fingerprint: a5ef5059eede91e09c9994d112fd1e05

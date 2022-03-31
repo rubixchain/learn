@@ -75,3 +75,11 @@
      ```
         connect QmYthCYD5WFVm6coBsPRGvknGexpf9icBUpw28t18fBnib success
      ```
+     
+5) If the output of all the commands are as shown above, then the dependency setup is complete and you are on the final stage of setting up Rubix node.
+
+6) The final step is to download the Rubix GUI wallet setup or the Rubix jar according to your preference.The link is given below.
+
+    Download latest version of Rubix GUI Wallet from [here](https://github.com/rubixchain/wallet/releases)
+
+    Download latest version of Rubix jar from [here](https://github.com/rubixchain/rubixnetwork/releases)

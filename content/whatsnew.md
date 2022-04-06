@@ -1,27 +1,30 @@
 ---
-title: What's new
+title: 📣 What's New 
 geekdocBreadcrumb: false
 aliases: ["/whats new", "/what's new", "/latest"]
 ---
 
+
  ### What is new in Rubix Network
 
-![](../static/images/whatsnew.jpg)
- Here yo
-
- ### 
-
-
-<!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
-
+ Here you can find what all are happening in Rubix, get latest updates etc.!!!
 
 <br>
 
 {{< hint info >}}
 
-### What happens when the mining level upgrades?
+## 🎉 Rubix V1.9.1
 
-Credits required to mine a RBT doubles every time the mining level increases. For example, if a node requires 32 credits to mine a RBT in level 3, then the next level requires 64 credits to mine a RBT in level 4. Hence it is reccomended to mine RBT as soon as the required credits are accumulated.
+We at Rubix has introduced a new staking policy where we ensure 3 alpha nodes has one token to pledge/stake.  The pledge tokens will be available for transfer after completion of 256 transactions (Level 4) from the genesis node of the mined token.
+
+With this v1.9.1 update, token holders have the opportunity to pledge/stake their RBT tokens to earn yield. In the upcoming EVM bridge, this update will also open up important DeFi features to the community.
+
+### So how does token pledge/staking work with the new upgrade? 
+
+For each new RBT mining transaction, 3 out of 5 alpha quorums should pledge 1 RBT for a height of 4 <sup> difficulty level </sup>. Tokens pledged/staked will earn yield based on demand/supply.
+
+Tokens pledged/staked will automatically be released upon reaching the height or next difficulty level. But the code update also facilitates easy staking solution development with other use cases. 
+This update improves security while opening up staking and DeFi functions for RBT holders, nodes and application developers. Rubix transactions remain free of gas fee and still remain faster.
 
 {{< expand "How to know the current level?" >}}
 

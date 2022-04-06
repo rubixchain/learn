@@ -1,6 +1,6 @@
 ---
 main:
-  - name : What's new 📣
+  - name : 📣 What's new 
     ref: "whatsnew"
   - name: Vision
     ref: "vision"

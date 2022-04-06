@@ -72,6 +72,8 @@ main:
         ref: "nft-deep-dive"
       - name: Hot Backups
         ref: "hotbackups"
+      - name : Staking
+        ref: "staking"
   # - name: Development Roadmap
   #   ref: ""
   #   sub:

@@ -4,9 +4,25 @@ geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
 
-Hot backup, also known as dynamic or online backup, is a backup performed on data while the database is actively online and accessible to users.
+Hot backup, also known as dynamic or online backup, is performed on data while the database is actively online and accessible to users. It is useful to revert back to the previous state of the node, in the event of an undesired situation.
 
-A hot backup is the standard way of doing most data backups. Rubix has its own principal vendor of the process.
+A backup can be simply done by creating a zip folder of the Wallet and .ipfs folders on your system.
+
+Subsquently, a restore can be done by unzipping the same folders, to restore the previous state of your system (node).
+
+Depending on the OS of your system, your Wallet folder can be found under:
+Windows - C:\Rubix
+MacOS   - /Applications/Rubix
+Linux   - ~/Rubix
+
+The .ipfs folder can be found under:
+Windows - C:\Users\<username>
+MacOS   - ~/.ipfs
+Linux   - ~/.ipfs
+
+
+As part of our best practices, we recommend taking regaular backups of node imformation, namely the Wallet and IPFS folders.
+
 <!--
 <img src = "">
 

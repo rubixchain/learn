@@ -20,6 +20,8 @@ main:
         ref: "create-did"
       - name: Earn Proof Credits
         ref: "proof-credits"
+      - name: Backup and Restore Node
+        ref: "backup_restore"
   - name: Troubleshooting
     ref: "faq"
     sub:

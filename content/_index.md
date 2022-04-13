@@ -4,6 +4,8 @@ title: Home
 aliases: ["/learn-more", "/intro"]
 ---
 
+<img src="https://cdn-images-1.medium.com/max/710/1*9m5_A8r-wuYXx9vHZBUsrQ@2x.png" >
+</img>
 # A Layer 1 blockchain protocol for peer-to-peer data transfer & transactions
 
 We can't wait to learn with you.
@@ -22,9 +24,10 @@ Learn more about how Rubix works
 
 {{< figure src="images/signup.svg">}}
 
-**[Become a Validator →](./node-setup)**
+**[Become a Subnet Validator →](./node-setup)**
 
-Become a Rubix Validator and mine RBT
+Setup validator for your subnet
+
 
 <---> <!-- magic sparator, between columns -->
 

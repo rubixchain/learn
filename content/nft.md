@@ -4,25 +4,42 @@ geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
 
- Validators will accumulate proof credits from various transactions across different Proofchains. A validator node can be choosen as Alpha, Beta or as a Gamma node. Alpha nodes are picked based on the credits they have accumulated. When a node accumilates enough Proof Credits equivalent to the current level, the node can convert the proof credits into one new RBT token. Nodes continue to earn proof credits & thereby mine new RBT tokens by participating in consensus of various transactions & perpetually storing the consensus proofs.
+NFT's are the new sensation in the world of Blockchain and cryptocurrencies. From the first NFT "Quantum" being created in 2014 to the latest NFT drop by sports giant Adidas, and to NFT's that are minted on Rubix Platform.
 
-<!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
+### What is an NFT?
+
+NFT stands for Non-Fungible Token. The word Fungible means Replaceable, so the meaning of NFT can be interpreted as Non-Replaceable Token, i.e an NFT is unique and each NFT is one of a kind.
+
+{{< hint info >}}
+
+NFT's are cryptographically unique tokens that are linked to digital (and sometimes physical) content, providing proof of ownership.
+
+{{< / hint >}}
+
+These Non-Fungible Tokens are basically digital assets that are embedded with identification information during minting- also known as the NFT's metadata. It is this information that makes each NFT one of a kind. Due to this reason, they cannot be swapped with another NFT.
+
+### NFT on Rubix BlockChain
+
+NFT's minted on Rubix blockchain comes with a plethora of safety features and applications. A few varieties of NFT's minted on Rubix are Music NFT's, Art NFT's.
+
+NFT's minted on Rubix blockchain network follows the in-house RAC(Rubix Asset Contract) Protocol. This in turn allows the NFTs created to be linked closely with the Creators DID. 
+
+Moreover, Rubix instroduces an additional security measure of using Private Key of the creator on the NFT's the minted to secure them. The amount of information of an asset while minting an NFT for it makes it more unique and allows for larger usecases, considering this particular scenario there is no limit to the amount of metadata thta can be embedded in to the NFT, as the RAC structure supports and enabled this.
+
+Since the right to mint NFT's are open tom all who are part of Rubix network there might arise scenarios of fake tokens or manipulated tokens, to combat this the RAC-NFT structure contains the NFT creators signature made with his/hers Private Key, and the authenticity of thee token can be verifed byu the corresponding public key which is avilable in the network.
+
+Because of the above mentioned security features, of Rubix NFT being closely linked with the creators DID and signature using private key, a process called as Sleep minting is prevented on Rubix chain.
+
+{{< hint info >}}
+Sleep Minting is when a scammer mints an NFT directly to a famous creator's wallet with permission to reclaim or pull the NFT back out of the creator's wallet.
+{{< / hint >}}
+
+Without the Creators DID and his personal Private key this process is a scammer cannot sleep mint NFT's on Rubix blockchain.
+
+Now for nodes/validators validating the NFT transactions are rewarded heflty with double the credits of a normal Rubix coin transfer, i.e. validators are awarded one credit each for validating a RBT transfer, but while they validate a NFT transfer on Rubix etwork they are awarded Two credits each.
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
 
 <br>
 
-{{< hint info >}}
 
-### What happens when the mining level upgrades?
-
-Credits required to mine a RBT doubles every time the mining level increases. For example, if a node requires 32 credits to mine a RBT in level 3, then the next level requires 64 credits to mine a RBT in level 4. Hence it is reccomended to mine RBT as soon as the required credits are accumulated.
-
-{{< expand "How to know the current level?" >}}
-
-**Oracle:**
-
-- Network is currently mining in `level 4` - reached on `5 th march 2022`
-
-{{< / expand >}}
-{{< / hint >}}

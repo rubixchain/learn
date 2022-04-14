@@ -6,23 +6,23 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 
 ### DID & its significance:
 
- DID (Decentralized identity) is a trust framework in which identifiers, such as usernames, can be replaced with IDs that are self-owned, independent, and enable data exchange using blockchain technology, protecting privacy and ensuring secure transactions. As our lives are increasingly linked to apps, devices, and services, we’re often subject to data breaches and privacy loss. Hence, a standards-based decentralized identity system can provide greater privacy and control over your data.  
+ DID (Decentralized identity) is a trust framework in which identifiers such as usernames can be replaced with IDs that are self-owned, independent, and enable data exchange using blockchain technology, facilitating private and secure transactions. Our lives are increasingly linked to apps, devices and services, we’re often subject to data breaches and privacy loss. Hence, a standards-based decentralized identity system can provide greater privacy and control over your data.  
 
 Rubix Decentralized Identity (DID) project is an open standard enabling users to create self-owned identities, and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable.
 
 
 ### How is a DID created ?
 
-Every node joining the Rubix platform must create a DID. There is an option for creation of DID after node setup. A CURL request is called when the user selects this option.
+Every node joining the Rubix network must create a DID. There is an option for creation of DID after node setup. A CURL request is called when the user selects this option.
 
 The creation process is a logic that combines a 256x256 image and a system generated hash value. The image chosen here is a standard image used for all DID creations across the network. The hash value on the other hand, is the hashed value of the peerID of the node, which is in turn generated during node setup by IPFS protocol. The combination of both is a hash value which is then used as a DID for the node.
 
-The DID is further split into two parts, namely [Public Share](https://learn.rubix.net/public-share/) and [Private Share](https://learn.rubix.net/private-share/). These parts are used during various athentication and data transfer scenarios. More about this can be found on the above links. The above split is done via a [NLSS](https://learn.rubix.net/nlss/) algorithm.
+The DID is further split into two parts, namely [Public Share](https://learn.rubix.net/public-share/) and [Private Share](https://learn.rubix.net/private-share/). These parts are used during various athentication and data transfer scenarios. More about this can be found on the above links.
 
 
-### USe Cases:
+### Use Cases:
 
-A DID-oriented blockchain can be used for applications that are currently working with a centralised authentication mechanism. Example, an app like Zomato can be transitioned into a DID-oriented authentication system to provide for more user data privacy and security.
+A DID-oriented blockchain can be used for applications that are currently running on a centralised authentication mechanism. Example, an app like Zomato can be transitioned into a DID-oriented authentication system to provide for more user data privacy and security.
 
 
 ### Other possibilities:

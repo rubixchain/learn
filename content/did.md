@@ -21,13 +21,10 @@ Rubix Decentralized Identity (DID) project is an open standard enabling users to
 6.	Data confidentiality is preserved by encrypting the signed certificate using patented Non-Linear Secret Sharing (NLSS) method.
 7.	Selective disclosure property helps user to choose partial revealing of data for verification. 
 8.	The information cannot be decrypted without the consent of the issuer and/or the certificate holder.
-9.	In Compliance with globally accepted standards like :
-
-        a. IMS Open Badges
-        
-        b.	W3C Verifiable Claims
-        
-        c.	W3C Linked Data Signatures
+9.	In Compliance with globally accepted standards like : <br>
+        a. IMS Open Badges<br>
+        b.W3C Verifiable Claims<br>
+        c.W3C Linked Data Signatures<br>
         
 10.	Follows digital preservation rules like GDPR, CCPA.
 11.	All transactions are on-chain, while also being cost effective.

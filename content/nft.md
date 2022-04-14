@@ -20,7 +20,7 @@ These Non-Fungible Tokens are basically digital assets that are embedded with id
 
 ### NFT on Rubix BlockChain
 
-NFT's minted on Rubix blockchain comes with a plethora of safety features and applications. A few varieties of NFT's minted on Rubix are Music NFT's, Art NFT's.
+Rubix NFT's are one of a kind On-Chain NFT's and comes with a plethora of safety features and applications. A few varieties of NFT's minted on Rubix are Music NFT's, Art NFT's.
 
 NFT's minted on Rubix blockchain network follows the in-house RAC(Rubix Asset Contract) Protocol. This in turn allows the NFTs created to be linked closely with the Creators DID. 
 

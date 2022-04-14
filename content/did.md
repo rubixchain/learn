@@ -11,6 +11,26 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 Rubix Decentralized Identity (DID) project is an open standard enabling users to create self-owned identities, and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable.
 
 
+### Key features of Rubix DID :
+
+1.	Identities are self-created and self-owned allowing more control for user over his data i.e., no Certificate   Authority (CA) is required for generating identity key pairs. 
+2.	Information is immutable, once it is issued by using cryptographic proofs and object-oriented Distributed File System (DFS).
+3.	Real world DFS based on content-based addressing, preserves complete integrity over signed data.
+4.	Parallel scalable ledger allows asynchronous claims and verification.
+5.	Instant confirmation and finality.
+6.	Data confidentiality is preserved by encrypting the signed certificate using patented Non-Linear Secret Sharing (NLSS) method.
+7.	Selective disclosure property helps user to choose partial revealing of data for verification. 
+8.	The information cannot be decrypted without the consent of the issuer and/or the certificate holder.
+9.	In Compliance with globally accepted standards like : <br>
+        a. IMS Open Badges<br>
+        b.W3C Verifiable Claims<br>
+        c.W3C Linked Data Signatures<br>
+        
+10.	Follows digital preservation rules like GDPR, CCPA.
+11.	All transactions are on-chain, while also being cost effective.
+12.	Light weight infrastructure with support for multi architectural designs.
+
+
 ### How is a DID created ?
 
 Every node joining the Rubix network must create a DID. There is an option for creation of DID after node setup. A CURL request is called when the user selects this option.
@@ -22,12 +42,14 @@ The DID is further split into two parts, namely [Public Share](https://learn.rub
 
 ### Use Cases:
 
-A DID-oriented blockchain can be used for applications that are currently running on a centralised authentication mechanism. Example, an app like Zomato can be transitioned into a DID-oriented authentication system to provide for more user data privacy and security.
+A DID-oriented blockchain can be used for applications that are currently running on a centralised authentication mechanism. For example, a traditional food delivery app can be transitioned into a DID-oriented authentication system to provide for more user data privacy and security.
 
 
 ### Other possibilities:
 
 The creation logic could be improved or made more effecient and still provide a similar level of functionality.
+
+
 
 
 <!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->

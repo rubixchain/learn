@@ -6,7 +6,7 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 
 ### DID & its significance:
 
- DID (Decentralized identity) is a trust framework in which identifiers such as usernames can be replaced with IDs that are self-owned, independent, and enable data exchange using blockchain technology, facilitating private and secure transactions. Our lives are increasingly linked to apps, devices and services, we’re often subject to data breaches and privacy loss. Hence, a standards-based decentralized identity system can provide greater privacy and control over your data.  
+ DID (Decentralized identity) is a trust framework in which identifiers such as usernames can be replaced with IDs that are self-owned, independent, and enable data exchange using blockchain technology, providing privacy and secure transactions. Our lives are increasingly linked to apps, devices and services, and we’re often subject to data breaches and privacy loss. Hence, a standards-based decentralized identity system can provide greater privacy and control over your data.  
 
 Rubix Decentralized Identity (DID) project is an open standard enabling users to create self-owned identities, and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable.
 

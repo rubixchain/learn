@@ -23,7 +23,7 @@ Rubix Decentralized Identity (DID) project is an open standard enabling users to
 8.	The information cannot be decrypted without the consent of the issuer and/or the certificate holder.
 9.	In Compliance with globally accepted standards like :
 
-        a.  IMS Open Badges
+        a. IMS Open Badges
         
         b.	W3C Verifiable Claims
         

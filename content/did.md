@@ -43,7 +43,7 @@ Rubix
 
 {{< expand "Download Rubix DID SDK for Java" >}}
 
-[**Download here**]()
+[**Download here**](https://github.com/rubixchain/DID-java/raw/main/DID.jar)
 
 Please use the following line which will import the method createDID to your current working code file:
 

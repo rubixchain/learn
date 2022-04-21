@@ -31,6 +31,8 @@ main:
         ref: "macos"
       - name: Windows
         ref: "windows"
+      - name : Verify Checksum
+        ref: "checksum"
   - name: Foundation
     ref: "node"
     sub:

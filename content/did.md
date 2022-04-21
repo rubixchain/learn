@@ -37,7 +37,7 @@ The Input parameter that the createDID method takes is a .png file with dimensio
 
 {{< hint info >}}
 
-### SDK to use Rubix Decentralized Identity (DID)
+## SDK to use Rubix Decentralized Identity (DID)
 
 Rubix
 

@@ -37,7 +37,7 @@ Use one step installation script for [Linux](https://github.com/rubixchain/rubix
 
 {{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux" >}}One Click Setup for Linux{{< /button >}}
 
-1) Open a fresh instance of terminal under download path and run the following commands (without $)
+  - Open a fresh instance of terminal under download path and run the following commands (without $)
 
   - $ chmod +x RubixOneClickSetup-Linux
   
@@ -52,7 +52,7 @@ Use one step installation script for [Linux](https://github.com/rubixchain/rubix
 
 {{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS" >}}One Click Setup for Mac{{< /button >}}
 
-1) Open a fresh instance of terminal under download path and run the following commands (without $)
+  - Open a fresh instance of terminal under download path and run the following commands (without $)
 
   - $ chmod +x RubixOneClickSetup-MacOS
   
@@ -65,7 +65,7 @@ Use one step installation script for [Linux](https://github.com/rubixchain/rubix
 {{< expand "Setup Instructions for Windows" >}}
 
 {{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe" >}}One Click Setup for Windows{{< /button >}}
-1) Open a fresh instance of cmd.exe under download path and run the following commands (without $)
+  - Open a fresh instance of cmd.exe under download path and run the following commands (without $)
 
   - $ RubixOneClickSetup-Windows.exe
   

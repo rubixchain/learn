@@ -6,9 +6,9 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 
 Rubix Wallet is secured with decentralized identity management system that allows users to create and manage their own identities and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable.
 
-image below is a screenshot of the wallet
+<!-- image below is a screenshot of the wallet
 
-{{< figure src="images/wallet.jpg">}}
+{{< figure src="images/wallet.jpg">}} -->
 
 ## Prerequisites
 

@@ -30,13 +30,13 @@ Any computer or personal laptop with 8GB of RAM and a decent internet connection
 
 ### One Step Installation
 
-Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/oneClickSetup/rubix-oneClick-linux) / [Windows](https://github.com/rubixchain/rubixnetwork/oneClickSetup/rubix-oneClick-windows) / [Mac](https://github.com/rubixchain/rubixnetwork/oneClickSetup/rubix-oneClick-mac) machines. This script will install all the required dependencies and will run the setup script.
+Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux) / [Windows](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe) / [Mac](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS) machines. This script will install all the required dependencies and will run the setup script.
 
 {{< / hint >}}
 
 {{< expand "Setup Instructions for Linux" >}}
 
-{{< button href="https://github.com/rubixchain/rubixnetwork/oneClickSetup/rubix-oneClick-linux" >}}One Click Setup for Linux{{< /button >}}
+{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux" >}}One Click Setup for Linux{{< /button >}}
 
 **Java 11**
 Follow the system specific instructions from popular sources for [Linux](https://www.linode.com/docs/guides/how-to-install-openjdk-on-ubuntu-20-04/) to install OpenJDK 11.
@@ -55,7 +55,7 @@ After downloading and unzipping SetupScript, Run init.sh script file within a te
 
 {{< expand "Setup Instructions for Mac" >}}
 
-{{< button href="https://github.com/rubixchain/rubixnetwork/oneClickSetup/rubix-oneClick-mac" >}}One Click Setup for Mac{{< /button >}}
+{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS" >}}One Click Setup for Mac{{< /button >}}
 
 **Java 11**
 Follow the system specific instructions from popular sources for [Mac](https://techoral.com/blog/java/install-openjdk-11-on-mac.html)  to install OpenJDK 11.
@@ -74,7 +74,7 @@ After downloading and unzipping SetupScript, Run init.sh script file within a te
 
 {{< expand "Setup Instructions for Windows" >}}
 
-{{< button href="https://github.com/rubixchain/rubixnetwork/oneClickSetup/rubix-oneClick-windows" >}}One Click Setup for Windows{{< /button >}}
+{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe" >}}One Click Setup for Windows{{< /button >}}
 
 **Java 11**
 Follow the system specific instructions from popular sources for [Windows](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to install OpenJDK 11.

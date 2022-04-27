@@ -63,8 +63,8 @@ main:
         ref: "quorum"
       - name: NLSS
         ref: "nlss"
-      - name: Oracles
-        ref: "oracles"
+      - name: Oracle
+        ref: "oracle"
       - name: Signature and Validation
         ref: "signature"
       - name: Public Share

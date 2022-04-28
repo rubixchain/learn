@@ -1,11 +1,11 @@
 ---
-title: Proof Chain
+title: Proofchain/ Token chain
 geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
 
- The Rubix global state will be made of about 51.4 million Proofchains. Each Proofchain is
-bound by one unique utility token. A ProofChain PT is made of all transactions that use token
+ The Rubix global state will be made of about 51.4 million Proofchains also called as token chains. Each Proofchain is
+bound by one unique utility token. A Proofchain PT is made of all transactions that use token
 Tn to confirm. All transactions within a Proofchain PT are validated individually and
 sequentially. However, transactions of different Proofchains are validated asynchronously
 and parallelly.

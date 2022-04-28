@@ -48,10 +48,8 @@ main:
         ref: "ipfs"
       - name: Proof of Pledge
         ref: "pledge"
-      - name: Proof Chain
+      - name: Proofchain/ Token chain
         ref: "proofchain"
-      - name: Token Chains
-        ref: "tokenchains"
       - name: NFT
         ref: "nft"
       - name: Hot Backups

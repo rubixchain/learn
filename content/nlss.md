@@ -3,10 +3,10 @@ title: NLSS
 geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
-Our team is currently busy writing this content, we'll update the contents here soon!!
-<iframe src="https://giphy.com/embed/48zjXYRwBg5IQ" width="480" height="278" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+Non-Linear Secret Sharing (NLSS) scheme is used for creating public network share and private network share from DID. In a secret sharing scheme, a set of parties share a common secret. The information about the secret a single party owns is called a secret share. During the splitting of DID, two such shares are created. Secret shares are created from shares using some arithmetic function which can be either linear or non-linear. If a non linear function is used to create shares, it is called a NLSS scheme. 
 
-<!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
+### Advantage of NLSS scheme over LSS scheme:
+NLSS scheme is a cheating-immune secret sharing scheme that prevents a cheater, who submits a corrupted share, from gaining an advantage in knowing the secret over the honest participants. Linear secret sharing scheme is a not a cheating immune scheme.
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
  <!--

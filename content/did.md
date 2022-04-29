@@ -1,5 +1,5 @@
 ---
-title: Decentralized Identity
+title: Decentralized IDentity
 geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---

@@ -1,12 +1,12 @@
 ---
-title: Create Decentralized Identity
+title: Create Decentralized IDentity
 geekdocBreadcrumb: false
 aliases: ["/note-examples", "/examples", "/contributing/examples"]
 ---
 
 Decentralized identity is a trust framework in which identifiers, such as usernames, can be replaced with IDs that are self-owned, independent, and enable data exchange using blockchain technology to protect privacy and secure transactions. As our lives are increasingly linked to apps, devices, and services, we’re often subject to data breaches and privacy loss. A standards-based decentralized identity system can provide greater privacy and control over your data.
 
-Rubix Decentralized IDentity (DID) project is an open standard enabling users to create self-owned identities, and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable. Every node joining the Rubix platform creates a unique network Decentralized Identity (DID). DID is a 256x256 PNG image that is self-created but verified decentralized by peers in the network. The DID is uniquely paired with the Peer ID created on the IPFS.
+Rubix Decentralized IDentity (DID) project is an open standard enabling users to create self-owned identities, and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable. Every node joining the Rubix platform creates a unique network Decentralized Identity(DID). dID is a 256x256 PNG image that is self-created but verified decentralized by peers in the network. The dID is ubiquity paired with the Peer ID created on the IPFS.
 
 <br>
 

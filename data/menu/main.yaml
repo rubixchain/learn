@@ -16,7 +16,7 @@ main:
         ref: "buy"
       - name: Setup Rubix Node
         ref: "node-setup"
-      - name: Create Decentralized Identity
+      - name: Create Decentralized IDentity
         ref: "create-did"
       - name: Earn Proof Credits
         ref: "proof-credits"
@@ -63,7 +63,7 @@ main:
         ref: "nlss"
       - name: Oracle
         ref: "oracle"
-      - name: Signatures and Validation
+      - name: Signature and Validation
         ref: "signature"
       - name: Public Share
         ref: "public-share"

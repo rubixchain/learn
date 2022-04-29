@@ -16,7 +16,7 @@ main:
         ref: "buy"
       - name: Setup Rubix Node
         ref: "node-setup"
-      - name: Create Decentralized IDentity
+      - name: Create Decentralized Identity
         ref: "create-did"
       - name: Earn Proof Credits
         ref: "proof-credits"

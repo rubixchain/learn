@@ -3,10 +3,14 @@ title: Wallet - Web2 vs Web3
 geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
-Our team is currently busy writing this content, we'll update the contents here soon!!
-<iframe src="https://giphy.com/embed/48zjXYRwBg5IQ" width="480" height="278" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
-<!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
+### Web2 Wallet
+Web2 wallets are centralized wallets where a central third-party maintains ultimate authority over the wallet transactions. Some examples of centralized cryptocurrency exchanges include Binance, Coinbase and LocalBitcoins. Web2 wallets can be related to a bank setup, where a customer trusts the bank to hold his or her money.
+
+### Web3 Wallet
+Web3 wallets are decentralized wallets which have the ability to store the digital assets. This includes everything from fungible to non fungible tokens. Rubix wallets are decentralized web3 wallets where peer to peer transactions happen seamlessly over the network.
+
+Rubix wallet setup can be done on <a href="/linux">Linux</a>, <a href="/macos">MacOS</a> and <a href="/windows">Windows</a>.
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
  <!--

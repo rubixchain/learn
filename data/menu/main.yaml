@@ -48,7 +48,7 @@ main:
         ref: "ipfs"
       - name: Proof of Pledge
         ref: "pledge"
-      - name: Proofchain/ Token chain
+      - name: Proofchain / Token chain
         ref: "proofchain"
       - name: NFT
         ref: "nft"

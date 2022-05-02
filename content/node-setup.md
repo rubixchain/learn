@@ -27,60 +27,49 @@ To know more about level and credits, please read the [Whitepaper](https://githu
 Any computer or personal laptop with 8GB of RAM and a decent internet connection can seamlessly run Rubix for token transfers / become validator / mining.
 
 {{< hint info >}}
-
 ### One Step Installation
 
-Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/linux-oneClickSetupScript.zip) machines. This script will install all the required dependencies and will run the setup script.
+Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux) / [Windows](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe) / [Mac](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS) machines. This script will install all the required dependencies and will run the setup script.
 
 {{< / hint >}}
 
 {{< expand "Setup Instructions for Linux" >}}
-**Java 11**
-Follow the system specific instructions from popular sources for [Linux](https://www.linode.com/docs/guides/how-to-install-openjdk-on-ubuntu-20-04/) to install OpenJDK 11.
 
-**go-ipfs 0.6.0**
-Download for [Linux](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_linux-amd64.tar.gz)
+{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux" >}}One Click Setup for Linux{{< /button >}}
 
-After downloading and unzipping go-ipfs, Run install.sh script file within a terminal.
+  - Open a fresh instance of terminal under download path and run the following commands (without $)
 
-**Run IPFS Setup Script**
-Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script for [Linux](https://github.com/rubixchain/rubixsetup/raw/main/Linux-SetupScript.zip)
-
-After downloading and unzipping SetupScript, Run init.sh script file within a terminal.
-
+  - $ chmod +x RubixOneClickSetup-Linux
+  
+  - $ ./RubixOneClickSetup-Linux
+  
+  - Provide user password when asked
+  
+  
 {{< /expand >}}
 
 {{< expand "Setup Instructions for Mac" >}}
 
-**Java 11**
-Follow the system specific instructions from popular sources for [Mac](https://techoral.com/blog/java/install-openjdk-11-on-mac.html)  to install OpenJDK 11.
+{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS" >}}One Click Setup for Mac{{< /button >}}
 
-**go-ipfs 0.6.0**
-Download for [Mac](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_darwin-amd64.tar.gz)
+  - Open a fresh instance of terminal under download path and run the following commands (without $)
 
-After downloading and unzipping go-ipfs, Run install.sh script file within a terminal.
-
-**Run IPFS Setup Script**
-Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script for [Mac](https://github.com/rubixchain/rubixsetup/raw/main/Mac-SetupScript.zip)
-
-After downloading and unzipping SetupScript, Run init.sh script file within a terminal.
-
+  - $ chmod +x RubixOneClickSetup-MacOS
+  
+  - $ ./RubixOneClickSetup-MacOS
+  
+  - Provide user password when asked
+  
 {{< /expand >}}
 
 {{< expand "Setup Instructions for Windows" >}}
 
-**Java 11**
-Follow the system specific instructions from popular sources for [Windows](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to install OpenJDK 11.
+{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe" >}}One Click Setup for Windows{{< /button >}}
+  - Open a fresh instance of cmd.exe under download path and run the following commands (without $)
 
-**go-ipfs 0.6.0**
-Download for [Windows](https://dist.ipfs.io/go-ipfs/v0.6.0/go-ipfs_v0.6.0_windows-amd64.zip)
-
-After downloading and unzipping go-ipfs, Run install.bat script file within a terminal.
-
-**Run IPFS Setup Script**
-Configure your network swarm (unique key for the network nodes) and bootstrap (facilitate node visibility) using the script fo [Windows](https://github.com/rubixchain/rubixsetup/raw/main/Windows-SetupScript.zip)
-
-After downloading and unzipping SetupScript, Run init.bat script file within a terminal.
+  - $ RubixOneClickSetup-Windows.exe
+  
+  - Provide user password when asked
 
 {{< /expand >}}
 
@@ -90,9 +79,9 @@ Subscribe to GitHub repo [wallet repository](https://github.com/rubixchain/walle
 
 For help regarding getting notified for releases see [documentation](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)
 
-## {{< button href="https://github.com/rubixchain/wallet/releases" >}}GUI Wallet from GitHub{{< /button >}}
+## {{< button href="https://github.com/rubixchain/wallet/releases" >}}GUI Wallet{{< /button >}}
 
-## {{< button href="https://github.com/rubixchain/rubixnetwork/releases" >}}CLI Node from GitHub{{< /button >}}
+## {{< button href="https://github.com/rubixchain/rubixnetwork/releases" >}}CLI Node{{< /button >}}
 
 ---
 

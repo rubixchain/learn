@@ -4,11 +4,44 @@ geekdocBreadcrumb: false
 aliases: ["/faq", "/about/faq"]
 ---
 
+
+{{< expand "What is the support email to reach out to regarding the RBT Wallet?" >}}
+
+Users can reach out to maintainers@rubix.net for questions regaridng RBT Wallet.
+
+{{< /expand >}}
+
+
+
 {{< expand "How many transactions can rubix handle?" >}}
 
 Popular blockchains (BTC and ETH) work by every node adding transactions to a central chain and the chain grows in one direction with it.  Rubix is designed and built as a peer to peer blockchain where a transaction happening from node A to node B is only corresponding quorum nodes are only known and participated in the transaction. Maximum transaction threshold with 10,000 nodes is 150,000. As more sender, receiver, and quorum nodes are joining the network, maximum transactions that happen in the network also increase.  Rubix is truly peer to peer and decentralized - transaction speed or throughput grows with the network and not locked to value. Rubix is a distributed blockchain and bitcoin is a centralised blockchain in that say Today with around 100 transactions / per minute with a current number of 12,000 nodes. An argument is with current industry standard by web2 services, this is not a big number. 10,000 is also not a bug number. With the number of nodes growing as with time, Rubix will be scaling larger than any datacenter, securely with 0 transaction fee.
 
 {{< /expand >}}
+
+
+
+{{< expand "What happens to a transaction if any the participating nodes/wallets loses their online connection ?" >}}
+
+The transaction is not completed in this case.
+A transaction completes when the sender and the reciver unpin and pin their tokens respectively. If an online connection is lost anytime before that, the transaction will not complete.
+Additionally, if any of the quorum nodes lose their connection, and a total of 15 validations aren't performed, the transaction again fails in this case.
+
+{{< /expand >}}
+
+
+
+
+{{< expand "What happens to a the funds involved when a transaction fails ?" >}}
+
+The funds are reverted back in the case of a failed transaction.
+
+{{< /expand >}}
+
+
+
+
+
 
 {{< expand "Becoming part of the network?" >}}
 

@@ -48,10 +48,8 @@ main:
         ref: "ipfs"
       - name: Proof of Pledge
         ref: "pledge"
-      - name: Proof Chain
+      - name: Proofchain / Token chain
         ref: "proofchain"
-      - name: Token Chains
-        ref: "tokenchains"
       - name: NFT
         ref: "nft"
       - name: Hot Backups
@@ -63,8 +61,8 @@ main:
         ref: "quorum"
       - name: NLSS
         ref: "nlss"
-      - name: Oracles
-        ref: "oracles"
+      - name: Oracle
+        ref: "oracle"
       - name: Signature and Validation
         ref: "signature"
       - name: Public Share

@@ -10,7 +10,15 @@ Web2 wallets are centralized wallets where a central third-party maintains ultim
 ### Web3 Wallet
 Web3 wallets are decentralized wallets which have the ability to store the digital assets. This includes everything from fungible to non fungible tokens. Rubix wallets are decentralized web3 wallets where peer to peer transactions happen seamlessly over the network.
 
-Rubix wallet setup can be done on <a href="/linux">Linux</a>, <a href="/macos">MacOS</a> and <a href="/windows">Windows</a>.
+Rubix Wallet is secured with decentralized identity management system that allows users to create and manage their own identities and use blockchain networks for getting decentralized tamper proof verifiable claims. The claims are 100% on-chain and publicly verifiable.
+
+## Prerequisites
+
+Rubix wallet runs on top of Rubix node. Please follow the prerequisites to install IPFS and Java before installing the Rubix wallet. <br>
+{{< button href="https://learn.rubix.net/node-setup/#prerequisites" >}}Prerequisites for Rubix Node{{< /button >}}
+
+Once the prerequisites are satisfied, install the Rubix wallet. <br>
+## {{< button href="https://github.com/rubixchain/wallet/releases" >}}GUI Wallet{{< /button >}}
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
  <!--

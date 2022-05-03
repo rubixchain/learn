@@ -9,14 +9,16 @@ This section explains how to initiate an NFT transaction. A good understanding o
 ### 1. Enabling NFT
 For an existing or new user to be able to create and transfer NFTs they should first see if the Rubix node is enabled/compatible for NFT transactions.
 To enable NFT wallet for a new or existing user of Rubix, execute the below curl command:
+
 ```
-curl localhost:1898/enableNFT
+$ curl localhost:1898/enableNFT
 ```
 
 ### 2. Creating Private Key - Public Key pair
 Once the NFT wallet has been enabled, next step is to create a Private Key-Public Key pair ( different from Private - Public Share). For the RSA key pair creations, execute the below command:
+
 ```
-curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateRsaKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
+$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateRsaKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
 ```
 
 In the above curl command, the required parameters are as follows:
@@ -27,9 +29,10 @@ In the above curl command, the required parameters are as follows:
 | returnKey | Flag value to determine if keys should be saved in node or returned as string. This flag when set to ‘0’ creates the RSA Key pair and the ipfs hash of the generated  public key and saves then in the path Rubix/DATA. When set to ‘1’, it creates the RSA Key pair and the ipfs hash of the generated  public key and returns the value as string (functionality in case of multiple users allocated to single VM)|
 
 ### 3. Minting an NFT token
-Once the RSA keys are generated it is time to execute the command to mint NFTs for the particular asset/assets. Now to mint an NFT token for any asset that user might have the below curl script has to be executed which takes in certain parameters.
+Once the RSA keys are generated it is time to execute the command to mint NFTs for the particular asset/assets. Now to mint an NFT token for any asset that user might have, the below curl script has to be executed which takes in certain parameters.
+
 ```
-curl --location --request POST 'localhost:1898/generateRac' --header 'Content-Type: application/json' --data '{ "type": ,"creatorPubKeyIpfsHash": "","totalSupply": , "contentHash":"", "url": "", "pvtKeyPass": "", "pvtKey": "", "creatorInput": { }}'
+$ curl --location --request POST 'localhost:1898/generateRac' --header 'Content-Type: application/json' --data '{ "type": ,"creatorPubKeyIpfsHash": "","totalSupply": , "contentHash":"", "url": "", "pvtKeyPass": "", "pvtKey": "", "creatorInput": { }}'
 ```
 
 In the above curl command, the required parameters are as follows:
@@ -51,7 +54,7 @@ Once the NFT tokens are generated the next stage is where a sale contract has to
 To create an NFT sale contract the below command should be executed along with a few parameters:
 
 ```
-curl --header "Content-Type: application/json" --request POST http://localhost:1898/createNftSaleContract --data '{"sellerDid" : "","nftToken" : "", "amount":, "pvtKeyPass" : "","pvtKey":""}'
+$ curl --header "Content-Type: application/json" --request POST http://localhost:1898/createNftSaleContract --data '{"sellerDid" : "","nftToken" : "", "amount":, "pvtKeyPass" : "","pvtKey":""}'
 ```
 
 In the above curl command, the required parameters are as follows:
@@ -66,20 +69,22 @@ In the above curl command, the required parameters are as follows:
 
 
 ### 5. Initiating NFT transaction
-After creation of a sale contract an NFT transaction can be initiated. The NFT transaction is being initiated from the NFT Buyer node who also has the corresponding RBT for the NFT. 
+After creation of a sale contract, an NFT transaction can be initiated. The NFT transaction is being initiated from the NFT Buyer node who also has the corresponding RBT for the NFT. 
 Below given command is the API to initiate an NFT transaction, which needs to be executed from the NFT Buyer Node:
 
 - Input Sample for p2pflag=0 (means C2W transfer):
+
 ```
-curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2, "sellerPubKeyIpfsHash" : "","saleContractIpfsHash":"", "buyerPubKeyIpfsHash" : "", "amount":,"p2pFlag" : 0, "pvtKey" : "<Buyer Private Key Here>", "pvtKeyPass":"<Buyer Private Key Password Here>"}'
+$ curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2, "sellerPubKeyIpfsHash" : "","saleContractIpfsHash":"", "buyerPubKeyIpfsHash" : "", "amount":,"p2pFlag" : 0, "pvtKey" : "<Buyer Private Key Here>", "pvtKeyPass":"<Buyer Private Key Password Here>"}'
 ```
 
-- Input Sample for p2pFlag=1 (means P2P transfer): 
+- Input Sample for p2pFlag=1 (means P2P transfer):
+
 ```
-curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2,"p2pFlag":1}'
+$ curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2,"p2pFlag":1}'
 ```
 
-In the above curl the required parameters are as follows:
+In the above curl command, the required parameters are as follows:
 
 | Parameter | Description |
 | ---------------------------------------- | ------ | 

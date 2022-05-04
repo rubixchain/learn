@@ -98,7 +98,7 @@ Common error messages faced by nodes and the known solutions are listed below.
 
 {{< tabs "uniqueid" >}}
 {{< tab "API Endpoints" >}}
-| Field | Endpoint | Descripton | Sample Request |
+| Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | DID Creation | `/createDID` | Creates a unique Decentralized IDentity | ```curl --location --request POST 'http://localhost:1898/create' --form 'data="Rubik"' --form 'image=@"imagepath"'``` |
 | Initial Setup | `/start` | Does the initial setup of IPFS and syncing the network nodes. | ```curl --header "Content-Type: application/json" --request GET 'http://localhost:1898/start'``` |
@@ -119,10 +119,9 @@ Common error messages faced by nodes and the known solutions are listed below.
 {{< /tab >}}
 {{< tab "Resolving Error Messages" >}}
 
-| Message                                    | Type   | Descripton                                                                                                                                                                                                          | Response values                                                  |
-| ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `Sender Busy`                  | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry.. _Deprecated as of 2021-06-30_.                                                       | Lorem Ipsum is simply dummy text of the printing and typesetting industry.      |
-| `Sample`                     | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry..                                                                                      |Lorem Ipsum is simply dummy text of the printing and typesetting industry..           |
+| Error message                                    | Solution     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Token withdrawal failure.                               | Ensure that you have the latest version of jar installed. |
 
 {{< /tab >}}
 {{< /tabs >}}

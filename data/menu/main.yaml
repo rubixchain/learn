@@ -5,11 +5,11 @@ main:
   - name: Vision
     ref: "vision"
     sub:
-      # - name: What inspired us
-      #   ref: "inspired"
+      - name: Bring your own BlockSpace
+        ref: "blockspace"
       - name: Proof-of-Pledge Protocol
         ref: "pop"
-  - name: Become a Rubix Node
+  - name: Setup Rubix Node
     ref: "node-setup"
     sub:
       - name: Where to Buy RBT
@@ -20,6 +20,8 @@ main:
         ref: "create-did"
       - name: Earn Proof Credits
         ref: "proof-credits"
+      - name: Rubix for your App
+        ref: "sdk"
   - name: Troubleshooting
     ref: "faq"
     sub:

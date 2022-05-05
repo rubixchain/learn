@@ -124,6 +124,13 @@ Common error messages faced by nodes and the known solutions are listed below.
 | Token transfer failure due to receiver's node not updated with latest jar.| For successful token transfer, both receiver and sender must be updated with the latest jar. |
 | Token transfer failure due to IPFS not running on the receiver's node.  | For successful token transfer, both sender and receiver nodes must have IPFS daemon running. |
 | `Read timed out`: When a quorum node is not reachable. | If 15 out of 21 quorum nodes respond back, this time out on couple of nodes is not an issue. Token transfer will continue successfully. |
+|`"message":"Sender Data Not Available"`: Error encountered by sender during token transfer. | Receiver has to sync. Through CLI /sync API can be called by running `curl --header "Content-Type: application/json" --request GET http://localhost:1898/sync` |
+| `"error":"Bad Request"`: Error encountered by sender while sending curl request to /initiateTransaction for token transfer on a Linux machine. | In the curl request, quotations should be used with care, double quotes on windows system and single quotes on linux system for specifying Content-Type: `"Content-Type: application/json"` must be used for windows and `'Content-Type: application/json'` must be used for Linux systems. |
+| `Sender is Busy`: Error message encountered while doing type 2 transactions. | Sender has to restart rubix.jar and retry the transactions in such cases. |
+| `"error":"Internal Server Error"` | This is a generic error, log files should be checked in such cases.|
+
+
+
 
 
 {{< /tab >}}

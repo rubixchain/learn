@@ -10,7 +10,7 @@ SDKs are designed to allows developers to quickly, easily and securely integrate
 
 <br>
 
-{{< tabs "uniqueid" >}}
+<!-- {{< tabs "uniqueid" >}}
 {{< tab "Java" >}}
 | API                                    | SDK   | Descripton                                                                                                                                                                                                          | Response values                                                  |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -34,4 +34,4 @@ SDKs are designed to allows developers to quickly, easily and securely integrate
 | `Sample`                     | DID    | Lorem Ipsum is simply dummy text of the printing and typesetting industry..                                                                                      |Lorem Ipsum is simply dummy text of the printing and typesetting industry..           |
 
 {{< /tab >}}
-{{< /tabs >}}
+{{< /tabs >}} -->

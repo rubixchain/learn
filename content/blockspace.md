@@ -23,11 +23,6 @@ Blockspaces has historically been limited to a single block, which could be prob
 
 - #### ETH vs SOL
 
-  ETH with 2000 in 14 seconds  vs SOL with 200,000 in 0.001 seconds (solana removed ordering requirement in the blockspace thus reducing block creation time but VDF require 512 gb ram in current scenario which barred large part of users from becoming)
-  ETH followed same rules as BTC but changed
-  User and bots in same pool - Most of the extracted MEV is concentrated in arbitrage actions between popular automated market makers such as Uniswap, Sushiswap, Curve and Balancer, with a smaller slice of the pie being attributed to liquidations on Compound and Aave.
-  AVAX with 200,000 in 0.001 seconds but their subnet structure is broken with requirement of L2 tokens for each subnet to run
-
   Ethereum is designed for heterogeneous transactions with TPS similar to Bitcoin but new blocks being added in less time than Bitcoin. Ethereum network is clogged by bot created transactions and user created transactions competing for the same but limited blockspace. Most of the MEV extracted in arbitrage actions between popular automated market makers such as Uniswap, Sushiswap, Curve and Balancer. Recent issues in high gas fee (sometimes higher than transaction value) has caused apps already build on ETH to look into alternative chains.
 
   SOL is a fork of Ethereum which allows for more flexibility in the blockspace. To increse TPS, Solana overcame the requirement for validators to order block before it is added to the chain by using a Variable Delay Function (VDF) to ensure that the block is added to the chain in a timely manner. This comes at the cost of high memory requirement (512 GB) and increased CPU usage, thus making it more difficult for miners to mine on the network. This high barrier to entry also makes it more difficult for users to become a part of the network. Apps built on SOL depends largely on small number of nodes to run smoothly. Recently, SOL has faced multiple stoppages which could be linked to inefficiency of the network to handle traffic even before the network is mainstream.

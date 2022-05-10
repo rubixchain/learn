@@ -98,7 +98,7 @@ Common error messages faced by nodes and the known solutions are listed below.
 
 {{< tabs "uniqueid" >}}
 {{< tab "API Endpoints" >}}
-| Field | Endpoint | Descripton | Sample Request |
+| Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | DID Creation | `/createDID` | Creates a unique Decentralized IDentity | ```curl --location --request POST 'http://localhost:1898/create' --form 'data="Rubik"' --form 'image=@"imagepath"'``` |
 | Initial Setup | `/start` | Does the initial setup of IPFS and syncing the network nodes. | ```curl --header "Content-Type: application/json" --request GET 'http://localhost:1898/start'``` |
@@ -117,12 +117,14 @@ Common error messages faced by nodes and the known solutions are listed below.
 | Remove bootstrap | `/bootstrap` | Remove boostrap id from the boostrap list | ```curl --header "Content-Type: application/json" --request DELETE http://localhost:1898/bootstrap?id=<bootstrap-id>``` |
 
 {{< /tab >}}
-{{< tab "Resolving Error Messages" >}}
+{{< tab "Resolving Issues" >}}
 
-| Message                                    | Type   | Descripton                                                                                                                                                                                                          | Response values                                                  |
-| ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `Sender Busy`                  | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry.. _Deprecated as of 2021-06-30_.                                                       | Lorem Ipsum is simply dummy text of the printing and typesetting industry.      |
-| `Sample`                     | Int    | Lorem Ipsum is simply dummy text of the printing and typesetting industry..                                                                                      |Lorem Ipsum is simply dummy text of the printing and typesetting industry..           |
+| Issue                                    | Solution     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Token transfer failure due to receiver's node not updated with latest jar.| For successful token transfer, both receiver and sender must be updated with the latest jar. |
+| Token transfer failure due to IPFS not running on the receiver's node.  | For successful token transfer, both sender and receiver nodes must have IPFS daemon running. |
+| `Read timed out`: When a quorum node is not reachable. | If 15 out of 21 quorum nodes respond back, this time out on couple of nodes is not an issue. Token transfer will continue successfully. |
+
 
 {{< /tab >}}
 {{< /tabs >}}

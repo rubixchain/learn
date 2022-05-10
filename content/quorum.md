@@ -6,7 +6,7 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 
  Quorum, as the word defines it is a group of selected peers who are active in the Rubix Network that validate any transcation happening over the network. Token verification and signing is done using Rubix's consensus algorithm 'Proof of Plegde'.
 
- There are a minimum of 21 such validators, comprising ⍺ quorum, β quorum and γ quorum (7 each). Out of these, ⍺ validators are chosen by the transacting nodes based on the combined proof credits while the remaining 14 (including 7β validators & 7γ validators) are chosen by each of the participating nodes respectively.
+ There are a minimum of 21 such validators, comprising alpha quorum (⍺), beta quorum (β) and gamma quorum (γ), seven each. Out of these, alpha validators are chosen by the transacting nodes based on the combined proof credits while the remaining 14 (including 7 beta validators & 7 gamma validators) are chosen by each of the participating nodes respectively.
 
  Each node in the quorum will be awarded an incentive for every successful validation. Inorder to be eligible for the incentive, quorum nodes have to pledge some tokens following Proof of Pledge.
  

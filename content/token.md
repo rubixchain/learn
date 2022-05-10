@@ -20,7 +20,7 @@ Asset tokens are Non-Fungible Tokens (NFT) and represent both:
 
 Rubix asset tokens are bound to the proofchains with the help of the utility token(s). Depending on the underlying utility token(s) value, asset token's value is determined and can vary during the life. An asset token Ai bound by utility tokens worth x units holds its price value at x. In the next transfer of token Ai, let us assume it is bound to a transaction with utility tokens worth y units; the value of the asset token Ai then changes to y units. Thus, in Rubix platform, the current value of any asset token depends upon the earlier transaction it was involved in.
 
-Learn about how a token is getting transfered in the <a href="/faq/"> FAQ section.</a>
+Learn about how a token is getting transferred in the <a href="/faq/"> FAQ section.</a>
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
 

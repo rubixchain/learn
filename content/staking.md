@@ -3,7 +3,7 @@ title: Staking
 geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
-As per the latest version, a new staking policy is introduced where it is ensured that for each new RBT mining transaction, 3 out of 5 alpha quorums pledge 1 RBT for a height of 4 difficulty level. Tokens pledged/staked will earn yield based on demand/supply. The pledge tokens will be available for transfer after completion of 256 transactions (Level 4) from the genesis node of the mined token.
+As per the latest version, a new staking policy is introduced where it is ensured that for each new RBT mining transaction, 3 out of 5 alpha quorums pledge 1 RBT for a height of 4 difficulty level. Tokens pledged/staked will earn yield based on demand/supply. The pledged tokens will be available for transfer after completion of 256 transactions (Level 4) from the genesis node of the mined token.
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
  <!--

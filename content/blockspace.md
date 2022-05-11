@@ -29,6 +29,9 @@ The blockspace limit is intended to protect the decentralized nature of **monoli
   
   Monolithic chains like SOL, while trying to solve the scale constraints of Ethereum, usually end up attracting bots to clog the enhanced blockspace.  Bots have caused significant issues to the Solana network, leading to multiple stoppages.  When costs of transaction is lowered in networks like Solana, bots tend to spam the network aggressively.  So efforts to scale monolithic L1 chains could cause network security & reliability issues.
 
+<img src="https://miro.medium.com/max/1400/1*6yUGkYyFPNnbaIv2Ptl8Mw.png" >
+</img>
+
 ### Rubix with unlimited blockspace {#Rubix-blockspace}
 
   Rubix is designed for subnets and app chains to enjoy the benifits of being in the same network without having to share data or resources among them. People or Apps can bring their own validators with minimal computational requirement. This is a great way to build a network of decentralized apps without hashpower concentration by a specific subnet at any point in the network. Each RBT in circulation carry history of transactions appended to the its token chain validated by the subnets the token was transacted on. With this infinite BlockSpace approach followed by Rubix from its inception, the network can be extended without having wait for the transaction to be added to the chain or pay high gas fee (or any) for the transaction.  
@@ -36,6 +39,5 @@ The blockspace limit is intended to protect the decentralized nature of **monoli
   The key innovation in Rubix design is that blockspace should not be arrtificially constrained by design, but by the amount of computing resources brought into the network by applications.  The Bring Your Own Blockspace (BYOB) innovation means that applications & enterprises can now build secure blockchain networks with privacy, while always on one scalable public chain, bound by common utility token, RBT; common identity; common provenance & ability to merge or demerge blockspaces.  There are billions of existing computign nodes in the world that can join Rubix blockspace without any additional cost.
   
   Rubix Blockspace is divided into many Subspaces (subnets).  The Subspaces will revolutionize the way Web will transform, right from how social media is organized, how ecommerce is conducted, how financial services are rendered, how metaverse of metaverses is created & how data storage is structured.  Rubix Subspace is perhaps the single biggest thought change in the web is owned & used.
-
 
 To learn more about Rubix Subspaces, please DM us at [@rubixchain](http://twitter.com/rubixChain).

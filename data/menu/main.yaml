@@ -25,6 +25,8 @@ main:
     sub:
       - name: FAQs
         ref: "faq"
+      - name: Common Issues
+        ref: "CommonIssues"
       - name: Linux
         ref: "linux"
       - name: MacOS

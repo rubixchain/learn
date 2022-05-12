@@ -61,6 +61,8 @@ main:
     sub:
       - name: Quorum
         ref: "quorum"
+      - name: Subnets
+        ref: subnets
       - name: NLSS
         ref: "nlss"
       - name: Oracle

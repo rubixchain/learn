@@ -21,7 +21,7 @@ Popular blockchains (BTC and ETH) work by every node adding transactions to a ce
 
 
 
-{{< expand "What happens to a transaction if any the participating nodes/wallets loses their online connection ?" >}}
+{{< expand "What happens to a transaction if any of the participating nodes/wallets loses their online connection ?" >}}
 
 The transaction is not completed in this case.
 A transaction completes when the sender and the reciver unpin and pin their tokens respectively. If an online connection is lost anytime before that, the transaction will not complete.
@@ -32,13 +32,18 @@ Additionally, if any of the quorum nodes lose their connection, and a total of 1
 
 
 
-{{< expand "What happens to a the funds involved when a transaction fails ?" >}}
+{{< expand "When a transaction fails, what happens with the involved funds ?" >}}
 
 The funds are reverted back in the case of a failed transaction.
 
 {{< /expand >}}
 
 
+{{< expand "I am unable to view my Wallet's balance on the Explorer. Where can I view it from ?" >}}
+
+The Wallet's balance can be found on the Home Screen of the GUI Wallet.
+
+{{< /expand >}}
 
 
 

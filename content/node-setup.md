@@ -20,7 +20,7 @@ When a new node joins the network, it will have 0 credits and 0 tokens to start 
 
 Number of credits required by a node to mine a token is determined by the current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a token. Credit required to mine a token doubles every time the network level increases.
 
-To know more about level and credits, please read the [Whitepaper](https://github.com/rubixchain/rubixnetwork/blob/master/RubiX_WhitePaper_R1.7.pdf).
+To know more about level and credits, please read the [Whitepaper](https://github.com/rubixchain/rubixnetwork/raw/master/RubiX_WhitePaper%20R1.8.pdf).
 
 # Prerequisites
 

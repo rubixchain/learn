@@ -14,11 +14,11 @@ geekdocBreadcrumb: false
 weight: 1
 ---
 
-Nodes in Rubix mine token by utilizing credits earned by validating transactions in the network.
+Nodes in Rubix mine tokens by utilizing credits earned by validating transactions in the network.
 
-When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over time common pool will pick the node to validate transactions coming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
+When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over the time common pool will pick the node to validate transactions coming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
 
-Number of credits required by a node to mine a token is determined by the current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a token. Credit required to mine a token doubles every time the network level increases.
+Number of credits required by a node to mine a RBT token is determined by current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a RBT token. Credits required to mine a token doubles every time the network level increases.
 
 To know more about level and credits, please read the [Whitepaper](https://github.com/rubixchain/rubixnetwork/blob/master/RubiX_WhitePaper_R1.7.pdf).
 

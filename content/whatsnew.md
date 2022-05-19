@@ -7,7 +7,7 @@ aliases: ["/whats new", "/what's new", "/latest"]
 
 ### What is new in Rubix Network
 
- Here you can find all that is happening in Rubix, get latest updates etc.!!!
+ Watch this space to get the updates about all that is happening @ Rubix!!!
 
 {{< hint info >}}
 

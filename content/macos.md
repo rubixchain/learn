@@ -105,3 +105,14 @@
     Download latest version of Rubix GUI Wallet from [here](https://github.com/rubixchain/wallet/releases)
 
     Download latest version of Rubix jar from [here](https://github.com/rubixchain/rubixnetwork/releases)
+    
+    
+  ###Known Issue
+    You need System Integrity Protection to be disabled
+
+    It's simply can be done following this steps:
+
+    Boot your Mac in recovery mode (with holding Command+R);
+    Check the status: csrutil status (System Integrity Protection (SIP));
+    To disable protection run the following command: csrutil disable;
+    Reboot the system again.

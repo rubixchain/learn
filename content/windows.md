@@ -4,7 +4,7 @@
 
     [Windows](https://github.com/rubixchain/rubixnetwork/blob/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe)
 
-2) Open a fresh instance of cmd.exe under download path and run the following commands (without $)
+2) Open a fresh instance of cmd.exe under the download path and run the following commands (without $)
   
     a) $ RubixOneClickSetup-Windows.exe
   

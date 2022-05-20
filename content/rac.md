@@ -4,13 +4,13 @@ geekdocBreadcrumb: false
 aliases: ["/rac", "/asset", "/standards"]
 ---
 
-The Rubix Asset Contract (RAC) are rules / guidelines to enable users to develop tokens on top of Rubix Blockchain network resulting in Secondary Layer solutions, Decentralized Applications, NFT's and much more. It is a standard by which users can mint/transfer/verify secondary tokens or NFT's transferd/transaction through the Rubix validator network.
+The Rubix Asset Contract (RAC) are rules / guidelines to enable users to develop tokens on top of Rubix Blockchain network resulting in Secondary Layer solutions, Decentralized Applications, NFTs and much more. It is a standard by which users can mint/transfer/verify secondary tokens or NFTs transfer/transact through the Rubix validator network.
 
-Tokens minted in the Rubix network need to adhere to rules stated in the Rubix Asset Contract. These rules/guidelines may include details on what the token structure should look like, how they can be transfered in the network, validated by the quorum and so on.
+Tokens minted in the Rubix network need to adhere to rules stated in the Rubix Asset Contract. These rules/guidelines may include details on what the token structure should look like, how they can be transferred in the network, validated by the quorum and so on.
 
 ## RAC Structure
 
-The illustration shown below represents the anatomy of an RAC token, whether it be an NFT, an L2 coin or a app token minted on Rubix blockchain, will look like.
+The illustration shown below represents the anatomy of an RAC token, whether it be an NFT, a L2 coin or an app token minted on Rubix blockchain, will look like.
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@ Lets Look in to a bit more Details of what this structure means.
 1. Type
 
 The first rule/guideline that RAC structure mentions is to denote the type of application that is being developed using RAC. Type is an integer value like 1,2..
-For NFT the value of TYPE field is 1, rest of the standards which canbe used for L2 coin s etc are in development.
+For NFT the value of TYPE field is 1, rest of the standards which can be used for L2 coins etc are in development.
 
 2. CreatorDID
 
@@ -66,7 +66,7 @@ The sixth field houses a hash value of a digital asset like audio,video or digit
 
 7. URL
 
-The value in this field is also upto the creator to enter. In scenarios where owner of the RAC token are allowed to actually have the digirtal asset or any other type of digital document the url to storage can be specified here.
+The value in this field is also upto the creator to enter. In scenarios where owner of the RAC token are allowed to actually have the digital asset or any other type of digital document the url to storage can be specified here.
 
 8. PvtKeySignature
 

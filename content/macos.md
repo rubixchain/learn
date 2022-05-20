@@ -107,7 +107,7 @@
     Download latest version of Rubix jar from [here](https://github.com/rubixchain/rubixnetwork/releases)
     
     
-  ###Known Issue
+  ### Known Issue
     You need System Integrity Protection to be disabled
 
     It's simply can be done following this steps:

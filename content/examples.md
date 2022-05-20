@@ -4,7 +4,7 @@ geekdocBreadcrumb: false
 aliases: ["/note-examples", "/examples", "/contributing/examples"]
 ---
 
-Great rubix notes follow the [program's values](../values): They build understanding, are written in good faith, and are helpful even to those who disagree.
+Great Rubix notes follow the [program's values](../values): They build understanding, are written in good faith and are helpful even to those who disagree.
 
 <br>
 
@@ -20,9 +20,9 @@ Here's a Tweet making misleading claims about whales, followed by helpful and un
 
 <div class="note note-helpful">
 
-### Helpful rubix note
+### Helpful Rubix note
 
-Whales are indeed mammals. Marine mammals are able to “stay hydrated” because their kidneys have evolved to excrete more salt + reclaim more water than humans and many other mammals can. They also obtain water from their food. This is widely documented, for example in <http://reputable>…
+Whales are indeed mammals. Marine mammals are able to “stay hydrated” because their kidneys have evolved to excrete more salt and reclaim more water than humans than many other mammals can. They also obtain water from their food. This is widely documented, for example in <http://reputable>…
 
 - Easy to understand
 - Directly addresses all of the Tweet’s claims
@@ -61,7 +61,7 @@ Here's a Tweet making misleading claims about nutrition labels, followed by help
 This Tweet is misleading and contains an honest error due to unit conversions. Lowercase c calories are not the same as uppercase C Calories. 1 Calorie = 1000 calories, so 100 Calories = 100k calories. An official table of energy units and conversions can be found here: <http://reputable>...
 
 - Explains a complex topic using clear language
-- Points out where the misleading info likely originated while being respectful to the author
+- Points out where the misleading info has likely originated from while being respectful to the author
 - Provides a link to reliable information
 
 </div>

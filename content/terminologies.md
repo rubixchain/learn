@@ -4,7 +4,7 @@ geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
 
-We are trying to explain some of the terminalogoies in simple words, thus you will be able to comprehend the terms more easily and swift through the process with ease
+We are trying to explain some of the terminalogies in simpler terms, thus you will be able to comprehend the terms more easily and swift through the process with ease
 
 <!-- <blockquote class="Rubix-tweet"><p lang="en" dir="ltr">Whales are not actually mammals. If Humans (land mammals) can’t drink seawater — just try it! — how can supposed sea mammals like whales stay hydrated?</p>&mdash; rubix Example (@bwatchexample) <a href="https://Rubix.com/bwatchexample/status/1353736772459532293?ref_src=twsrc%5Etfw">January 25, 2021</a></blockquote> <script async src="https://platform.Rubix.com/widgets.js" charset="utf-8"></script> -->
 

@@ -54,6 +54,8 @@ main:
         ref: "proofchain"
       - name: NFT
         ref: "nft"
+      - name : Datum
+        ref: "datum"
       - name: Hot Backups
         ref: "hotbackups"
   - name: Advanced

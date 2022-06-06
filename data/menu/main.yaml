@@ -27,6 +27,8 @@ main:
     sub:
       - name: FAQs
         ref: "faq"
+      - name: Common Issues
+        ref: "CommonIssues"
       - name: Linux
         ref: "linux"
       - name: MacOS
@@ -61,6 +63,8 @@ main:
     sub:
       - name: Quorum
         ref: "quorum"
+      - name: Subnets
+        ref: subnets
       - name: NLSS
         ref: "nlss"
       - name: Oracle

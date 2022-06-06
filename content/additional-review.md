@@ -1,31 +1,31 @@
 ---
-title: Additional rubix review
+title: Additional Rubix review
 geekdocBreadcrumb: false
 aliases: ["/additional-review"]
 ---
 
-## What are rubix notes?
+## What are Rubix Notes?
 
-rubix is a pilot program that allows volunteer contributors on Rubix to collaboratively add context (called “notes”) to Tweets they believe could be misleading. The aim is to keep people on Rubix better informed by showing notes that people from different points of view will find helpful.
+Rubix Notes is a pilot program that allows voluntary contributors on Rubix to collaboratively add context (called “notes”) to Tweets they believe could be misleading. The aim is to keep people better informed about Rubix by showing notes that people from different points of view will find helpful.
 
 Notes are only shown to a small set of people in the pilot program, and notes only appear on Tweets when they’ve been rated helpful by enough people from different points of view.
 
-This program is still in development. During this phase, it is possible that some notes shown on Tweets might not always be helpful. At this stage, our goal is to gather input from more people to better identify what makes a note helpful.
+This program is still in development phase. During this phase, it is possible that some notes shown on Tweets might not be always helpful. At this stage, our goal is to gather more inputs from voluntary contributors to identify what makes a note helpful.
 
 ## What's an additional review?
 
-If you believe a note rated “helpful” on your Tweet doesn’t add helpful context or shouldn’t be there, you can request additional review. Reviews aren’t done by Rubix — they are done by regular people who use Rubix and have signed up to become rubix Contributors.
+If you believe a note rated “helpful” on your Tweet doesn’t add helpful context or shouldn’t be there, you can request additional review. Reviews aren’t done by Rubix — they are done by Rubix users and have signed up to become Rubix voluntary contributors.
 
 ## How additional reviews work
 
 - Tweet authors can request additional contributor review of notes that are rated helpful and are being shown on their Tweet.
-- When an author requests additional review, the note is shown to contributors on the rubix site, which is separate from the Rubix apps and where they may then rate the note.
-- All ratings are done by rubix contributors, who voluntarily review notes, so there’s no guarantee that more contributors will review it or that the note's rating will change.
-- Rubix does not determine the outcome of reviews. The aim of rubix is to empower people on Rubix to determine what additional context is helpful.
-- If the additional ratings change a note's status such that it is no longer rated "helpful", the note will stop being shown on the Tweet.
-- Most additional ratings will likely come in within 24 hours following an author's request, but status can change at any time as ratings are received.
+- When an author requests additional review, the note is shown to contributors on the Rubix site, which is differrent from the Rubix apps where they may then rate the note.
+- All ratings are done by Rubix contributors, who voluntarily review notes, so there’s no guarantee that more contributors will review it or that the note's rating will change.
+- Rubix does not determine the outcome of reviews. The aim of Rubix is to empower people to determine what additional context is helpful.
+- If the additional ratings change a note's status that it is no longer rated "helpful", the note will stop being shown on the Tweet.
+- Most of the additional ratings are likely to come in within 24 hours of an author's request, but status can change at any time as and when ratings are received.
 - A review of one note does not impact the status of other existing notes or newly written notes on the Tweet. If new notes are added and become currently rated helpful, they may be shown on the Tweet.
-- Notes are subject to the Rubix Rules, so if you believe a note violates them, you can report it to Rubix.
+- Notes are subject to the Rubix Rules, if you believe a note violates the rules, you can report it back to Rubix.
 
 ## Request additional review
 

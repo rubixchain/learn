@@ -13,7 +13,7 @@ The Private Share is private/secret for a particular node and only that node has
 
 One of the authentication scenarios is during a simple [token transfer](). Here the sender sends a portion (bits) of its Private Share to the Recevier, as a part of its [Signature](). The Receiver then performs some calculations on its side, uses the Private Share of the sender,and authenticates it.
 
-The next scenraio is during the [Consensus] phase of a transaction/transfer. During a token transfer, the sender of a token formulates a Signature and sends it to the [Quorum](https://learn.rubix.net/quorum/) members for consensus. The Quorum members in turn send parts of their Private Shares'  (based on sender's signature) to the sender, as a way to agree to the sender for the transction. Once a certain number of acknowledgemennts are received by the sender, the sender is authenticated for the transaction.
+The next scenraio is during the [Consensus] phase of a transaction/transfer. During a token transfer, the sender of a token formulates a Signature and sends it to the [Quorum](https://learn.rubix.net/quorum/) members for consensus. The Quorum members in turn send parts of their Private Shares'  (based on sender's signature) to the sender, as a way to agree to the sender for the transction. Once a certain number of acknowledgements are received by the sender, the sender is authenticated for the transaction.
 
 Lastly, it is used during a Peer to Peer [Assest Transfer](). Here, the sender shares a portion (bits) of its Private Share to the receiver. The receiver then uses this information, combines it with the [Wallet Share]() of the sender and authenticates the sender in the process. The same process is also carried out vice versa in an Asset Transfer.
 

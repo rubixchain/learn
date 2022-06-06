@@ -6,9 +6,9 @@ aliases: ["/data", "/about/data", "/contributing/data"]
 
 We can't wait to learn with you!
 
-All rubix contributions are publicly available on the [Download Data](https://Rubix.com/i/rubix/download-data) page of the rubix site so that anyone in the US has free access to analyze the data, identify problems, and spot opportunities to make rubix better.
+All Rubix contributions are publicly available on the [Download Data](https://Rubix.com/i/rubix/download-data) page of the Rubix site so that anyone in the US has free access to analyze the data, identify problems and spot opportunities to make Rubix better.
 
-If you have questions or feedback about the rubix public data or would like to share your analyses of this data with us, please DM us at [@rubixchain](http://rubix.net).
+If you have questions/feedback about the Rubix public data or if you would like to share analysis of this data with us, please DM us at [@rubixchain](http://rubix.net).
 
 <br>
 
@@ -18,9 +18,9 @@ If you have questions or feedback about the rubix public data or would like to s
 
 ### Data snapshots
 
-The rubix data is released as two separate files: one containing a table representing all rubix notes and one containing a table representing all rubix note ratings. These tables can be joined together on the `noteId` field to create a combined dataset with information about notes and their ratings. The data is released in two separate tables/files to reduce the dataset size by avoiding data duplication (this is known as a normalized data model). Currently, we release one cumulative file each for notes and note ratings. However, in the future, if the data ever grows too large, we will split the data into multiple files as needed.
+The Rubix data is released as two separate files: one containing a table representing all Rubix notes and one containing a table representing all Rubix note ratings. These tables can be joined together on the `noteId` field to create a combined dataset with information about notes and their ratings. The data is released in two separate tables/files to reduce the dataset size by avoiding data duplication (this is known as a normalized data model). Currently, we release one cumulative file each for notes and note ratings. However, in the future if the data grows too large, we will split the data into multiple files as needed.
 
-A new snapshot of the rubix public data is released daily, on a best-effort basis, and technical difficulties may occur and delay the data release until the next day. We are not able to provide guarantees about when this may happen. The snapshot is a cumulative file and contains all non-deleted notes and note ratings ever contributed to rubix, as of 48 hours before the dataset release time. The data download page displays a date stamp indicating the most recent date of data included in the downloadable files.
+A new snapshot of the Rubix public data is released daily, on a best-effort basis, sometimes due to technical difficulties that may arise the release might be delayed by a day. The snapshot is a cumulative file and contains all non-deleted notes and note ratings ever contributed to Rubix, as of 48 hours before the dataset release time. The data download page displays a date stamp indicating the most recent date of the data included in the downloadable files.
 
 ### File structure
 
@@ -32,7 +32,7 @@ Each data snapshot table is stored in `tsv` (tab-separated values) file format w
 
 ### Updates to the Data
 
-As we iterate and improve rubix, we will occasionally make changes to the questions we ask contributors in the note writing and note rating forms. When we do this, some question fields and columns in our public data will be deprecated (no longer populated), and others will be added. Below we will keep a change log of changes we have made to the contribution form questions and data and when those changes were made.
+As we iterate and improve Rubix, we will occasionally make changes to the questions that we ask contributors in the note writing and note rating forms. When we do this, some question fields and columns in our public data will be deprecated (no longer populated) and others will be added. Below we will keep a change log of changes we have made to the contribution form questions and data and when those changes were made.
 
 {{< expand "2021-12-15 - Updated Note Rating Questions" >}}
 

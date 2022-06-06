@@ -14,11 +14,11 @@ geekdocBreadcrumb: false
 weight: 1
 ---
 
-Nodes in Rubix mine token by utilizing credits earned by validating transactions in the network.
+Nodes in Rubix mine tokens by utilizing credits earned by validating transactions in the network.
 
-When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over time common pool will pick the node to validate transactions coming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
+When a new node joins the network, it will have 0 credits and 0 tokens to start with. Over the time common pool will pick the node to validate transactions coming to the network. For every transaction that is validated, the node will earn 1 credit. Credits are non transferable and are only used to mine a new RBT token.
 
-Number of credits required by a node to mine a token is determined by the current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a token. Credit required to mine a token doubles every time the network level increases.
+Number of credits required by a node to mine a RBT token is determined by current level of the network. For example, if the network is at level 3, a node will need 32 credits to mine a token. If the network is at level 4, a node will need 64 credits to mine a RBT token. Credits required to mine a token doubles every time the network level increases.
 
 To know more about level and credits, please read the [Whitepaper](https://github.com/rubixchain/rubixnetwork/raw/master/RubiX_WhitePaper%20R1.8.pdf).
 
@@ -124,6 +124,13 @@ Common error messages faced by nodes and the known solutions are listed below.
 | Token transfer failure due to receiver's node not updated with latest jar.| For successful token transfer, both receiver and sender must be updated with the latest jar. |
 | Token transfer failure due to IPFS not running on the receiver's node.  | For successful token transfer, both sender and receiver nodes must have IPFS daemon running. |
 | `Read timed out`: When a quorum node is not reachable. | If 15 out of 21 quorum nodes respond back, this time out on couple of nodes is not an issue. Token transfer will continue successfully. |
+|`"message":"Sender Data Not Available"`: Error encountered by sender during token transfer. | Receiver has to sync. Through CLI /sync API can be called by running `curl --header "Content-Type: application/json" --request GET http://localhost:1898/sync` |
+| `"error":"Bad Request"`: Error encountered by sender while sending curl request to /initiateTransaction for token transfer on a Linux machine. | In the curl request, quotations should be used with care, double quotes on windows system and single quotes on linux system for specifying Content-Type: `"Content-Type: application/json"` must be used for windows and `'Content-Type: application/json'` must be used for Linux systems. |
+| `Sender is Busy`: Error message encountered while doing type 2 transactions. | Sender has to restart rubix.jar and retry the transactions in such cases. |
+| `"error":"Internal Server Error"` | This is a generic error, log files should be checked in such cases.|
+
+
+
 
 
 {{< /tab >}}

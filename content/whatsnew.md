@@ -11,16 +11,11 @@ aliases: ["/whats new", "/what's new", "/latest"]
 
 {{< hint info >}}
 
-## 🎉 Rubix V1.9.4
+## 🎉 Rubix 2.1: Eismeer
 
-We at Rubix have introduced a new staking policy where we ensure for each new RBT mining transaction, 3 out of 5 alpha quorums should pledge 1 RBT for a height of 4 <sup> difficulty level </sup>. Tokens pledged/staked will earn yield based on demand/supply.  The pledge tokens will be available for transfer after completion of 256 transactions (Level 4) from the genesis node of the mined token.
+We are excited to announce our latest update, **#Rubix 2.1: Eismeer**. This new update transforms the way tokens are used on our platform. Now, there are faster token transfers, more accurate tracking of token transfers, enhanced authentication and verification, and a more rigorous process for mining. All of these improvements and more will help Rubix’s speed and ability to continue running smoothly.
 
-With this v1.9.4 update, token holders have the opportunity to pledge/stake their RBT tokens to earn yield. In the upcoming EVM bridge, this update will also open up important DeFi features to the community.
-
-Tokens pledged/staked will be released automatically upon reaching the height or next difficulty level. But the code update also facilitates easy staking solution development with other use cases.
-This update improves security while opening up staking and DeFi functions for RBT holders, nodes and application developers. Rubix transactions are gas fee free and still remain faster.
-
-<a href ="https://github.com/rubixchain/rubixnetwork/releases/tag/1.9.4"> Click here to download V1.9.4 </a>
+<a href ="https://github.com/rubixchain/rubixnetwork/releases/tag/2.1"> Click here to download Rubix 2.1: Eismeer </a>
 
 {{< expand "How to know the current level?" >}}
 

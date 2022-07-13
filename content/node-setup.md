@@ -29,7 +29,7 @@ Any computer or personal laptop with 8GB of RAM and a decent internet connection
 {{< hint info >}}
 ### One Step Installation
 
-Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux) / [Windows](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe) / [Mac](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS) machines. This script will install all the required dependencies and will run the setup script.
+Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux) / [Windows](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe) / [Mac](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS) machines. This script will install all the required dependencies. Once the dependencies are installed you can download the Latest Release from the link provided in the [Latest Releases](https://learn.rubix.net/node-setup/#latest-releases).
 
 {{< / hint >}}
 
@@ -44,6 +44,8 @@ Use one step installation script for [Linux](https://github.com/rubixchain/rubix
   - $ ./RubixOneClickSetup-Linux
   
   - Provide user password when asked
+  
+  For detailed instruction [Click Here](https://learn.rubix.net/linux/)
   
   
 {{< /expand >}}
@@ -60,6 +62,8 @@ Use one step installation script for [Linux](https://github.com/rubixchain/rubix
   
   - Provide user password when asked
   
+  For detailed instruction [Click Here](https://learn.rubix.net/macos/)
+  
 {{< /expand >}}
 
 {{< expand "Setup Instructions for Windows" >}}
@@ -70,6 +74,8 @@ Use one step installation script for [Linux](https://github.com/rubixchain/rubix
   - $ RubixOneClickSetup-Windows.exe
   
   - Provide user password when asked
+
+  For detailed instruction [Click Here](https://learn.rubix.net/windows/)
 
 {{< /expand >}}
 

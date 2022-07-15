@@ -15,21 +15,21 @@ $ curl localhost:1898/enableNFT
 ```
 
 ### 2. Creating Private Key - Public Key pair
-Once the NFT wallet has been enabled, next step is to create a Private Key-Public Key pair ( different from Private - Public Share). For the RSA key pair creations, execute the below command:
+Once the NFT wallet has been enabled, next step is to create a Private Key-Public Key pair ( different from Private - Public Share). For the ECDSA key pair creations, execute the below command:
 
 ```
-$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateRsaKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
+$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateEcDsaKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
 ```
 
 In the above curl command, the required parameters are as follows:
 
 | Parameter | Description |
 | ---------------------------------------- | ------ | 
-| pvtKeyPass | Value of password supplied by the user to create their RSA Key pair|
-| returnKey | Flag value to determine if keys should be saved in node or returned as string. This flag when set to ‘0’ creates the RSA Key pair and the ipfs hash of the generated  public key and saves then in the path Rubix/DATA. When set to ‘1’, it creates the RSA Key pair and the ipfs hash of the generated  public key and returns the value as string (functionality in case of multiple users allocated to single VM)|
+| pvtKeyPass | Value of password supplied by the user to create their ECDSA Key pair|
+| returnKey | Flag value to determine if keys should be saved in node or returned as string. This flag when set to ‘0’ creates the ECDSA Key pair and the ipfs hash of the generated  public key and saves then in the path Rubix/DATA. When set to ‘1’, it creates the ECDSA Key pair and the ipfs hash of the generated  public key and returns the value as string (functionality in case of multiple users allocated to single VM)|
 
 ### 3. Minting an NFT token
-Once the RSA keys are generated it is time to execute the command to mint NFTs for the particular asset/assets. Now to mint an NFT token for any asset that user might have, the below curl script has to be executed which takes in certain parameters.
+Once the ECDSA keys are generated it is time to execute the command to mint NFTs for the particular asset/assets. Now to mint an NFT token for any asset that user might have, the below curl script has to be executed which takes in certain parameters.
 
 ```
 $ curl --location --request POST 'localhost:1898/generateRac' --header 'Content-Type: application/json' --data '{ "type": ,"creatorPubKeyIpfsHash": "","totalSupply": , "contentHash":"", "url": "", "pvtKeyPass": "", "pvtKey": "", "creatorInput": { }}'
@@ -44,7 +44,7 @@ In the above curl command, the required parameters are as follows:
 | contentHash | It is a simple hash generated from the asset using MD5. |
 | url | This is the field where links to the asset can be shared. The field is optional and the usage is dependent on the NFT creator. |
 | pvtKeyPass | This field is to provide the password of the private key that the user provided to generate the same. |
-| pvtKey | This field is used to provide the private key of the NFT creator. The field can be left blank if the RSA keys were generated using retKey flag value as 0, else the private key should be provided here. |
+| pvtKey | This field is used to provide the private key of the NFT creator. The field can be left blank if the ECDSA keys were generated using retKey flag value as 0, else the private key should be provided here. |
 | creatorInput | This field takes a JSON object as input. The Object can have any number of fields with data ranging from NFT details and attributes to creator details and description. |
 
 
@@ -65,25 +65,21 @@ In the above curl command, the required parameters are as follows:
 | nftToken | It is the NFT token itself for which the contract is being created. |
 | amount | The field is the value of NFT in RBT. |
 | pvtKeyPass | This field is to provide the password of the private key that the user provided to generate the same. |
-| pvtKey | This field is used to provide the private key of the NFT creator. The field can be left blank if the RSA keys were generated using retKey flag value as 0, else the private key should be provided here.
+| pvtKey | This field is used to provide the private key of the NFT creator. The field can be left blank if the ECDSA keys were generated using retKey flag value as 0, else the private key should be provided here.
 
 
 ### 5. Initiating NFT transaction
+
+Rubix Blockchain Platform offers both Peer-to-Peer transfer of NFTs and transfer of NFT's in marketplaces. Below given are the API endpoints and their parameter list for each type of NFT transfer.
+
 After creation of a sale contract, an NFT transaction can be initiated. The NFT transaction is being initiated from the NFT Buyer node who also has the corresponding RBT for the NFT. 
 Below given command is the API to initiate an NFT transaction, which needs to be executed from the NFT Buyer Node:
 
-- Input Sample for p2pflag=0 (means C2W transfer):
+- API used by Marketplace to transfer/transact NFT :
 
 ```
 $ curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2, "sellerPubKeyIpfsHash" : "","saleContractIpfsHash":"", "buyerPubKeyIpfsHash" : "", "amount":,"p2pFlag" : 0, "pvtKey" : "<Buyer Private Key Here>", "pvtKeyPass":"<Buyer Private Key Password Here>"}'
 ```
-
-- Input Sample for p2pFlag=1 (means P2P transfer):
-
-```
-$ curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2,"p2pFlag":1}'
-```
-
 In the above curl command, the required parameters are as follows:
 
 | Parameter | Description |
@@ -99,6 +95,23 @@ In the above curl command, the required parameters are as follows:
 | p2pFlag | Integer value (0/1) that denotes if the transfer is P2P / C2W. Flag value 0 denotes transfer is C2W. Flag value 1 denotes transfer is P2P. |
 | pvtKey | This is the private key of the NFT buyer. |
 | pvtKeyPass | This is the password for the private key of the NFT buyer. |
+
+
+- API used to initiate a Peer-to-Peer transfer of NFT:
+
+```
+$ curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateNftTransfer --data '{ "sellerDid": "", "nftToken": "", "comment":"", "type":2,"p2pFlag":1}'
+```
+
+In the above curl command, the required parameters are as follows:
+
+| Parameter | Description |
+| ---------------------------------------- | ------ | 
+| sellerDid | It is the DID of the creator (for freshly minted NFT token) or DID of the current owner of the NFT.|
+| nftToken | It is the NFT token itself for which the contract is being created.|
+| type | This value of this field is used to select the quorum type. Value 1 for open network  and 2 for subnet (predefined quorum). |
+| comment | Any comment to identify the transaction. |
+| p2pFlag | Integer value (0/1) that denotes if the transfer is P2P / C2W. Flag value 0 denotes transfer is C2W. Flag value 1 denotes transfer is P2P. |
 
 In this way, an NFT transaction can be initiated.
 

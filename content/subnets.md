@@ -7,6 +7,8 @@ Subnet is a key construct in the Rubix architecture.  The Rubix mainnet is a sum
 
 Rubix protocol is agnostic to how the nodes are selected to be part of the Subnet or the quorum (A subnet can be exactly the minimum number of validators needed in a quorum = 21 OR a larger pool of nodes from which the quorum is picked from using an algorithm). A Rubix quorum is legit as long as the unspect credits pledged by the quorum is higher than the value of the transaction being validated.  This unique subnet/quorum creation ability to allows nodes to pick even potentially sybil nodes (sybil resistance of the protocol is upheld despite this).
 
+<img src = "https://github.com/rubixchain/learn/raw/1c8d97b06401c1d1102c1b45963c8a5849496716/static/images/settlement.jpeg">
+
 To create a private subnet, add DIDs of the chosen validators in the `quorumlist.json` file. This file is a JSON array of strings. This json file should be placed inside the Rubix/Data folder. To initiate a type 2 transaction (type 2 picks the chosen private subnet instead of from a pooled subnet), add type as 2 as mentioned in the curl request below:
 
 ```

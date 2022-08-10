@@ -44,6 +44,8 @@ main:
         ref: "node"
       - name: DID
         ref: "did"
+      - name: Proof-of-Pledge
+        ref: "pop"
       - name: Token
         ref: "token"
       - name: Wallet

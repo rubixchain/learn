@@ -79,7 +79,7 @@ An Token made in adherance to Rubix Asset Contract(RAC), is transfered in a true
 
 Following is an illustration of how RAC Tokens are transfered/sold between a buyer and a seller.
 
-<img src = "https://github.com/rubixchain/learn/tree/main/static/images/NFT_Txn_flow.png">
+<img src = "https://raw.githubusercontent.com/rubixchain/learn/main/static/images/NFT_Txn_flow.png">
 
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).

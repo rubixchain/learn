@@ -22,6 +22,11 @@ main:
         ref: "proof-credits"
       - name: Rubix for your App
         ref: "sdk"
+  - name: Key Management
+    ref: "keymanagement"
+    sub:
+      - name: Cold Wallet
+        ref: "coldwallet"
   - name: Troubleshooting
     ref: "faq"
     sub:

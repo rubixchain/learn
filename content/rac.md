@@ -73,6 +73,13 @@ The value in this field is also upto the creator to enter. In scenarios where ow
  The 8th and final field of the RAC structure is a value called as a Signature, created on the data from fields 1 to 7 and signed using the Creators Private Key(RSA key). This Signature is a mandatory value there by making it as a rule to be included when users are mintng RAC tokens. 
  Furhtermore, this value aids in capturing fake RAC tokens, being minted by scammers posing as Original and reputed creators.
 
+## RAC Token Transaction 
+
+An Token made in adherance to Rubix Asset Contract(RAC), is transfered in a true peer to peer transaxtion, which is backed by the Rubix Token (RBT) whose value is predetermined by the creator of the RAC Tokens or the Current Owner of RAC Token , like NFT, based on the current market trends and its demand.
+
+Following is an illustration of how RAC Tokens are transfered/sold between a buyer and a seller.
+
+<img src = "https://github.com/rubixchain/learn/raw/main/static/images/RAC_Txn_flow.png">
 
 
 If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).

@@ -18,7 +18,7 @@ $ curl localhost:1898/enableNFT
 Once the NFT wallet has been enabled, next step is to create a Private Key-Public Key pair ( different from Private - Public Share). For the ECDSA key pair creations, execute the below command:
 
 ```
-$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateEcDsaKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
+$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateEcDSAKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
 ```
 
 In the above curl command, the required parameters are as follows:

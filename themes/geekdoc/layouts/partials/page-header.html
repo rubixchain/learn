@@ -22,5 +22,4 @@
 {{ $showEdit := (and ($.Scratch.Get "geekdocFilePath") $geekdocRepo $geekdocEditPath) }}
 <div class="gdoc-page__header flex flex-wrap justify-between{{ if not $showEdit }} hidden-mobile{{ end }}{{ if (and (not $showBreadcrumb) (not $showEdit)) }} hidden {{ end }}"
     itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-
 </div>

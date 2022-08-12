@@ -15,7 +15,11 @@ Users can reach out to maintainers@rubix.net for questions regaridng RBT Wallet.
 
 {{< expand "How many transactions can rubix handle?" >}}
 
-Popular blockchains (BTC and ETH) work by every node adding transactions to a central chain and the chain grows in one direction with it.  Rubix is designed and built as a peer to peer blockchain where a transaction happening from node A to node B is only corresponding quorum nodes are only known and participated in the transaction. Maximum transaction threshold with 10,000 nodes is 150,000. As more and more sender, receiver and quorum nodes join the network, maximum transactions that can happen in the network also increases. Rubix is truly peer to peer and decentralized - transaction speed or throughput grows with the network and not locked to value. Rubix is a distributed blockchain and bitcoin is a centralised blockchain with around 100 transactions/per minute with a current number of 12,000 nodes. An argument is, with current industry standard by web2 services, this is not a big number. 10,000 is also not a big number. With the number of nodes growing with time, Rubix will be scaling larger than any datacenter, securely with 0 transaction fee.
+Monolithic blockchains like BTC and ETH scale linearly by chaining blocks of transactions sequentially.  The longest chain always represents the truth.  This monolithic architecture though limits how many transactions can be processed concurrenty.  Ethereum for example handles around 2,000 txns in a block (from a global pool of txns).  Other  monolithic chains like Solana attempt to increase throughput by allowing more transactions in a block, which can result in a meaningful decrease in security & decentralization.  Modular L1 blockchains try to achieve better throughput with subnet or shards, but this comes at the cost of reduced decentralization & composability.  The blockchain trilemma refers to the assumption that any network can only achieve two of the three variables, decentralization, security & scalability.
+
+Rubix solves the trilemma with its revolutionary asynchronous paralellism.  Instead of handlind objects as a piece of code on shared ledgers on a monolithic chain, Rubix creates a seperate chain for each object (object could be RBT utility token, NFT, asset contract or smart contract).  All Object chains in Rubix scale in parallell with consensus using the Subnet architecture.  This high level of flexibility in the architecture means the number of validating nodes in Rubix is only limited by the amount of blockspace that is available in the world (rather than being artificially constrained as in the other chains).  Unlike other chains, Rubix scales horizontally.
+
+One Rubix subnet (minimum of 21 validators needed for one Subnet) can process 1 transaction concurrently (or up to 1,030 transactions in batch concurrently). 1,000 subnets can process 1,000x more transactions concurrently.  With every existing cloud or non cloud compute node eligible to become a Rubix node, it is likely that there will be 100s of thousands of subnets processing in parallel at any point of time.  With 100,000 subnets (2.1 million nodes), 200,000 txns can process per minute (1,030x more with batching).  Rubix scales linearly with the amount of blockspace added to the network.
 
 {{< /expand >}}
 
@@ -50,7 +54,7 @@ The Wallet's balance can be found on the Home Screen of the GUI Wallet.
 
 {{< expand "Becoming part of the network?" >}}
 
-You can setup a Rubix node in any decent spec laptop in 2022. You can also setup a Rubix node in a server with a dedicated server. You can also setup a Rubix node in a cloud VM. Following this will create a DID for your node in the network. DID is the identity of your node in the network to do transfers or to become a validator.
+You can setup a Rubix node on any laptop, desktop or VM.  Min specs for running each node = i5 or equivalent processor, 4 or 8 GB RAM & 512 GB SSD/HDD.
 
 {{< /expand >}}
 

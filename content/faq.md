@@ -45,14 +45,18 @@ The funds are reverted back in the case of a failed transaction.
 
 {{< expand "I am unable to view my Wallet's balance on the Explorer. Where can I view it from ?" >}}
 
-The Wallet's balance can be found on the Home Screen of the GUI Wallet.
+The Wallet's balance can be found on the:
+
+- by running ````curl localhost:1898/getAccountInfo```` in the terminal
+- Home Screen of the GUI Wallet
+- Main screen of Fexr app if connected
 
 {{< /expand >}}
 
 
 
 
-{{< expand "Becoming part of the network?" >}}
+{{< expand "Becoming part of the network? How much does it cost to setup a node?" >}}
 
 You can setup a Rubix node on any laptop, desktop or VM.  Min specs for running each node = i5 or equivalent processor, 4 or 8 GB RAM & 512 GB SSD/HDD.
 
@@ -60,9 +64,10 @@ You can setup a Rubix node on any laptop, desktop or VM.  Min specs for running 
 
 {{< expand "How to create a DID?" >}}
 
-{{< /expand >}}
+Creating DID or Decentralised Identity is the simpletest and the easiest way to get started with Rubix.
+Each DID is unique identifier for your nodes which include wallets and validator subnet nodes. After installing pre-requisits and running the setup wizard, you can create a DID. 
 
-{{< expand "How much does it cost to setup a node?" >}}
+DID is created by running the /createDID curl command in [setup wizard](/setup).
 
 {{< /expand >}}
 

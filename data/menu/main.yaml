@@ -27,6 +27,8 @@ main:
     sub:
       - name: Cold Wallet
         ref: "coldwallet"
+      - name: Fexr
+        ref: "fexr"
   - name: Troubleshooting
     ref: "faq"
     sub:
@@ -57,13 +59,11 @@ main:
         ref: "wallet"
       - name: IPFS and Peer ID
         ref: "ipfs"
-      - name: Proof of Pledge
-        ref: "pledge"
       - name: Proofchain / Token chain
         ref: "proofchain"
       - name: NFT
         ref: "nft"
-      - name : Datum
+      - name : Enterprise Data in Rubix
         ref: "datum"
       - name: Hot Backups
         ref: "hotbackups"

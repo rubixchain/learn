@@ -8,4 +8,4 @@ aliases: ["/fexr", "/wallet", "/app"]
 Storing keys in a wallet that is not connected to the internet protects the keys from unauthorized access, Fexr introduces Crypto Wallet and On-Chain Verifiable Claims using DID. Fexr is a Non-Custodian Wallet so your Private Keys are held by you and not by any third party making you be your own bank, being build over Rubix Chain letting the user generate and store Private and Public keys on their device itself offline. The verification is done on-chain, where no third party is involved, making it completely decentralised.
 
 
-Website: <a href="https://getfexr.com">https://getfexr.com</a> <br/>
+Learn more <a href="https://getfexr.com">https://getfexr.com</a> <br/>

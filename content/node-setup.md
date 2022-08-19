@@ -93,11 +93,3 @@ For help regarding getting notified for releases see [documentation](https://doc
 
 <br>
 <br>
-
-# Communication and Troubleshooting
-
-User communicates with node running in the background via below REST APIs.
-
-Common error messages faced by nodes and the known solutions are listed below.
-
-<br>

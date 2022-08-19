@@ -12,6 +12,8 @@ main:
   - name: Become a Rubix Node
     ref: "node-setup"
     sub:
+      - name: API Endpoints
+        ref: "api_endpoint"
       - name: Where to Buy RBT
         ref: "buy"
       - name: Setup Rubix Node

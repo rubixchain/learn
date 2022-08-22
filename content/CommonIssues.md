@@ -85,6 +85,11 @@ Issue should be resoved.
 | `"error":"Bad Request"`: Error encountered by sender while sending curl request to /initiateTransaction for token transfer on a Linux machine. | In the curl request, quotations should be used with care, double quotes on windows system and single quotes on linux system for specifying Content-Type: `"Content-Type: application/json"` must be used for windows and `'Content-Type: application/json'` must be used for Linux systems. |
 | `Sender is Busy`: Error message encountered while doing type 2 transactions. | Sender has to restart rubix.jar and retry the transactions in such cases. |
 | `"error":"Internal Server Error"` | This is a generic error, log files should be checked in such cases.|
+|`"message", "Multiple Owners for <TokenHash>"` | This message means the tokens being transfered have multiple owners/pins. |
+|`"message", "Broken Cheque Chain. Kindly re-initiate transaction"`| This message means that the Token chain has been modified.|
+|`"message", "Ownership Check Failed"`| This message points that sender does not have ownership of tokens being transfered|
+|`"message", "Token wholly spent already. Kindly re-initiate transaction"`|Token used for parts has been used entirely. |
+|`"message","Contains Invalid Tokens. Kindly check tokens in your wallet"`| Tokens being transfered are modified tokens or tokens,tokenchains do not exist in senders Rubix wallet.|
 
 
 

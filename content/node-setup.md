@@ -31,6 +31,7 @@ Any computer or personal laptop with 8GB of RAM and a decent internet connection
 
 Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux) / [Windows](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe) / [Mac](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS) machines. This script will install all the required dependencies. Once the dependencies are installed you can download the Latest Release from the link provided in the [Latest Releases](https://learn.rubix.net/node-setup/#latest-releases).
 
+If you are not interested in One-Click Pre-Requisite setup, kindly download the document from [here for Linux](https://www.dropbox.com/s/8o8sathz81lmnho/Rubix%20Node%20Installation%20Instructions_%20Command%20Line%20-%20Linux.pdf?dl=0)
 {{< / hint >}}
 
 {{< expand "Setup Instructions for Linux" >}}

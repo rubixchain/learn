@@ -37,5 +37,5 @@ params:
   geekdocLogo: "images/icon.png"
   geekdocBreadcrumb: false
   geekdocSearch: false
-  geekdocRepo: "https://rubixchain.github.io/learn"
+  geekdocRepo: "https://github.com/rubixchain/learn"
   geekdocEditPath: "edit/main/content"

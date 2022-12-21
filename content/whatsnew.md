@@ -13,17 +13,16 @@ aliases: ["/whats new", "/what's new", "/latest"]
 
 ## 🎉 Rubix 2.6: Yamato
 
-We are excited to announce our latest update, #Rubix 2.6: Yamato.
+We are excited to announce our latest update, Rubix 2.6: Yamato.
 This new update transforms the way tokens are used on our platform. We introduce faster token transfers with less number of quorums (Only 5 out of 7 quorums have to sign), pledging/un-pledging of tokens to enforce PoP to the next level of accurate tracking of token transfers with improved security, enhanced authentication using secp256k1 parameterized ECDSA key pairs, and transaction validation.
 
-<a href ="https://github.com/rubixchain/rubixnetwork/releases/tag/2.6"> Click here to download Rubix 2.1: Eismeer </a>
+<a href ="https://github.com/rubixchain/rubixnetwork/releases/tag/2.6"> Click here to download Rubix 2.6: Yamato </a>
 
 ### Information 
 
 **JDK version**
 
-- We recommend you to update the JAVA verison in your system to OpenJDK11
-- This is critical to run the Rubix executable without any hassle.
+- We recommend you to update the JAVA verison in your system to OpenJDK11. This is critical to run the Rubix executable without any hassle.
 
 **ECDSA Keys**
 
@@ -32,12 +31,14 @@ This new update transforms the way tokens are used on our platform. We introduce
 - Please refer to use of the below API to create the ECDSA key pair for transaction and for quorum services, once you have started the rubix jar.
 
 ```
-$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateEcDSAKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
+$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateEcDSAKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : 0}'
 ```
 
+
 ```
-$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateQuorumKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : }'
+$ curl --header "Content-Type: application/json" --request POST 'http://localhost:1898/generateQuorumKeys' --data '{ "pvtKeyPass" : "<password>" , "returnKey" : 0}'
 ```
+
 - After creation of Quorum service ECDSA key pair, execute the below API to start quorum services. Note, kindly provide the same password that was used to create the quorum keys.
 
 ```
@@ -69,7 +70,7 @@ curl --location --request POST 'http://localhost:1898/unpledgeToken' --header 'C
 
 **Oracle:**
 
-- Network is currently mining in `level 4` - reached on `5 th march 2022`
+- Network is currently mining in `Level 4` - reached on `21st December 2022`
 
 {{< / expand >}}
 {{< / hint >}}

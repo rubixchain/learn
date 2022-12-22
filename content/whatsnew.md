@@ -70,7 +70,7 @@ curl --location --request POST 'http://localhost:1898/unpledgeToken' --header 'C
 
 **Oracle:**
 
-- Network is currently mining in `Level 4` - reached on `21st December 2022`
+- Network is currently mining in `Level 4`
 
 {{< / expand >}}
 {{< / hint >}}

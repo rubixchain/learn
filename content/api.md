@@ -31,19 +31,16 @@ User communicates with the node thats running in the background via REST APIs. B
 | Remove bootstrap | `/bootstrap` | Remove boostrap id from the boostrap list | ```curl --header "Content-Type: application/json" --request DELETE http://localhost:1898/bootstrap?id=<bootstrap-id>``` |
 
 {{< /tab >}}
-{{< /tabs >}}
 
-{{< tabs "uniqueid" >}}
 {{< tab "API for RBT Txn and Unpledging" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Transfer Tokens | `/initiateTransaction` | Transfers token(s) from one wallet address to another | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateTransaction --data '{ "receiver": "<receiver DID here>", "tokenCount":1, "comment":"transaction comments", "type":1, "pvtKeyPass" : "<password>"}'``` |
 | Unpledge Tokens | `/unpledgeToken` | Unpledge the pledged tokens | ```curl --location --request POST 'http://localhost:1898/unpledgeToken' --header 'Content-Type: application/json' --data-raw '{"tokenList": "<hash of token to be unpledged. >"}'``` |
 {{< /tab >}}
-{{< /tabs >}}
 
 
-{{< tabs "uniqueid" >}}
+
 {{< tab "API to get Information" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -55,9 +52,9 @@ User communicates with the node thats running in the background via REST APIs. B
 |  Get Transaction Details with User's DID | `/getTxnByDID` | Retrieves all the transactions made with the input DID | ```curl --header "Content-Type: application/json" --request POST <http://localhost:1898/getTxnByDID> --data '{"did" : "QmdkrLpyoGFrhsbeuZrXpcvr2QRsLuQnrbXVfJTe1yXqzy"}'``` |
 | Get Transaction Details by Range | `/getTxnByRange` | Retrieves all the transactions made with the input DID | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/getTxnByRange --data-raw '{"startRange":1, "endRange":4}'``` |
 {{< /tab >}}
-{{< /tabs >}}
 
-{{< tabs "uniqueid" >}}
+
+
 {{< tab "API for DATUM Data Commit" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |

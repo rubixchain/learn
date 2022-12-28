@@ -17,7 +17,7 @@ weight: 1
 User communicates with the node thats running in the background via REST APIs. Below listed are the REST API Endpoints with which user can able to view information, transfer tokens and so on.
 
 {{< tabs "uniqueid" >}}
-{{< tab "API for Rubix Node Setup" >}}
+{{< tab "Rubix Node Setup" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | DID Creation | `/createDID` | Creates a unique Decentralized IDentity | ```curl --location --request POST 'http://localhost:1898/create' --form 'data="Rubik"' --form 'image=@"imagepath"'``` |
@@ -32,7 +32,7 @@ User communicates with the node thats running in the background via REST APIs. B
 
 {{< /tab >}}
 
-{{< tab "API for RBT Txn and Unpledging" >}}
+{{< tab "RBT Txn and Unpledging" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Transfer Tokens | `/initiateTransaction` | Transfers token(s) from one wallet address to another | ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/initiateTransaction --data '{ "receiver": "<receiver DID here>", "tokenCount":1, "comment":"transaction comments", "type":1, "pvtKeyPass" : "<password>"}'``` |
@@ -41,7 +41,7 @@ User communicates with the node thats running in the background via REST APIs. B
 
 
 
-{{< tab "API to get Information" >}}
+{{< tab "Account Information" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Account Information | `/getAccountInfo` | Retrieves the user account details | ```curl --header "Content-Type: application/json" --request GET http://localhost:1898/getAccountInfo``` |
@@ -55,7 +55,7 @@ User communicates with the node thats running in the background via REST APIs. B
 
 
 
-{{< tab "API for DATUM Data Commit" >}}
+{{< tab "DATUM Data Commit" >}}
 | Field | Endpoint | Description | Sample Request |
 | ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Data Commit | `/commitBlock` | Commits Data to Rubix Blocks| ```curl --header "Content-Type: application/json" --request POST http://localhost:1898/commitBlock --data '{ "blockHash": "<hash>", "comment":"transaction comments", "type":2, "pvtKeyPass":<password>}'``` |

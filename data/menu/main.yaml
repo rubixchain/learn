@@ -2,6 +2,8 @@
 main:
   - name : 📣 What's new 
     ref: "whatsnew"
+  - name : Versions
+    ref: "versions"
   - name: Vision
     ref: "vision"
     sub:

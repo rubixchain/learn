@@ -11,6 +11,11 @@ main:
         ref: "blockspace"
       - name: Proof-of-Pledge Protocol
         ref: "pop"
+  - name: Smart Contracts
+    ref: "smartcontract"
+    sub:
+      - name: Smart Contracts API
+        ref: "smartcontractapi"
   - name: Setup Rubix Node
     ref: "node-setup"
     sub:

@@ -57,6 +57,11 @@ The compiled WebAssembly code is then deployed onto a blockchain platform. The c
     Sample API:
     </li>
     <code>
+    curl --location 'http://localhost:20000/api/subscribe-smart-contract' \ <br>
+    --header 'Content-Type: application/json' \ <br>
+    --data '{ <br>
+    "smartContractToken": "smart contract token hash generated from generate-smart-contract api" <br>
+    }' 
     </code>
 </ol>
 <li>

@@ -76,6 +76,8 @@ main:
         ref: "nft"
       - name : Enterprise Data in Rubix
         ref: "datum"
+      - name : Tokenomics in Rubix
+        ref: "tokenomics"
       - name: Hot Backups
         ref: "hotbackups"
   - name: Advanced

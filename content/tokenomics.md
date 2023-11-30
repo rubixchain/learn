@@ -8,13 +8,13 @@ This section explains tokenomics in Rubix network. A good understanding of [smar
 
 ### 1. Smart Contracts
 
-1. Smart contract is codified business logic written by decentralized app (dApps) developers.
+1. Smart contract is codified business logic written by decentralized App (dApp) developers.
 2. Every transaction written to the Rubix ledger( other than RBT transfer) is governed by / output of a Smart Contract.
 3. RBT transfer is a native transaction on Rubix.
 
 ### 2. Pledging Principles
 
-1. Any transactions getting written to the ledger would need to have at least one Rubix DID associated with the same.
+1. Any transaction getting written to the ledger would need to have at least one Rubix DID associated with the same.
 2. Any transaction (Unless it&#39;s a native RBT transfer) getting written to the ledger would be coming on back of one or more smart contracts in play as per business logic deployed by the application.
 3. The smart contract will have a provision to define the value of every type of transaction getting written the ledger.
 4. The floor value for any transaction to the ledger would be set by Rubix and would change from time to time. The app provider would be free to change this floor value and set a higher value.
@@ -25,7 +25,7 @@ Computation of RBTs required for Pledging
 
 | Scenario | Contract | Pledging Logic | Example |
 | ---------------------------------------- | ------ | ---------------------------------------- | ------ |
-| RBT transfer from DID 1 to DID 2 (P-P) | Rubix Native | Size of Pledge equal to Value of RBTs transferred | Value of password supplied by the user to create their ECDSA Key pair|
+| RBT transfer from DID 1 to DID 2 (P-P) | Rubix Native | Size of Pledge equal to Value of RBTs transferred | 20 RBTs being transferred from DID1 to DID2 – Total value of DIDs to be pledged by open quorum would be 20 RBTs|
 | Data from consumer app written to the ledger ( P-A) in the enterprise subnet with private quorum | App defined | Maximum Size of Pledge required equal to Number of DIDs x Highest Value data transaction against the consumer DID | 1 Million DIDs in a mobile App. If dApp provider doesn’t change the Rubix defined floor value ( ie 1 transaction = 1/5000 RBT) then 10,00,000/ 5000= 200 RBTs are required in the private quorum of the subnet to maintain the DID chain of 1 Million app users. Each of the 5 nodes making up the private quorum would then need to have 200/5 = 40 RBTs with them|
 | Contract between two enterprises (A- A) in a subnet with private quorum | App defined | Size of pledge would be equal to the value of the contract as agreed by the two enterprises | Assume that 100,000 users signed up for Verified Credentials service offered by the above dApp and provide their data/insights to be monetized by the dApp. The dApp offers the VC look up service to interested enterprises. Say the value of each VC look up by the contracting enterprise is custom defined in the smart contract as 1/50 of RBT by the dApp. The total value of the contract for a Single VC look up of all signed up users would be 1,00,000/ 50 = 2000 RBTs The contracting enterprise needs to transfer 2000 RBTs to the App to be able to look up VCs of 1,00,000 users. Hence a maximum of 2000 RBTs would be required to be in the private quorum of the smart contract to facilitate the value exchange between the app and the contracting enterprise. Each of the 5 nodes making up the private quorum would then need to have 2000/5 = 400 RBTs with them. Back to Back share (of VC look up revenues) to the 1,00,000 consumers can also be built in the same smart contract.|
 | Off chain data being written to the ledger | App defined | Pledge Value increases with addition of records | Upto 1 Mn Records – 200 RBT 1 Mn to 2 Mn – 400 RBT 2 Mn to 5 Mn – 1000 RBT.|

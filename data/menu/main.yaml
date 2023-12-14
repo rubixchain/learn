@@ -18,6 +18,8 @@ main:
         ref: "smartcontractlifecycle"
       - name: Smart Contracts API
         ref: "smartcontractapi"
+      - name: Smart Contract Example
+        ref: "smartcontractexample"
   - name: Setup Rubix Node
     ref: "node-setup"
     sub:

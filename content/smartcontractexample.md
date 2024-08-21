@@ -5,94 +5,6 @@ aliases: ["/smartcontract", "/about/smartcontract", "/contributing/smartcontract
 ---
 
 
-## Prerequisites
-
-Any computer or personal laptop with 8GB of RAM and a decent internet connection can seamlessly run Rubix for token transfers / become validator / mining.
-
-Kindly Install the pre-requisites in your machines.
-
-## Setting up Node
-
-1. To set up a Rubix Wallet, first download the latest rubix compatible ipfs release from IPFS Kubo releases [IPFS Releases](https://github.com/ipfs/kubo/releases/tag/v0.18.0). The latest version of IPFS Kubo supported by Rubix is v18.0
-
-2. To set up a Rubix Wallet, download the Rubix executable from Rubix releases [Latest Releases](https://drive.google.com/file/d/10VRtGYQBE3lbY-Zj6M9noEGIDOBePfCb/view?usp=sharing) and unzip.
-
-3. Once unzipped, copy extract the ipfs archive and move the ipfs file to that of rubixgoplatform. Provide r/w access to the executable by running
-
-```
-chmod +x rubixgoplatform
-```
-
-We recommend you run rubixgoplatform as screen/daemon/nohop etc.
-
-## How to run the executables
-
-1. Run the executable as follows.
-
-```
-./rubixgoplatform run -p <name of node> -n 0 -s -testnet
-```
-Please note in the above command if -port flag not given default port of 20000 will be run for that node.
-
-2. To create a dID, run the following command
-
-```
-./rubixgoplatform createdid -fp
-```
-Input the password for you node (Note: This password is necessary for trnx.)
-
-3. To view the did
-
-```
-./rubixgoplatform getalldid
-```
-
-4. To add RBT balance (Test Token)
-
-```
-
-./rubixgoplatform generatetestrbt -did <did> -numTokens <no. of token> -port
-```
-
-5. To setup a node as quorum (This will enact your node as quorums)
-
-```
-./rubixgoplatform setupquorum -did <did> -port <port>
-```
-
-6. To add the quorumlist to the sender node
-
-```
-./rubixgoplatform addquorum -port <port> -quorumList quorumlist.json
-```
-below is the quorum list you can use
-
-```
-[
-    {
-        "type": 2,
-        "address": "Quorum1PeerID.Quorum1DID"
-    },
-    {
-        "type": 2,
-        "address": "Quorum2PeerID.Quorum2DID"
-    },
-    {
-        "type": 2,
-        "address": "Quorum3PeerID.Quorum2DID"
-    },
-    {
-        "type": 2,
-        "address": "Quorum4PeerID.Quorum2DID"
-    },
-    {
-        "type": 2,
-        "address": "Quorum5PeerID.Quorum2DID"
-    }
-]
-
-```
-
 # Smart Contract Example Walkthrough
 
 We have created a simple voting contract example to understand how smart contract works in Rubix Network
@@ -103,6 +15,9 @@ We have created a simple voting contract example to understand how smart contrac
 1. One or more rubix nodes running in different ports. To work as the smart contract generator and subscriber.
 2. A set of quorums which have sufficient test RBTs.
 
+## How to be a node?
+
+Follow the instruction shared in <a href="/node-setup"> Setup Rubix Node </a>
 ## Working with sample Voting dApp
 
 1. Compile the Rust code in voting-contract/voting_contract using

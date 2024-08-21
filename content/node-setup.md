@@ -22,75 +22,112 @@ Number of credits required by a node to mine a RBT token is determined by curren
 
 To know more about level and credits, please read the [Whitepaper](https://github.com/rubixchain/rubixnetwork/raw/master/RubiX_WhitePaper%20R1.8.pdf).
 
-# Prerequisites
+## Prerequisites
 
 Any computer or personal laptop with 8GB of RAM and a decent internet connection can seamlessly run Rubix for token transfers / become validator / mining.
 
-{{< hint info >}}
-### One Step Installation
+Kindly Install the pre-requisites in your machines.
 
-Use one step installation script for [Linux](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux) / [Windows](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe) / [Mac](https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS) machines. This script will install all the required dependencies. Once the dependencies are installed you can download the Latest Release from the link provided in the [Latest Releases](https://learn.rubix.net/node-setup/#latest-releases).
+## Setting up Node
 
-If you are not interested in One-Click Pre-Requisite setup, kindly download the document from [here for Linux](https://www.dropbox.com/s/8o8sathz81lmnho/Rubix%20Node%20Installation%20Instructions_%20Command%20Line%20-%20Linux.pdf?dl=0)
-{{< / hint >}}
+1. To set up a Rubix Wallet, first download the latest rubix compatible ipfs release from IPFS Kubo releases [IPFS Releases](https://github.com/ipfs/kubo/releases/tag/v0.18.0). The latest version of IPFS Kubo supported by Rubix is v18.0
 
-{{< expand "Setup Instructions for Linux" >}}
+2. To set up a Rubix Wallet, download the Rubix executable from Rubix releases [Latest Releases](https://github.com/rubixchain/rubixgoplatform/releases) and untar.
 
-{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Linux" >}}One Click Setup for Linux{{< /button >}}
+3. Once untar is done, copy extract the ipfs archive and move the ipfs file to that of rubixgoplatform. Provide r/w access to the executable by running
 
-  - Open a fresh instance of terminal under download path and run the following commands (without $)
+```
+chmod +x rubixgoplatform
+```
 
-  - $ chmod +x RubixOneClickSetup-Linux
-  
-  - $ ./RubixOneClickSetup-Linux
-  
-  - Provide user password when asked
-  
-  For detailed instruction [Click Here](https://learn.rubix.net/linux/)
-  
-  
-{{< /expand >}}
+We recommend you run rubixgoplatform as screen/daemon/nohop etc.
 
-{{< expand "Setup Instructions for Mac" >}}
+## How to run the executables
 
-{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-MacOS" >}}One Click Setup for Mac{{< /button >}}
+1. Run the executable as follows.
 
-  - Open a fresh instance of terminal under download path and run the following commands (without $)
+```
+./rubixgoplatform run -p <name of node> -n 0 -s -testnet
+```
+Please note in the above command if -port flag not given default port of 20000 will be run for that node.
 
-  - $ chmod +x RubixOneClickSetup-MacOS
-  
-  - $ ./RubixOneClickSetup-MacOS
-  
-  - Provide user password when asked
-  
-  For detailed instruction [Click Here](https://learn.rubix.net/macos/)
-  
-{{< /expand >}}
+2. To create a dID, run the following command
 
-{{< expand "Setup Instructions for Windows" >}}
+```
+./rubixgoplatform createdid -fp
+```
+Input the password for you node (Note: This password is necessary for trnx.)
 
-{{< button href="https://github.com/rubixchain/rubixnetwork/raw/master/setupscripts/OneClickSetup/RubixOneClickSetup-Windows.exe" >}}One Click Setup for Windows{{< /button >}}
-  - Open a fresh instance of cmd.exe under download path and run the following commands (without $)
+3. To view the did
 
-  - $ RubixOneClickSetup-Windows.exe
-  
-  - Provide user password when asked
+```
+./rubixgoplatform getalldid
+```
 
-  For detailed instruction [Click Here](https://learn.rubix.net/windows/)
+4. To add RBT balance (Test Token)
 
-{{< /expand >}}
+```
+
+./rubixgoplatform generatetestrbt -did <did> -numTokens <no. of token> -port
+```
+
+5. To setup a node as quorum (This will enact your node as quorums)
+
+```
+./rubixgoplatform setupquorum -did <did> -port <port>
+```
+
+6. To add the quorumlist to the sender node
+
+```
+./rubixgoplatform addquorum -port <port> -quorumList quorumlist.json
+```
+below is the quorum list you can use
+
+```
+[
+    {
+        "type": 2,
+        "address": "Quorum1DID"
+    },
+    {
+        "type": 2,
+        "address": "Quorum2DID"
+    },
+    {
+        "type": 2,
+        "address": "Quorum3DID"
+    },
+    {
+        "type": 2,
+        "address": "Quorum4DID"
+    },
+    {
+        "type": 2,
+        "address": "Quorum5DID"
+    },
+    {
+        "type": 2,
+        "address": "Quorum6DID"
+    },
+    {
+        "type": 2,
+        "address": "Quorum7DID"
+    }
+]
+
+```
+
+
 
 # Latest Releases
 
-Subscribe to GitHub repo [wallet repository](https://github.com/rubixchain/wallet) or [home repository](https://github.com/rubixchain/rubixnetwork) to be notified on new releases.
+Subscribe to GitHub repo [home repository](https://github.com/rubixchain/rubixgoplatform) to be notified on new releases.
 
 For help regarding getting notified for releases see [documentation](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)
 
-## {{< button href="https://github.com/rubixchain/wallet/releases" >}}GUI Wallet{{< /button >}}
-
-## {{< button href="https://github.com/rubixchain/rubixnetwork/releases" >}}CLI Node{{< /button >}}
+## {{< button href="https://github.com/rubixchain/rubixgoplatform/releases" >}}CLI Node{{< /button >}}
 
 ---
+<br>
 
-<br>
-<br>

@@ -11,6 +11,8 @@ main:
         ref: "blockspace"
       - name: Proof-of-Pledge Protocol
         ref: "pop"
+      - name: Pledging and Mining
+        ref: "pledgeandmine"
   - name: Smart Contracts
     ref: "smartcontract"
     sub:

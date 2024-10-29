@@ -13,12 +13,16 @@ aliases:
 geekdocBreadcrumb: false
 weight: 1
 ---
-## Creation of FTs
+# Creation of FTs
 
 To create an FT, you can use the following API endpoint:
 <br>
 
 **Endpoint**: `api/create-ft`
+<br>
+
+**Method**: `POST`
+
 <br>
 
 ### Request
@@ -82,12 +86,16 @@ curl --location 'localhost:20000/api/create-ft' \
 <br>
 <br>
 
-## Transfer of FTs
+# Transfer of FTs
 
 To transfer an FT from one DID to another, you can use the following API endpoint:
 <br>
 
 **Endpoint**: `/api/initiate-ft-tranfer`
+<br>
+
+**Method**: `POST`
+
 <br>
 
 ### Request
@@ -146,17 +154,50 @@ curl --location 'localhost:20000/api/initiate-ft-tranfer' \
   "FTName": "apple",
   "comment": "Test transfer",
   "creatorDID": "",
-  "password": "****",
+  "password": "",
   "receiver": "bafybmif2rlpev3xopqukajfj5dzgjoscoxms7sv4ee44743idlxzvjtiqy",
   "sender": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
   "type": 1
 }'
 ```
+<br>
+
+### NOTES:
 
 
+-	`password` is mandatory when you have a password created during the creation of DID.
+-	`creatorDID` is mandatory when you have multiple FTs with the same FT Name.
+- The default port is `20000`. If you are using a different port, please modify the sample requests accordingly.
 
 
+<br>
+<br>
 
+# Preview and export of FT Token chain
 
+## Preview of FT Token chain
+To view a FT token chain using FT Token ID, you can use the following API endpoint:
+<br>
 
-> **Note**: The default port is `20000`. If you are using a different port, please modify the sample requests accordingly.
+**Endpoint**: `/api/get-ft-token-chain`
+<br>
+
+**Method**: `GET`
+
+<br>
+
+### Request
+ 
+
+**Request format**:
+<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-token-chain.png">
+
+- Provide the FT token ID as the value for the `tokenID` key in your API request query parameter.
+
+<br>
+
+**Model request**:
+<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-token-chain.png">
+
+<br>
+<br>

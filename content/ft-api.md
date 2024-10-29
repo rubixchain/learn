@@ -160,6 +160,22 @@ curl --location 'localhost:20000/api/initiate-ft-tranfer' \
   "type": 1
 }'
 ```
+
+<br>
+<br>
+
+### Response
+
+ **Response format**:
+```json
+{
+  "message": "string",
+  "result": "string",
+  "status": true
+}
+```
+<br>
+<br>
 <br>
 
 ### NOTES:
@@ -172,10 +188,10 @@ curl --location 'localhost:20000/api/initiate-ft-tranfer' \
 
 <br>
 <br>
+<br>
 
-# Preview and export of FT Token chain
+# Preview of FT Token chain
 
-## Preview of FT Token chain
 To view a FT token chain using FT Token ID, you can use the following API endpoint:
 <br>
 
@@ -197,7 +213,90 @@ To view a FT token chain using FT Token ID, you can use the following API endpoi
 <br>
 
 **Model request**:
-<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-token-chain.png">
+<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-token-chain-model.png">
+<br>
+<br>
 
+**Model cURL request**: 
+```bash
+curl --location 'localhost:20000/api/get-ft-token-chain?tokenID=QmWxBMRbW2uyD27Czm5Bor49hnjvyRHMd1sEHTk8UGbe7i'
+```
+
+<br>
+<br>
+
+### Response
+
+**Response format**:
+```json
+{
+  "message": "string",
+  "result": "string",
+  "status": true,
+  "tokenChainData": [
+    "string"
+  ]
+}
+```
+<br>
+<br>
+<br>
+
+# Get the balance of all FTs 
+
+To get the balance of all FTs using user DID, you can use the following API endpoint:
+<br>
+
+**Endpoint**: `/api/get-ft-info-by-did`
+<br>
+
+**Method**: `GET`
+
+<br>
+
+### Request
+ 
+
+**Request format**:
+<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-info-by-did.png">
+
+- Provide the user DID as the value for the `did` key in your API request query parameter.
+
+<br>
+
+**Model request**:
+<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-info-by-did-model.png">
+<br>
+<br>
+
+**Model cURL request**: 
+```bash
+curl --location 'localhost:20000/api/get-ft-info-by-did?did=bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom'
+```
+
+<br>
+<br>
+
+### Response
+
+**Response format**:
+```json
+{
+  "ft_info": [
+    {
+      "creator_did": "string",
+      "ft_count": 0,
+      "ft_name": "string"
+    }
+  ],
+  "message": "string",
+  "result": "string",
+  "status": true
+}
+```
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>

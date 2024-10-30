@@ -1,53 +1,33 @@
 ---
-title: Secondary Fungible Token
+title: Fungible Token
 geekdocBreadcrumb: false
-aliases: ["/secondaryft", "/about/secondaryft", "/contributing/secondaryft"]
+aliases: ["/ft", "/about/ft", "/contributing/ft"]
 ---
 
-<h1> Secondary Fungible Tokens (FTs) on the Rubix Network </h1>
+<h1> Fungible Tokens (FTs) on Rubix Network </h1>
 
-Secondary fungible tokens (FTs) on the Rubix network serve as a versatile tool for decentralized applications (DApps) and community-driven projects, functioning similarly to individual fiat currencies that represent distinct economies. These tokens are created and governed within subnets, enabling developers to tailor them to specific applications while leveraging the security provided by the native Rubix Token (RBT). Just as RBT acts as a foundational asset in the Rubix ecosystem, ensuring stability akin to gold in traditional finance, secondary FTs empower DApps to innovate and engage users effectively.
+Fungible tokens on the Rubix network serve as a versatile tool for decentralized applications and community-driven projects, functioning similarly to individual fiat currencies that represent distinct economies. These tokens are created and governed within subnets, enabling developers to tailor them to specific applications while leveraging the security provided by the native Rubix Token (RBT). Just as RBT acts as a foundational asset in the Rubix ecosystem, ensuring stability akin to gold in traditional finance, FTs empower DApps to innovate and engage users effectively.
 
-## Unlocking the Potential: Key Applications of SFTs
+## Unlocking the Potential: Key Applications of FTs
 
 <!-- Reduce each line for better readability -->
 
+### Loyalty and Rewards Programs
 
-### 1. Supply Chain Management
+Rubix FTs are ideal for modern loyalty programs, enabling businesses to issue transferable, secure tokens as rewards. Customers can redeem or trade these tokens across platforms, while Rubix’s low transaction fees and high-speed processing create a seamless experience that fosters customer loyalty and engagement.
 
-SFTs can play a crucial role in supply chain management by enhancing transparency and efficiency. By representing ownership of goods as SFTs on a blockchain, businesses can track products throughout their lifecycle—from production to delivery. This tokenization allows stakeholders to verify the authenticity and origin of products easily, reducing fraud and counterfeiting.
+### Asset Tokenization
 
-For example, each item in a supply chain can be assigned a unique SFT that records its journey through various stages. This data can include timestamps, locations, and handling conditions, which are immutable and accessible to all authorized parties. As a result, companies can streamline operations, improve inventory management, and enhance customer trust by providing verifiable proof of product provenance.
+High-value assets, like real estate or commodities, can be fractionally owned and traded as Rubix FTs, making them more accessible to a wider range of investors. Rubix’s efficient and scalable platform allows for secure transactions and liquidity in traditionally illiquid asset classes.
 
-### 2. Loyalty and Rewards Programs
+### Decentralized Governance
 
-Businesses can leverage SFTs to create innovative loyalty and rewards programs that enhance customer engagement. By issuing SFTs as rewards for purchases or other interactions (such as social media shares), companies can incentivize repeat business and foster brand loyalty.
+FTs on Rubix empower holders to participate in governance activities. As governance tokens, they enable voting on protocol changes or new features while ensuring votes remain secure and immutable. This structure, supported by Rubix’s advanced quorum setup, enables a decentralized decision-making process that aligns with Rubix’s community-driven ethos.
 
-These tokens can be redeemed for discounts, exclusive products, or special services within the ecosystem of the business or partnered merchants. The use of SFTs allows for greater flexibility than traditional loyalty points; customers can trade or sell their tokens on secondary markets if they choose not to redeem them directly. This approach not only increases customer satisfaction but also creates a vibrant marketplace around the brand’s ecosystem.
+<br>
+<br>
 
-### 3. Asset Tokenization
-
-SFTs enable the tokenization of real-world assets, such as real estate, commodities, or even art. By converting these assets into SFTs, they can be fractionally owned and easily traded on blockchain platforms. This democratizes access to investments that were previously limited to high-net-worth individuals or institutional investors.
-
-For instance, a property valued at $1 million could be tokenized into 1 million SFTs worth $1 each. Investors can purchase as many tokens as they desire, thereby owning a fraction of the asset without needing to buy it outright. This method enhances liquidity in traditionally illiquid markets and opens up new avenues for investment while allowing asset owners to raise capital more efficiently.
-
-### 4. Decentralized Governance
-
-SFTs are instrumental in establishing decentralized governance models within blockchain projects and communities. Token holders are often granted voting rights proportional to their holdings, enabling them to participate in decision-making processes regarding project development, resource allocation, and protocol upgrades.
-
-This democratic approach ensures that stakeholders have a say in the direction of the project, fostering a sense of community ownership and accountability. For example, holders of governance SFTs may vote on proposals such as changes to the platform's fee structure or new feature implementations. This model not only empowers users but also aligns incentives among participants, contributing to the sustainability and growth of decentralized ecosystems.
-
-### 5. Utility within DApps
-
-SFTs serve as a medium of exchange within decentralized applications (DApps), facilitating transactions for services or features offered by these platforms. Users can utilize SFTs to pay for transaction fees, access premium content, or unlock functionalities within the app.
-
-In DeFi applications, users may need SFTs to provide liquidity or participate in yield farming activities. The versatility of SFTs enhances user experience by simplifying transactions and creating an integrated economic environment within DApps.
-
-
-In the current Web3 landscape, secondary fungible tokens (SFTs), particularly those created using the Rubix network's native token (RBT), are gaining traction as a versatile solution for various digital asset applications. As decentralized finance (DeFi) and blockchain technologies evolve, SFTs are being recognized for their ability to combine the benefits of fungible and non-fungible tokens, offering enhanced liquidity and flexibility in asset management. The Rubix network's architecture supports high scalability and zero gas fees, making it an attractive platform for deploying SFTs in diverse sectors such as supply chain management, loyalty programs, and asset tokenization. Recent developments highlight the potential of SFTs to facilitate more efficient transactions by enabling batch transfers, which significantly reduce costs compared to traditional NFT transactions. Furthermore, as enterprises increasingly seek to integrate blockchain solutions for real-world asset tokenization, SFTs provide a robust framework that allows for dynamic ownership transitions while maintaining a clear record of asset history. This adaptability positions SFTs as a key component in the ongoing evolution of digital economies within the Web3 ecosystem
-
-
-The integration of fungible tokens enhances scalability and reduces transaction costs, allowing for faster transactions without compromising security. This advancement makes FTs more accessible for diverse applications. The ability to name and back these tokens with RBT not only enhances their credibility but also facilitates seamless transfers within and across subnets. This dual-token system promotes liquidity and fosters a diverse range of applications, empowering communities to create unique economic models while enriching the overall Rubix ecosystem through collaboration and growth among developers and users alike.
+Fungible tokens (FTs) on the Rubix network, are gaining popularity for various DApps. They support dynamic ownership transitions while maintaining clear asset histories, making them valuable for real-world asset tokenization. Backed by RBT, these tokens enhance credibility and ensure seamless transfers across subnets. This dual-token system promotes liquidity and fosters the development of unique economic models, encouraging collaboration within the Rubix ecosystem
 
 
 
@@ -59,19 +39,19 @@ Creating a fungible token (FT) is a streamlined process that leverages the capab
 
 ### Maximizing Value: The pivotal Role of RBT 
 
-The native token RBT provides significant advantages in creating secondary fungible tokens (SFTs) within the Rubix network. Acting as a stable backing asset, RBT gives intrinsic value to each SFT, fostering trust and mitigating volatility, which makes SFTs appealing for trading. Additionally, RBT enables seamless transactions and enhances liquidity, allowing for efficient exchanges across various decentralized applications (DApps). Overall, RBT strengthens the market position of SFTs and contributes to a more efficient blockchain experience
+The native token RBT provides significant advantages in creating FTs within the Rubix network. Acting as a stable backing asset, RBT gives intrinsic value to each FT, fostering trust and mitigating volatility, which makes FTs appealing for trading. Additionally, RBT enables seamless transactions and enhances liquidity, allowing for efficient exchanges across various DApps. Overall, RBT strengthens the market position of FTs and contributes to a more efficient blockchain experience.
 
 ### Fractional Ownership and value: Enhancing Accessibility 
 
-The fractional value of each secondary fungible token (SFT) enhances its utility within the Rubix network. The value is calculated by dividing the total native tokens used in creation by the number of SFTs issued. For instance, if 100 SFTs named Mango are created with 1 RBT, each Mango is valued at 0.01 RBT. This fractional approach allows users to manage smaller asset portions, democratizing access to digital assets and facilitating broader participation in trading and investment while improving liquidity.
+The fractional value of each FT enhances its utility within the Rubix network. The value is calculated by dividing the total native tokens used in creation by the number of FTs issued. For instance, if 100 FTs named Mango are created with 1 RBT, each Mango is valued at 0.01 RBT. This fractional approach allows users to manage smaller asset portions, democratizing access to digital assets and facilitating broader participation in trading and investment while improving liquidity.
 
 ### Customizable Identity and Fixed Supply
 
-The fixed supply of secondary fungible tokens (SFTs) is crucial for market stability within the Rubix network. Users can define a specific total supply during creation, preventing inflation and fostering trust by establishing a clear limit on availability. Additionally, custom naming allows creators to tailor their tokens for specific applications or communities. This combination promotes broader adoption and utilization of SFTs across various decentralized applications (DApps).
+The fixed supply of FTs is crucial for market stability within the Rubix network. Users can define a specific total supply during creation, preventing inflation and fostering trust by establishing a clear limit on availability. Additionally, custom naming allows creators to tailor their tokens for specific applications or communities. This combination promotes broader adoption and utilization of FTs across various DApps.
 
 ## Trasnfer of FTs
 
-Transferring secondary fungible tokens (SFTs) within the Rubix network is a highly efficient process that aligns with the transfer mechanisms of the native token RBT. Users can execute SFT transfers between Decentralized Identifiers (DIDs) by providing essential transaction details, such as the sender and receiver addresses, along with the name and quantity of SFTs involved. The transfer process employs a quorum consensus mechanism, which mandates that at least one-fifth of the total token value of the SFTs being transferred must be held by the validating quorum. This rigorous validation process ensures secure and reliable transactions, as validators confirm ownership and authorize the transfer before execution. By leveraging this sophisticated framework, SFT transfers not only enhance liquidity but also facilitate seamless interactions across various decentralized applications (DApps) within the Rubix ecosystem, ensuring a professional and user-centric experience.
+Transferring FTs within the Rubix network is a highly efficient process that aligns with the transfer mechanisms of the native token RBT. Users can execute FT transfers between DIDs by providing essential transaction details, such as the sender and receiver addresses, along with the name and quantity of FTs to be transferred. The transfer process employs a quorum consensus mechanism, which mandates that at least one-fifth of the total token value of the FTs being transferred must be held by the validating quorums. This rigorous validation process ensures secure and reliable transactions, as quorums confirm pledging and authorize the transfer before execution. By leveraging this sophisticated framework, FT transfers not only enhance liquidity but also facilitate seamless interactions across various DApps within the Rubix ecosystem, ensuring a professional and user-centric experience.
 
 
 

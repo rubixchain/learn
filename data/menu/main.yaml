@@ -20,7 +20,7 @@ main:
         ref: "smartcontractapi"
       - name: Smart Contract Example
         ref: "smartcontractexample"
-  - name: FT
+  - name: Fungible Token (FT)
     ref: "ft"
     sub:
       - name: FT API Endpoints 

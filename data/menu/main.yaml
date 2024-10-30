@@ -22,6 +22,15 @@ main:
         ref: "smartcontractapi"
       - name: Smart Contract Example
         ref: "smartcontractexample"
+  
+  - name: NFT
+    ref: "nft"
+    sub:
+      - name: API Endpoints
+        ref: "nft-api"
+      - name: Commands
+        ref: "nft-command"
+
   - name: Setup Rubix Node
     ref: "node-setup"
     sub:
@@ -107,8 +116,6 @@ main:
         ref: "staking"
       - name: Rubix Asset Contract
         ref: "rac"
-      - name: NFT Deep Dive
-        ref: "nft-deep-dive"
 
   # - name: Development Roadmap
   #   ref: ""

@@ -204,17 +204,8 @@ To view a FT token chain using FT Token ID, you can use the following API endpoi
 
 ### Request
  
-
-**Request format**:
-<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-token-chain.png">
-
 - Provide the FT token ID as the value for the `tokenID` key in your API request query parameter.
 
-<br>
-
-**Model request**:
-<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-token-chain-model.png">
-<br>
 <br>
 
 **Model cURL request**: 
@@ -255,18 +246,9 @@ To get the balance of all FTs using user DID, you can use the following API endp
 <br>
 
 ### Request
- 
 
-**Request format**:
-<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-info-by-did.png">
+- Provide the user DID as the value for the `did` key in your API request query parameter
 
-- Provide the user DID as the value for the `did` key in your API request query parameter.
-
-<br>
-
-**Model request**:
-<img src="https://github.com/rubixchain/learn/raw/vaishnav/feature/DocsForFT/static/images/get-ft-info-by-did-model.png">
-<br>
 <br>
 
 **Model cURL request**: 

@@ -15,7 +15,7 @@ weight: 1
 | Execute NFT | `/api/execute-nft` | This API executes an NFT (Ownership transfer or Internal State change)  | ```curl -X 'POST' 'http://localhost:20004/api/execute-nft' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"comment": "string", "nft": "string", "nft_data": "<any string data>" "nft_value": 10, "owner": "bafymdi..", "quorum_type": 2, "receiver": "bafymdi.."}'``` |
 | Subscribe NFT | `/api/subscribe-nft` | This API subscribes to NFT token chain updates | ```curl -X 'POST' 'http://localhost:20004/api/subscribe-nft' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"nft": "string"}'``` |
 | Get NFT Chain Data | `/api/get-nft-token-chain-data` | This API fetches NFT Token Chain data | ```curl -X 'GET' 'http://localhost:20004/api/get-nft-token-chain-data?nft=Qm123&latest=false' -H 'accept: application/json'``` |
-| List NFT by DID | `/api/list-nfts-by-did` | This API fetches all the NFTs present on the node. | ```curl -X 'GET' 'http://localhost:20004/api/list-nfts' -H 'accept: application/json'``` |
+| List NFT by DID | `/api/list-nfts` | This API fetches all the NFTs present on the node. | ```curl -X 'GET' 'http://localhost:20004/api/list-nfts' -H 'accept: application/json'``` |
 
 {{< /tab >}}
 

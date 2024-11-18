@@ -31,27 +31,27 @@ To create an FT, you can use the following API endpoint:
 ```json
 {
   "did": "string",
-  "ftcount": 0,
-  "ftname": "string",
-  "tokencount": 0
+  "ft_count": 0,
+  "ft_name": "string",
+  "token_count": 0
 }
 ```
 <br>
 <br>
 
 - **did** [String]: The DID of the user creating the FTs.
-- **ftcount** [Integer]: The total supply of FTs to be created.
-- **ftname** [String]: The name/symbol of the FT being created.
-- **tokencount** [Integer]: The amount of native token RBT required for the creation process, ensure sufficient RBT funds are available.
+- **ft_count** [Integer]: The total supply of FTs to be created.
+- **ft_name** [String]: The name/symbol of the FT being created.
+- **token_count** [Integer]: The amount of native token RBT required for the creation process, ensure sufficient RBT funds are available.
 <br>
 
 **Model request**:
 ```json
 {
   "did": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
-  "ftcount": 100,
-  "ftname": "apple",
-  "tokencount": 1
+  "ft_count": 100,
+  "ft_name": "apple",
+  "token_count": 1
 }
 ```
 <br>
@@ -63,9 +63,9 @@ curl --location 'localhost:20000/api/create-ft' \
 --header 'Content-Type: application/json' \
 --data '{
   "did": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
-  "ftcount": 100,
-  "ftname": "apple",
-  "tokencount": 1
+  "ft_count": 100,
+  "ft_name": "apple",
+  "token_count": 1
 }'
 ```
 
@@ -91,7 +91,7 @@ curl --location 'localhost:20000/api/create-ft' \
 To transfer an FT from one DID to another, you can use the following API endpoint:
 <br>
 
-**Endpoint**: `/api/initiate-ft-tranfer`
+**Endpoint**: `/api/initiate-ft-transfer`
 <br>
 
 **Method**: `POST`
@@ -103,26 +103,26 @@ To transfer an FT from one DID to another, you can use the following API endpoin
 **Request format**:
 ```json
 {
-  "FTCount": 0,
-  "FTName": "string",
   "comment": "string",
   "creatorDID": "string",
+  "ft_count": 0,
+  "ft_name": "string",
   "password": "string",
+  "quorum_type": 0,
   "receiver": "string",
-  "sender": "string",
-  "type": 0
+  "sender": "string"
 }
 ```
 <br>
 <br>
 
-- **FTCount** [Integer]: Total number of FTs to be transferred.
-- **FTName** [String]: Name/symbol of the FT being transferred.
+- **ft_count** [Integer]: Total number of FTs to be transferred.
+- **ft_name** [String]: Name/symbol of the FT being transferred.
 - **comment** [String]: Optional message regarding the transfer.
 - **password** [String]: Password to authorize the transfer (default “ ”).
 - **receiver** [String]: Address of the recipient receiving the FT.
 - **sender** [String]: Address of the user initiating the transfer.
-- **type** [Integer]: Type of quorum for the transaction.
+- **quorum_type** [Integer]: Type of quorum for the transaction.
   - **1**: Randomly picked quorums.
   - **2**: Specified by the sender.
 - **creatorDID** [String]: Defines the creator of an FT.
@@ -132,14 +132,14 @@ To transfer an FT from one DID to another, you can use the following API endpoin
 **Model request**:
 ```json
 {
-  "FTCount": 24,
-  "FTName": "apple",
-  "comment": "Test transfer",
+  "comment": "",
   "creatorDID": "",
-  "password": "****",
-  "receiver": "bafybmif2rlpev3xopqukajfj5dzgjoscoxms7sv4ee44743idlxzvjtiqy",
-  "sender": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
-  "type": 1
+  "ft_count": 8,
+  "ft_name": "ARR",
+  "password": "",
+  "quorum_type": 2,
+  "receiver": "bafybmicdvgacsdsscn63eaq3faqdtimros23b4j7bpj2m2wsmjjaxoj47i",
+  "sender": "bafybmig7cmpfdcxqbvn3wutczeby2a6o46cnfzmcyoy6imgbnt7qzfwxp4"
 }
 ```
 <br>
@@ -147,17 +147,17 @@ To transfer an FT from one DID to another, you can use the following API endpoin
 
 **Model cURL request**: 
 ```bash
-curl --location 'localhost:20000/api/initiate-ft-tranfer' \
+curl --location 'localhost:20051/api/initiate-ft-transfer' \
 --header 'Content-Type: application/json' \
 --data '{
-  "FTCount": 24,
-  "FTName": "apple",
-  "comment": "Test transfer",
+  "comment": "",
   "creatorDID": "",
+  "ft_count": 3,
+  "ft_name": "ARR",
   "password": "",
-  "receiver": "bafybmif2rlpev3xopqukajfj5dzgjoscoxms7sv4ee44743idlxzvjtiqy",
-  "sender": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
-  "type": 1
+  "quorum_type": 2,
+  "receiver": "bafybmicdvgacsdsscn63eaq3faqdtimros23b4j7bpj2m2wsmjjaxoj47i",
+  "sender": "bafybmig7cmpfdcxqbvn3wutczeby2a6o46cnfzmcyoy6imgbnt7qzfwxp4"
 }'
 ```
 

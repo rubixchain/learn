@@ -16,6 +16,8 @@ weight: 1
 | Subscribe NFT | `/api/subscribe-nft` | This API subscribes to NFT token chain updates | ```curl -X 'POST' 'http://localhost:20004/api/subscribe-nft' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"nft": "string"}'``` |
 | Get NFT Chain Data | `/api/get-nft-token-chain-data` | This API fetches NFT Token Chain data | ```curl -X 'GET' 'http://localhost:20004/api/get-nft-token-chain-data?nft=Qm123&latest=false' -H 'accept: application/json'``` |
 | List NFTs | `/api/list-nfts` | This API fetches all the NFTs present on the node. | ```curl -X 'GET' 'http://localhost:20004/api/list-nfts' -H 'accept: application/json'``` |
+| Get NFTs by did | `/api/get-nfts-by-did` | This API fetches all the NFTs owned by the given did. | ```curl -X 'GET' 'http://localhost:20004/api/get-nfts-by-did?did=bafymdi....' -H 'accept: application/json'``` |
+| Fetch NFT | `/api/fetch-nft` | This API will Fetch NFT from network to the node. | ```curl -X 'GET' 'http://localhost:20004/api/fetch-nft?nft=Qm1234' -H 'accept: application/json'``` |
 
 {{< /tab >}}
 

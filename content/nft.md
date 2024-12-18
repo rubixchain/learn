@@ -4,42 +4,27 @@ geekdocBreadcrumb: false
 aliases: ["/data", "/about/data", "/contributing/data"]
 ---
 
-NFTs are the new sensation in the world of Blockchain and cryptocurrencies. From the first NFT "Quantum" being created in 2014 to the latest NFT drop by sports giant Adidas and to NFTs that are minted on Rubix Platform.
+Non Fungible Tokens are unique entities in the Rubix network whose value is derived from an underlying asset. This could be Real World Assets (RWAs) , unique access tokens , digital collectables. Each has distinct levels of properties , some would have more regulatory restrictions , some could be on time usage , some changes ownership whereas others change only its properties. 
 
-### What is an NFT?
+Generating an NFT is free in Rubix but deploying and minting NFT require native RBT tokens to be locked. The fee of NFT is decided by the owner / seller of NFT and in most cases is the actual value of the underlying asset. There are however some restrictions when it comes to regulatory records such as real world assets backed by authorities where the NFT is only a placeholder for proof of ownership. 
 
-NFT stands for Non-Fungible Token. The word Fungible means Replaceable, so the meaning of NFT can be interpreted as Non-Replaceable Token, i.e an NFT is unique and each NFT is one of it's kind.
+Due to Rubix’s architecture of maintaining separate object chains for tokens , we recommend NFTs to be created for unique assets / tokens that have medium-high liquidity. Tokens without much state changes can be created as objects in smart contracts since there is no benefit in maintaining separate chains.
 
-{{< hint info >}}
+# Lifecycle
 
-NFTs are cryptographically unique tokens that are linked to digital (and sometimes physical) content, providing proof of ownership.
+## Create NFT
 
-{{< / hint >}}
+In this step, we have to generate a directory which consists of the file meant to be an NFT, and a `metadata.json` file which contains the information about the NFT. For creating NFT for multiple files, the archive of these files should be given. A directory is created in `<node directory>/NFT/` with the name being hash of NFT
 
-These Non-Fungible Tokens are digital assets that are embedded with identification information during minting- also known as the NFT's metadata. It is this information that makes each NFT one of a kind. Due to this reason, they cannot be swapped with another NFT.
+## Subscribe NFT
 
-### NFT on Rubix BlockChain
+If a counterparty node wants to receive updates of an NFT's Token Chain, then it has to subscribe to the NFT.
 
-Rubix NFTs are one of a kind On-Chain NFTs and comes with a plethora of safety features and applications. A few varieties of NFTs minted on Rubix are Music NFTs, Art NFTs etc..
+## Deploy NFT
 
-NFTs minted on Rubix blockchain network follows the in-house RAC(Rubix Asset Contract) Protocol. This in turn allows the NFTs created to be linked closely with the Creators DID. 
+Once the the NFT is created locally, it is then deployed in the network. It essentially initialises the NFT's chain with a genesis block. We don't specify any value for NFT in this step, and hence only 1 RBT is pledged.
 
-Moreover, Rubix introduces an additional security measure of using Private Key of the creator on the NFTs that are minted to secure them. The amount of information of an asset while minting an NFT for it makes it more unique and allows for larger usecases, considering this particular scenario there is no limit to the amount of metadata that can be embedded in to the NFT, as the RAC structure supports and enables this.
+## Execute NFT
 
-Since the right to mint NFTs are open to all who are part of Rubix network, scenarios of fake tokens or manipulated tokens might arise, to combat this the RAC-NFT structure contains the NFT creators signature made with his/hers Private Key and the authenticity of the token can be verifed by the corresponding public key which is avilable in the network.
-
-Because of the above mentioned security features of Rubix NFT being closely linked with the creators DID and signature using private key, a process called as Sleep Minting is prevented on Rubix chain.
-
-{{< hint info >}}
-Sleep Minting is when a scammer mints an NFT directly to a famous creator's wallet with permission to reclaim or pull the NFT back out of the creator's wallet.
-{{< / hint >}}
-
-Without the Creators DID and his personal Private key this process is a scammer, cannot sleep mint NFT's on Rubix blockchain.
-
-Now for nodes/validators validating the NFT transactions are rewarded heflty with double the credits of a normal Rubix coin transfer, i.e. validators are awarded one credit each for validating a RBT transfer, but while they validate a NFT transfer on Rubix etwork they are awarded two credits each.
-
-If you have questions or feedback, please DM us at [@rubixchain](http://twitter.com/rubixChain).
-
-<br>
-
+For Rubix NFT, it can either undergo a transfer of ownership or it can updates its own state without the need of former, through self-execution. The sale value of an NFT, decided by the parties, is passed here. To perform Self-execution, the `receiver` parameter here must be empty. The pledge value matches the Sale Value. 
 

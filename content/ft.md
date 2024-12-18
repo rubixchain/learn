@@ -11,7 +11,7 @@ Fungible tokens on the Rubix network serve as a versatile tool for decentralized
 <br>
 <br>
 
-Fungible tokens (FTs) on the Rubix network, are gaining popularity for various DApps. They support dynamic ownership transitions while maintaining clear asset histories, making them valuable for real-world asset tokenization. Backed by RBT, these tokens enhance credibility and ensure seamless transfers across subnets. This dual-token system promotes liquidity and fosters the development of unique economic models, encouraging collaboration within the Rubix ecosystem
+Fungible tokens (FTs) on the Rubix network, are gaining popularity for various DApps. They support dynamic ownership transitions while maintaining clear asset histories, making them valuable for RWA tokenization. Backed by RBT, these tokens enhance credibility and ensure seamless transfers across subnets. This dual-token system promotes liquidity and fosters the development of unique economic models, encouraging collaboration within the Rubix ecosystem
 
 
 

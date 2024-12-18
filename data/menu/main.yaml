@@ -31,6 +31,13 @@ main:
       - name: Commands
         ref: "nft-command"
 
+  - name: FT
+    ref: "ft"
+    sub:
+      - name: FT API Endpoints 
+        ref: "ft-api"
+      - name: FT CLI Commands
+        ref: "ft-cli-command"
   - name: Setup Rubix Node
     ref: "node-setup"
     sub:

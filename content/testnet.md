@@ -3,8 +3,8 @@ title: Setup Rubix Node and Joining the Testnet
 aliases:
   [
     "/setup",
-    "/rbt",
-    "/dist",
+    "/testnet",
+    "/testing",
     "/start",
   ]
 geekdocBreadcrumb: false

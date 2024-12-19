@@ -15,7 +15,7 @@ Faucet tokens are premined tokens available for users to test and interact with 
 
 When a new node joins the testnet, it will have 0 tokens to start with. To help users get started, the Rubix testnet provides a faucet service where users can request premined test tokens. These tokens are not earned through validation but are instead distributed for testing and development purposes.
 
-To request test tokens, users must first create a node in the Rubix testnet and generate a Decentralized Identifier (DID). The DID is then submitted to the faucet, which allocates a fixed number of test tokens to the requesting node.
+To request test tokens, users must first create a node in the Rubix testnet and generate a Decentralized Identifier (DID). The DID is then submitted to the faucet, which transfers requested amount of tokens to the users DID. The faucet have kept a limit on amount of token per node per day inorder to avoid spam requests.
 
 Test tokens are free and allow users to experiment with the testnet’s functionality, such as performing token transfers, validating token chains, testing smart contracts etc. Unlike mainnet tokens, test tokens do not hold any real-world value and cannot be transferred to the main network.
 
@@ -24,7 +24,7 @@ Test tokens are free and allow users to experiment with the testnet’s function
 
 ### 1. Install Go 
 
-Any computer or personal laptop with 8GB of RAM and a decent internet connection can seamlessly run Rubix for token transfers / become validator / mining.
+Any computer or personal laptop with 8GB of RAM and a stable internet connection can seamlessly run Rubix for token transfers / become validator.
 
 - Download the latest Go binary package for your operating system from [Go's official site](https://golang.org/).  
 - Follow the installation instructions for your OS.  
@@ -36,7 +36,7 @@ Any computer or personal laptop with 8GB of RAM and a decent internet connection
 
 ### 2. Download and Extract IPFS Kubo (v19)
 
-- Visit [IPFS Kubo releases](https://github.com/ipfs/kubo/releases) and download version 19 suitable for your operating system.
+- Visit [IPFS Kubo releases](https://github.com/ipfs/kubo/releases/tag/v0.19.0) and download version 19 suitable for your operating system.
 - Locate the IPFS executable in the extracted files and verify if it has executable permissions.
 
 ### 3. Clone the RubixGoPlatform Repository
@@ -67,21 +67,21 @@ Any computer or personal laptop with 8GB of RAM and a decent internet connection
     make compile-mac
     ```
 
-Upon successful compilation, the rubixgoplatform executable will be created in a folder corresponding to your operating system. For example, on Linux, it will be located in the ./linux directory.
+Upon successful compilation, the "rubixgoplatform" executable will be created in a folder corresponding to your operating system. For example, on Linux (build directory), it will be located in the ./linux directory.
 
 ### 5. Prepare the Necessary Files
 
 Ensure the following files are in the build directory:
 - rubixgoplatform executable
 - ipfs executable (from Kubo v19)
-- testswarm.key (provided by the Rubix team)
+- testswarm.key (Its already part of executable. Copy it to the build directory)
 
 
 ## Joining the Testnet
 
 ### Start a Rubix Node
 
-1. Open a terminal and navigate to the directory containing the `rubixgoplatform` executable.
+1. Open a terminal and navigate to the directory containing the `rubixgoplatform` executable. This will already be present in the build directory.
 
    ```bash
    cd /path/to/rubixgoplatform
@@ -90,6 +90,10 @@ Ensure the following files are in the build directory:
 2. Start a Rubix node with the following command:
    ```bash
    ./rubixgoplatform run -s -testNet -p <node_name> -n <node_number> -grpcPort <grpc_port>
+    ```
+    Example
+    ```bash
+    ./rubixgoplatform run -s -testNet -p node0 -n 0 -grpcPort 10500
     ```
     
     Replace the placeholders:
@@ -113,6 +117,11 @@ Ensure the following files are in the build directory:
    ./rubixgoplatform createdid -didType 4 -port <port_number>
    ```
 
+   Copy the mnemonic file somewhere safe. This will help with node recovery. To get the mnemonic file, go to below location:
+   ```bash
+   cd /path/to/buildFolder/<Node_Name>/Rubix/TestNetDID/<did_generated>
+   ```
+
 2. Register the DID created by executing:
    ```bash
    ./rubixgoplatform registerdid -did <did_created> -port <port_number>
@@ -120,14 +129,13 @@ Ensure the following files are in the build directory:
 
 ### Generate Test RBT Tokens
 To get test RBTs (Rubix Blockchain Test Tokens):
- - Open the [faucet webpage](www.faucetlink.com) in browser
+ - Open the [faucet webpage](http://103.209.145.177:4000/) in browser
  - In the address field, provide your DID created above to receive test tokens for your node, and submit DID.
 
 
 ## Verification
 Validate token generation by checking the node’s token balance. 
 To check balance of a particular DID:
-
    ```bash
    ./rubixgoplatform getaccountinfo -did <did> -port <port_number>
    ```
@@ -136,9 +144,9 @@ Congratulations! You have successfully joined the Rubix testnet. You can now use
 ## Next Steps
 
 Now that you have successfully joined the Rubix testnet, you can:
-- Explore Rubix’s testnet functionality, such as token transfers, smart contracts etc.
-- Visit the [Rubix Documentation Portal](https://learn.rubix.net/) to learn more or contact the Rubix team for further support.
-- Use the [Rubix Block Explorer](www.explorerlink.com) to monitor transactions and node activity
+- Explore Rubix’s testnet functionality, such as [smart contracts](https://learn.rubix.net/smartcontract/) and other [APIs](https://learn.rubix.net/api/) to get information related to rubix node etc. 
+- Use the [Rubix Explorer](www.explorerlink.com) to monitor transactions and node activity.
+- Contact the [Rubix team](https://www.rubix.net/Contact) for further support.
 
 ## Latest Releases
 

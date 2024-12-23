@@ -47,6 +47,8 @@ main:
         ref: "buy"
       - name: Setup Rubix Node
         ref: "node-setup"
+      - name: Joining Rubix TestNet
+        ref: "testnet"
       - name: Create Decentralized IDentity
         ref: "create-did"
       - name: Earn Proof Credits

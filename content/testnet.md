@@ -73,7 +73,7 @@ Upon successful compilation, the "rubixgoplatform" executable will be created in
 
 Ensure the following files are in the build directory:
 - rubixgoplatform executable
-- ipfs executable (from Kubo v19)
+- ipfs executable (from Kubo v19, extract and copy in the build folder)
 - testswarm.key (Its already part of executable. Copy it to the build directory)
 
 

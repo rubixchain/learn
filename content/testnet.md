@@ -46,9 +46,10 @@ Any computer or personal laptop with 8GB of RAM and a stable internet connection
     git clone https://github.com/rubixchain/rubixgoplatform.git
     ```
 
-- Navigate to the repository directory
+- Navigate to the repository directory and checkout to the development branch
     ```bash
     cd rubixgoplatform
+    git checkout development
     ```
 
 ### 4. Build the RubixGoPlatform Executable

@@ -96,6 +96,7 @@ Ensure the following files are in the build directory:
     ```bash
     ./rubixgoplatform run -s -testNet -p node0 -n 0 -grpcPort 10500
     ```
+    This will start the node in port 20000. The port number where the node starts will be 20000+(node_number)
     
     Replace the placeholders:
 
@@ -112,11 +113,16 @@ Ensure the following files are in the build directory:
 
 ### Create a DID (Decentralized Identifier) for the Node and register the DID
 
-1. Once the node is running, create a DID by executing:
+1. Once the node is running, open a new tab in terminal while being in the same build path, create a DID by executing:
 
    ```bash
    ./rubixgoplatform createdid -didType 4 -port <port_number>
    ```
+   Example
+    ```bash
+    ./rubixgoplatform createdid -didType 4 -port 20000
+    ```
+    ![DID Creation](/images/didcreate.png)
 
    Copy the mnemonic file somewhere safe. This will help with node recovery. To get the mnemonic file, go to below location:
    ```bash
@@ -126,6 +132,10 @@ Ensure the following files are in the build directory:
 2. Register the DID created by executing:
    ```bash
    ./rubixgoplatform registerdid -did <did_created> -port <port_number>
+    ```
+    Example
+    ```bash
+    ./rubixgoplatform registerdid -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
     ```
 
 ### Generate Test RBT Tokens
@@ -140,6 +150,12 @@ To check balance of a particular DID:
    ```bash
    ./rubixgoplatform getaccountinfo -did <did> -port <port_number>
    ```
+   Example
+    ```bash
+    ./rubixgoplatform getaccountinfo -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
+    ```
+    You should see one RBT as below.
+    ![Account Info](/images/getaccountinfo.png)
 Congratulations! You have successfully joined the Rubix testnet. You can now use the node for testing and development purposes.
 
 ## Next Steps

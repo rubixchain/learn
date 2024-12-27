@@ -16,11 +16,15 @@ main:
   - name: Smart Contracts
     ref: "smartcontract"
     sub:
-      - name: Smart Contracts Life Cycle
-        ref: "smartcontractlifecycle"
-      - name: Smart Contracts API
+      - name: Introduction
+        ref: "smartcontract-introduction"
+      - name: Commands
+        ref: "smartcontract-commands"
+      - name: API
         ref: "smartcontractapi"
-      - name: Smart Contract Example
+      - name: Tutorial
+        ref: "smartcontract-tutorial"
+      - name: Example
         ref: "smartcontractexample"
   
   - name: NFT
@@ -31,13 +35,6 @@ main:
       - name: Commands
         ref: "nft-command"
 
-  - name: FT
-    ref: "ft"
-    sub:
-      - name: FT API Endpoints 
-        ref: "ft-api"
-      - name: FT CLI Commands
-        ref: "ft-cli-command"
   - name: Setup Rubix Node
     ref: "node-setup"
     sub:
@@ -47,8 +44,6 @@ main:
         ref: "buy"
       - name: Setup Rubix Node
         ref: "node-setup"
-      - name: Joining Rubix TestNet
-        ref: "testnet"
       - name: Create Decentralized IDentity
         ref: "create-did"
       - name: Earn Proof Credits

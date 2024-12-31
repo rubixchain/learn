@@ -1,5 +1,5 @@
 ---
-title: Setup Rubix Node and Joining the Testnet
+title: Joining the Testnet
 aliases:
   [
     "/setup",
@@ -90,21 +90,25 @@ Ensure the following files are in the build directory:
 
 2. Start a Rubix node with the following command:
    ```bash
-   ./rubixgoplatform run -s -testNet -p <node_name> -n <node_number> -grpcPort <grpc_port>
+   ./rubixgoplatform run -s -testNet -addFaucetQuorums -p <node_name> -n <node_number> -grpcPort <grpc_port>
     ```
     Example
     ```bash
-    ./rubixgoplatform run -s -testNet -p node0 -n 0 -grpcPort 10500
+    ./rubixgoplatform run -s -testNet -addFaucetQuorums -p node0 -n 0 -grpcPort 10500
     ```
     This will start the node in port 20000. The port number where the node starts will be 20000+(node_number)
+
+    - testNet: This flag will start the node in test network
+
+    - addFaucetQuorums: This flag adds a list of pre-defined quorums
     
     Replace the placeholders:
 
-    - \<node\_name\>: A unique name for your node.
+    - \<node\_name\>: A unique name for your node
 
-    - \<node\_number\>: Numeric identifier for the node.
+    - \<node\_number\>: Numeric identifier for the node
 
-    - \<grpc\_port\>: Port number for gRPC communication.
+    - \<grpc\_port\>: Port number for gRPC communication
 
 ### Confirm the node is operational and connected to the testnet. Check for below in the logs.
 

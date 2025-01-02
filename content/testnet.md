@@ -78,7 +78,7 @@ Ensure the following files are in the build directory:
 - testswarm.key (Its already part of executable. Copy it to the build directory)
 
 
-## Joining the Testnet
+## Setting Up the Node
 
 ### Start a Rubix Node
 
@@ -142,24 +142,37 @@ Ensure the following files are in the build directory:
     ./rubixgoplatform registerdid -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
     ```
 
-### Generate Test RBT Tokens
+### Purchase test RBTs from Rubix faucet
 To get test RBTs (Rubix Blockchain Test Tokens):
  - Open the [faucet webpage](http://103.209.145.177:4000/) in browser
  - In the address field, provide your DID created above to receive test tokens for your node, and submit DID.
 
 
 ## Verification
-Validate token generation by checking the node’s token balance. 
+
+### Check Token Balance
+Verify test RBTs by checking the node’s token balance. 
 To check balance of a particular DID:
    ```bash
    ./rubixgoplatform getaccountinfo -did <did> -port <port_number>
    ```
    Example
-    ```bash
-    ./rubixgoplatform getaccountinfo -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
-    ```
-    You should see one RBT as below.
-    ![Account Info](/images/getaccountinfo.png)
+   ```bash
+   ./rubixgoplatform getaccountinfo -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
+   ```
+You should see one RBT as below.
+![Account Info](/images/getaccountinfo.png)
+
+### Transfer Tokens
+To transfer the specified amount of tokens to the destination DID:
+   ```bash
+   ./rubixgoplatform transferrbt -rbtAmount <transfer_amount> -senderAddr <sender_did> -receiverAddr <receiver_did>  -port <port_number>
+   ```
+   Example
+   ```bash
+   ./rubixgoplatform transferrbt -rbtAmount 1.0 -senderAddr bafybmiactazvophv6nd5ohrkfjlxxhhq5je5wt3hk2eapl3cyqho4vlwre -receiverAddr bafybmibhh5zyobsmrn3t5yfeviwruifkogp3xmonhdzgc7qksyvhgqtble -port 20000
+   ```
+   
 Congratulations! You have successfully joined the Rubix testnet. You can now use the node for testing and development purposes.
 
 ## Next Steps

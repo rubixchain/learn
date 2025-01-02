@@ -166,13 +166,13 @@ You should see one RBT as below.
 ### Transfer Tokens
 To transfer the specified amount of tokens to the destination DID:
    ```bash
-   ./rubixgoplatform transferrbt -rbtAmount <transfer_amount> -senderAddr <sender_did> -receiverAddr <receiver_did>  -port <port_number>
+   ./rubixgoplatform transferrbt -rbtAmount <transfer_amount> -senderAddr <sender_did> -receiverAddr <receiver_did>  -port <sender_port_number>
    ```
    Example
    ```bash
-   ./rubixgoplatform transferrbt -rbtAmount 1.0 -senderAddr bafybmiactazvophv6nd5ohrkfjlxxhhq5je5wt3hk2eapl3cyqho4vlwre -receiverAddr bafybmibhh5zyobsmrn3t5yfeviwruifkogp3xmonhdzgc7qksyvhgqtble -port 20000
+   ./rubixgoplatform transferrbt -rbtAmount 1.0 -senderAddr bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -receiverAddr bafybmibhh5zyobsmrn3t5yfeviwruifkogp3xmonhdzgc7qksyvhgqtble -port 20000
    ```
-   
+
 Congratulations! You have successfully joined the Rubix testnet. You can now use the node for testing and development purposes.
 
 ## Next Steps

@@ -90,17 +90,17 @@ Ensure the following files are in the build directory:
 
 2. Start a Rubix node with the following command:
    ```bash
-   ./rubixgoplatform run -s -testNet -addFaucetQuorums -p <node_name> -n <node_number> -grpcPort <grpc_port>
+   ./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
     ```
     Example
     ```bash
-    ./rubixgoplatform run -s -testNet -addFaucetQuorums -p node0 -n 0 -grpcPort 10500
+    ./rubixgoplatform run -s -testNet -defaultSetup -p node0 -n 0 -grpcPort 10500
     ```
     This will start the node in port 20000. The port number where the node starts will be 20000+(node_number)
 
     - testNet: This flag will start the node in test network
 
-    - addFaucetQuorums: This flag adds a list of pre-defined quorums
+    - defaultSetup: This flag adds a list of default quorums for testing. Skip this flag if you want to use your own quorums.
     
     Replace the placeholders:
 

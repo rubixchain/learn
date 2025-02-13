@@ -43,6 +43,8 @@ main:
   - name: Setup Rubix Node
     ref: "node-setup"
     sub:
+      - name : Connect to Rubix Network
+        ref: "connect"
       - name: Endpoints
         ref: "api"
       - name: Where to Buy RBT

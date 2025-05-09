@@ -49,7 +49,7 @@ Any computer or personal laptop with 8GB of RAM and a stable internet connection
 - Navigate to the repository directory and checkout to the development branch
     ```bash
     cd rubixgoplatform
-    git checkout development
+    git checkout main
     ```
 
 ### 4. Build the RubixGoPlatform Executable

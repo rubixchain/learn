@@ -5,52 +5,368 @@ aliases: ["/smartcontract", "/about/smartcontract", "/contributing/smartcontract
 ---
 
 
-# Smart Contract Example Walkthrough
+# Rubix Smart Contract Example - Voting Contract
 
-We have created a simple voting contract example to understand how smart contract works in Rubix Network
-[here](https://github.com/rubixchain/Rubix-Smart-Contract-Examples)
+This contract allows users to **register a color**, **vote** for one, and **retrieve the winning color**. It's written in **Rust**, compiled to **WASM**, and deployed on the **Rubix blockchain**.
 
-## Prerequisties
+**To set up a Rubix Node, [click here](https://gist.github.com/arnabghose997/cbc9450c3108a94f2d2deb892e134280#smart-contract-setup).**
 
-1. One or more rubix nodes running in different ports. To work as the smart contract generator and subscriber.
-2. A set of quorums which have sufficient test RBTs.
+---
 
-## How to be a node?
-
-Follow the instruction shared in <a href="/node-setup"> Setup Rubix Node </a>
-## Working with sample Voting dApp
-
-1. Compile the Rust code in voting-contract/voting_contract using
+## Project Structure
 
 ```
- cargo build --target wasm32-unknown-unknown --release
+voting_contract/
+├── Cargo.toml          # Rust config
+├── src/
+│   └── lib.rs          # Contract code
+└── target/
+    └── wasm32-unknown-unknown/
+        └── release/
+            └── voting_contract.wasm  # Compiled WASM
 ```
-This will compile the Rust code to WebAssembly and the resulting file with the .wasm extension can be found in the directory **voting-contract/voting_contract/target/wasm32-unknown-unknown/release**
 
-2. Provide user node specific info : In the directory voting-contract there is a main.go file, which has some variables which are hardcoded, for ease.  Such as did, deployer address, executor address, port etc which are user specific, so these inputs must be changed according to the user. The variables which needs to be changed are:
-   1. did : Every node in Rubix has a unique decentralized identity, that is called Did. So the variable “did” in each of the functions will be to identify the node which is performing that functionality.  For example, if a node is generating the smart contract then the did will be the decentralized identity of that particular node. Eg : bafybmifb4rbwykckpbcnekcha23nckrldhkcqyrhegl7oz44njgci5vhq
-   2. deployerAddress : Apart from did there is one more identifier which every node has. That is the peer id. So the deployer address will be the combination of the peer id and the did. Another point to be noted here is that, the deployer address of the node which is generating the smart contract and deploying the smart contract will be the same. But while generating the contract we provides only the did while deploying the smart contract we must provide the peer id as well as the did in the format of “peerid.did” Eg: "12D3KooWCR4BW7gfPmCZhAJusqv1PoS49jgqTGvofcG4WPyg8FxV.bafybmifb4rbwykckpbcnekcha23nckrldhkcqyrhegl7oz44njgci5vhqa"
-   3. executorAddress : This is similar to the deployer address. The difference here is that, the nodes which have subscribed to the smart contracts are the only ones that could execute the smart contracts. So this will be a “peerid.did” address combination of the nodes which have already subscribed to the smart contract using the smart contract token hash.
-   4. Port : Each of the Rubix node is configured to run on different ports. The port number is given so that the Dapp could identify, to which port the particular api must be called. So when you run the Dapp, you should provide the Port number in which your Rubix node is running.
+---
 
-3. Once the changes mentioned above are saved, you can run the command
+## Build Instructions
+
+```bash
+cargo build --release --target wasm32-unknown-unknown
+```
+
+This generates the `.wasm` contract file in `target/wasm32-unknown-unknown/release`.
+
+---
+
+## Linker Functions
+
+Rubix contracts interact with blockchain via **extern "C" functions** provided by the runtime.
+
+```rust
+extern "C" {
+    fn read_state(key_ptr: *const u8, key_len: usize, val_ptr: *mut u8, val_len: usize) -> i32;
+    fn write_state(key_ptr: *const u8, key_len: usize, val_ptr: *const u8, val_len: usize) -> i32;
+}
+```
+
+These are used for:
+- Reading/writing blockchain key-value storage
+- Transferring tokens (if needed)
+- Calling external APIs
+
+---
+
+## Contract Logic (`lib.rs`)
+
+### Structs & Helpers
+
+```rust
+#[derive(Serialize, Deserialize)]
+pub struct Vote {
+    pub user_did: String,
+    pub color: String,
+}
+```
+
+- `Vote`: Keeps track of who voted and for what.
+
+### Registering a Color
+
+```rust
+#[no_mangle]
+pub extern "C" fn register_colour() -> i32 {
+    let color = get_input_string(); // Reads color from input
+
+    let mut colors = read_state_vec::<String>("colors");
+    if colors.contains(&color) {
+        return -1; // Already exists
+    }
+
+    colors.push(color.clone());
+    write_state_vec("colors", &colors);
+    0
+}
+```
+
+- Adds a color to the blockchain list if not already present.
+
+### Casting a Vote
+
+```rust
+#[no_mangle]
+pub extern "C" fn cast_vote() -> i32 {
+    let vote: Vote = get_input_json();
+    let key = format!("vote_{}", vote.user_did);
+
+    if let Some(_) = read_state::<String>(&key) {
+        return -1; // Already voted
+    }
+
+    let mut tally = read_state_map::<String, u32>("tally");
+    *tally.entry(vote.color.clone()).or_insert(0) += 1;
+    
+    write_state_map("tally", &tally);
+    write_state(&key, &vote.color);
+    0
+}
+```
+
+- Checks if the user already voted.
+- Increments vote count for the selected color.
+- Records the user's vote.
+
+### Tallying Votes
+
+```rust
+#[no_mangle]
+pub extern "C" fn tally_votes() {
+    // Already updated during cast_vote
+}
+```
+
+- Optional if vote count is updated in `cast_vote`.
+
+### Get Winner
+
+```rust
+#[no_mangle]
+pub extern "C" fn get_winner() -> i32 {
+    let tally = read_state_map::<String, u32>("tally");
+
+    let mut winner = "".to_string();
+    let mut max_votes = 0;
+
+    for (color, count) in tally.iter() {
+        if *count > max_votes {
+            winner = color.clone();
+            max_votes = *count;
+        }
+    }
+
+    return_json(&winner); // Return as JSON
+    0
+}
+```
+
+- Iterates through the tally to find the color with max votes.
+- Returns the winning color as JSON.
+
+---
+
+## Example Input & Output
+
+### Input 
+``` bash
+curl -X POST http://localhost:8080/api/voting-contract \
+-H "Content-Type: application/json" \
+-d '{
+  "votes": [
+    {"voter_id": "voter1", "color": "Red"},
+    {"voter_id": "voter2", "color": "Green"},
+    {"voter_id": "voter3", "color": "Red"}
+  ]
+}'
+```
+
+### Output
+``` bash
+{"tally":"Vote tally: {\"Red\": 2, \"Green\": 1}","winner":"Winner is Red"}
+```
+
+---
+
+## Deployment Flow
+
+1. Write logic in `lib.rs`.
+2. Compile using `cargo build`.
+3. Upload `.wasm` file to Rubix node.
+4. Trigger functions using Rubix CLI or DApp server:
+   - `register_colour`
+   - `cast_vote`
+   - `get_winner`
+
+---
+
+## Security Checks
+
+- Prevents double voting by checking `vote_<user_did>` state.
+- Validates registered colors before allowing vote.
+- Stores all state on-chain using Rubix's persistent storage.
+
+---
+
+## Prerequisites
+
+* Rust (with `wasm32-unknown-unknown` target)
+* Go (to run the DApp server)
+* Rubix Node (Deployer and Executor)
+* DIDs created on both nodes
+
+---
+
+## Smart Contract Setup Steps
+
+### 1. Clone the Voting Smart Contract
+
+```bash
+git clone https://github.com/rubixchain/Rubix-Smart-Contract-Examples.git
+cd Rubix-Smart-Contract-Examples/
+git checkout sc-dev
+cd voting-contract
+```
+
+### 2. Generate WASM & Run Server
+
+```bash
+cd voting-contract
+cargo build --target wasm32-unknown-unknown
+```
+
+The WASM file will be generated at:
 
 ```
- go run main.go
+target/wasm32-unknown-unknown/debug/voting_contract.wasm
 ```
-This will run the go server or the simple cmd Dapp which is performing the smart contract operations. If things goes well you will be greeted in the command line
 
-4. This dapp is enabled with a cli interface to facilitate communication between the dapp and rubix  blockchain.  Each option (as mentioned above) call a specific smart contract API on node . You can configure the inputs to APIs in the main.go. For more information regarding the APIs please refer [Smart contract APIs](https://learn.rubix.net/smartcontractapi/)
+To run the DApp server:
 
-## Under the hood of Smart Contract Execution in Rubix
+```bash
+cd ../server
+go run main.go
+```
 
-The voting-contract demonstrates a simple DAPP which can generate,subscribe,deploy and execute a simple voting contract to Rubix Network. The contract is simple, any node which is subscribing to the contract can vote for a colour, either blue or red. When each node votes for a colour, the state file in all the nodes subscribed to the contract gets updated.
+> The server listens at: `http://localhost:8080/api/v1/contract-input`
 
-The flow of execution for this program :
+---
 
-1. The state updation logic is written in Rust and is compiled to wasm using **cargo build --target wasm32-unknown-unknown --release**. [The first "unknown" refers to the target's operating system, and the second "unknown" refers to the target environment. Both of these are given as unknown so that the execution of the wasm can take place in any system.]
-2. Once the wasm file is ready, we have to generate the smart contract in Rubix and deploy it. For generating a smart contract we have an api : **/api/generate-smart-contract** [There are some input parameters which needs to be given. Please check the swagger of your Rubix node to learn more about that ]. The function **Generate Contract** in the above cli calls this api. Once this api is called, it will be returned with a smart contract token hash. All the next steps which we are going to perform will revolve around this smart contract hash.
-3. The next step here is to subscribe to the smart contract. The nodes which are interested to be part of the voting-contract subscribe to the smart contract using the smart contract hash which was generated during the generation of smart contract. Along with subscribing to the smart contract, a call back url which is an endpoint in the dapp should be registered with the subscribing node. So that each time the smart contract token chain is updated the node can trigger this endpoint in the dapp so that the state updation logic which is there in the wasm can be triggered. The function **Subscribe Contract** in Node 1, will subscribe the smart contract in the node configured as Node 1.
-4. Once the subscription is done, we can deploy the smart contract to the network. For deploying the smart contract we have an api : **/api/deploy-smart-contract**.There are some input parameters which need to be given. Please check the swagger of your Rubix node to learn more about that. The deploy smart contract should be done by the node which has generated the smart contract. The function **Deploy Contract** is calling this api.
-5. Once the smart contract is deployed, the nodes which are subscribed to the smart contract can execute the contract. For executing the contract we have an api : **/api/execute-smart-contract**. [There are some input parameters which needs to be given. Please check the swagger of your Rubix node to learn more about that ]. The api should be called by the nodes which are subscribed to the smart contract.Here in the case of the voting, executing the contract means adding the Vote either red or blue to the smart contract token chain which was created while generating the contract. Each time a node executes the contract the particular input which is given by the node is recorded in the smart contract token chain. In the above example as shown, we have 3 nodes to which we have already subscribed, so we can execute the contract in those 3 nodes. That is what is achieved using the **Execute Contract** function.
-6. As I said in the above point when the contract is executed the token chain is updated, so the tokenchain present in each of the nodes which have been subscribed to the smart contract will get updated. When the token chain gets updated the Rubix node triggers the api endpoint which was registered before and will perform the state updation using the wasm file.
+### 3. Generate the Smart Contract (From Deployer Node)
+
+Open Swagger at: `http://localhost:20000/swagger/index.html`
+
+* Use `/api/genarate-smart-contract`
+* Upload:
+
+  * WASM file
+  * `src/lib.rs`
+  * `store_state/vote_contract/votefile.json`
+
+Get the contract token hash from the logs (example: `QmXyz...`)
+
+---
+
+### 4. Subscribe to Smart Contract
+
+**Deployer:**
+
+```bash
+curl -X POST http://localhost:20000/api/subscribe-smart-contract \
+-H 'Content-Type: application/json' \
+-d '{"smartContractToken": "<Smart Contract Token Hash>"}'
+```
+
+**Executor:**
+
+```bash
+curl -X POST http://localhost:20000/api/subscribe-smart-contract \
+-H 'Content-Type: application/json' \
+-d '{"smartContractToken": "<Smart Contract Token Hash>"}'
+```
+
+---
+
+### 5. Register Callback URL
+
+**Both nodes (Deployer and Executor):**
+
+```bash
+curl -X POST http://localhost:20000/api/register-callback-url \
+-H 'Content-Type: application/json' \
+-d '{
+  "CallBackURL": "http://localhost:8080/api/v1/contract-input",
+  "SmartContractToken": "<Smart Contract Token Hash>"
+}'
+```
+
+---
+
+### 6. Deploy the Smart Contract (Deployer Node)
+
+```bash
+curl -X POST http://localhost:20005/api/deploy-smart-contract \
+-H 'Content-Type: application/json' \
+-d '{
+  "comment": "deploying..",
+  "deployerAddr": "<Deployer DID>",
+  "quorumType": 2,
+  "rbtAmount": 1,
+  "smartContractToken": "<Smart Contract Token Hash>"
+}'
+```
+
+Then, confirm using:
+
+```bash
+curl -X POST http://localhost:20005/api/signature-response \
+-H 'Content-Type: application/json' \
+-d '{
+  "id": "<UUID from deploy response>",
+  "mode": 0,
+  "password": "mypassword"
+}'
+```
+
+---
+
+### 7. Execute the Smart Contract (Executor Node)
+
+```bash
+curl -X POST http://localhost:20006/api/execute-smart-contract \
+-H 'Content-Type: application/json' \
+-d '{
+  "comment": "executing..",
+  "executorAddr": "<Executor DID>",
+  "quorumType": 2,
+  "smartContractData": "Red",
+  "smartContractToken": "<Smart Contract Token Hash>"
+}'
+```
+
+Then, confirm using:
+
+```bash
+curl -X POST http://localhost:20006/api/signature-response \
+-H 'Content-Type: application/json' \
+-d '{
+  "id": "<UUID from execute response>",
+  "mode": 0,
+  "password": "mypassword"
+}'
+```
+
+---
+
+### 8. Fetch Smart Contract Chain Data
+
+**Full Chain:**
+
+```bash
+curl -X POST http://localhost:20001/api/get-smart-contract-token-chain-data \
+-H 'Content-Type: application/json' \
+-d '{
+  "latest": false,
+  "token": "<Smart Contract Token Hash>"
+}'
+```
+
+**Latest Block:**
+
+```bash
+curl -X POST http://localhost:20001/api/get-smart-contract-token-chain-data \
+-H 'Content-Type: application/json' \
+-d '{
+  "latest": true,
+  "token": "<Smart Contract Token Hash>"
+}'
+```
+
+---

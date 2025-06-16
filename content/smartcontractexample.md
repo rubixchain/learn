@@ -183,6 +183,196 @@ pub fn cast_and_tally(input: CastAndTally) -> Result<String, ContractError> {
 
 ---
 
+## Voting DApp Server
+
+This **Go-based DApp server** acts as the execution environment for the compiled WASM voting contract deployed on the **Rubix blockchain**. It exposes a REST API to receive smart contract calls via callback, invokes the appropriate contract method, and returns the result.
+
+---
+
+## Purpose
+
+The DApp server:
+
+* Loads environment variables (Rubix Node URL, WASM file path).
+* Accepts contract execution inputs over HTTP.
+* Loads and runs the WASM smart contract.
+* Parses the input and returns structured results.
+
+---
+
+## Environment Setup
+
+Create a `.env` file based on `.env.sample`:
+
+```env
+RUBIX_NODE_ADDRESS=http://localhost:20009
+VOTING_CONTRACT_PATH=/absolute/path/to/voting_contract.wasm
+```
+
+Install dependencies:
+
+```bash
+go mod tidy
+```
+
+Run the server:
+
+```bash
+go run main.go
+```
+
+---
+
+## Sample .env File
+
+```env
+RUBIX_NODE_ADDRESS=http://localhost:20009
+VOTING_CONTRACT_PATH=/Users/arnab/TRIE-internal/contracts/voting_contract/artifacts/voting_contract.wasm
+```
+
+---
+
+## Core Logic: `main.go`
+
+### 1. Import Packages
+
+```go
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
+	"path"
+	"sync"
+
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+	wasmbridge "github.com/rubixchain/rubix-wasm/go-wasm-bridge"
+)
+```
+
+* `godotenv`: loads `.env` file.
+* `wasmbridge`: interfaces with Rubix WASM runtime.
+* `sync`: protects in-memory vote storage.
+
+### 2. Global Variables
+
+```go
+var (
+	voteStore = make(map[string]string)
+	storeLock = sync.Mutex{}
+)
+```
+
+* A thread-safe in-memory map to track votes.
+
+### 3. Main Function
+
+```go
+func main() {
+	_ = godotenv.Load() // Load .env
+	r := gin.Default()
+	r.POST("/api/voting-contract", handleVotingContract)
+	r.Run(":8080")
+}
+```
+
+* Exposes one POST endpoint.
+
+### 4. Voting Contract Handler
+
+```go
+func handleVotingContract(c *gin.Context) {
+	nodeAddress := os.Getenv("RUBIX_NODE_ADDRESS")
+	contractPath := os.Getenv("VOTING_CONTRACT_PATH")
+
+	var contractInput struct {
+		Method  string                 `json:"method"`
+		Payload map[string]interface{} `json:"payload"`
+	}
+	if err := c.ShouldBindJSON(&contractInput); err != nil {
+		wrapError(c.JSON, "Invalid request body")
+		return
+	}
+
+	switch contractInput.Method {
+	case "cast_and_tally":
+		// Handle directly
+		castAndTally(contractInput.Payload, c)
+	default:
+		// Fallback to WASM invocation
+		invokeWasmMethod(nodeAddress, contractPath, contractInput, c)
+	}
+}
+```
+
+### 5. `cast_and_tally` Logic in Go
+
+```go
+func castAndTally(payload map[string]interface{}, c *gin.Context) {
+	voterID := payload["voter_id"].(string)
+	color := payload["color"].(string)
+
+	storeLock.Lock()
+	voteStore[voterID] = color
+	tally := make(map[string]int)
+	for _, c := range voteStore {
+		tally[c]++
+	}
+
+	winner := ""
+	maxVotes := -1
+	for color, count := range tally {
+		if count > maxVotes {
+			maxVotes = count
+			winner = color
+		}
+	}
+	storeLock.Unlock()
+
+	wrapSuccess(c.JSON, fmt.Sprintf("Vote recorded. Tally: %v. Current winner: %s", tally, winner))
+}
+```
+
+* Votes are saved per voter ID.
+* Computes real-time tally and winner.
+
+### 6. WASM Invocation (Default Case)
+
+```go
+func invokeWasmMethod(nodeAddr, contractPath string, input struct {
+	Method  string
+	Payload map[string]interface{}
+}, c *gin.Context) {
+	hostFnRegistry := wasmbridge.NewHostFunctionRegistry()
+	wasmModule, err := wasmbridge.NewWasmModule(
+		path.Clean(contractPath),
+		hostFnRegistry,
+		wasmbridge.WithRubixNodeAddress(nodeAddr),
+	)
+	if err != nil {
+		wrapError(c.JSON, fmt.Sprintf("failed to load wasm module: %v", err))
+		return
+	}
+
+	inputBytes, _ := json.Marshal(map[string]interface{}{input.Method: input.Payload})
+	result, err := wasmModule.CallFunction(string(inputBytes))
+	if err != nil {
+		wrapError(c.JSON, fmt.Sprintf("contract function call failed: %v", err))
+		return
+	}
+
+	msg, errMsg := extractContractOutput(result)
+	if errMsg != "" {
+		wrapError(c.JSON, errMsg)
+		return
+	}
+	wrapSuccess(c.JSON, msg)
+}
+```
+
+---
+
 ## Example Input & Output
 
 ### Input 
@@ -225,6 +415,14 @@ curl -X POST http://localhost:8080/api/voting-contract \
 - Prevents double voting by checking `vote_<user_did>` state.
 - Validates registered colors before allowing vote.
 - Stores all state on-chain using Rubix's persistent storage.
+
+---
+
+## Summary
+
+* Uses `gin` for REST routing.
+* Integrates tightly with Rubix’s WASM smart contract architecture.
+* Supports both native Go logic and dynamic WASM method execution.
 
 ---
 

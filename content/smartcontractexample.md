@@ -183,7 +183,7 @@ pub fn cast_and_tally(input: CastAndTally) -> Result<String, ContractError> {
 
 ---
 
-## Voting DApp Server
+## DApp Server
 
 This **Go-based DApp server** acts as the execution environment for the compiled WASM voting contract deployed on the **Rubix blockchain**. It exposes a REST API to receive smart contract calls via callback, invokes the appropriate contract method, and returns the result.
 
@@ -206,7 +206,7 @@ Create a `.env` file based on `.env.sample`:
 
 ```env
 RUBIX_NODE_ADDRESS=http://localhost:20009
-VOTING_CONTRACT_PATH=/absolute/path/to/voting_contract.wasm
+VOTING_CONTRACT_PATH=/Users/arnab/TRIE-internal/contracts/voting_contract/artifacts/voting_contract.wasm
 ```
 
 Install dependencies:
@@ -219,15 +219,6 @@ Run the server:
 
 ```bash
 go run main.go
-```
-
----
-
-## Sample .env File
-
-```env
-RUBIX_NODE_ADDRESS=http://localhost:20009
-VOTING_CONTRACT_PATH=/Users/arnab/TRIE-internal/contracts/voting_contract/artifacts/voting_contract.wasm
 ```
 
 ---

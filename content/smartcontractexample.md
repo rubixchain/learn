@@ -409,14 +409,6 @@ curl -X POST http://localhost:8080/api/voting-contract \
 
 ---
 
-## Summary
-
-* Uses `gin` for REST routing.
-* Integrates tightly with Rubix’s WASM smart contract architecture.
-* Supports both native Go logic and dynamic WASM method execution.
-
----
-
 ## Smart Contract Setup Steps
 
 ### 1. Clone the Voting Smart Contract

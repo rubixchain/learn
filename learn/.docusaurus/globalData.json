@@ -8,20 +8,324 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "getting-started",
+          "mainDocId": "getting-started/what-is-rubix",
           "docs": [
             {
+              "id": "community-governance/community-channels",
+              "path": "/docs/community-governance/community-channels",
+              "sidebar": "docs"
+            },
+            {
+              "id": "community-governance/events-webinars",
+              "path": "/docs/community-governance/events-webinars",
+              "sidebar": "docs"
+            },
+            {
+              "id": "community-governance/rubix-dao",
+              "path": "/docs/community-governance/rubix-dao",
+              "sidebar": "docs"
+            },
+            {
+              "id": "community-governance/submit-rep",
+              "path": "/docs/community-governance/submit-rep",
+              "sidebar": "docs"
+            },
+            {
+              "id": "core-concepts/monolithic-vs-microchain",
+              "path": "/docs/core-concepts/monolithic-vs-microchain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "core-concepts/proof-of-pledge",
+              "path": "/docs/core-concepts/proof-of-pledge",
+              "sidebar": "docs"
+            },
+            {
+              "id": "core-concepts/rubix-did",
+              "path": "/docs/core-concepts/rubix-did",
+              "sidebar": "docs"
+            },
+            {
+              "id": "core-concepts/tokenchain-vs-blockchain",
+              "path": "/docs/core-concepts/tokenchain-vs-blockchain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "core-concepts/what-is-tokenchain",
+              "path": "/docs/core-concepts/what-is-tokenchain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/setup/did-creation",
+              "path": "/docs/developer-guides/setup/did-creation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/setup/install-rubix",
+              "path": "/docs/developer-guides/setup/install-rubix",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/setup/mainnet",
+              "path": "/docs/developer-guides/setup/mainnet",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/setup/run-locally",
+              "path": "/docs/developer-guides/setup/run-locally",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/setup/subnet",
+              "path": "/docs/developer-guides/setup/subnet",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/setup/testnet",
+              "path": "/docs/developer-guides/setup/testnet",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/smart-contracts/examples",
+              "path": "/docs/developer-guides/smart-contracts/examples",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/smart-contracts/overview",
+              "path": "/docs/developer-guides/smart-contracts/overview",
+              "sidebar": "docs"
+            },
+            {
+              "id": "developer-guides/smart-contracts/write-deploy",
+              "path": "/docs/developer-guides/smart-contracts/write-deploy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "enterprise-onboarding/api-integrations",
+              "path": "/docs/enterprise-onboarding/api-integrations",
+              "sidebar": "docs"
+            },
+            {
+              "id": "enterprise-onboarding/compliance-dapps",
+              "path": "/docs/enterprise-onboarding/compliance-dapps",
+              "sidebar": "docs"
+            },
+            {
+              "id": "enterprise-onboarding/integrity-access",
+              "path": "/docs/enterprise-onboarding/integrity-access",
+              "sidebar": "docs"
+            },
+            {
+              "id": "enterprise-onboarding/internal-tokenchains",
+              "path": "/docs/enterprise-onboarding/internal-tokenchains",
+              "sidebar": "docs"
+            },
+            {
+              "id": "enterprise-onboarding/why-rubix",
+              "path": "/docs/enterprise-onboarding/why-rubix",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer-analytics/did-event-chain",
+              "path": "/docs/explorer-analytics/did-event-chain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer-analytics/explorer-walkthrough",
+              "path": "/docs/explorer-analytics/explorer-walkthrough",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer-analytics/query-tokenchains",
+              "path": "/docs/explorer-analytics/query-tokenchains",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer-analytics/rbt-tracker",
+              "path": "/docs/explorer-analytics/rbt-tracker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer-analytics/validator-logs",
+              "path": "/docs/explorer-analytics/validator-logs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "get-in-touch/grants-bounties",
+              "path": "/docs/get-in-touch/grants-bounties",
+              "sidebar": "docs"
+            },
+            {
+              "id": "get-in-touch/security-vulnerability",
+              "path": "/docs/get-in-touch/security-vulnerability",
+              "sidebar": "docs"
+            },
+            {
+              "id": "get-in-touch/support",
+              "path": "/docs/get-in-touch/support",
+              "sidebar": "docs"
+            },
+            {
               "id": "getting-started",
-              "path": "/docs/getting-started",
-              "sidebar": "tutorialSidebar"
+              "path": "/docs/getting-started"
+            },
+            {
+              "id": "getting-started/how-organized",
+              "path": "/docs/getting-started/how-organized",
+              "sidebar": "docs"
+            },
+            {
+              "id": "getting-started/quick-tour",
+              "path": "/docs/getting-started/quick-tour",
+              "sidebar": "docs"
+            },
+            {
+              "id": "getting-started/what-is-rubix",
+              "path": "/docs/getting-started/what-is-rubix",
+              "sidebar": "docs"
+            },
+            {
+              "id": "getting-started/who-should-use",
+              "path": "/docs/getting-started/who-should-use",
+              "sidebar": "docs"
+            },
+            {
+              "id": "getting-started/why-rubix",
+              "path": "/docs/getting-started/why-rubix",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms",
+              "path": "/docs/glossary/terms",
+              "sidebar": "docs"
+            },
+            {
+              "id": "testing-playground/overview",
+              "path": "/docs/testing-playground/overview",
+              "sidebar": "docs"
+            },
+            {
+              "id": "testing-playground/pop-transaction",
+              "path": "/docs/testing-playground/pop-transaction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "testing-playground/test-contracts",
+              "path": "/docs/testing-playground/test-contracts",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools-downloads/cli-binaries",
+              "path": "/docs/tools-downloads/cli-binaries",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools-downloads/contract-templates",
+              "path": "/docs/tools-downloads/contract-templates",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools-downloads/playground-snippets",
+              "path": "/docs/tools-downloads/playground-snippets",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools-downloads/tokenomics",
+              "path": "/docs/tools-downloads/tokenomics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools-downloads/validator-script",
+              "path": "/docs/tools-downloads/validator-script",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools-downloads/whitepaper",
+              "path": "/docs/tools-downloads/whitepaper",
+              "sidebar": "docs"
+            },
+            {
+              "id": "validator-resources/become-validator",
+              "path": "/docs/validator-resources/become-validator",
+              "sidebar": "docs"
+            },
+            {
+              "id": "validator-resources/checklist",
+              "path": "/docs/validator-resources/checklist",
+              "sidebar": "docs"
+            },
+            {
+              "id": "validator-resources/lightweight-node",
+              "path": "/docs/validator-resources/lightweight-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "validator-resources/quorum-credits",
+              "path": "/docs/validator-resources/quorum-credits",
+              "sidebar": "docs"
+            },
+            {
+              "id": "validator-resources/slashing-risks",
+              "path": "/docs/validator-resources/slashing-risks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "validator-resources/validation-process",
+              "path": "/docs/validator-resources/validation-process",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/backup-restore",
+              "path": "/docs/xell-wallet/backup-restore",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/connect-dapps",
+              "path": "/docs/xell-wallet/connect-dapps",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/did-management",
+              "path": "/docs/xell-wallet/did-management",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/install-xell",
+              "path": "/docs/xell-wallet/install-xell",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/send-receive",
+              "path": "/docs/xell-wallet/send-receive",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/setup-wallet",
+              "path": "/docs/xell-wallet/setup-wallet",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/signing-security",
+              "path": "/docs/xell-wallet/signing-security",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/view-tokenchains",
+              "path": "/docs/xell-wallet/view-tokenchains",
+              "sidebar": "docs"
+            },
+            {
+              "id": "xell-wallet/what-is-xell",
+              "path": "/docs/xell-wallet/what-is-xell",
+              "sidebar": "docs"
             }
           ],
           "draftIds": [],
           "sidebars": {
-            "tutorialSidebar": {
+            "docs": {
               "link": {
-                "path": "/docs/getting-started",
-                "label": "Getting Started"
+                "path": "/docs/getting-started/what-is-rubix",
+                "label": "getting-started/what-is-rubix"
               }
             }
           }

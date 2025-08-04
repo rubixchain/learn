@@ -1,23 +1,374 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
+/* Hero Section */
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 6rem 0;
+  text-align: left;
   position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #22c55e10 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroLeft {
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.heroTitleAccent {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 500px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroButton {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.heroButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Visual */
+.heroRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroVisual {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.rubixCube {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cubeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+  width: 200px;
+  height: 200px;
+}
+
+.cubeCell {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.cubeCell:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.cubeCell:nth-child(odd) {
+  animation: pulse 2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Learning Section */
+.learningSection {
+  padding: 6rem 0;
+  background: var(--ifm-background-color);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.sectionHeader p {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.learningGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.learningCard {
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+.learningCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.learningCard.card--primary {
+  border-top: 4px solid var(--ifm-color-primary);
+}
+
+.learningCard.card--secondary {
+  border-top: 4px solid var(--ifm-color-secondary);
+}
+
+.learningCard.card--success {
+  border-top: 4px solid var(--ifm-color-success);
+}
+
+.cardSubtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0.5rem 0;
+}
+
+/* Build Section */
+.buildSection {
+  padding: 6rem 0;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.buildGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.buildCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ifm-background-color);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.buildCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--ifm-color-primary);
+}
+
+.buildCardContent {
+  flex: 1;
+}
+
+.buildCardContent h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.buildCardSubtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.buildCardDescription {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.buildCardArrow {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.buildCard:hover .buildCardArrow {
+  transform: translateX(5px);
+}
+
+/* Support Section */
+.supportSection {
+  padding: 6rem 0;
+  background: var(--ifm-background-color);
+}
+
+.supportGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.supportCard {
+  background: var(--ifm-color-emphasis-100);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.supportCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-primary);
+}
+
+.supportCard h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.supportCard p {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 996px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    max-width: none;
+  }
+  
+  .heroButtons {
+    justify-content: center;
+  }
+  
+  .learningGrid,
+  .buildGrid,
+  .supportGrid {
+    grid-template-columns: 1fr;
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .heroButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+  
+  .buildCard {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .buildCardArrow {
+    margin-left: 0;
+    transform: rotate(90deg);
+  }
+  
+  .buildCard:hover .buildCardArrow {
+    transform: rotate(90deg) translateX(5px);
+  }
 }

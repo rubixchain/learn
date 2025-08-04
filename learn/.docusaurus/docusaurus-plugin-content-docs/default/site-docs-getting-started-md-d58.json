@@ -1,0 +1,15 @@
+{
+  "id": "getting-started",
+  "title": "Create the file",
+  "description": "echo \"# Getting Started",
+  "source": "@site/docs/getting-started.md",
+  "sourceDirName": ".",
+  "slug": "/getting-started",
+  "permalink": "/docs/getting-started",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar"
+}

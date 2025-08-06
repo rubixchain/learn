@@ -55,7 +55,7 @@ function HomepageHeader() {
 function LearningPathsSection() {
   const learningPaths = [
     {
-      title: '📚 Academy',
+      title: '📚 Learn',
       subtitle: 'Start Learning',
       description: 'Comprehensive courses to learn about Rubix blockchain and earn certificates.',
       link: '/docs/academy',

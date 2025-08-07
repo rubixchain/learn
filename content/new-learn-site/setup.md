@@ -15,85 +15,44 @@ weight: 1
 
 ###  Install the Rubix Executable
 
-To install a **Rubix Executable**, use the latest [release binary](https://github.com/rubixchain/rubixgoplatform/releases) or build from source.The following tools are required for building from source:
+To install the **Rubix Executable**, use the latest [release binary](https://github.com/rubixchain/rubixgoplatform/releases) or [build from source](http://localhost:1313/new-learn-site/buildfromsource/).
 
 
-### 📦 Required Tools (for Source Build)
 
-| Tool                      | Version       | Purpose                                              |
-|---------------------------|---------------|------------------------------------------------------|
-| **Go**                    | 1.20+         | Build the `rubixgoplatform` binary via `make`        |
-| **Make**                  | Latest        | Automates the build process                          |
-| **Git**                   | Latest        | Clones the Rubix repository                          |
-
-###  Run the Rubix node locally
+###  Run a Rubix node locally
 To run a **Rubix Node**, the following files are needed:
 - `rubixgoplatform` executable
 - `ipfs` executable
-- `testswarm.key` (for testnet) or `swarm.key` (for mainnet).
+- swarm key. 
 
 | Tool                      | Version       | Purpose                                              |
 |---------------------------|---------------|------------------------------------------------------|
-| **IPFS Binary**           | v0.21.0       | Enables decentralized storage                        |
+| **IPFS Binary**           | v0.19.0       | Enables decentralized storage                        |
 | **Test Swarm Key**        | Latest        | (`testswarm.key`) Required to join the Rubix Testnet |
 | **Swarm Key**             | Latest        | (`swarm.key`) Required to join the Rubix Mainnet     |
 
-## Pre-requisites  
 
-### 1. Install Go 
 
-Any computer or personal laptop with 8GB of RAM and a stable internet connection can seamlessly run Rubix for token transfers / become validator.
 
-- Download the latest Go binary package for your operating system from [Go's official site](https://golang.org/).  
-- Follow the installation instructions for your OS.  
-- Verify the installation and ensure the Go version is correct:
-
-   ```bash
-   go version
-   ```
-
-### 2. Download and Extract IPFS Kubo (v19)
+### 1. Download and Extract IPFS Kubo (v19)
 
 - Visit [IPFS Kubo releases](https://github.com/ipfs/kubo/releases/tag/v0.19.0) and download version 19 suitable for your operating system.
 - Locate the IPFS executable in the extracted files and verify if it has executable permissions.
-
-### 3. Clone the RubixGoPlatform Repository
-
-- Clone the repository:
+- If the IPFS executable does not have executable permissions, run the following command in your terminal to add executable permissions:
     ```bash
-    git clone https://github.com/rubixchain/rubixgoplatform.git
+    chmod +x ipfs
     ```
 
-- Navigate to the repository directory and checkout to the development branch
-    ```bash
-    cd rubixgoplatform
-    git checkout development
-    ```
 
-### 4. Build the RubixGoPlatform Executable
-- For Linux : 
-    ```bash
-    make compile-linux
-    ```
+### 2. Prepare the Necessary Files
 
-- For Windows : 
-    ```bash
-    make compile-windows
-    ```
+Ensure the following files are in a directory:
+- rubixgoplatform executable 
+- ipfs executable (from Kubo v19, extract and copy it in the same directory in which rubixgoplatform executable is present)
+- <a href="/testswarm.key" download="testswarm.key">testnet-swarmkey</a> (to connect rubix official testnet) or <a href="/swarm.key" download="swarm.key">swarmkey</a> (to connect rubix mainnet). After downloading the swarmkey, copy it in the same directory in which rubixgoplatform and ipfs executables are present.
+- To join an existing subnet or [create your own subnet](), copy the swarmkey corresponding to the subnet in the same directory. 
 
-- For MAC : 
-    ```bash
-    make compile-mac
-    ```
 
-Upon successful compilation, the "rubixgoplatform" executable will be created in a folder corresponding to your operating system. For example, on Linux (build directory), it will be located in the ./linux directory.
-
-### 5. Prepare the Necessary Files
-
-Ensure the following files are in the build directory:
-- rubixgoplatform executable
-- ipfs executable (from Kubo v19, extract and copy in the build folder)
-- testswarm.key/swarm.key (Its already part of executable. Copy it to the build directory)
 
 
 ## Setting Up the Node
@@ -160,7 +119,7 @@ Ensure the following files are in the build directory:
     ./rubixgoplatform registerdid -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
     ```
 
-### Purchase test RBTs from Rubix faucet
+    ### Purchase test RBTs from Rubix faucet
 To get test RBTs (Rubix Blockchain Test Tokens):
  - Open the [faucet webpage](http://103.209.145.177:4000/) in browser
  - In the address field, provide your DID created above to receive test tokens for your node, and submit DID.
@@ -196,17 +155,10 @@ Congratulations! You have successfully joined the Rubix network. You can now use
 ## Next Steps
 
 Now that you have successfully joined the Rubix network, you can:
-- Explore Rubix’s testnet functionality, such as [smart contracts](https://learn.rubix.net/smartcontract/) and other [APIs](https://learn.rubix.net/api/) to get information related to rubix node etc. 
-- Use the [Rubix Explorer](www.explorerlink.com) to monitor transactions and node activity.
-- Contact the [Rubix team](https://www.rubix.net/Contact) for further support.
+- Explore Rubix’s testnet functionality, such as [smart contracts](https://learn.rubix.net/smartcontract/).
 
 ## Latest Releases
 
 Subscribe to [rubixgoplatform repository](https://github.com/rubixchain/rubixgoplatform) to be notified on new releases.
 
 For help regarding getting notified for releases see [documentation](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)
-
-## {{< button href="https://github.com/rubixchain/rubixgoplatform/releases" >}}Version Releases{{< /button >}}
-
----
-<br>

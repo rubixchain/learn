@@ -13,15 +13,15 @@ main:
         ref: "pop"
       - name: Pledging and Mining
         ref: "pledgeandmine"
-  - name: Joining Rubix TestNet
-    ref: "testnet"
+  - name: Developer Guides
+    ref: "setup"
   - name: Smart Contracts
-    ref: "smartcontract"
+    ref: "smartcontract-new"
     sub:
-      - name: Smart Contracts Life Cycle
-        ref: "smartcontractlifecycle"
+      - name: Write and Deploy a  Smart Contract
+        ref: "writing-smartcontract"
       - name: Smart Contracts API
-        ref: "smartcontractapi"
+        ref: "smartcontractapi-new"
       - name: Smart Contract Example
         ref: "smartcontractexample"
   

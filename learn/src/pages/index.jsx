@@ -1,73 +1,67 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
-// Import the sidebar configuration
-const sidebars = require('../components/sidebars.js');
-
-function SidebarItem({ item, level = 0 }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  if (item.type === 'category') {
-    return (
-      <li className={styles.sidebarItem}>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={styles.categoryButton}
-          aria-expanded={isOpen}
-        >
-          {item.label}
-          <span className={styles.arrow}>{isOpen ? '▼' : '▶'}</span>
-        </button>
-        {isOpen && item.items && (
-          <ul className={styles.nestedList}>
-            {item.items.map((subItem, index) => (
-              <SidebarItem key={index} item={subItem} level={level + 1} />
-            ))}
-          </ul>
-        )}
-      </li>
-    );
-  }
-
-  return (
-    <li className={styles.sidebarItem}>
-      <Link
-        to={`/docs/${item}`}
-        className={styles.topLevelLink}
-      >
-        {formatLinkText(item)}
-      </Link>
-    </li>
-  );
-}
-
-function formatLinkText(item) {
-  // Convert kebab-case to readable text
-  return item
-    .split('/')
-    .pop()
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, l => l.toUpperCase());
-}
-
-function Sidebar() {
-  const sidebarItems = sidebars.docs;
-  return (
-    <aside className={styles.sidebar}>
-      <nav className={styles.sidebarNav}>
-        <ul className={styles.sidebarList}>
-          {sidebarItems.map((item, index) => (
-            <SidebarItem key={index} item={item} />
-          ))}
-        </ul>
-      </nav>
-    </aside>
-  );
-}
+// All 9 cards as originally requested
+const allCards = [
+  {
+    icon: "🚀",
+    title: "Getting Started",
+    description: "New to Rubix? Start here to understand the basics and get your first setup running.",
+    link: "/docs/getting-started"
+  },
+  {
+    icon: "💡",
+    title: "Core Concepts",
+    description: "Understand the fundamental concepts behind Rubix's tokenchain technology.",
+    link: "/docs/core-concepts/what-is-tokenchain"
+  },
+  {
+    icon: "⚡",
+    title: "Developer Guides",
+    description: "Ready to build? Jump into our comprehensive developer documentation.",
+    link: "/docs/developer-guides/setup/install-rubix"
+  },
+  {
+    icon: "🏷️",
+    title: "Rubix Tokens",
+    description: "Dive into the Rubix token architecture and utility.",
+    link: "/docs/rubix-tokens"
+  },
+  {
+    icon: "🆔",
+    title: "Rubix DIDs",
+    description: "Explore the identity framework on Rubix powered by decentralized identifiers.",
+    link: "/docs/rubix-dids"
+  },
+  {
+    icon: "🛡️",
+    title: "Rubix Consensus",
+    description: "Learn how consensus works on Rubix and its unique approach.",
+    link: "/docs/rubix-consensus"
+  },
+  {
+    icon: "📜",
+    title: "Rubix Smart Contracts",
+    description: "Understand how to write and deploy smart contracts on Rubix.",
+    link: "/docs/rubix-smart-contracts"
+  },
+  {
+    icon: "✅",
+    title: "Rubix Validators",
+    description: "Get started with validator setup and responsibilities.",
+    link: "/docs/rubix-validators"
+  },
+  {
+    icon: "🧪",
+    title: "Testnet Guide",
+    description: "Step-by-step guide to launch and test on Rubix testnet.",
+    link: "/docs/testnet-guide"
+  },
+];
 
 function MainContent() {
   return (
@@ -75,46 +69,32 @@ function MainContent() {
       <div className={styles.contentWrapper}>
         <header className={styles.hero}>
           <h1 className={styles.heroTitle}>
-            <img
-              src="/img/rubix-logo.png"
+            {/* <img
+              src="/img/logo.png"
               alt="Rubix Logo"
               className={styles.logo}
-            />
+            /> */}
             Welcome to Rubix Learn
           </h1>
           <p className={styles.heroSubtitle}>
             Explore comprehensive resources to learn, build, and grow with the Rubix blockchain platform.
-            Navigate through tutorials, guides, and tools using the sidebar on the left.
+            Get started with our documentation, tutorials, and developer tools.
           </p>
         </header>
 
         <section className={styles.quickStartSection}>
-          <h2>Quick Start</h2>
+          <h2>Quick Start Guide</h2>
           <div className={styles.cardGrid}>
-            <div className={styles.card}>
-              <div className={styles.cardIcon}>🚀</div>
-              <h3>Getting Started</h3>
-              <p>New to Rubix? Start here to understand the basics and get your first setup running.</p>
-              <Link to="/docs/getting-started/what-is-rubix" className={styles.cardLink}>
-                Learn More →
-              </Link>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.cardIcon}>💡</div>
-              <h3>Core Concepts</h3>
-              <p>Understand the fundamental concepts behind Rubix's tokenchain technology.</p>
-              <Link to="/docs/core-concepts/what-is-tokenchain" className={styles.cardLink}>
-                Explore →
-              </Link>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.cardIcon}>⚡</div>
-              <h3>Developer Guides</h3>
-              <p>Ready to build? Jump into our comprehensive developer documentation.</p>
-              <Link to="/docs/developer-guides/setup/install-rubix" className={styles.cardLink}>
-                Start Building →
-              </Link>
-            </div>
+            {allCards.map((card, index) => (
+              <div key={index} className={styles.card}>
+                <div className={styles.cardIcon}>{card.icon}</div>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <Link to={card.link} className={styles.cardLink}>
+                  Learn More →
+                </Link>
+              </div>
+            ))}
           </div>
         </section>
       </div>
@@ -130,7 +110,6 @@ export default function Home() {
       description="Learn, Build & Grow with Rubix - Comprehensive blockchain education platform"
     >
       <main className={styles.container}>
-        <Sidebar />
         <MainContent />
       </main>
     </Layout>

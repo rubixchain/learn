@@ -28,10 +28,12 @@ module.exports = {
   ],
   themeConfig: {
     navbar: {
-      title: 'Rubix Learn',
+      title: 'RUBIX',
       logo: {
         alt: 'Rubix Learn Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
+        // width: 50,
+        // height: 50,
       },
       items: [ // Removed "Docs" and "Blog" items
         // { to: '/docs/getting-started/what-is-rubix', label: 'Docs', position: 'left' },

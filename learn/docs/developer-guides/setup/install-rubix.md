@@ -8,8 +8,6 @@ aliases:
     "/testing",
     "/start",
   ]
-geekdocBreadcrumb: false
-weight: 1
 ---
 
 <!-- File: docs/developer-guides/setup/install-rubix.md -->

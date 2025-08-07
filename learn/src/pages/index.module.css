@@ -1,13 +1,23 @@
 /* Container and layout styles */
 .container {
   display: flex;
+  flex-direction: row; 
   max-width: 1200px;
   margin: 0 auto;
   min-height: calc(100vh - 60px);
+  
 }
 
+.logo {
+  height: 165px;
+  margin-right: 12px;
+  margin-bottom: 40px;
+  vertical-align: middle;
+}
+
+
 .sidebar {
-  width: 280px;
+  width: 250px;
   min-width: 280px;
   background: var(--ifm-background-color);
   border-right: 1px solid var(--ifm-color-emphasis-200);
@@ -37,15 +47,17 @@
   padding: 0.75rem 1rem;
   background: none;
   border: none;
-  color: var(--ifm-color-emphasis-800);
+  color: var(--ifm-color-primary); /* Highlights brand color */
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.07rem;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: all 0.2s ease;
-  border-radius: 0;
+  border-radius: 4px;
+  position: relative;
 }
 
 .categoryButton:hover {
@@ -107,8 +119,7 @@
 /* Main content area */
 .mainContent {
   flex: 1;
-  padding: 0;
-  overflow-x: hidden;
+  padding: 2rem;
 }
 
 .contentWrapper {

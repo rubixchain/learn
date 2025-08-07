@@ -32,10 +32,10 @@ function SidebarItem({ item, level = 0 }) {
       </li>
     );
   }
-  
+
   return (
     <li className={styles.sidebarItem}>
-      <Link 
+      <Link
         to={`/docs/${item}`}
         className={styles.topLevelLink}
       >
@@ -74,13 +74,20 @@ function MainContent() {
     <div className={styles.mainContent}>
       <div className={styles.contentWrapper}>
         <header className={styles.hero}>
-          <h1 className={styles.heroTitle}>Welcome to Rubix Learn</h1>
+          <h1 className={styles.heroTitle}>
+            <img
+              src="/img/rubix-logo.png"
+              alt="Rubix Logo"
+              className={styles.logo}
+            />
+            Welcome to Rubix Learn
+          </h1>
           <p className={styles.heroSubtitle}>
             Explore comprehensive resources to learn, build, and grow with the Rubix blockchain platform.
             Navigate through tutorials, guides, and tools using the sidebar on the left.
           </p>
         </header>
-        
+
         <section className={styles.quickStartSection}>
           <h2>Quick Start</h2>
           <div className={styles.cardGrid}>

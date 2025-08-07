@@ -15,7 +15,7 @@ weight: 1
 
 ###  Install the Rubix Executable
 
-To install the **Rubix Executable**, use the latest [release binary](https://github.com/rubixchain/rubixgoplatform/releases) or [build from source](http://localhost:1313/new-learn-site/buildfromsource/).
+To install the **Rubix Executable**, use the latest [release binary](http://localhost:1313/new-learn-site/rubixbinary/) or [build from source](http://localhost:1313/new-learn-site/build-from-source/).
 
 
 
@@ -55,12 +55,13 @@ Ensure the following files are in a directory:
 
 
 
-## Setting Up the Node
+
+
+<!-- ## Setting Up the Node
 
 ### Start a Rubix Node
 
-1. Open a terminal and navigate to the directory containing the `rubixgoplatform` executable. This will already be present in the build directory.
-
+1. Open a terminal and navigate to the directory containing the `rubixgoplatform` executable.
    ```bash
    cd /path/to/rubixgoplatform
    ```
@@ -161,4 +162,4 @@ Now that you have successfully joined the Rubix network, you can:
 
 Subscribe to [rubixgoplatform repository](https://github.com/rubixchain/rubixgoplatform) to be notified on new releases.
 
-For help regarding getting notified for releases see [documentation](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)
+For help regarding getting notified for releases see [documentation](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions) -->

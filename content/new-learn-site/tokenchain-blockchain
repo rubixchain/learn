@@ -1,0 +1,13 @@
+---
+title : Tokenchain VS Blockchain
+geekdocBreadcrumb: false
+weight: 1
+---
+
+| **Tokenchain**                        | **Blockchain**                                                        |
+|----------------------------------|------------------------------------------------------------------------|
+| Tokenchain in Rubix is a dedicated transaction history, bound to a single token. Each Tokenchain acts as a chronological record of state transitions for the token
+from its point of origin to its current state.        |   The global state of the Rubix Blockchain will be made of at least 51.4 million Tokenchains          |
+| State of a Tokenchain changes, if a transaction, containing the token, is executed.  | Even if a single token's state chaanges, global state will change |
+
+|

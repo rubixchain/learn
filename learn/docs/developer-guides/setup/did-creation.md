@@ -31,6 +31,18 @@ sidebar_label: DID Creation & Key Management
     ./rubixgoplatform registerdid -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
     ```
 
+## Restore DID Using Mnemonic File
+- If you already have a mnemonic file, you can restore the DID corresponding to it.
+
+ ```bash
+    ./rubixgoplatform createdid -didType 4 -port <port_number> -mnemonicKeyFile < path_to_mnemonic_file > 
+```
+Example
+```bash
+ ./rubixgoplatform createdid -didType 4 -port 21200 -mnemonicKeyFile /home/rubix/Sai-Rubix/rubixgoplatform/linux/node12/Rubix/saimnemonic.txt
+```
+
+
 ## Purchase test RBTs from Rubix faucet
 To get test RBTs (Rubix Blockchain Test Tokens):
  - Open the [faucet webpage](http://103.209.145.177:4000/) in browser

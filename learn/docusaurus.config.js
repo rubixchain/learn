@@ -28,7 +28,7 @@ module.exports = {
   ],
   themeConfig: {
     navbar: {
-      title: 'RUBIX',
+      title: '',
       logo: {
         alt: 'Rubix Learn Logo',
         src: 'img/logo.png',

@@ -1,4 +1,3 @@
-// src/components/sidebars.js
 module.exports = {
   docs: [
     {
@@ -6,7 +5,6 @@ module.exports = {
       label: 'Getting Started',
       items: [
         'getting-started/what-is-rubix',
-        'getting-started/why-rubix',
         'getting-started/who-should-use',
         'getting-started/how-organized',
         'getting-started/quick-tour',

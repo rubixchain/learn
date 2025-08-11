@@ -6,8 +6,7 @@ sidebar_label: What is a Tokenchain?
 <!-- File: docs/core-concepts/what-is-tokenchain.md -->
 # What is a Tokenchain?
 
-Tokenchain in Rubix is a dedicated transaction history, bound to a single token. Each Tokenchain acts as a chronological record of state transitions for the token
-from its point of origin to its current state.
+Tokenchain in Rubix is a dedicated transaction history, bound to a single token. Each Tokenchain acts as a chronological record of state transitions for the token from its point of origin to its current state.
 
 ## Tokenchain Block Structure
 

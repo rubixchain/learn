@@ -72,7 +72,7 @@ curl --location 'http://localhost:20000/api/execute-smart-contract' --header 'Co
 }'
 ```
 
-## 5. Validation and Execution
+## 5. Validation
 The transaction is validated by the blockchain nodes to ensure it follows the rules of the blockchain protocol. Once validated, the transaction and the associated smart contract function call are processed by the nodes.
 
 ### About Publish Contract

@@ -6,7 +6,7 @@ import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
 // Import the sidebar configuration
-const sidebars = require('../components/sidebars.js');
+const sidebars = require('../../sidebars.js');
 
 function SidebarItem({ item, level = 0 }) {
   const [isOpen, setIsOpen] = useState(false);

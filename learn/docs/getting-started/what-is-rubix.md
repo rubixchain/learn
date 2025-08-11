@@ -1,4 +1,5 @@
 ﻿---
+id: what-is-rubix
 title: Getting started..
 sidebar_label: What is Rubix?
 ---

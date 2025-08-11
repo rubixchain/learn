@@ -1,4 +1,3 @@
-// docusaurus.config.js
 module.exports = {
   title: 'Rubix Learn',
   tagline: 'Learn to build on the Rubix platform',
@@ -32,13 +31,8 @@ module.exports = {
       logo: {
         alt: 'Rubix Learn Logo',
         src: 'img/logo.png',
-        // width: 50,
-        // height: 50,
       },
-      items: [ // Removed "Docs" and "Blog" items
-        // { to: '/docs/getting-started/what-is-rubix', label: 'Docs', position: 'left' },
-        // { to: '/blog', label: 'Blog', position: 'left' },
-      ],
+      items: [],
     },
     footer: {
       style: 'dark',

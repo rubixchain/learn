@@ -10,14 +10,14 @@ sidebar_label: Performing Transactions
 1. Open Xell Wallet and ensure you’re on the correct network (mainnet for real
 transactions, testnet for faucet RBTs).
 2. Login to your account using your pin.
-**Add login image here**
+![Xell Home](/img/xellimages/restore/restore2.png)
 3. Select **Send** from the dashboard.
-**add send dash board image here** 
+![send dashboard](/img/xellimages/transactions/dashboard.png)
 4. Enter:
 - **Recipient Address:** The Rubix address (e.g., bafy...).
 - **Amount:** Specify the amount of RBT or TRIE tokens.
 - **Comments(Optional):** Provide comments, if required.
-**Add SendRBT image**
+![send ](/img/xellimages/transactions/sendaddr.png)
 5. Review the transaction details (amount, and recipient).
 6. Confirm the transaction by entering your pin, approving the ECDSA signature.
 7. Wait for blockchain confirmation.

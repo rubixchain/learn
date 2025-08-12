@@ -9,7 +9,8 @@ sidebar_label: Setting Up Wallet
 1. Open the Xell Wallet web application or chrome extension.
 2. Select Create New Wallet.
 
-## Add a image1 here
+![Xell Home](/img/xellimages/xell1.png)
+
 
 3. Keep your wallet securely :
 

@@ -43,12 +43,6 @@ Example
  ./rubixgoplatform createdid -didType 4 -port 21200 -mnemonicKeyFile /home/rubix/Sai-Rubix/rubixgoplatform/linux/node12/Rubix/saimnemonic.txt
 ```
 
-
-## Next Steps
-
-Now that you have successfully joined the Rubix network, you can:
-- Explore Rubix’s testnet functionality, such as [smart contracts](https://learn.rubix.net/smartcontract/).
-
 ## Latest Releases
 
 Subscribe to [rubixgoplatform repository](https://github.com/rubixchain/rubixgoplatform) to be notified on new releases.

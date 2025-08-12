@@ -47,10 +47,10 @@ for access.
 ![dashboard image](/img/xellimages/account.png) 
 
 **9. Settings:**
-If you are using xell website, On the bottom right you can see the option of Settings. On settings page you can
+On right corner you can see three dots, If you click on it, you can see the option of Settings. On settings page you can
 set your auto-lock timer, change your pin or logout from xell.
 
-![setting image](/img/xellimages/settings.png)
+![setting image](/img/xellimages/setting-extension.png)
 
 **10. Transaction History:**
 On transaction history page you can view all your past transactions. You can also

@@ -27,4 +27,7 @@ transactions, testnet for faucet RBTs).
 5. Review the transaction details (amount, and recipient).
 6. Confirm the transaction by entering your pin, approving the ECDSA signature.
 7. Wait for blockchain confirmation.
+
 **Note:** Always double-check addresses to avoid sending assets to the wrong recipient.
+
+## Need to add Trie transactions

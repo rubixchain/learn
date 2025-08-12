@@ -18,7 +18,8 @@ sidebar_label: Setting Up Wallet
 ![Xell second image](/img/xellimages/xell2.png)
 
 4. **Choose a username :** 
--choose a username for your xell wallet account.
+- choose a username for your xell wallet account.
+
 ![User name](/img/xellimages/username.png)
 
 5. **Set a Pin:**
@@ -33,6 +34,7 @@ for access.
 
 **7. Receive Your BIP39 Mnemonic Phrase:**
 - Xell generates a 24-word mnemonic phrase (per BIP39 standard).
+
 ![mnemonic image](/img/xellimages/mnemonic.png)
 
 - Download the phrase and keep it securely, or write down the phrase in order on paper. Do not take a screenshot or store it digitally.

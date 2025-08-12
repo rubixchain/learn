@@ -22,19 +22,19 @@ sidebar_label: Run Rubix Locally
     ```
     This will start the node in port 20000. The port number where the node starts will be 20000+(node_number)
 
-    - testNet: This flag will start the node in test network
+    - `-testNet`: This flag will start the node in test network
 
-    - defaultSetup: This flag adds a list of default quorums for testing. Skip this flag if you want to use your own quorums.
+    - `-defaultSetup`: This flag adds a list of default quorums for testing. Skip this flag if you want to use your own quorums.
     
     Replace the placeholders:
 
-    - \<node\_name\>: A unique name for your node
+    - `-p`: Node name
 
-    - \<node\_number\>: Numeric identifier for the node
+    - `-n`: Node port number (Default: 20000)
 
-    - \<grpc\_port\>: Port number for gRPC communication
+    - `-grpcPort`: Port number for gRPC communication
 
-## Confirm the node is operational and connected to the testnet. Check for below in the logs.
+## Confirm the node is operational and connected to the bootstraps. Check for below in the logs.
 
 ![Bootstrap connection check](/img/bootstrap_verify.png)
 

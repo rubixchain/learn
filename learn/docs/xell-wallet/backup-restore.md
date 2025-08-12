@@ -7,11 +7,17 @@ sidebar_label: Backing Up and Restoring Wallets
 # Restoring a Wallet
 
 1. Open Xell Wallet and select **Import Existing Wallet**.
+
 ![Xell Home](/img/xellimages/xell1.png)
+
 - If you see a login page, then select **Create or Import Wallet** on the bottom.
+
 ![Xell Home](/img/xellimages/restore/restore2.png)
+
 2. Enter your BIP39 Mnemonic Phrase (12 or 24 words).
+
 ![Mnemonic](/img/xellimages/restore/recovery.png)
+
 3. Set a new pin for local encryption, as described in the create new wallet section.
 4. Verify the mnemonic and connect to the Rubix network.
 5. Your assets (RBT, TRIE tokens) and keys will be restored.

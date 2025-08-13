@@ -58,11 +58,7 @@ module.exports = {
         'xell-wallet/install-xell',
         'xell-wallet/setup-wallet',
         'xell-wallet/backup-restore',
-        'xell-wallet/did-management',
         'xell-wallet/send-receive',
-        'xell-wallet/connect-dapps',
-        'xell-wallet/view-tokenchains',
-        'xell-wallet/signing-security',
       ],
     },
     {

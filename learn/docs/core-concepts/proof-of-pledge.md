@@ -21,4 +21,4 @@ Unlike traditional Proof of Work (PoW) or Proof of Stake (PoS) that depends on c
 | **Security Risk** | Higher; central validator keys are attack vectors | Lower; no single point of failure; validators are distributed |
 | **Stake Lock-in** | Long-term staking often required | Pledge can be revoked if replaced by another validator |
 
-## add a diagram for POP here ***
+![POP](/img/POP.jpeg)

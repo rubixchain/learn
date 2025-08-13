@@ -3,7 +3,7 @@ title: DID Creation & Key Management
 sidebar_label: DID Creation & Key Management
 ---
 
-# Create a DID (Decentralized Identifier)
+# Create a DID(Decentralized Identity)
 
 Each Rubix node is identified by a Decentralized Identity (DID) a self-generated, cryptographically verifiable public key that anchors the node’s presence and authority in the network. If you have a DID, [register](#register) the DID or if you have mneumonics key, you can [restrore](#restore) your DID.
 
@@ -11,7 +11,7 @@ Each Rubix node is identified by a Decentralized Identity (DID) a self-generated
 Once the node is running, open a new tab in terminal while being in the same build path, create a DID by executing:
 
    ```bash
-   ./rubixgoplatform createdid -didType 4 -port <port_number>
+   ./rubixgoplatform createdid -didType <did_type> -port <port_number>
    ```
    Example
     ```bash
@@ -40,7 +40,7 @@ After creating a DID, you can publish your DID among others in your network by r
 If you already have a mnemonic file, you can restore your DID.
 
 ```bash
-  ./rubixgoplatform createdid -didType 4 -port <port_number> -mnemonicKeyFile < path_to_mnemonic_file > 
+  ./rubixgoplatform createdid -didType <did_type> -port <port_number> -mnemonicKeyFile <mnemonic_file_path> 
 ```
 Example
 ```bash

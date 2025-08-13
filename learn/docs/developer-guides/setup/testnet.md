@@ -3,44 +3,34 @@ title: Connect to Rubix Testnet
 sidebar_label: Connect to Rubix Testnet
 ---
 
-# Connect to Rubix Testnet
+## Connect to Rubix Testnet
 
-- Use the `-testNet` flag when starting the Node to connect to Rubix testnet.
-- Ensure `testswarm.key` is present in the root folder 
+The testnet is a development environment for testing your applications without risking real assets.
 
-## Rubix faucet
+- Start your node using the `-testNet` flag.
+
+    ```bash
+    ./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
+    ```
+
+- Ensure the `testswarm.key` file is in your node's root folder and matches the official key in the Rubix GitHub repository. This key is crucial for connecting to the test network.
+
+### Rubix faucet
 
 Add short desc on faucet - (Limit and Validity of test tokens)
 
-### Get test RBTs from Rubix faucet
-To get test RBTs (Rubix Blockchain Test Tokens):
- - Open the [faucet webpage](http://103.209.145.177:4000/) in browser
- - In the address field, provide your DID created above to receive test tokens for your node, and submit DID.
+#### Get Test RBTs
+- Go to the [faucet webpage](http://103.209.145.177:4000/).
+- Enter your DID to receive test tokens.
 
-## Verification
+#### Check Your Balance
+- Verify the tokens have been received by checking your DID's balance.
 
-### Check test token balance
-Verify test RBTs by checking the node’s token balance. 
-To check balance of a particular DID:
-   ```bash
-   ./rubixgoplatform getaccountinfo -did <did> -port <port_number>
-   ```
-   Example
-   ```bash
-   ./rubixgoplatform getaccountinfo -did bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -port 20000
-   ```
+    ```bash
+    ./rubixgoplatform getaccountinfo -did <your_did> -port <your_port_number>
+    ```
 You should see one RBT as below.
 ![Account Info](/img/getaccountinfo.png)
-
-### Try transfer test okens
-To transfer a specified amount of tokens to the destination DID:
-   ```bash
-   ./rubixgoplatform transferrbt -rbtAmount <transfer_amount> -senderAddr <sender_did> -receiverAddr <receiver_did>  -port <sender_port_number>
-   ```
-   Example
-   ```bash
-   ./rubixgoplatform transferrbt -rbtAmount 1.0 -senderAddr bafybmicfvpln2j5yfjeokmafjsefz7ykibvtsg2swxmnr6nhvflj6qvo34 -receiverAddr bafybmibhh5zyobsmrn3t5yfeviwruifkogp3xmonhdzgc7qksyvhgqtble -port 20000
-   ```
 
 Congratulations! You have successfully joined the Rubix TestNet. You can now use the node for testing and development purposes.
 

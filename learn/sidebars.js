@@ -32,6 +32,8 @@ module.exports = {
             'developer-guides/setup/install-rubix',
             'developer-guides/setup/run-locally',
             'developer-guides/setup/did-creation',
+            // 'developer-guides/setup/connect-to-rubix-network',
+            // 'developer-guides/setup/setup-your-subnet',
             'developer-guides/setup/testnet',
             'developer-guides/setup/mainnet',
             'developer-guides/setup/subnet',

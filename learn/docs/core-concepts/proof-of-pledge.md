@@ -17,7 +17,7 @@ Unlike traditional Proof of Work (PoW) or Proof of Stake (PoS) that depends on c
 | **Feature** | **Proof of Stake (PoS)** | **Proof of Pledge (PoP)** |
 |-------------|---------------------------|----------------------------|
 | **Reward Model** | Continuous rewards based on stake size | Credit-based rewards tied to validator participation |
-| **Decentralization** | If the staking amount is high, there will be higher chance to become validator | staking amount is equal, gives equal chance to become validator for all the nodes |
+| **Decentralization** | If the staking amount is high, there will be higher chance to become a validator | staking amount is equal, gives equal chance to become validator for all the nodes |
 | **Security Risk** | Higher; central validator keys are attack vectors | Lower; no single point of failure; validators are distributed |
 | **Stake Lock-in** | Long-term staking often required | Pledge can be revoked if replaced by another validator |
 

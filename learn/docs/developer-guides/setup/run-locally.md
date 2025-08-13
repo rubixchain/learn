@@ -3,10 +3,9 @@ title: Run Rubix Locally
 sidebar_label: Run Rubix Locally
 ---
 
-<!-- File: docs/developer-guides/setup/run-locally.md -->
 # Start a Rubix Node
 
-1. Open a terminal and navigate to the directory containing the `rubixgoplatform` executable. This will already be present in the build directory.
+1. Open a terminal and navigate to the directory containing the `rubixgoplatform` executable.
 
    ```bash
    cd /path/to/rubixgoplatform
@@ -37,4 +36,7 @@ sidebar_label: Run Rubix Locally
 ## Confirm the node is operational and connected to the bootstraps. Check for below in the logs.
 
 ![Bootstrap connection check](/img/bootstrap_verify.png)
+
+Once you have successfully started a local Rubix Node, you can proceed to [create a DID](./did-creation.md).
+Connecting to [mainnet](./subnet.md/) and custon [subnet](./subnet.md) is explained after DID creation. 
 

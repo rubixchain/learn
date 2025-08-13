@@ -12,11 +12,15 @@ aliases:
 
 # Install Rubix
 
-To install the **Rubix Executable**, download the appropriate package for your OS and architecture. Each bundle contains:
+To **install and run a Rubix node**, you will need the following components:
 
-- `rubixgoplatform` — Rubix binary  
-- `ipfs` — The IPFS binary used for storage/sync  
-- `swarm.key` and `testswarm.key` — Network keys files  
+- **`rubixgoplatform`** — Rubix node executable binary  
+- **`ipfs`** — IPFS binary for storage and data synchronization  
+- **`swarm.key`** and **`testswarm.key`** — Network key files for connecting to the Rubix network  
+
+These items are provided together as a compressed package for your OS and architecture.
+
+📦 **Download the Rubix node package below**  
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,24 +32,20 @@ import TabItem from '@theme/TabItem';
       <p>Select your system architecture:</p>
       <ul>
         <li>
-          <strong>ARM64:</strong><br />
-          <!-- <a href="/executables/linux/arm/" className="executable-link">📁 Browse ARM Files</a><br /> -->
+          <strong>ARM 64:</strong><br />
           <a href="/executables/linux/arm/rubix-linux-arm-bundle.tar.gz" className="executable-link">📦 Download ARM Bundle (.tar.gz)</a>
         </li>
         <li>
-          <strong>AMD64:</strong><br />
-          <!-- <a href="/executables/linux/amd/" className="executable-link">📁 Browse AMD Files</a><br /> -->
+          <strong>AMD 64:</strong><br />
           <a href="/executables/linux/amd/rubix-linux-amd-bundle.tar.gz" className="executable-link">📦 Download AMD Bundle (.tar.gz)</a>
         </li>
       </ul>
       <div className="installation-steps">
         <h4>Installation Steps:</h4>
         <ol>
-          <li>Download and extract the archive using <code>tar -xzf</code></li>
+          <li>Extract the contents to the directory where you want to run the Rubix node using <code>tar -xzf</code></li>
           <li>Make binaries executable: <code>chmod +x rubixgoplatform ipfs</code></li>
-          <li>Move them to a directory in your <code>$PATH</code> (e.g. <code>/usr/local/bin</code>)</li>
-          <li>Place <code>swarm.key</code> and <code>testswarm.key</code> in your Rubix data directory</li>
-          <li>Verify installation: <code>rubixgoplatform -v</code></li>
+          <li>Verify installation: <code>./rubixgoplatform -v</code> (this will display the installed version)</li>
         </ol>
       </div>
     </div>
@@ -56,16 +56,13 @@ import TabItem from '@theme/TabItem';
       <h3>Windows Installation</h3>
       <p>Download the Windows bundle:</p>
       <div className="executable-links" style={{ display: 'flex', flexDirection: 'column' }}>
-        <!-- <a href="/executables/windows/" className="executable-link">📁 Browse Windows Files</a> -->
         <a href="/executables/windows/rubix-windows-bundle.zip" className="executable-link">📦 Download Full Windows Bundle (.zip)</a>
       </div>
       <div className="installation-steps">
         <h4>Installation Steps:</h4>
         <ol>
-          <li>Download and extract the <code>.zip</code> file</li>
-          <li>Move <code>rubixgoplatform.exe</code> and <code>ipfs.exe</code> to a directory in your system's <code>PATH</code></li>
-          <li>Place <code>swarm.key</code> and <code>testswarm.key</code> in your Rubix data directory</li>
-          <li>Open PowerShell and run <code>rubixgoplatform.exe --version</code></li>
+          <li>Extract the <code>.zip</code> contents to the directory where you want to run the Rubix node.</li>
+          <li>Verify installation: <code>./rubixgoplatform.exe -v</code> (this will display the installed version)</li>
         </ol>
       </div>
     </div>
@@ -77,32 +74,27 @@ import TabItem from '@theme/TabItem';
       <p>Select your system architecture:</p>
       <ul>
         <li>
-          <strong>ARM64:</strong><br />
-          <!-- <a href="/executables/macos/arm/" className="executable-link">📁 Browse ARM Files</a><br /> -->
+          <strong>ARM (Apple Silicon):</strong><br />
           <a href="/executables/macos/arm/rubix-macos-arm-bundle.tar.gz" className="executable-link">📦 Download ARM Bundle (.tar.gz)</a>
         </li>
         <li>
-          <strong>AMD64:</strong><br />
-          <!-- <a href="/executables/macos/amd/" className="executable-link">📁 Browse AMD Files</a><br /> -->
+          <strong>AMD (Intel):</strong><br />
           <a href="/executables/macos/amd/rubix-macos-amd-bundle.tar.gz" className="executable-link">📦 Download AMD Bundle (.tar.gz)</a>
         </li>
       </ul>
       <div className="installation-steps">
         <h4>Installation Steps:</h4>
         <ol>
-          <li>Download and extract the archive using <code>tar -xzf</code></li>
+          <li>Extract the contents to the directory where you want to run the Rubix node using <code>tar -xzf</code></li>
           <li>Make binaries executable: <code>chmod +x rubixgoplatform ipfs</code></li>
-          <li>Move them to a directory in your <code>$PATH</code> (e.g. <code>/usr/local/bin</code>)</li>
-          <li>Place <code>swarm.key</code> and <code>testswarm.key</code> in your Rubix data directory</li>
-          <li>Verify installation: <code>rubixgoplatform -v</code></li>
+          <li>Verify installation: <code>./rubixgoplatform -v</code> (this will display the installed version)</li>
         </ol>
-        <div className="note">
-          <strong>Note:</strong> You may need to allow binaries in System Preferences → Security & Privacy.
-        </div>
       </div>
     </div>
   </TabItem>
 </Tabs>
+
+Latest Rubix version: `v0.20.0`
 
 You can also refer [Rubix Releases](https://github.com/rubixchain/rubixgoplatform/releases).
 
@@ -115,20 +107,7 @@ You can also refer [Rubix Releases](https://github.com/rubixchain/rubixgoplatfor
   - macOS 10.15 or later  
   - Linux (Ubuntu 18.04+, CentOS 7+, etc.)  
 
-## Verification
-
-```bash
-rubixgoplatform -v
-rubixgoplatform -h
-```
-
-## Next Steps
-
-Once you have successfully installed Rubix, you can proceed to:
-
-1. [Run Rubix Locally](./run-locally.md)
-2. [Create a DID](./did-creation.md)
-3. [Connect to Testnet](./testnet.md)
+Once you have successfully installed Rubix, you can proceed to [start a Rubix Node](./run-locally.md)
 
 
 

@@ -6,7 +6,7 @@ sidebar_label: Perform Transactions
 <!-- File: docs/xell-wallet/send-receive.md -->
 # Perform Transactions
 
-## Sending RBT  Or FT Tokens 
+## Sending RBT or FT Tokens 
 1. Open Xell Wallet and ensure you’re on the correct network (mainnet for real
 transactions, testnet for faucet RBTs).
 2. Login to your account using your pin.

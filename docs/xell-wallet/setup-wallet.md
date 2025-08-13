@@ -2,14 +2,16 @@
 title: Setting Up Wallet
 sidebar_label: Setting Up Wallet
 ---
-
 <!-- File: docs/xell-wallet/setup-wallet.md -->
 # Creating a New Wallet
+Learn how to set up your Xell Wallet with our **video tutorial** or follow the **step-by-step instructions** below.
 
-## Watch the tutorial to setup wallet
+## Watch the Video Tutorial
+Follow our quick video guide to set up your wallet in minutes.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yf0SoFT6DIU" title="Xell Wallet Setup Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# you can follow the below instructions as well to setup wallet
+## Step-by-Step Setup Instructions
+Use these detailed steps to setup your wallet manually.
 
 1. **Open the Xell Wallet web application or chrome extension.**
 2. **Select Create New Wallet.** 

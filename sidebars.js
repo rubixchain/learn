@@ -65,9 +65,8 @@ module.exports = {
       type: 'category',
       label: 'Testing & Playground',
       items: [
-        'testing-playground/overview',
-        'testing-playground/pop-transaction',
-        'testing-playground/test-contracts',
+        'testing-playground/explore-playground',
+        'testing-playground/explore-pop-transaction',
       ],
     },
     {

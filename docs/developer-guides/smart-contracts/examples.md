@@ -37,19 +37,21 @@ To run the DApp server:
 go run main.go
 ```
 
-> The server listens at: `http://localhost:8080/api/contract-input`
-
 ---
 
 ### 3. Generate the Smart Contract 
 
-Open Swagger at: `http://localhost:20000/swagger/index.html`
+Open Swagger at: `http://localhost:<port at which node is running>/swagger/index.html`
 
-* Use `/api/genarate-smart-contract`
+From the deployer node, we will generate the contract using `/api/genarate-smart-contract` . It has 4 params:
+    - `did` : Provide the Deployer DID
+    - `binaryCodePath` :  Upload WASM contract here
+    - `rawCodePath` : Upload the contract source code file (`voting_contract/src/lib.rs`)
+    - `schemaFilePath` : Upload the Schema File Path (`store_state/vote_contract/votefile.json`)
 
-## Add generate smart contract image here
+![Generate smart contract](/img/smart-contract-images/generate-smart-contract.png)
 
-Get the contract token hash from the logs (example: `QmXyz...`)
+Get the contract token hash from the output (example: `QmXyz...`)
 
 ---
 
@@ -64,7 +66,7 @@ curl -X POST http://localhost:20000/api/subscribe-smart-contract \
 ```
 
 ---
-## Add subscribe image here
+![Subscribe smart contract](/img/smart-contract-images/subscribe.png)
 
 ### 5. Register Callback URL
 
@@ -80,7 +82,7 @@ To facilitate this, when a smart contract is executed via the Rubix node, the no
 
 * Reads/writes to external state (like JSON, databases, or other storage).
 
-## Add register call back image here
+![Register callback](/img/smart-contract-images/register-call-back.png)
 
 ```bash
 curl -X POST http://localhost:20000/api/register-callback-url \
@@ -95,8 +97,12 @@ curl -X POST http://localhost:20000/api/register-callback-url \
 
 ### 6. Deploy the Smart Contract 
 - We will now proceed to deploy the contract from the Deployer node and commit 1 RBT to it:
-## Add deploy smart contract image here
 
+![Deploy smart contract](/img/smart-contract-images/deploy.png)
+
+-you will get the response with ID, use it to do the signature. 
+
+![Deploy response](/img/smart-contract-images/deploy-response.png)
 
 ```bash
 curl -X POST http://localhost:20000/api/deploy-smart-contract \
@@ -128,7 +134,7 @@ curl -X POST http://localhost:20000/api/signature-response \
 
 - we can now proceed to execute the contract with "Red" as a vote.
 
-## Add execute smart contract image here
+![Execute smart contract](/img/smart-contract-images/execute.png)
 
 ```bash
 curl -X POST http://localhost:20000/api/execute-smart-contract \

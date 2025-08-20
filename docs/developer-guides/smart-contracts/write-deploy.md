@@ -30,13 +30,13 @@ The compiled WebAssembly code is then deployed onto a blockchain platform. The c
 ### About Deploy and Subscribe Contract
 
 #### DeployContract
-`Generate` is an offline setup event that happens before a contract enters the network. Once a SmartContract Token is created, the owner deploys the contract to the Rubix network by calling `deployContract`. This creates the first element in the tokenchain and pledges the genesis state of the token.  
+`Generate` is an offline setup event that happens before a contract enters the network. Once a SmartContractID is created, the owner deploys the contract to the Rubix network by calling `deployContract`. This creates the first element in the tokenchain and pledges the genesis state of the token.  
 **Sample API:**
 
 ```
 curl --location 'http://localhost:20000/api/deploy-smart-contract' --header 'Content-Type: application/json' --data '{
   "comment": "Your input Comment",
-  "deployerAddr": "PeerId.DID of the user who is deploying the smart contract",
+  "deployerAddr": "DID of the user who is deploying the smart contract",
   "quorumType": 2,
   "rbtAmount": 1,
   "smartContractToken": "The smart contract token hash generated in generate-smart-contract api"
@@ -65,7 +65,7 @@ Nodes that want to execute a contract call this API with details on which functi
 ```
 curl --location 'http://localhost:20000/api/execute-smart-contract' --header 'Content-Type: application/json' --data '{
   "comment": "Your input Comment",
-  "executorAddr": "PeerId.DID of the user executing the smart contract",
+  "executorAddr": "DID of the user executing the smart contract",
   "quorumType": 2,
   "smartContractData": "Smart contract input which should be written to the token chain",
   "smartContractToken": "The smart contract token hash generated to which the node has subscribed"

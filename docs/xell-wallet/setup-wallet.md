@@ -50,7 +50,7 @@ for access.
 
 ![re-enter image](/img/xellimages/re-enter.png)
 
-- If you click on "skip", your wallet is ready.
+- If you click on "skip", you can see the dashboard of the wallet.
 
 **8. Dashboard:**
 - You are on the Xell dashboard. Your Rubix DID looks like : bafybmic7in6fgxetjxqwn4gk2nih55u*bk7o2a274hkeoputuynlvfx7x7m

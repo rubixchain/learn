@@ -6,6 +6,11 @@ sidebar_label: Example Smart Contracts
 <!-- File: docs/developer-guides/smart-contracts/examples.md -->
 # Example Smart Contracts
 
+## Voting Contract
+
+This contract allows users to **register a color**, **vote** for one, and **retrieve the winning color**. It's written in **Rust**, compiled to **WASM**, and deployed on the **Rubix blockchain**.
+
+
 
 # Smart Contract Setup Steps for Voting Contract
 

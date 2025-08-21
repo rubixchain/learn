@@ -14,7 +14,7 @@ Smart contracts are written in high-level programming languages like Rust, GoLan
 ## 2. Compiling to WebAssembly
 Once the smart contract code is written, it is compiled to WebAssembly bytecode. Compilers like `rustc` for Rust or Emscripten for C/C++ can be used to generate WebAssembly binaries from the source code.
 
-### About Generate and Subscribe Contract
+### About Generate Smart Contract 
 
 #### GenerateContract
 The first step after generating the WASM binaries is to create a Smart Contract Token (programmable NFTs) that is used to track the proof of execution of the contract. The unique Token ID generated is shared by the owner to peer nodes to participate in contract operations.  
@@ -39,7 +39,7 @@ curl --location 'http://localhost:20000/api/deploy-smart-contract' --header 'Con
   "deployerAddr": "DID of the user who is deploying the smart contract",
   "quorumType": 2,
   "rbtAmount": 1,
-  "smartContractToken": "The smart contract token hash generated in generate-smart-contract api"
+  "smartContractToken": "The smart contract tokenID generated in generate-smart-contract api"
 }'
 ```
 
@@ -49,7 +49,7 @@ Nodes can subscribe to contract events using the `subscribe` command. This keeps
 
 ```
 curl --location 'http://localhost:20000/api/subscribe-smart-contract' --header 'Content-Type: application/json' --data '{
-  "smartContractToken": "smart contract token hash generated from generate-smart-contract api"
+  "smartContractToken": "smart contract tokenID generated from generate-smart-contract api"
 }'
 ```
 

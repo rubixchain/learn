@@ -56,22 +56,24 @@ From the deployer node, we will generate the contract using `/api/genarate-smart
 
 ![Generate smart contract](/img/smart-contract-images/generate-smart-contract.png)
 
-Get the contract token hash from the output (example: `QmXyz...`)
+Get the contract tokenID from the output (example: `QmXyz...`)
 
 ---
+- **Note:** For all the following steps you can use either swagger or CLI.
 
 ### 4. Subscribe to Smart Contract
 
 In Rubix’s stateless, event-driven architecture, not all nodes are aware of every smart contract by default. To participate in or track the execution of a specific contract, a node must explicitly subscribe to it. This subscription uses a publish-subscribe (pub-sub) mechanism that ensures only interested nodes receive updates or execution events related to the contract. By subscribing, a node signals that it wants to stay in sync with the contract’s state transitions and be notified when actions like execution or deployment occur. Without subscribing, a node would remain unaware of these updates, as Rubix does not broadcast all contract activity globally like traditional blockchains.
+
+![Subscribe smart contract](/img/smart-contract-images/subscribe.png)
+
+---
 
 ```bash
 curl -X POST http://localhost:20000/api/subscribe-smart-contract \
 -H 'Content-Type: application/json' \
 -d '{"smartContractToken": "<Smart Contract Token Hash>"}'
 ```
-
----
-![Subscribe smart contract](/img/smart-contract-images/subscribe.png)
 
 ### 5. Register Callback URL
 
@@ -89,6 +91,8 @@ To facilitate this, when a smart contract is executed via the Rubix node, the no
 
 ![Register callback](/img/smart-contract-images/register-call-back.png)
 
+---
+
 ```bash
 curl -X POST http://localhost:20000/api/register-callback-url \
 -H 'Content-Type: application/json' \
@@ -98,16 +102,23 @@ curl -X POST http://localhost:20000/api/register-callback-url \
 }'
 ```
 
----
+
 
 ### 6. Deploy the Smart Contract 
 - We will now proceed to deploy the contract from the Deployer node and commit 1 RBT to it:
 
 ![Deploy smart contract](/img/smart-contract-images/deploy.png)
 
--you will get the response with ID, use it to do the signature. 
+-you will get response with an ID, use it to do the signature. 
 
 ![Deploy response](/img/smart-contract-images/deploy-response.png)
+
+- confirm deployment of the smart contract by doing the signature
+
+![Signature](/img/smart-contract-images/deploy-signature.png)
+
+
+```
 
 ```bash
 curl -X POST http://localhost:20000/api/deploy-smart-contract \
@@ -140,6 +151,8 @@ curl -X POST http://localhost:20000/api/signature-response \
 - we can now proceed to execute the contract with "Red" as a vote.
 
 ![Execute smart contract](/img/smart-contract-images/execute.png)
+
+- similar to deployment of the smart contract, use the output of the execute smart contract to go ahead with the signature response.
 
 ```bash
 curl -X POST http://localhost:20000/api/execute-smart-contract \

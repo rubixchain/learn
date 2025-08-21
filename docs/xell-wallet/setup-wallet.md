@@ -27,13 +27,13 @@ Use these detailed steps to setup your wallet manually.
 4. **Choose a username :** 
 - choose a username for your xell wallet account.
 
-![User name](/img/xellimages/username.png)
+![User name](/img/xellimages/new-username.png)
 
 5. **Set a Pin:**
 - Choose a strong pin. This pin encrypts your wallet locally and is required
 for access.
 
-![create pin](/img/xellimages/createpin.png)
+![create pin](/img/xellimages/new-createpin.png)
 - Confirm your pin again for surity
 
 6. **Connect to Required Network:**
@@ -42,34 +42,33 @@ for access.
 **7. Receive Your BIP39 Mnemonic Phrase:**
 - Xell generates a 24-word mnemonic phrase (As per BIP39 standard).
 
-![mnemonic image](/img/xellimages/mnemonic.png)
+![mnemonic image](/img/xellimages/new-mnemonic.png)
 
 - Download the phrase and keep it securely, or write down the phrase in order on a and keep it in a secure place.
-**Add that Next button image** 
+
 - If you click on "Next", Xell will prompt you to re-enter the mnemonic words to confirm accuracy.
 
-![re-enter image](/img/xellimages/re-enter.png)
+![re-enter image](/img/xellimages/new-verify-recovery.png)
 
 - If you click on "skip", you can see the dashboard of the wallet.
 
 **8. Dashboard:**
-- You are on the Xell dashboard. Your Rubix DID looks like : bafybmic7in6fgxetjxqwn4gk2nih55u*bk7o2a274hkeoputuynlvfx7x7m
+- You are on the Xell dashboard. Your Rubix DID looks like : bafybmia4h5s22arqoo5vamovc5b6lnlrxtv7qtmw7ypo6pdeb3uhmgy34i
 
-![dashboard image](/img/xellimages/account.png) 
+![dashboard image](/img/xellimages/new-dashboard.png) 
 
 **9. Settings:**
 In the top-right corner of the Xell interface, click the three-dot menu to access key options. Select Settings to customize your experience:
+- **Auto-Lock Timer:** Set a preferred duration for automatic locking to secure your account.
+- **Change PIN:** Update your PIN for enhanced security.
+- **Log Out:** Sign out of Xell when needed.
+- **Currency Preference:** Choose your preferred currency from the supported options: US Dollar (USD), Euro (EUR), British Pound (GBP), or Japanese Yen (JPY).
 
-**Auto-Lock Timer:** Set a preferred duration for automatic locking to secure your account.
-**Change PIN:** Update your PIN for enhanced security.
-**Log Out:** Sign out of Xell when needed.
-**Currency Preference:** Choose your preferred currency from the supported options: US Dollar (USD), Euro (EUR), British Pound (GBP), or Japanese Yen (JPY).
-
-![setting image](/img/xellimages/setting-extension.png)
+![setting image](/img/xellimages/new-settings.png)
 
 **10. Transaction History:**
 On transaction history page you can view all your past transactions. You can also
 view your transactions within a particular time period by filtering out the dates.
 
-![transaction history image](/img/xellimages/transaction-history.png)
+![transaction history image](/img/xellimages/new-history.png)
 

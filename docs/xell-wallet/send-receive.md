@@ -11,18 +11,18 @@ sidebar_label: Perform Transactions
 transactions, testnet for faucet RBTs).
 2. Login to your account using your pin.
 
-![Xell Home](/img/xellimages/restore/restore2.png)
+![Xell Home](/img/xellimages/transactions/userone.png)
 
 3. Select **Send** from the dashboard.
 
-![send dashboard](/img/xellimages/transactions/dashboard.png)
+![send dashboard](/img/xellimages/transactions/new-dashboard-recent.png)
 
 4. Enter:
 - **Recipient Address:** The Rubix address (e.g., bafy...).
 - **Amount:** Specify the amount of RBT or FT tokens.
 - **Comments(Optional):** Provide comments, if required.
 
-![send ](/img/xellimages/transactions/sendaddr.png)
+![send ](/img/xellimages/transactions/new-sender-addr.png)
 
 5. Review the transaction details (amount, and recipient).
 6. Confirm the transaction by entering your pin.

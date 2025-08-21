@@ -33,8 +33,3 @@ You should see one RBT as below.
 ![Account Info](/img/getaccountinfo.png)
 
 Congratulations! You have successfully joined the Rubix TestNet. You can now use the node for testing and development purposes.
-
-## Next Steps
-
-Now that you have successfully joined the Rubix network, you can:
-- Explore Rubix’s testnet functionality, such as [smart contracts](https://learn.rubix.net/smartcontract/).

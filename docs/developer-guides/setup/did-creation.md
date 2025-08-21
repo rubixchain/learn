@@ -47,5 +47,3 @@ Example
   ./rubixgoplatform createdid -didType 4 -port 21200 -mnemonicKeyFile /home/rubix/Sai-Rubix/rubixgoplatform/linux/node12/Rubix/saimnemonic.txt
 ```
 
-Once you have successfully created Rubix DID, you can proceed to [connect to Rubix network]
-

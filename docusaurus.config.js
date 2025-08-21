@@ -32,11 +32,37 @@ module.exports = {
         alt: 'Rubix Learn Logo',
         src: 'img/logo.png',
       },
-      items: [],
+      items: [
+        // Left side navigation items
+        {
+          type: 'doc',
+          docId: 'xell-wallet/setup-wallet', 
+          position: 'right',
+          label: 'Wallet',
+        },
+        // {
+        //   to: '/blog',
+        //   label: 'Blog',
+        //   position: 'left'
+        // },
+        // API References (left of GitHub)
+        {
+          type: 'doc',
+          docId: 'api', 
+          position: 'right',
+          label: 'API Reference',
+        },
+        // GitHub link (top right)
+        {
+          href: 'https://github.com/rubixchain', 
+          label: 'GitHub',
+          position: 'right',
+        },
+      ],
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} RubixChain. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Rubix`,
     },
   },
 };

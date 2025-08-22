@@ -38,5 +38,5 @@ sidebar_label: Run Rubix Locally
 ![Bootstrap connection check](/img/bootstrap_verify.png)
 
 Once you have successfully started a local Rubix Node, you can proceed to [create a DID](./did-creation.md).
-Connecting to [mainnet](./subnet.md/) and custon [subnet](./subnet.md) is explained after DID creation. 
+Connecting to [mainnet](./mainnet.md) and custon [subnet](./subnet.md) is explained after DID creation. 
 

@@ -15,4 +15,4 @@ On the transaction detail page, scroll to **Validator Logs**, where you’ll see
 
 This helps monitor node reliability and performance across the network.  
 
-📸 *[Insert screenshot of validator logs]*  
+<!-- 📸 *[Insert screenshot of validator logs]*   -->

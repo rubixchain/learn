@@ -59,14 +59,14 @@ module.exports = {
         'xell-wallet/send-receive',
       ],
     },
-    {
-      type: 'category',
-      label: 'Testing & Playground',
-      items: [
-        'testing-playground/explore-playground',
-        'testing-playground/explore-pop-transaction',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Testing & Playground',
+    //   items: [
+    //     'testing-playground/explore-playground',
+    //     'testing-playground/explore-pop-transaction',
+    //   ],
+    // },
     {
       type: 'category',
       label: 'Validator Resources',
@@ -76,20 +76,20 @@ module.exports = {
         'validator-resources/validation-process',
         'validator-resources/quorum-credits',
         'validator-resources/slashing-risks',
-        'validator-resources/checklist',
+        // 'validator-resources/checklist',
       ],
     },
-    {
-      type: 'category',
-      label: 'Enterprise Onboarding',
-      items: [
-        'enterprise-onboarding/why-rubix',
-        'enterprise-onboarding/internal-tokenchains',
-        'enterprise-onboarding/integrity-access',
-        'enterprise-onboarding/api-integrations',
-        'enterprise-onboarding/compliance-dapps',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Enterprise Onboarding',
+    //   items: [
+    //     'enterprise-onboarding/why-rubix',
+    //     'enterprise-onboarding/internal-tokenchains',
+    //     'enterprise-onboarding/integrity-access',
+    //     'enterprise-onboarding/api-integrations',
+    //     'enterprise-onboarding/compliance-dapps',
+    //   ],
+    // },
     {
       type: 'category',
       label: 'Explorer & Analytics',
@@ -108,30 +108,30 @@ module.exports = {
       label: 'Tools & Downloads',
       items: [
         'tools-downloads/cli-binaries',
-        'tools-downloads/contract-templates',
-        'tools-downloads/validator-script',
-        'tools-downloads/playground-snippets',
+        // 'tools-downloads/contract-templates',
+        // 'tools-downloads/validator-script',
+        // 'tools-downloads/playground-snippets',
         'tools-downloads/whitepaper',
         'tools-downloads/tokenomics',
       ],
     },
-    {
-      type: 'category',
-      label: 'Community & Governance',
-      items: [
-        'community-governance/rubix-dao',
-        'community-governance/submit-rep',
-        'community-governance/community-channels',
-        'community-governance/events-webinars',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Community & Governance',
+    //   items: [
+    //     'community-governance/rubix-dao',
+    //     'community-governance/submit-rep',
+    //     'community-governance/community-channels',
+    //     'community-governance/events-webinars',
+    //   ],
+    // },
     {
       type: 'category',
       label: 'Get in Touch',
       items: [
         'get-in-touch/support',
-        'get-in-touch/grants-bounties',
-        'get-in-touch/security-vulnerability',
+        // 'get-in-touch/grants-bounties',
+        // 'get-in-touch/security-vulnerability',
       ],
     },
     {

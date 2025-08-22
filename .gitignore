@@ -5,3 +5,8 @@ tests/thunder-tests/thunderActivity.db
 tests/thunder-tests/thunderclient.db
 tests/thunder-tests/thunderEnvironment.db
 tests/thunder-tests/thunderCollection.db
+node_modules/
+build/
+.docusaurus/
+.cache/
+

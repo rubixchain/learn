@@ -1,24 +1,41 @@
-## Requirements
+# Website
 
-- Hugo 0.68 or higher
-- Hugo extended version, read more [here](https://gohugo.io/news/0.48-relnotes/)
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
 
-### Install as git submodule
-
-Navigate to your hugo project root and run:
-
-```
-npm install
+```bash
+yarn
 ```
 
-Then run hugo
+## Local Development
 
+```bash
+yarn start
 ```
-hugo server
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+## Build
+
+```bash
+yarn build
 ```
 
-## Release
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-Website is automatically updated when a new new commit is added to main branch. Make sure the site is rerouted to learn.rubix.net in GitHub repo > Settings > Pages section.
+## Deployment
+
+Using SSH:
+
+```bash
+USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```bash
+GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -363,4 +363,13 @@
 
 .nestedList {
   animation: expandCategory 0.3s ease-out;
+} 
+
+.nestedList .categoryButton{
+  font-size: 14px !important;
+  padding-left: 30px;
+}
+
+.nestedList .sidebarItem{
+  padding-left: 15px !important;
 }

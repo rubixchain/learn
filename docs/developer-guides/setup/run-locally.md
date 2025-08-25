@@ -12,9 +12,10 @@ sidebar_label: Run Rubix Locally
    ```
 
 2. Start a Rubix node with the following command:
-   ```bash
-   ./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
-    ```
+```bash
+./rubixgoplatform run -s -testNet -defaultSetup -p `<node_name>` \
+-n `<node_number>` -grpcPort `<grpc_port>`
+   ```
     Example
     ```bash
     ./rubixgoplatform run -s -testNet -defaultSetup -p node0 -n 0 -grpcPort 10500
@@ -33,7 +34,7 @@ sidebar_label: Run Rubix Locally
 
     - `-grpcPort`: Port number for gRPC communication
 
-## Confirm the node is operational and connected to the bootstraps. Check for below in the logs.
+# Confirm the node is operational and connected to the bootstraps. Check for below in the logs.
 
 ![Bootstrap connection check](/img/bootstrap_verify.png)
 

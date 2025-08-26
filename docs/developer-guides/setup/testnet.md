@@ -10,7 +10,8 @@ The testnet is a development environment for testing your applications without r
 - Start your node using the `-testNet` flag.
 
     ```bash
-    ./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
+    ./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> \
+    -n <node_number> -grpcPort <grpc_port>
     ```
 
 - Ensure the `testswarm.key` file is in your node's root folder and matches the official key in the Rubix GitHub repository. This key is crucial for connecting to the test network.

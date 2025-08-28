@@ -3,7 +3,7 @@ title: API Reference
 ---
 
 ## Smart Contract
-### Generation of smart contract
+### Generate smart contract
 
 To generate a smart contract, you can use the following API endpoint:
 
@@ -13,7 +13,7 @@ To generate a smart contract, you can use the following API endpoint:
 
 **Request format**:
 
-image of SC generation API
+![generate smart contract image](/img/generate-sc.png) 
 
 - **did** [String]: The DID of the user genarating the Smart contract.  
 - **binaryCodePath** [File]: The compiled WASM binary file.
@@ -22,7 +22,6 @@ image of SC generation API
 
 **Model request**:
 
-image of model SC generation API
 
 **cURL request**:  
 ```
@@ -42,7 +41,7 @@ curl --location --request POST 'http://localhost:20000/api/generate-smart-contra
 ```
 ---
 
-### Deployment of smart contract
+### Deploy smart contract
 
 To deploy a smart contract, you can use the following API endpoint:
 
@@ -112,7 +111,7 @@ NOTE: Use the `id` in the `api/signature-responce` with password if created (def
 ```
 ---
 
-### Execution of smart contract
+### Execute smart contract
 
 To execute a smart contract, you can use the following API endpoint:
 
@@ -184,7 +183,7 @@ NOTE: Use the `id` in the `api/signature-responce` with password if created (def
 }
 ```
 ---
-### Getting Smart contract token chain data
+### Get Smart contract token chain data
 
 To get the full smart contract token chain data, you can use the following API endpoint:
 
@@ -240,7 +239,7 @@ curl -X 'POST' \
 }
 ```
 ---
-### Registering callback URL
+### Register callback URL
 
 Register a URL as a callback of execution
 
@@ -282,7 +281,7 @@ curl -X 'POST' \
 }
 ```
 ---
-### Fetching smart contract files
+### Fetch smart contract files
 
 To fetch all files related to a smart contract
 
@@ -474,7 +473,7 @@ curl --location 'localhost:20000/api/get-ft-token-chain?tokenID=QmWxBMRbW2uyD27C
 
 ---
 
-### Get the balance of all FTs
+### Get FT's Balance
 
 Provide the user DID as the value for the `did` query parameter.
 

@@ -74,7 +74,7 @@ go run main.go
 
 ### 3. Generate the Smart Contract 
 
-Open Swagger at: `http://localhost:<port at which node is running>/swagger/index.html`
+Open Swagger at: `http://localhost:<port at which rubix node is running>/swagger/index.html`
 
 From the deployer node, we will generate the contract using `/api/genarate-smart-contract` . It has 4 params:
     - `did` : Provide the Deployer DID
@@ -125,8 +125,8 @@ To facilitate this, when a smart contract is executed via the Rubix node, the no
 curl -X POST http://localhost:20000/api/register-callback-url \
 -H 'Content-Type: application/json' \
 -d '{
-  "CallBackURL": "http://localhost:8080/api/contract-input",
-  "SmartContractToken": "<Smart Contract Token Hash>"
+  "CallBackURL": "http://localhost:8080/api/v1-contract-input",
+  "SmartContractToken": "<Smart Contract TokenID>"
 }'
 ```
 
@@ -154,9 +154,9 @@ curl -X POST http://localhost:20000/api/deploy-smart-contract \
 -d '{
   "comment": "deploying..",
   "deployerAddr": "<Deployer DID>",
-  "quorumType": 2,
-  "rbtAmount": 1,
-  "smartContractToken": "<Smart Contract Token Hash>"
+  "quorumType": <Type of the quorum>,
+  "rbtAmount": <RBT amount to deploy the contract>,
+  "smartContractToken": "<Smart Contract TokenID>"
 }'
 ```
 
@@ -190,7 +190,7 @@ curl -X POST http://localhost:20000/api/execute-smart-contract \
   "executorAddr": "<Executor DID>",
   "quorumType": 2,
   "smartContractData": "Red",
-  "smartContractToken": "<Smart Contract Token Hash>"
+  "smartContractToken": "<Smart Contract TokenID>"
 }'
 ```
 
@@ -217,7 +217,7 @@ curl -X POST http://localhost:20000/api/get-smart-contract-token-chain-data \
 -H 'Content-Type: application/json' \
 -d '{
   "latest": false,
-  "token": "<Smart Contract Token Hash>"
+  "token": "<Smart Contract TokenID>"
 }'
 ```
 
@@ -228,7 +228,7 @@ curl -X POST http://localhost:20000/api/get-smart-contract-token-chain-data \
 -H 'Content-Type: application/json' \
 -d '{
   "latest": true,
-  "token": "<Smart Contract Token Hash>"
+  "token": "<Smart Contract TokenID>"
 }'
 ```
 ## Explanation of Voting contract

@@ -115,6 +115,32 @@ These steps are similar to that of mainnet. Other than this, the sender should c
 ```
 Use `type` as 2 as it's private quorum list
 
+Model quorum list:
+```
+[
+  {
+    "type": 2,
+    "address": "bafybmiekur52zclpaf5pyq36dt62d6xrne6fqdkiy4xxi4nsrcxmy5hzla"
+  },
+  {
+    "type": 2,
+    "address": "bafybmiaxmyts7fzg7camoufqnv622p63edufaaktcwirivgljik2m5njai"
+  },
+  {
+    "type": 2,
+    "address": "bafybmic23w537mulew3bkfbu35irw4xwjvnardttxrraikeg2khgf32ovi"
+  },
+  {
+    "type": 2,
+    "address": "bafybmia52q45dowikjjwl7m6r2ffujxe4wh2nv5phpacsq7trfkgtfopbu"
+  },
+  {
+    "type": 2,
+    "address": "bafybmigo5anc2ltx2pmjxmxfpiw4dzs3ptufc72zusynl3lzyx4zqnvk3y"
+  }
+]
+```
+
 Below are the steps to add the private quorum list to a sender:
 
 - Save this file as quorum_list.json or any name as you wish but with .json extension in the executable root path.

@@ -39,12 +39,93 @@ To get started, a validator needs to perform a few key steps:
     You'll get a `Quorum setup successfully` message.
 
 ### 4.Get tokens for pledging
-    Get RBT tokens for pledging during 
+    Get RBT tokens for pledging
+
+#### For Mainnet:
+    Get RBT tokens for pledging in mainnet from below exchages:
+
+    <a
+  href="https://www.mexc.fm/en-IN/price/RBT"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img
+    src={useBaseUrl('/img/exchange/mexc.png')}
+    alt="MEXC Exchange"
+    width="120"
+  />
+</a>
+<a
+  href="https://blofin.com/spot/RBT-USDT"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img
+    src={useBaseUrl('/img/exchange/blofin.png')}
+    alt="Blofin Exchange"
+    width="120"
+  />
+</a>
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+#### For Testnet:
+
+Visit Rubix Faucet below for getting test tokens. You can purchase a free Rubix test token in every hour.
+
+- Go to the [faucet webpage](http://103.209.145.177:4000/).
+- Enter your DID to receive test tokens.
+
 
 ## Setting Up a Validator Node in Subnet
 
-Step to be
+Ensure you are on the correct Subnet by verifying `network.key` & swarm fingerprint in node logs.
 
-- Ensure the `network.key` is correct for the Subnet.
+![swarm-fingerprint](/img/swarm-fingerprint.png)
 
+In mainnet, the quorum is randomly picked. In a Subnet, user can choose and define the set of quorum.
+- Running of Node
+- Creation of DID
+- Setup DID as a validator.
 
+These steps are similar to that of mainnet. Other than this, the sender should create a .json file with picked validator's DID. The json file should be like:
+```
+[
+  {
+    "type": <quorum_type>,
+    "address": "<DID_of_validator_1>"
+  },
+  {
+    "type": <quorum_type>,
+    "address": "<DID_of_validator_2>"
+  },
+  {
+    "type": <quorum_type>,
+    "address": "<DID_of_validator_3>"
+  },
+  {
+    "type": <quorum_type>,
+    "address": "<DID_of_validator_4>"
+  },
+  {
+    "type": <quorum_type>,
+    "address": "<DID_of_validator_5>"
+  },
+]
+```
+Use `type` as 2 as it's private quorum list
+
+Below are the steps to add the private quorum list to a sender:
+
+- Save this file as quorum_list.json or any name as you wish but with .json extension in the executable root path.
+- Use the command below to add the quorum list to the sender in the subnet
+
+```
+./rubixgoplatform addquorum -quorumList <quorum-list-file-name.json> -port <port-number>
+```
+
+- After adding, confirm the quorum list using below command
+
+```
+./rubixgoplatform getallquorum -port <port-number>
+```

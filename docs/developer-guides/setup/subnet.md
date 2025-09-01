@@ -50,3 +50,8 @@ A custom subnet requires a unique `network.key` to ensure only approved nodes ca
     ./rubixgoplatform run -s -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
     ``
 Note: Do not use `-testNet` flag in Mainnet
+
+
+Check your node logs to verify the `swarm key fingerprint` and confirm that all your nodes are connected to each other within the private subnet.
+
+![swarm-fingerprint](/img/swarm-fingerprint.png)

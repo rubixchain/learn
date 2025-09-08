@@ -2,6 +2,8 @@
 title: API Reference
 ---
 
+## BasicAPIs
+
 ## Smart Contract
 ### Generate smart contract
 
@@ -23,7 +25,7 @@ To generate a smart contract, you can use the following API endpoint:
 **Model request**:
 
 
-**cURL request**:  
+**curl request**:  
 ```
 curl --location --request POST 'http://localhost:20000/api/generate-smart-contract' 
 --form 'did="your_did"' 
@@ -31,7 +33,7 @@ curl --location --request POST 'http://localhost:20000/api/generate-smart-contra
 --form 'rawCodePath=@"path_to_raw_code"' 
 --form 'schemaFilePath=@"path_to_schema"'
 ```
-**Responce**:
+**Response**:
 ```
 {
   "status": true,
@@ -77,7 +79,7 @@ To deploy a smart contract, you can use the following API endpoint:
   "smartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE"
 }
 ```
-**cURL request**:  
+**curl request**:  
 ```
 curl --header "Content-Type: application/json" --request POST 'http://localhost:20000/api/deploy-smart-contract' --data '{ 
   "smartContractToken": "your_token",
@@ -87,7 +89,7 @@ curl --header "Content-Type: application/json" --request POST 'http://localhost:
   "comment": "your_comment" 
 }'
 ```
-**Responce**:
+**Response**:
 ```
 {
   "status": true,
@@ -100,7 +102,7 @@ curl --header "Content-Type: application/json" --request POST 'http://localhost:
   }
 }
 ```
-NOTE: Use the `id` in the `api/signature-responce` with password if created (default password: mypassword).
+NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
 
 ```
 {
@@ -147,7 +149,7 @@ To execute a smart contract, you can use the following API endpoint:
   "smartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
 }
 ```
-**cURL request**:  
+**curl request**:  
 ```
 curl -X 'POST' \ 
   'http://localhost:20900/api/execute-smart-contract' \ 
@@ -161,7 +163,7 @@ curl -X 'POST' \
   "smartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
 }'
 ```
-**Responce**:
+**Response**:
 ```
 { "status": true,
   "message": "Password needed",
@@ -173,7 +175,7 @@ curl -X 'POST' \
   } 
 }
 ```
-NOTE: Use the `id` in the `api/signature-responce` with password if created (default password: mypassword).
+NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
 
 ```
 { 
@@ -208,7 +210,7 @@ To get the full smart contract token chain data, you can use the following API e
   "token": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
 }
 ```
-**cURL request**:  
+**curl request**:  
 ```
 curl -X 'POST' \ 
   'http://localhost:20900/api/get-smart-contract-token-chain-data' \ 
@@ -261,7 +263,7 @@ Register a URL as a callback of execution
   "SmartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
 }
 ```
-**cURL request**:  
+**curl request**:  
 ```
 curl -X 'POST' \ 
   'http://localhost:20900/api/register-callback-url' \ 
@@ -291,7 +293,7 @@ To fetch all files related to a smart contract
 
 Give the smart contract token hash as the value for the `smartContractToken` query parameter.
 
-**cURL request**:  
+**curl request**:  
 ```
 curl -X 'GET' \ 
   'http://localhost:20900/api/fetch-smart-contract?smartContractToken=QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE'\
@@ -342,7 +344,7 @@ To create an FT, you can use the following API endpoint:
 }
 ```
 
-**Model cURL request**:  
+**Model curl request**:  
 ```
 curl --location 'localhost:20000/api/create-ft' \
 --header 'Content-Type: application/json' \
@@ -412,7 +414,7 @@ To transfer an FT from one DID to another, you can use:
 }
 ```
 
-**Model cURL request**:  
+**Model curl request**:  
 ```
 curl --location 'localhost:20051/api/initiate-ft-transfer' \
 --header 'Content-Type: application/json' \
@@ -453,7 +455,7 @@ Provide the FT token ID as the value for the `tokenID` query parameter.
 
 **Method**: `GET`
 
-**Model cURL request**:  
+**Model curl request**:  
 ```
 curl --location 'localhost:20000/api/get-ft-token-chain?tokenID=QmWxBMRbW2uyD27Czm5Bor49hnjvyRHMd1sEHTk8UGbe7i'
 ```
@@ -481,7 +483,7 @@ Provide the user DID as the value for the `did` query parameter.
 
 **Method**: `GET`
 
-**Model cURL request**:  
+**Model curl request**:  
 ```
 curl --location 'localhost:20000/api/get-ft-info-by-did?did=bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom'
 ```
@@ -516,7 +518,7 @@ To Generate an NFT, you can use the following API endpoint
 
 image of NFT creation request
 
-**cURL request**:
+**curl request**:
 ```
 curl -X 'POST' \
   'http://localhost:20900/api/create-nft' \ 
@@ -526,7 +528,7 @@ curl -X 'POST' \
   -F 'metadata=@632498430230723.json;type=application/json' \ 
   -F 'artifact=@20250730_114411.jpg;type=image/jpeg' 
 ```
-**Responce**:
+**Response**:
 ```
 { 
   "status": true, 
@@ -576,7 +578,7 @@ To deploy an NFT, you can use the following endpoint:
   "quorum_type": 2 
 }
 ```
-**cURL request**:
+**curl request**:
 ```
 curl -X 'POST'  
 'http://localhost:20900/api/deploy-nft'  
@@ -592,7 +594,7 @@ curl -X 'POST'
   "quorum_type": 2 
 }'
 ```
-**Responce**:
+**Response**:
 ```
 {
   "status": true,
@@ -605,7 +607,7 @@ curl -X 'POST'
   }
 }
 ```
-NOTE: Use the `id` in the `api/signature-responce` with password if created (default password: mypassword).
+NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
 
 ```
 {
@@ -656,7 +658,7 @@ For transferring an NFT, use the following API endpoint:
   "receiver": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui" 
 }
 ```
-**cURL request**:
+**curl request**:
 ```
 curl -X 'POST' \ 
   'http://localhost:20900/api/execute-nft' \ 
@@ -673,7 +675,7 @@ curl -X 'POST' \
 }'
 ```
 
-**Responce**:
+**Response**:
 ```
 { "status": true, 
   "message": "Password needed", 
@@ -685,7 +687,7 @@ curl -X 'POST' \
   } 
 }
 ```
-NOTE: Use the `id` in the `api/signature-responce` with password if created (default password: mypassword).
+NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
 ```
 { 
   "status": true, 
@@ -704,13 +706,13 @@ For Fetching NFT details, use the following API endpoint
 
 Give the NFT ID as the value for the `nft` query parameter.
 
-**cURL request**:  
+**curl request**:  
 ```
 curl -X 'GET' \
   'http://localhost:21000/api/fetch-nft?nft=QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1' \ 
   -H 'accept: application/json'
 ```
-**Responce**:
+**Response**:
 ```
 { 
   "status": true, 
@@ -733,13 +735,13 @@ There are two query parameters for this API:
   - Use `true` for getting latest block
   - Use `false` for getting entire token chain
 
-**cURL request**:
+**curl request**:
 ```
 curl -X 'GET' \ 
   'http://localhost:20800/api/get-nft-token-chain-data?nft=QmUPAe9qQFe6n8RtoB467bDvGZUhUEWd1xbdXqTq25RNuC&latest=true' \ 
   -H 'accept: application/json'
 ```
-**Responce**:
+**Response**:
 ```
 { 
   "status": true, 
@@ -780,7 +782,7 @@ For subscribing for getting updates of an NFT, you can use the following API end
   "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1" 
 }
 ```
-**cURL request**:
+**curl request**:
 ```
 curl -X 'POST' \ 
   'http://localhost:20900/api/subscribe-nft' \ 
@@ -790,7 +792,7 @@ curl -X 'POST' \
   "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1" 
 }'
 ```
-**Responce**:
+**Response**:
 ```
 { 
   "status": true, 

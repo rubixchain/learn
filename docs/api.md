@@ -3,7 +3,197 @@ title: API Reference
 ---
 
 ## BasicAPIs
+### Initiate RBT Transfer
+To Initiate RBT Transfer, you can use the following API endpoint:
 
+**Endpoint**: `/api/initiate-rbt-transfer`
+
+**Method**: `POST`
+
+**Request format**:
+
+```
+{ 
+
+  "comment": "string", 
+  "receiver": "string", 
+  "sender": "string", 
+  "tokenCOunt": 0, 
+  "type": 0 
+
+}
+```
+- **comment** [`String`]: Any commment during rbt transfer process. 
+- **receiver** [`String`]: Add Reciver's DID.
+- **sender** [`String`]: Add Sender's DID.
+- **tokenCount** [`int`]: Amount of RBT to send.
+- **type** [`int`]: Type of quorum for the transaction. 
+
+**Model request**:
+```
+{ 
+  "comment": "test transfer", 
+  "receiver": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
+  "sender": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui", 
+  "tokenCOunt": 1.0, 
+  "type": 2 
+} 
+```
+**curl request**: 
+ ```
+curl -X 'POST' \
+  'http://localhost:21000/api/initiate-rbt-transfer' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "comment": "test transfer",
+  "receiver": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+  "sender": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui",
+  "tokenCOunt": 1.0,
+  "type": 2
+}'
+ ```
+ **Response**: 
+ ``` 
+{
+  "status": true,
+  "message": "Password needed",
+  "result": {
+    "id": "62352DFA-4654-45E1-8A31-15BDF9513B52",
+    "mode": 4,
+    "hash": null,
+    "only_priv_key": false
+  }
+}
+```
+NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
+
+**Final Response**
+```
+{
+  "status": true,
+  "message": "Transaction is still processing, with transaction id aee95cdb9db8794b988063e29400198c3fc741f9f461faae8c83d02119e1d9d6",
+  "result": "aee95cdb9db8794b988063e29400198c3fc741f9f461faae8c83d02119e1d9d6"
+}
+
+```
+### Get account Info
+ 
+ To Fetch the account info of a DID, you can use the following API endpoint:
+
+ **Endpoint**: `/api/get-acccount-info`
+
+**Method**: `GET`
+
+**Request format**:
+
+![get account info image](/img/basic-api-images/getaccountinfo.png)
+
+- **DID** [`String`]: The Decentralized Identifier (DID) of the account for which the account information needs to be retrieved.
+
+**curl request**: 
+```
+curl -X 'GET' \ 
+  'http://localhost:20800/api/get-account-info?did=bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui' \ 
+  -H 'accept: application/json'
+```
+**Response**:
+```
+{
+  "status": true,
+  "message": "Got account info successfully",
+  "result": null,
+  "account_info": [
+    {
+      "did": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui",
+      "did_type": 0,
+      "rbt_amount": 2,
+      "pledged_rbt": 0,
+      "locked_rbt": 0,
+      "pinned_rbt": 0
+    }
+  ]
+}
+```
+
+### Generate test rbt
+To generate test rbt's, you can use the following API endpoint:
+
+**Endpoint**: `/api/generate-test-token`
+
+**Method**: `POST`
+
+**Request format**:
+
+```
+{
+  "did": "string",
+  "number_of_tokens": int
+}
+```
+- **did** [`String`]: The DID of the account for which test rbt's needs to generate
+
+- **number_of_tokens** [`int`]: number of tokens to generate
+
+**Model request**:
+```
+{
+    "did":"bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+    "number_of_tokens": 2
+}
+```
+**curl request**: 
+```
+curl --location 'http://localhost:20900/api/generate-test-token' \
+--header 'Content-Type: application/json' \
+--data '{
+    "did":"bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+    "NumberOfTokens":2
+}'
+```
+**Response**:
+```
+{
+  "status": true,
+  "message": "Test tokens generated successfully",
+  "result": null
+}
+```
+
+## DID Management
+### Create DID
+
+To create a DID, you can use the following API endpoint:
+
+**Endpoint**: `/api/createdid`
+
+**Method**: `POST`
+
+**Request format**:
+
+![create did image](/img/basic-api-images/createdid.png) 
+
+**Response**:
+```
+{
+    "status": true,
+    "message": "DID created successfully",
+    "result": {
+        "did": "bafybmiaiudnmnbpr2kst26tf56vsnsklncucflb6er566twzrk4itryfom",
+        "peer_id": "12D3KooWRK3CzoVYGdcMZqPYHJTkdnWZTTZqyAaSgFFETapBmT97"
+    }
+}
+```
+**curl request**:
+
+```
+curl --location 'http://localhost:20900/api/createdid' \
+--form 'did_config="{\"type\": 4, \"priv_pwd\":\"mypassword\"}"'
+```
+
+
+
+###
 ## Smart Contract
 ### Generate smart contract
 
@@ -61,7 +251,7 @@ To deploy a smart contract, you can use the following API endpoint:
   "smartContractToken": "string"
 }
 ```
-- **comment** [`String`]: Any commment during depoyment process. 
+- **comment** [`String`]: Any commment during deployment process. 
 - **deployerAddr** [`String`]: The DID of the deployer.
 - **quorum_type** [`Integer`]: Type of quorum for the transaction.  
   - **1**: Randomly picked quorums.  

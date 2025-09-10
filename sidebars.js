@@ -72,7 +72,7 @@ module.exports = {
       label: 'Validator Resources',
       items: [
         'validator-resources/become-validator',
-        'validator-resources/lightweight-node',
+        'validator-resources/setup-validator',
         'validator-resources/validation-process',
         'validator-resources/quorum-credits',
         'validator-resources/slashing-risks',

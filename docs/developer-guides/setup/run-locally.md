@@ -12,9 +12,8 @@ sidebar_label: Run Rubix Locally
    ```
 
 2. Start a Rubix node with the following command:
-```bash
-./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> \
--n <node_number> -grpcPort <grpc_port>
+   ```bash
+   ./rubixgoplatform run -s -testNet -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
    ```
     Example
     ```bash

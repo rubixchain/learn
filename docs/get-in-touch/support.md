@@ -44,7 +44,7 @@ If you have any doubts or need any support, join us on our community channels:
   </a>
 
   <a 
-    href="https://discord.gg/qJ55rkrQ" 
+    href="https://discord.gg/6X4UjStk" 
     style={{
       display: 'inline-flex',
       alignItems: 'center',

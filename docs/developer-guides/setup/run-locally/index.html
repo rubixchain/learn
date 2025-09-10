@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Run Rubix Locally | Rubix Learn</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://your-site.com/docs/developer-guides/setup/run-locally"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Run Rubix Locally | Rubix Learn"><meta data-rh="true" name="description" content="1. Open a terminal and navigate to the directory containing the rubixgoplatform executable."><meta data-rh="true" property="og:description" content="1. Open a terminal and navigate to the directory containing the rubixgoplatform executable."><link data-rh="true" rel="icon" href="/img/logo.png"><link data-rh="true" rel="canonical" href="https://your-site.com/docs/developer-guides/setup/run-locally"><link data-rh="true" rel="alternate" href="https://your-site.com/docs/developer-guides/setup/run-locally" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-site.com/docs/developer-guides/setup/run-locally" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Run Rubix Locally","item":"https://your-site.com/docs/developer-guides/setup/run-locally"}]}</script><link rel="stylesheet" href="/assets/css/styles.b1108f57.css">
-<script src="/assets/js/runtime~main.279d18bd.js" defer="defer"></script>
-<script src="/assets/js/main.eabd4014.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.c13baf6f.js" defer="defer"></script>
+<script src="/assets/js/main.ab8ed021.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -19,9 +19,7 @@
 <!-- --></li>
 <!-- --><li>
 <!-- --><p>Start a Rubix node with the following command:</p>
-<!-- --></li>
-<!-- --></ol>
-<!-- --><div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">./rubixgoplatform run -s -testNet -defaultSetup -p &lt;node_name&gt; \</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">-n &lt;node_number&gt; -grpcPort &lt;grpc_port&gt;</span><br></span></code></pre></div></div>
+<!-- --><div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">./rubixgoplatform run -s -testNet -defaultSetup -p &lt;node_name&gt; -n &lt;node_number&gt; -grpcPort &lt;grpc_port&gt;</span><br></span></code></pre></div></div>
 <!-- --><p>Example</p>
 <!-- --><div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">./rubixgoplatform run -s -testNet -defaultSetup -p node0 -n 0 -grpcPort 10500</span><br></span></code></pre></div></div>
 <!-- --><p>This will start the node in port 20000. The port number where the node starts will be 20000+(node_number)</p>
@@ -45,6 +43,8 @@
 <!-- --><p><code>-grpcPort</code>: Port number for gRPC communication<!-- --></p>
 <!-- --></li>
 <!-- --></ul>
+<!-- --></li>
+<!-- --></ol>
 <!-- --><h1>Confirm the node is operational and connected to the bootstraps. Check for below in the logs.</h1>
 <!-- --><p><img decoding="async" loading="lazy" alt="Bootstrap connection check" src="/assets/images/bootstrap_verify-c338c2f2ab0abd2e8e6c086a7abb836f.png" width="1400" height="141" class="img_ev3q"></p>
 <!-- --><p>Once you have successfully started a local Rubix Node, you can proceed to <!-- --><a href="/docs/developer-guides/setup/did-creation">create a DID</a>.

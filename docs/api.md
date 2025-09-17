@@ -173,6 +173,19 @@ To create a DID, you can use the following API endpoint:
 
 ![create did image](/img/basic-api-images/createdid.png) 
 
+- **type**[`int`]: DID type (0=Basic, 1=Standard, 2=Wallet, 3=Child, 4=Light; default: 0).
+- **priv_pwd**[`string`]: Private key password is needed to encrypt the private key file(default: "mypassword").
+- **mnemonic_file**[`String`]:Mnemonic key file (default: "mnemonic.txt").
+- **secret**[`string`]: DID secret (default: "My DID Secret").
+- **quorum_pwd** [`string`]: Quorum key password (default: "mypassword").
+- **img_file** [`string`]: Image file for DID creation (must be 256x256 PNG; default: "image.png").
+- **priv_img_file** [`string`]: Private share image file name (default: "pvtShare.png").
+- **pub_img_file** [`string`]: Public share image file name (default: "pubShare.png").
+- **priv_key_file** `[string]`: Private key file name (default: "pvtKey.pem").
+- **pub_key_file** [`string`]: Public key file name (default: "pubKey.pem").
+- **childPath** [`int`]: BIP Child Path (default: 0).
+
+
 **Response**:
 ```
 {
@@ -190,8 +203,75 @@ To create a DID, you can use the following API endpoint:
 curl --location 'http://localhost:20900/api/createdid' \
 --form 'did_config="{\"type\": 4, \"priv_pwd\":\"mypassword\"}"'
 ```
+### Get all DID's 
+
+To get all DIDs of a node, you can use the following API endpoint:
+
+**Endpoint**: `/api/getalldid`
+
+**Method**: `GET`
+
+**Request format**:
+- Request body will be empty for this API as shown in the following image.
+
+![getall did image](/img/basic-api-images/getall-did.png) 
 
 
+**curl request**: 
+```
+curl --location 'http://localhost:20900/api/getalldid' \
+--data ''
+```
+
+### Register DID
+To regisster DID,  you can use the following API endpoint:
+
+**Endpoint**: `/api/register-did`
+
+**Method**: `POST`
+
+**Request format**:
+- **did** [`String`]: The DID of the account which you want to register
+
+**Model request**:
+```
+{
+	"did": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi"
+}
+```
+**Response**:
+
+```
+{
+    "status": true,
+    "message": "Password needed",
+    "result": {
+        "id": "B5C0C562-2F60-4BA7-B887-A0FB64FCBFBA",
+        "mode": 4,
+        "hash": null,
+        "only_priv_key": false
+    }
+}
+```
+NOTE: Use the `id` in the `api/signature-Response` with password (default password: mypassword).
+
+**Final Response**:
+```
+{
+  "status": true,
+  "message": "DID registered successfully",
+  "result": null
+}
+```
+
+**curl request**: 
+```
+curl --location 'http://localhost:20900/api/register-did' \
+--header 'Content-Type: application/json' \
+--data '{
+	"did": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi"
+}'
+```
 
 ###
 ## Smart Contract
@@ -292,7 +372,7 @@ curl --header "Content-Type: application/json" --request POST 'http://localhost:
   }
 }
 ```
-NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
+NOTE: Use the `id` in the `api/signature-Response` with password (default password: mypassword).
 
 ```
 {

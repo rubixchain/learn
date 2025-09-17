@@ -13,7 +13,7 @@ Metrics available include:
 - **Pledge Activity** for validator participation  
 - **Credit Consumption** statistics  
 
-📸 *[Insert screenshot of RBT analytics dashboard]*  
+<!-- 📸 *[Insert screenshot of RBT analytics dashboard]*   -->
 
 ## Usage
 1. Open the **RBT Dashboard** from the Explorer menu.  

@@ -24,4 +24,4 @@ For **tokenchains**, enter a **Token ID** instead of a transaction ID. The Explo
 - All transfers and interactions  
 - Immutable token history  
 
-📸 *[Insert screenshot of tokenchain view]*  
+<!-- 📸 *[Insert screenshot of tokenchain view]*   -->

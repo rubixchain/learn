@@ -35,6 +35,7 @@ module.exports = {
             'developer-guides/setup/testnet',
             'developer-guides/setup/mainnet',
             'developer-guides/setup/subnet',
+            'developer-guides/setup/fullnode',
           ],
         },
         {

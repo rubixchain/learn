@@ -1,8 +1,8 @@
 ---
-title: Become a Fullnode
+title: Run Full Node
 
 ---
-# Become a Fullnode
+# Run a Full Node
 
 This guide walks you through the complete fullnode setup: installing PostgreSQL, preparing your database, fetching Rubix executables, and running the fullnode.
 

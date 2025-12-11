@@ -4,7 +4,7 @@ title: Run Full Node
 ---
 # Run a Full Node
 
-This guide walks you through the complete fullnode setup: installing PostgreSQL, preparing your database, fetching Rubix executables, and running the fullnode.
+This guide walks you through the complete fullnode setup: fetching Rubix executables, installing PostgreSQL, preparing your database, and running the fullnode.
 
 To install the required Rubix binaries (Rubix Node, IPFS, swarm key etc.), refer to:  
 [Install Rubix](../../developer-guides/setup/install-rubix.md)
@@ -36,10 +36,10 @@ GRANT ALL PRIVILEGES ON DATABASE <your_database_name> TO <your_username>;
 Start your fullnode by passing your PostgreSQL username and password:
 ```
 ./rubixgoplatform run \
-  -p fullnode18 \
-  -n 1800 \
+  -p <fullnode_name> \
+  -n <port_number> \
   -s \
-  -grpcPort 10518 \
+  -grpcPort <grpcPort_number> \
   -testNet \
   -fullnode \
   -pgsqlDBName <your_DB_Name> \
@@ -58,7 +58,7 @@ Arguments explained:
 
 - `-testNet` or `-mainNet`: If you want to run testnet fullnode, use `-testNet` as flag, to run mainnet fullnode use `-mainNet` as flag.
 
-- `-fullnode`: run as fullnode
+- `-fullnode`: to run as a fullnode
 
 - `-pgsqlDBUserName` / `-pgsqlDBPassword`/ `-pgsqlDBName`: PostgreSQL credentials
 

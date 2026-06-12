@@ -15,4 +15,7 @@ The result shows:
 
 This allows full transparency of identity activities without compromising privacy.  
 
-![DID Info](/img/explorer-images/DID-Info.png)
+:::note 📸 Screenshot needed
+**Capture:** A DID Explorer result page (search a DID on [explorer.rubix.net](https://explorer.rubix.net)).
+**Save as:** `static/img/explorer-images/did-info.png`, then replace this note with `![DID info](/img/explorer-images/did-info.png)`.
+:::

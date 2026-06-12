@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to Rubix Mainnet
 sidebar_label: Connect to Rubix Mainnet
 ---
@@ -7,15 +7,23 @@ sidebar_label: Connect to Rubix Mainnet
 
 The mainnet is the live, public network where real transactions occur. Once your application is stable on the testnet, you can deploy it to the mainnet.
 
-- Start Your Node
+- Set `network_mode` to `"mainnet"` in your node's `config.toml`:
 
+    ```toml
+    [core]
+    node_index = 0
+    network_mode = "mainnet"
     ```
-    ./rubixgoplatform run -s -defaultSetup -p <node_name> -n <node_number> -grpcPort <grpc_port>
+
+- Start your node:
+
+    ```bash
+    ./rubixgoplatform run -p node0
     ```
 
-Note: Do not use `-testNet` flag in Mainnet
+Note: Do not use `"testnet"` as the `network_mode` for mainnet. Ensure it is set to `"mainnet"`.
 
-- Ensure the `swarm.key` is in your node's root folder and matches the official key from the Rubix GitHub repository. This key is for connecting to the public mainnet.
+- Ensure the `swarm.key` file is in your node's root folder and matches the official key from the Rubix GitHub repository. This is the swarm key for the public mainnet:
 
     ```
     /key/swarm/psk/1.0.0/
@@ -28,7 +36,7 @@ Note: Do not use `-testNet` flag in Mainnet
 - Verify the tokens have been received by checking your DID's balance.
 
     ```
-    ./rubixgoplatform getaccountinfo -did <your_did> -port <your_port_number>
+    ./rubixgoplatform getrbtbalance -did <your_did> -port <your_port_number>
     ```
 
 ## Purchase RBT from exchanges
@@ -44,6 +52,7 @@ Note: Do not use `-testNet` flag in Mainnet
     width="120"
   />
 </a>
+{/* Blofin temporarily unavailable — re-enable when listed again
 <a
   href="https://blofin.com/spot/RBT-USDT"
   target="_blank"
@@ -55,6 +64,6 @@ Note: Do not use `-testNet` flag in Mainnet
     width="120"
   />
 </a>
+*/}
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-

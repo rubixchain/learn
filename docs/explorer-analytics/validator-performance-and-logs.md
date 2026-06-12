@@ -15,4 +15,7 @@ On the transaction detail page, scroll to **Validator Logs**, where you’ll see
 
 This helps monitor node reliability and performance across the network.  
 
-<!-- 📸 *[Insert screenshot of validator logs]*   -->
+:::note 📸 Screenshot needed
+**Capture:** The **Validator Logs** section of a transaction detail page (search a Transaction ID on [explorer.rubix.net](https://explorer.rubix.net) and scroll to Validator Logs).
+**Save as:** `static/img/explorer-images/validator-logs.png`, then replace this note with `![Validator logs](/img/explorer-images/validator-logs.png)`.
+:::

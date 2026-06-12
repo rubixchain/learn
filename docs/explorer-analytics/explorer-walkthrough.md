@@ -21,10 +21,23 @@ DID Explorer: As the fundamental identity primitive on the Rubix network, each D
 
 In contrast to the mainnet, the Rubix Testnet Explorer is a purpose-built sandbox for developers. It provides a risk-free environment for testing smart contracts and dApps with features like a testnet faucet for free test tokens.
 
+## Accessing the Explorer
+
+The Rubix Explorer is available as two separate sites:
+
+- **Mainnet Explorer:** [explorer.rubix.net](https://explorer.rubix.net)
+- **Testnet Explorer:** [testnetexplorer.rubix.net](https://testnetexplorer.rubix.net)
+
+Both share the same interface — use the testnet explorer to track activity on the Rubix Testnet, and the mainnet explorer for the live network.
+
+:::note 📸 Screenshot needed
+**Capture:** The mainnet explorer landing page at [explorer.rubix.net](https://explorer.rubix.net).
+**Save as:** `static/img/explorer-images/explorer-home.png`, then replace this note with `![Rubix Explorer Home](/img/explorer-images/explorer-home.png)`.
+:::
+
 ## How to Use the Explorer
 
 A quick-reference guide to the explorer interfaces:
 
-- Environment Toggle: Switch instantly between mainnet and testnet contexts.
 - Global Search: Query by transaction hash, DID, token ID, or subnet ID.
 - Dashboard Panels: Access quick links to blocks, transactions, DIDs, tokens, subnets, and wallets.

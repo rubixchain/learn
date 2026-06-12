@@ -13,7 +13,10 @@ Metrics available include:
 - **Pledge Activity** for validator participation  
 - **Credit Consumption** statistics  
 
-<!-- 📸 *[Insert screenshot of RBT analytics dashboard]*   -->
+:::note 📸 Screenshot needed
+**Capture:** The RBT analytics dashboard (open the **RBT Dashboard** from the menu on [explorer.rubix.net](https://explorer.rubix.net)).
+**Save as:** `static/img/explorer-images/rbt-dashboard.png`, then replace this note with `![RBT analytics dashboard](/img/explorer-images/rbt-dashboard.png)`.
+:::
 
 ## Usage
 1. Open the **RBT Dashboard** from the Explorer menu.  

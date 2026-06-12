@@ -10,3 +10,8 @@ build/
 .docusaurus/
 .cache/
 
+# Editor / agent tooling (local, machine-specific)
+.claude/
+.vscode/
+.idea/
+

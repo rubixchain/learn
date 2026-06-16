@@ -15,7 +15,7 @@ Transaction Explorer: Trace the full lifecycle of any transaction. A dedicated p
 
 Tokenchain Explorer: Unique to Rubix's sharded architecture, this feature allows you to view the immutable history of a single token. By searching for a specific Token ID, you can access a complete list of every transaction involving that token.
 
-DID Explorer: As the fundamental identity primitive on the Rubix network, each DID has a detailed profile. Search for a DID to view its unique address, a hash of its creation image file, and associated public keys. The page also lists the DID's complete on-chain history.
+DID Explorer: As the fundamental identity primitive on the Rubix network, each DID has a detailed profile. Search for a DID to view its address, a balance summary (RBT, pledged value, FT, NFTs, and smart contracts deployed), and its transaction history.
 
 ## Testnet
 

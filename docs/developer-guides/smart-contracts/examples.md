@@ -76,15 +76,19 @@ go run main.go
 
 Open Swagger at: `http://localhost:<port at which rubix node is running>/swagger/index.html`
 
-From the deployer node, we will generate the contract using `/api/genarate-smart-contract` . It has 4 params:
+From the deployer node, we generate the contract using `POST /rubix/v1/smart_contracts/generate` (`multipart/form-data`). It has 3 form fields:
     - `did` : Provide the Deployer DID
-    - `binaryCodePath` :  Upload WASM contract here
+    - `binaryCodePath` : Upload the compiled WASM contract
     - `rawCodePath` : Upload the contract source code file (`voting_contract/src/lib.rs`)
-    - `schemaFilePath` : Upload the Schema File Path (`store_state/vote_contract/votefile.json`)
 
-![Generate smart contract](/img/smart-contract-images/generate-smart-contract.png)
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/smart_contracts/generate' \
+  -F 'did=<Deployer DID>' \
+  -F 'binaryCodePath=@./artifacts/voting_contract.wasm' \
+  -F 'rawCodePath=@./src/lib.rs'
+```
 
-Get the contract tokenID from the output (example: `QmXyz...`)
+Get the contract Token ID from the output (example: `QmXyz...`)
 
 ---
 - **Note:** For all the following steps you can use either swagger or CLI.
@@ -93,14 +97,10 @@ Get the contract tokenID from the output (example: `QmXyz...`)
 
 In Rubix’s stateless, event-driven architecture, not all nodes are aware of every smart contract by default. To participate in or track the execution of a specific contract, a node must explicitly subscribe to it. This subscription uses a publish-subscribe (pub-sub) mechanism that ensures only interested nodes receive updates or execution events related to the contract. By subscribing, a node signals that it wants to stay in sync with the contract’s state transitions and be notified when actions like execution or deployment occur. Without subscribing, a node would remain unaware of these updates, as Rubix does not broadcast all contract activity globally like traditional blockchains.
 
-![Subscribe smart contract](/img/smart-contract-images/subscribe.png)
-
 ---
 
 ```bash
-curl -X POST http://localhost:20000/api/subscribe-smart-contract \
--H 'Content-Type: application/json' \
--d '{"smartContractToken": "<Smart Contract Token Hash>"}'
+curl -X GET 'http://localhost:20000/rubix/v1/smart_contracts/subscribe?smartContractToken=<Smart Contract Token Hash>'
 ```
 
 ### 5. Register Callback URL
@@ -117,91 +117,77 @@ To facilitate this, when a smart contract is executed via the Rubix node, the no
 
 * Reads/writes to external state (like JSON, databases, or other storage).
 
-![Register callback](/img/smart-contract-images/register-call-back.png)
-
 ---
 
 ```bash
-curl -X POST http://localhost:20000/api/register-callback-url \
+curl -X POST 'http://localhost:20000/rubix/v1/smart_contracts/register_callback' \
 -H 'Content-Type: application/json' \
 -d '{
-  "CallBackURL": "http://localhost:8080/api/v1-contract-input",
+  "CallBackURL": "http://localhost:8080/api/contract-input",
   "SmartContractToken": "<Smart Contract TokenID>"
 }'
 ```
 
 
 
-### 6. Deploy the Smart Contract 
-- We will now proceed to deploy the contract from the Deployer node and commit 1 RBT to it:
+### 6. Deploy the Smart Contract
 
-![Deploy smart contract](/img/smart-contract-images/deploy.png)
-
--you will get response with an ID, use it to do the signature. 
-
-![Deploy response](/img/smart-contract-images/deploy-response.png)
-
-- confirm deployment of the smart contract by doing the signature
-
-![Signature](/img/smart-contract-images/deploy-signature.png)
-
-
-```
+Deploy the contract from the Deployer node, committing 1 RBT to it. Deployment is a transaction through the unified `/rubix/v1/tx` endpoint with a `smartContract` token — an [asynchronous signature flow](../../api.md#asynchronous-signature-flow).
 
 ```bash
-curl -X POST http://localhost:20000/api/deploy-smart-contract \
+curl -X POST 'http://localhost:20000/rubix/v1/tx' \
 -H 'Content-Type: application/json' \
 -d '{
-  "comment": "deploying..",
-  "deployerAddr": "<Deployer DID>",
-  "quorumType": <Type of the quorum>,
-  "rbtAmount": <RBT amount to deploy the contract>,
-  "smartContractToken": "<Smart Contract TokenID>"
+  "initiator": "<Deployer DID>",
+  "owner": "",
+  "tokens": {
+    "smartContract": [
+      { "smartContractId": "<Smart Contract TokenID>", "value": 1, "data": "deploying" }
+    ]
+  },
+  "memo": "deploying smart contract"
 }'
 ```
 
-Then, confirm using:
+You will get a response with an `id` and `"Password needed"`. Confirm the deployment by supplying the password:
 
 ```bash
-curl -X POST http://localhost:20000/api/signature-response \
+curl -X POST 'http://localhost:20000/rubix/v1/signature' \
 -H 'Content-Type: application/json' \
 -d '{
-  "id": "<UUID from deploy response>",
-  "mode": 0,
+  "id": "<id from deploy response>",
   "password": "mypassword"
 }'
 ```
 
 ---
 
-### 7. Execute the Smart Contract 
+### 7. Execute the Smart Contract
 
-- we can now proceed to execute the contract with "Red" as a vote.
-
-![Execute smart contract](/img/smart-contract-images/execute.png)
-
-- similar to deployment of the smart contract, use the output of the execute smart contract to go ahead with the signature response.
+Now execute the contract with "Red" as a vote. Execution uses the **same** `/rubix/v1/tx` endpoint as deployment — only the `data` differs.
 
 ```bash
-curl -X POST http://localhost:20000/api/execute-smart-contract \
+curl -X POST 'http://localhost:20000/rubix/v1/tx' \
 -H 'Content-Type: application/json' \
 -d '{
-  "comment": "executing..",
-  "executorAddr": "<Executor DID>",
-  "quorumType": 2,
-  "smartContractData": "Red",
-  "smartContractToken": "<Smart Contract TokenID>"
+  "initiator": "<Executor DID>",
+  "owner": "",
+  "tokens": {
+    "smartContract": [
+      { "smartContractId": "<Smart Contract TokenID>", "value": 1, "data": "Red" }
+    ]
+  },
+  "memo": "executing smart contract"
 }'
 ```
 
-Then, confirm using:
+As with deployment, confirm using the signature endpoint with the returned `id`:
 
 ```bash
-curl -X POST http://localhost:20000/api/signature-response \
+curl -X POST 'http://localhost:20000/rubix/v1/signature' \
 -H 'Content-Type: application/json' \
 -d '{
-  "id": "<UUID from execute response>",
-  "mode": 0,
+  "id": "<id from execute response>",
   "password": "mypassword"
 }'
 ```
@@ -210,26 +196,10 @@ curl -X POST http://localhost:20000/api/signature-response \
 
 ### 8. Display Smart Contract Chain Data
 
-**Full Chain:**
+Fetch the full transaction chain for the contract:
 
 ```bash
-curl -X POST http://localhost:20000/api/get-smart-contract-token-chain-data \
--H 'Content-Type: application/json' \
--d '{
-  "latest": false,
-  "token": "<Smart Contract TokenID>"
-}'
-```
-
-**Latest Block:**
-
-```bash
-curl -X POST http://localhost:20000/api/get-smart-contract-token-chain-data \
--H 'Content-Type: application/json' \
--d '{
-  "latest": true,
-  "token": "<Smart Contract TokenID>"
-}'
+curl -X GET 'http://localhost:20000/rubix/v1/smart_contracts/<Smart Contract TokenID>/chain'
 ```
 ## Explanation of Voting contract
 

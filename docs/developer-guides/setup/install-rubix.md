@@ -18,7 +18,7 @@ To **install and run a Rubix node**, you will need the following components:
 - **Docker** — Required to run the PostgreSQL backend used by the node  
 
 {/*
-IPFS and the swarm keys are not part of the v1.0.0 release (executable + README + license only),
+IPFS and the swarm keys are not part of the v1.0.1 release (executable + README + license only),
 so the following are commented out for now. Restore them when a full bundle is hosted again:
 
 - **`ipfs`** — IPFS binary for storage and data synchronization
@@ -28,10 +28,10 @@ The Rubix binaries and key files are provided together as a compressed package f
 */}
 
 :::note
-The **v1.0.0 release download below contains only the `rubixgoplatform` executable** (plus README and license). You also need, obtained separately:
+The **v1.0.1 release download below contains only the `rubixgoplatform` executable** (plus README and license). You also need, obtained separately:
 
 - **IPFS** — compatible version **v0.19.0** ([IPFS Kubo v0.19.0](https://dist.ipfs.tech/kubo/v0.19.0/)).
-- **`swarm.key`** and **`testnetswarm.key`** — from the Rubix repo: [swarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.0/swarm.key) and [testnetswarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.0/testnetswarm.key).
+- **`swarm.key`** and **`testnetswarm.key`** — from the Rubix repo: [swarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/swarm.key) and [testnetswarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/testnetswarm.key).
 
 Docker is installed separately (see below).
 :::
@@ -49,11 +49,11 @@ import TabItem from '@theme/TabItem';
       <ul>
         <li>
           <strong>ARM 64:</strong><br />
-          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.0/rubixgoplatform-v1.0.0-linux-arm64.tar.gz" className="executable-link">📦 Download ARM Bundle (.tar.gz)</a>
+          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.1/rubixgoplatform-v1.0.1-linux-arm64.tar.gz" className="executable-link">📦 Download ARM Bundle (.tar.gz)</a>
         </li>
         <li>
           <strong>AMD 64:</strong><br />
-          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.0/rubixgoplatform-v1.0.0-linux-amd64.tar.gz" className="executable-link">📦 Download AMD Bundle (.tar.gz)</a>
+          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.1/rubixgoplatform-v1.0.1-linux-amd64.tar.gz" className="executable-link">📦 Download AMD Bundle (.tar.gz)</a>
         </li>
       </ul>
       <div className="installation-steps">
@@ -72,7 +72,7 @@ import TabItem from '@theme/TabItem';
       <h3>Windows Installation</h3>
       <p>Download the Windows bundle:</p>
       <div className="executable-links" style={{ display: 'flex', flexDirection: 'column' }}>
-        <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.0/rubixgoplatform-v1.0.0-windows-amd64.zip" className="executable-link">📦 Download Full Windows Bundle (.zip)</a>
+        <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.1/rubixgoplatform-v1.0.1-windows-amd64.zip" className="executable-link">📦 Download Full Windows Bundle (.zip)</a>
       </div>
       <div className="installation-steps">
         <h4>Installation Steps:</h4>
@@ -91,11 +91,11 @@ import TabItem from '@theme/TabItem';
       <ul>
         <li>
           <strong>ARM (Apple Silicon):</strong><br />
-          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.0/rubixgoplatform-v1.0.0-darwin-arm64.tar.gz" className="executable-link">📦 Download ARM Bundle (.tar.gz)</a>
+          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.1/rubixgoplatform-v1.0.1-darwin-arm64.tar.gz" className="executable-link">📦 Download ARM Bundle (.tar.gz)</a>
         </li>
         <li>
           <strong>AMD (Intel):</strong><br />
-          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.0/rubixgoplatform-v1.0.0-darwin-amd64.tar.gz" className="executable-link">📦 Download AMD Bundle (.tar.gz)</a>
+          <a href="https://github.com/rubixchain/rubixgoplatform/releases/download/v1.0.1/rubixgoplatform-v1.0.1-darwin-amd64.tar.gz" className="executable-link">📦 Download AMD Bundle (.tar.gz)</a>
         </li>
       </ul>
       <div className="installation-steps">

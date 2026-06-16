@@ -5,17 +5,12 @@ sidebar_label: Validators
 
 # Validator Performance & Logs
 
-Validators secure consensus and verify transactions on the Rubix Network.  
+Validators (quorum members) secure consensus and verify transactions on the Rubix Network.  
 
-To inspect validator activity, search for any Transaction ID in the Explorer.  
-On the transaction detail page, scroll to **Validator Logs**, where you’ll see:  
-- Which validators signed and validated the transaction  
-- Cryptographic signatures  
-- Consensus participation  
+To inspect the validators behind a transaction, search for any Transaction ID in the Explorer and open the **Quorums** tab on the transaction page. There you’ll see:  
+- The validating quorum's DID  
+- The tokens that quorum staked for the transaction — shown as "N tokens staked" and expandable under **Staked Tokens**  
 
-This helps monitor node reliability and performance across the network.  
+This makes the set of validators and their stake for each transaction fully transparent.  
 
-:::note 📸 Screenshot needed
-**Capture:** The **Validator Logs** section of a transaction detail page (search a Transaction ID on [explorer.rubix.net](https://explorer.rubix.net) and scroll to Validator Logs).
-**Save as:** `static/img/explorer-images/validator-logs.png`, then replace this note with `![Validator logs](/img/explorer-images/validator-logs.png)`.
-:::
+![Validator quorum and staked tokens](/img/explorer-images/validator-logs.png)

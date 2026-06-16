@@ -4,10 +4,7 @@ title: API Reference
 
 # API Reference
 
-The Rubix node exposes two groups of HTTP APIs:
-
-- **`/rubix/v1/...`** — the new RESTful API (DIDs, balances, transactions, NFTs, FTs, smart contracts, signatures).
-- **`/api/...`** — system and node-management endpoints (bootstrap, quorum, ping, etc.).
+The Rubix node exposes a single RESTful HTTP API, served entirely under **`/rubix/v1/...`** — DIDs, balances, transactions, NFTs, FTs, smart contracts, signatures, and node / bootstrap / quorum / token management.
 
 The node listens on port `20000 + node_index` (see [Run Rubix Locally](./developer-guides/setup/run-locally.md#port-assignment)). All examples below use port `20000` — adjust to match your node.
 
@@ -421,7 +418,7 @@ curl -X GET 'http://localhost:20000/rubix/v1/smart_contracts/QmW83PT7dKWT5ccBvQv
 
 ### Fetch Smart Contract
 
-**Endpoint**: `GET /api/fetch-smart-contract?smartContractToken=...`
+**Endpoint**: `GET /rubix/v1/smart_contracts/fetch?smartContractToken=...`
 
 Downloads all files related to the smart contract into a local folder.
 
@@ -549,87 +546,36 @@ FT transfers go through the unified [`POST /rubix/v1/tx`](#initiate-transaction)
 
 ---
 
-## System APIs
+## Node, Bootstrap & Quorum Management
 
-These system and node-management endpoints are served under `/api/...`.
+These operational endpoints manage the node, its peers, bootstrap list, quorums, and local/test token minting. Like everything else, they are served under `/rubix/v1/...`.
 
-### Ping
-
-**Endpoint**: `GET /api/ping?peerID=<peer_id>`
-
-Ping a peer by its Peer ID. Query param `peerID` is required.
-
-### Get Peer ID
-
-**Endpoint**: `GET /api/get-peer-id`
-
-Returns this node's Peer ID. No input.
-
-### Check Quorum Status
-
-**Endpoint**: `GET /api/check-quorum-status?quorumAddress=<did>`
-
-Check whether a quorum is reachable and set up. Query param `quorumAddress` is the quorum's DID.
-
-### Generate Local RBT
-
-**Endpoint**: `POST /api/generate-local-rbt`
-
-Mint RBT on a localnet for testing. This is an [async signature flow](#asynchronous-signature-flow).
-
-**Request body**:
-```json
-{
-  "did": "string",
-  "number_of_tokens": 1,
-  "start_index": 0
-}
-```
-
-### Generate Faucet Test Tokens
-
-**Endpoint**: `POST /api/generate-faucettest-token`
-
-Issue testnet RBT via the faucet flow. This is an [async signature flow](#asynchronous-signature-flow).
-
-**Request body**:
-```json
-{
-  "did": "string",
-  "token_count": 1
-}
-```
-
-### Quorum Management
-
-**Add Quorum** — `POST /api/addquorum`
-
-Add a single quorum DID to the node's quorum list. Call once per quorum.
-
-```json
-{ "did": "string" }
-```
-
-**Setup Quorum** — `POST /api/setup-quorum`
-
-Set the node's own DID up as a quorum.
-
-```json
-{
-  "did": "string",
-  "password": "string",
-  "priv_password": "string"
-}
-```
+### Node
 
 | Endpoint | Method | Description |
 |---|---|---|
-| `/api/getallquorum` | GET | List all configured quorums. No input. |
-| `/api/removeallquorum` | GET | Remove all quorums. No input. |
+| `/rubix/v1/node/start` | GET | Start the core. No input. |
+| `/rubix/v1/node/shutdown` | POST | Shut down the node. No input. |
+| `/rubix/v1/node/peer_id` | GET | Returns this node's Peer ID. No input. |
 
-### Bootstrap Management
+**Ping** — `GET /rubix/v1/node/ping?peerID=<peer_id>`
 
-**Add / Remove Bootstrap** — `POST /api/add-bootstrap`, `POST /api/remove-bootstrap`
+Ping a peer by its Peer ID. Query param `peerID` is required.
+
+**Add Peer Details** — `POST /rubix/v1/node/add_peers`
+
+Manually add a peer's DID → Peer ID mapping. The field names are matched case-insensitively, so `did`/`peerID` work as well as `DID`/`PeerID`.
+
+```json
+{
+  "DID": "string",
+  "PeerID": "string"
+}
+```
+
+### Bootstrap
+
+**Add / Remove Bootstrap** — `POST /rubix/v1/bootstrap/add`, `POST /rubix/v1/bootstrap/remove`
 
 Add or remove bootstrap peers. Each peer must be a full multiaddress (starting with `/`).
 
@@ -641,33 +587,71 @@ Add or remove bootstrap peers. Each peer must be a full multiaddress (starting w
 
 | Endpoint | Method | Description |
 |---|---|---|
-| `/api/remove-all-bootstrap` | POST | Remove all bootstrap peers. No input. |
-| `/api/get-all-bootstrap` | GET | List all bootstrap peers. No input. |
+| `/rubix/v1/bootstrap` | GET | List all bootstrap peers. No input. |
+| `/rubix/v1/bootstrap/remove_all` | POST | Remove all bootstrap peers. No input. |
 
-### Node Lifecycle
+### Quorums
 
-| Endpoint | Method | Description |
-|---|---|---|
-| `/api/start` | GET | Start the core. No input. |
-| `/api/shutdown` | POST | Shut down the node. No input. |
+**Add Quorum** — `POST /rubix/v1/quorums/add`
 
-### Other
+Add a single quorum DID to the node's quorum list. Call once per quorum.
 
-**Get All Tokens** — `GET /api/getalltokens?type=<token_type>&did=<did>`
+```json
+{ "did": "string" }
+```
 
-Returns all tokens of the given type for a DID. Query params: `type`, `did`.
+**Setup Quorum** — `POST /rubix/v1/quorums/setup`
 
-**Setup DID** — `POST /api/setup-did`
-
-Set up a DID from existing key files. `multipart/form-data` with a `did_config` field (JSON) plus the key files.
-
-**Add Peer Details** — `POST /api/add-peer-details`
-
-Manually add a peer's DID → Peer ID mapping. The field names are matched case-insensitively, so `did`/`peerID` work as well as `DID`/`PeerID`.
+Set the node's own DID up as a quorum.
 
 ```json
 {
-  "DID": "string",
-  "PeerID": "string"
+  "did": "string",
+  "password": "string",
+  "priv_password": "string"
 }
 ```
+
+**Check Quorum Status** — `GET /rubix/v1/quorums/status?quorumAddress=<did>`
+
+Check whether a quorum is reachable and set up. Query param `quorumAddress` is the quorum's DID.
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/rubix/v1/quorums` | GET | List all configured quorums. No input. |
+| `/rubix/v1/quorums/remove_all` | GET | Remove all quorums. No input. |
+
+### Tokens
+
+**Generate Local RBT** — `POST /rubix/v1/tokens/generate_local_rbt`
+
+Mint RBT on a localnet for testing. This is an [async signature flow](#asynchronous-signature-flow).
+
+```json
+{
+  "did": "string",
+  "number_of_tokens": 1,
+  "start_index": 0
+}
+```
+
+**Generate Faucet Test Tokens** — `POST /rubix/v1/tokens/generate_faucet_test`
+
+Issue testnet RBT via the faucet flow. This is an [async signature flow](#asynchronous-signature-flow).
+
+```json
+{
+  "did": "string",
+  "token_count": 1
+}
+```
+
+**Get All Tokens** — `GET /rubix/v1/tokens?type=<token_type>&did=<did>`
+
+Returns all tokens of the given type for a DID. Query params: `type`, `did`.
+
+### Setup DID from Key Files
+
+**Endpoint**: `POST /rubix/v1/dids/setup`
+
+Set up a DID from existing key files. `multipart/form-data` with a `did_config` field (JSON) plus the key files.

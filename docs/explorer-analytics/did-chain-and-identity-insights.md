@@ -7,7 +7,7 @@ sidebar_label: DIDs
 
 DIDs (Decentralized Identifiers) are the identity layer of Rubix, each maintaining its own chain.  
 
-To explore a DID, select **DID Explorer** in the menu and enter the DID ID.  
+To explore a DID, enter it in the Explorer's **search bar** (it accepts DIDs, tokens, or transactions).  
 The result shows:  
 - DID address & metadata  
 - Public keys and updates  

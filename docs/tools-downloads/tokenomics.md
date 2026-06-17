@@ -8,10 +8,9 @@ sidebar_label: RBT Tokenomics Sheet
 
 # Difficulty Threshold Table (Proof Credits)
 
-| Level | Cumulative Tokens ('000) | Tokens Awarded ('000) | PCs/Token |
+| Level | Cumulative Tokens | Tokens Awarded | PCs/Token |
 |-------|---------------------------|------------------------|-----------|
-| 0 | 0.056 | 0.056 | 14,300,000 |
-| 1 | 4,300,000 | 4,300,000 | 0.125 |
+| 1 | 4,300,000 | 4,300,000 | 0 |
 | 2 | 6,725,000 | 2,425,000 | 16 |
 | 3 | 9,028,750 | 2,303,750 | 32 |
 | 4 | 11,217,313 | 2,188,563 | 64 |

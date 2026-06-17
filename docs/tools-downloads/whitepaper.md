@@ -6,4 +6,4 @@ sidebar_label: Whitepaper PDF
 <!-- File: docs/tools-downloads/whitepaper.md -->
 # Whitepaper PDF
 
-Download [Rubix white paper](https://rubix.net/wp-content/uploads/2025/07/RubiX_WhitePaper.pdf)  here.
+Download [Rubix white paper](https://rubix.net/wp-content/uploads/2026/03/Rubix_WP.pdf)  here.

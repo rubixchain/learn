@@ -35,3 +35,11 @@ The **Token Details** section shows the asset type, value, status, current **Own
 Below it, **Token Chain History** lists every transaction involving the token (from → to, with timestamps) — its full ownership lineage:
 
 ![Token chain history](/img/explorer-images/tokenchain-search-2.png)
+
+## Graph (DAG) View
+
+The Explorer can also show transactions as a **graph** — the Rubix transaction DAG. Each transaction is a **node**, and the nodes are linked through tokens: as shown in the Assets above, every transaction records each token's **previous transaction**. Each of those back-references is an **edge** to the earlier transaction that last touched the same token, so following the edges traces a token's full history — and together they form the graph.
+
+Open it with the **GRAPH** button in the Explorer, or at [explorer.rubix.net/dag](https://explorer.rubix.net/dag) (testnet: [testnetexplorer.rubix.net/dag](https://testnetexplorer.rubix.net/dag)). Select any transaction to see its place in the graph and how it links to the transactions around it.
+
+![Graph (DAG) view](/img/explorer-images/dag-view.png)

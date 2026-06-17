@@ -2,59 +2,37 @@
 title: API Reference
 ---
 
-## BasicAPIs
-### Initiate RBT Transfer
-To Initiate RBT Transfer, you can use the following API endpoint:
+# API Reference
 
-**Endpoint**: `/api/initiate-rbt-transfer`
+The Rubix node exposes a single RESTful HTTP API, served entirely under **`/rubix/v1/...`** — DIDs, balances, transactions, NFTs, FTs, smart contracts, signatures, and node / bootstrap / quorum / token management.
 
-**Method**: `POST`
+The node listens on port `20000 + node_index` (see [Run Rubix Locally](./developer-guides/setup/run-locally.md#port-assignment)). All examples below use port `20000` — adjust to match your node.
 
-**Request format**:
+## Common Response Envelope
 
-```
-{ 
+Every endpoint returns the same envelope:
 
-  "comment": "string", 
-  "receiver": "string", 
-  "sender": "string", 
-  "tokenCOunt": 0, 
-  "type": 0 
-
+```json
+{
+  "status": true,
+  "message": "Got DID created successfully",
+  "result": { /* endpoint-specific payload */ }
 }
 ```
-- **comment** [`String`]: Any commment during rbt transfer process. 
-- **receiver** [`String`]: Add Reciver's DID.
-- **sender** [`String`]: Add Sender's DID.
-- **tokenCount** [`int`]: Amount of RBT to send.
-- **type** [`int`]: Type of quorum for the transaction. 
 
-**Model request**:
-```
-{ 
-  "comment": "test transfer", 
-  "receiver": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "sender": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui", 
-  "tokenCOunt": 1.0, 
-  "type": 2 
-} 
-```
-**curl request**: 
- ```
-curl -X 'POST' \
-  'http://localhost:21000/api/initiate-rbt-transfer' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "comment": "test transfer",
-  "receiver": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
-  "sender": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui",
-  "tokenCOunt": 1.0,
-  "type": 2
-}'
- ```
- **Response**: 
- ``` 
+- **`status`** — `true` on success, `false` on failure.
+- **`message`** — human-readable status.
+- **`result`** — endpoint-specific payload (object, array, string, or `null`).
+
+## Asynchronous Signature Flow
+
+Several operations (RBT transfer, DID registration, smart contract deploy/execute, NFT create, FT create) are asynchronous and require a password to complete. They follow this two-step flow:
+
+1. Call the operation endpoint. The response contains an `id` and `"message": "Password needed"`.
+2. Call `POST /rubix/v1/signature` with the `id` and the private key password (default: `mypassword`) to complete the operation.
+
+Example first-response:
+```json
 {
   "status": true,
   "message": "Password needed",
@@ -66,1007 +44,614 @@ curl -X 'POST' \
   }
 }
 ```
-NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
 
-**Final Response**
-```
-{
-  "status": true,
-  "message": "Transaction is still processing, with transaction id aee95cdb9db8794b988063e29400198c3fc741f9f461faae8c83d02119e1d9d6",
-  "result": "aee95cdb9db8794b988063e29400198c3fc741f9f461faae8c83d02119e1d9d6"
-}
+Then complete via `POST /rubix/v1/signature` (see [Signatures](#signatures)).
 
-```
-### Get account Info
- 
- To Fetch the account info of a DID, you can use the following API endpoint:
-
- **Endpoint**: `/api/get-acccount-info`
-
-**Method**: `GET`
-
-**Request format**:
-
-![get account info image](/img/basic-api-images/getaccountinfo.png)
-
-- **DID** [`String`]: The Decentralized Identifier (DID) of the account for which the account information needs to be retrieved.
-
-**curl request**: 
-```
-curl -X 'GET' \ 
-  'http://localhost:20800/api/get-account-info?did=bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui' \ 
-  -H 'accept: application/json'
-```
-**Response**:
-```
-{
-  "status": true,
-  "message": "Got account info successfully",
-  "result": null,
-  "account_info": [
-    {
-      "did": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui",
-      "did_type": 0,
-      "rbt_amount": 2,
-      "pledged_rbt": 0,
-      "locked_rbt": 0,
-      "pinned_rbt": 0
-    }
-  ]
-}
-```
-
-### Generate test rbt
-To generate test rbt's, you can use the following API endpoint:
-
-**Endpoint**: `/api/generate-test-token`
-
-**Method**: `POST`
-
-**Request format**:
-
-```
-{
-  "did": "string",
-  "number_of_tokens": int
-}
-```
-- **did** [`String`]: The DID of the account for which test rbt's needs to generate
-
-- **number_of_tokens** [`int`]: number of tokens to generate
-
-**Model request**:
-```
-{
-    "did":"bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
-    "number_of_tokens": 2
-}
-```
-**curl request**: 
-```
-curl --location 'http://localhost:20900/api/generate-test-token' \
---header 'Content-Type: application/json' \
---data '{
-    "did":"bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
-    "NumberOfTokens":2
-}'
-```
-**Response**:
-```
-{
-  "status": true,
-  "message": "Test tokens generated successfully",
-  "result": null
-}
-```
+---
 
 ## DID Management
+
 ### Create DID
 
-To create a DID, you can use the following API endpoint:
+**Endpoint**: `POST /rubix/v1/dids/create`
 
-**Endpoint**: `/api/createdid`
+Create a new DID. The request body is JSON.
 
-**Method**: `POST`
-
-**Request format**:
-
-![create did image](/img/basic-api-images/createdid.png) 
-
-- **type**[`int`]: DID type (0=Basic, 1=Standard, 2=Wallet, 3=Child, 4=Light; default: 0).
-- **priv_pwd**[`string`]: Private key password is needed to encrypt the private key file(default: "mypassword").
-- **mnemonic_file**[`String`]:Mnemonic key file (default: "mnemonic.txt").
-- **secret**[`string`]: DID secret (default: "My DID Secret").
-- **quorum_pwd** [`string`]: Quorum key password (default: "mypassword").
-- **img_file** [`string`]: Image file for DID creation (must be 256x256 PNG; default: "image.png").
-- **priv_img_file** [`string`]: Private share image file name (default: "pvtShare.png").
-- **pub_img_file** [`string`]: Public share image file name (default: "pubShare.png").
-- **priv_key_file** `[string]`: Private key file name (default: "pvtKey.pem").
-- **pub_key_file** [`string`]: Public key file name (default: "pubKey.pem").
-- **childPath** [`int`]: BIP Child Path (default: 0).
-
-
-**Response**:
-```
+**Request body**:
+```json
 {
-    "status": true,
-    "message": "DID created successfully",
-    "result": {
-        "did": "bafybmiaiudnmnbpr2kst26tf56vsnsklncucflb6er566twzrk4itryfom",
-        "peer_id": "12D3KooWRK3CzoVYGdcMZqPYHJTkdnWZTTZqyAaSgFFETapBmT97"
-    }
+  "password": "mypassword",
+  "public_key": "",
+  "private_key": "",
+  "mnemonic": "",
+  "childPath": 0
 }
 ```
-**curl request**:
 
+- **`password`** [`string`]: Password used to encrypt the private key file (default: `mypassword`).
+- **`public_key`** [`string`]: (Optional) Hex of an existing public key. Creates a DID bound to that key.
+- **`private_key`** [`string`]: (Optional) Path to an existing private key file.
+- **`mnemonic`** [`string`]: (Optional) BIP-39 mnemonic phrase to restore an existing DID.
+- **`childPath`** [`int`]: BIP child path (default `0`).
+
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/dids/create' \
+  -H 'Content-Type: application/json' \
+  -d '{"password":"mypassword"}'
 ```
-curl --location 'http://localhost:20900/api/createdid' \
---form 'did_config="{\"type\": 4, \"priv_pwd\":\"mypassword\"}"'
+
+**Response**:
+```json
+{
+  "status": true,
+  "message": "DID created successfully",
+  "result": {
+    "did": "bafybmiaiudnmnbpr2kst26tf56vsnsklncucflb6er566twzrk4itryfom",
+    "peer_id": "12D3KooWRK3CzoVYGdcMZqPYHJTkdnWZTTZqyAaSgFFETapBmT97"
+  }
+}
 ```
-### Get all DID's 
 
-To get all DIDs of a node, you can use the following API endpoint:
+### Get All DIDs
 
-**Endpoint**: `/api/getalldid`
+**Endpoint**: `GET /rubix/v1/dids`
 
-**Method**: `GET`
+Returns all DIDs hosted on the node.
 
-**Request format**:
-- Request body will be empty for this API as shown in the following image.
-
-![getall did image](/img/basic-api-images/getall-did.png) 
-
-
-**curl request**: 
-```
-curl --location 'http://localhost:20900/api/getalldid' \
---data ''
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/dids'
 ```
 
 ### Register DID
-To regisster DID,  you can use the following API endpoint:
 
-**Endpoint**: `/api/register-did`
+**Endpoint**: `POST /rubix/v1/dids/{did}/register`
 
-**Method**: `POST`
+Publish the DID across the network so other nodes can discover it. This is an [async signature flow](#asynchronous-signature-flow).
 
-**Request format**:
-- **did** [`String`]: The DID of the account which you want to register
-
-**Model request**:
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/dids/bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi/register'
 ```
-{
-	"did": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi"
-}
+
+---
+
+## DID Balances
+
+### Get Combined Balance
+
+**Endpoint**: `GET /rubix/v1/dids/{did}/balances`
+
+Returns RBT, FT, and NFT balances for the DID in a single call.
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/dids/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/balances'
 ```
+
 **Response**:
-
-```
-{
-    "status": true,
-    "message": "Password needed",
-    "result": {
-        "id": "B5C0C562-2F60-4BA7-B887-A0FB64FCBFBA",
-        "mode": 4,
-        "hash": null,
-        "only_priv_key": false
-    }
-}
-```
-NOTE: Use the `id` in the `api/signature-Response` with password (default password: mypassword).
-
-**Final Response**:
-```
+```json
 {
   "status": true,
-  "message": "DID registered successfully",
-  "result": null
+  "message": "Got account info successfully",
+  "result": {
+    "did": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui",
+    "rbt_balance": [ /* RBT info */ ],
+    "ft_balance": [ /* FT info */ ],
+    "nft_balance": [ /* NFT info */ ]
+  }
 }
 ```
 
-**curl request**: 
+### Get RBT Balance
+
+**Endpoint**: `GET /rubix/v1/dids/{did}/balances/rbt`
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/dids/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/balances/rbt'
 ```
-curl --location 'http://localhost:20900/api/register-did' \
---header 'Content-Type: application/json' \
---data '{
-	"did": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi"
-}'
+
+### Get FT Balance
+
+**Endpoint**: `GET /rubix/v1/dids/{did}/balances/ft`
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/dids/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/balances/ft'
 ```
 
-###
-## Smart Contract
-### Generate smart contract
+### Get NFT Balance
 
-To generate a smart contract, you can use the following API endpoint:
+**Endpoint**: `GET /rubix/v1/dids/{did}/balances/nft`
 
-**Endpoint**: `/api/generate-smart-contract`
-
-**Method**: `POST`
-
-**Request format**:
-
-![generate smart contract image](/img/generate-sc.png) 
-
-- **did** [`String`]: The DID of the user genarating the Smart contract.  
-- **binaryCodePath** [File]: The compiled WASM binary file.
-- **rawCodePath** [File]: The raw smart contract logic code file (Rust/Go/ file).
-- **schemaFilePath** [File]: The JSON file for updating state changes if required.
-
-**Model request**:
-
-
-**curl request**:  
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/dids/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/balances/nft'
 ```
-curl --location --request POST 'http://localhost:20000/api/generate-smart-contract' 
---form 'did="your_did"' 
---form 'binaryCodePath=@"path_to_binary_code"' 
---form 'rawCodePath=@"path_to_raw_code"' 
---form 'schemaFilePath=@"path_to_schema"'
+
+---
+
+## Transactions
+
+The transactions API is unified — a single endpoint handles RBT transfers, FT transfers, NFT transfers, and smart contract deployments/executions.
+
+### Initiate Transaction
+
+**Endpoint**: `POST /rubix/v1/tx`
+
+This is an [async signature flow](#asynchronous-signature-flow). The body specifies what is being transferred via the `tokens` object.
+
+**Request body**:
+```json
+{
+  "initiator": "string (sender DID)",
+  "owner": "string (receiver DID)",
+  "tokens": {
+    "rbt": 0.0,
+    "ft": [
+      { "ftName": "string", "numberOfFts": 0, "creatorDID": "string" }
+    ],
+    "nft": [
+      { "nftId": "string", "value": 0.0, "data": "string", "parentNFTId": "" }
+    ],
+    "smartContract": [
+      { "smartContractId": "string", "value": 0.0, "data": "string" }
+    ],
+    "transferNftOwnership": false
+  },
+  "memo": "string"
+}
 ```
+
+- **`initiator`** [`string`]: DID initiating the transaction (sender / deployer / executor).
+- **`owner`** [`string`]: DID that will own the result (receiver / new contract owner).
+- **`tokens.rbt`** [`float`]: RBT amount to transfer (set to `0` if not transferring RBT).
+- **`tokens.ft`** [`array`]: Fungible tokens being transferred.
+- **`tokens.nft`** [`array`]: NFTs being transferred. Set `parentNFTId` to mint a child NFT linked to the named parent.
+- **`tokens.smartContract`** [`array`]: Smart contracts being deployed or executed.
+- **`tokens.transferNftOwnership`** [`bool`]: Whether to transfer ownership (vs. just executing) of the NFT.
+- **`memo`** [`string`]: Optional memo attached to the transaction.
+
+**Example — RBT transfer**:
+```json
+{
+  "initiator": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui",
+  "owner": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+  "tokens": { "rbt": 1.0 },
+  "memo": "test transfer"
+}
+```
+
+**Example — FT transfer**:
+```json
+{
+  "initiator": "bafybmig7cmpfdcxqbvn3wutczeby2a6o46cnfzmcyoy6imgbnt7qzfwxp4",
+  "owner": "bafybmicdvgacsdsscn63eaq3faqdtimros23b4j7bpj2m2wsmjjaxoj47i",
+  "tokens": {
+    "ft": [{ "ftName": "apple", "numberOfFts": 8, "creatorDID": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom" }]
+  }
+}
+```
+
+**Example — Smart contract execution**:
+```json
+{
+  "initiator": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+  "owner": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+  "tokens": {
+    "smartContract": [{ "smartContractId": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE", "value": 0, "data": "Red" }]
+  },
+  "memo": "executing smart contract"
+}
+```
+
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/tx' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "initiator": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui",
+    "owner": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
+    "tokens": { "rbt": 1.0 },
+    "memo": "test transfer"
+  }'
+```
+
+### List Transactions
+
+**Endpoint**: `GET /rubix/v1/tx`
+
+Returns all transactions known to the node.
+
+### Get Transaction by ID
+
+**Endpoint**: `GET /rubix/v1/tx/{tx_id}`
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/tx/aee95cdb9db8794b988063e29400198c3fc741f9f461faae8c83d02119e1d9d6'
+```
+
+### Get Transactions by DID and Token Type
+
+**Endpoint**: `GET /rubix/v1/tx/{did}/{token_type}`
+
+Path params:
+- **`did`** — DID to filter by.
+- **`token_type`** — one of `rbt`, `nft`, `ft`, `smartContract`.
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/tx/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/rbt'
+```
+
+### Sync Transaction Chain
+
+**Endpoint**: `POST /rubix/v1/sync-transaction-chain`
+
+Returns ordered transaction chains for the requested token IDs.
+
+**Request body**:
+```json
+{
+  "did": "string",
+  "token_ids": ["string"],
+  "exclude_transaction_ids": ["string"]
+}
+```
+
+---
+
+## Signatures
+
+### Signature Response
+
+**Endpoint**: `POST /rubix/v1/signature`
+
+Used to supply the password for an in-flight async operation (RBT transfer, register DID, deploy/execute SC, etc.).
+
+**Request body**:
+```json
+{
+  "id": "string (id from the initial response)",
+  "password": "mypassword",
+  "signature": ""
+}
+```
+
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/signature' \
+  -H 'Content-Type: application/json' \
+  -d '{"id":"62352DFA-4654-45E1-8A31-15BDF9513B52","password":"mypassword"}'
+```
+
+### Arbitrary Signature
+
+**Endpoint**: `POST /rubix/v1/signature/arbitrary`
+
+Request a signature on an arbitrary message.
+
+**Request body**:
+```json
+{
+  "signer_did": "string",
+  "msg_to_sign": "string"
+}
+```
+
+This is an [async signature flow](#asynchronous-signature-flow).
+
+### Verify Arbitrary Signature
+
+**Endpoint**: `GET /rubix/v1/signature/verify`
+
+Query params: `signer_did`, `signed_msg`, `signature`.
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/signature/verify?signer_did=bafybmi...&signed_msg=hello&signature=304402...'
+```
+
+---
+
+## Smart Contracts
+
+### Generate Smart Contract
+
+**Endpoint**: `POST /rubix/v1/smart_contracts/generate`
+
+`multipart/form-data` request.
+
+Form fields:
+- **`did`** [`string`]: DID generating the smart contract.
+- **`binaryCodePath`** [`file`]: Compiled WASM file (`.wasm`).
+- **`rawCodePath`** [`file`]: Raw source file (`.rs`).
+
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/smart_contracts/generate' \
+  -F 'did=bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi' \
+  -F 'binaryCodePath=@./contract.wasm' \
+  -F 'rawCodePath=@./contract.rs'
+```
+
 **Response**:
-```
+```json
 {
   "status": true,
   "message": "Smart contract generated successfully",
   "result": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE"
 }
 ```
----
 
-### Deploy smart contract
+### List Smart Contracts
 
-To deploy a smart contract, you can use the following API endpoint:
+**Endpoint**: `GET /rubix/v1/smart_contracts`
 
-**Endpoint**: `/api/deploy-smart-contract`
+### Get Smart Contract Chain
 
-**Method**: `POST`
+**Endpoint**: `GET /rubix/v1/smart_contracts/{contract_id}/chain`
 
-**Request format**:
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/smart_contracts/QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE/chain'
 ```
+
+### Subscribe to Smart Contract
+
+**Endpoint**: `GET /rubix/v1/smart_contracts/subscribe?smartContractToken=...`
+
+### Register Callback URL
+
+**Endpoint**: `POST /rubix/v1/smart_contracts/register_callback`
+
+**Request body**:
+```json
 {
-  "comment": "string",
-  "deployerAddr": "string",
-  "quorumType": 0,
-  "rbtAmount": 0,
-  "smartContractToken": "string"
-}
-```
-- **comment** [`String`]: Any commment during deployment process. 
-- **deployerAddr** [`String`]: The DID of the deployer.
-- **quorum_type** [`Integer`]: Type of quorum for the transaction.  
-  - **1**: Randomly picked quorums.  
-  - **2**: Specified by the deployer.  
-- **rbt_amount** [`Integer`]: The amount of native token RBT required for the deployment process, ensure sufficient RBT funds are available.  
-- **smartContractToken** [`String`]: The smart contract hash generated during generation process
-
-**Model request**:
-```
-{
-  "comment": "deploying first contract",
-  "deployerAddr": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
-  "quorumType": 2,
-  "rbtAmount": 1,
-  "smartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE"
-}
-```
-**curl request**:  
-```
-curl --header "Content-Type: application/json" --request POST 'http://localhost:20000/api/deploy-smart-contract' --data '{ 
-  "smartContractToken": "your_token",
-  "deployerAddr": "your_address", 
-  "rbtAmount": "rbt_amount_for_deployment", 
-  "quorumType": "quorum_type", 
-  "comment": "your_comment" 
-}'
-```
-**Response**:
-```
-{
-  "status": true,
-  "message": "Password needed",
-  "result": {
-    "id": "823A1C97-736F-482D-B911-79F4B5AC205E",
-    "mode": 4,
-    "hash": null,
-    "only_priv_key": false
-  }
-}
-```
-NOTE: Use the `id` in the `api/signature-Response` with password (default password: mypassword).
-
-```
-{
-  "status": true,
-  "message": "Smart Contract Token Deployed successfully in 2m52.7881096s",
-  "result": null
-}
-```
----
-
-### Execute smart contract
-
-To execute a smart contract, you can use the following API endpoint:
-
-**Endpoint**: `/api/execute-smart-contract`
-
-**Method**: `POST`
-
-**Request format**:
-```
-{ 
-  "comment": "string", 
-  "executorAddr": "string", 
-  "quorumType": 0, 
-  "smartContractData": "string", 
-  "smartContractToken": "string" 
-}
-```
-- **comment** [`String`]: Any comment during execution process.  
-- **executorAddr** [`String`]: The DID of the executor.
-- **quorum_type** [`Integer`]: Type of quorum for the transaction.  
-  - **1**: Randomly picked quorums.  
-  - **2**: Specified by the deployer.  
-- **smartContractData** [`String`]: The smart contract data to be given as input during execution.
-- **smartContractToken** [`String`]: The smart contract hash generated during generation process.
-
-**Model request**:
-```
-{ 
-  "comment": "executing smart contract", 
-  "executorAddr": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "quorumType": 2, 
-  "smartContractData": "Red", 
-  "smartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
-}
-```
-**curl request**:  
-```
-curl -X 'POST' \ 
-  'http://localhost:20900/api/execute-smart-contract' \ 
-  -H 'accept: application/json' \ 
-  -H 'Content-Type: application/json' \ 
-  -d '{ 
-  "comment": "executing smart contract", 
-  "executorAddr": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "quorumType": 2, 
-  "smartContractData": "Red", 
-  "smartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
-}'
-```
-**Response**:
-```
-{ "status": true,
-  "message": "Password needed",
-  "result": { 
-    "id": "C22411FC-962D-4221-A89A-227EDB07E2E6",
-    "mode": 4,
-    "hash": null,
-    "only_priv_key": false 
-  } 
-}
-```
-NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
-
-```
-{ 
-  "status": true, 
-  "message": "Smart Contract Token Executed successfully in 50.188983855s", 
-  "result": null 
-}
-```
----
-### Get Smart contract token chain data
-
-To get the full smart contract token chain data, you can use the following API endpoint:
-
-**Endpoint**: `/api/get-smart-contract-token-chain-data`
-
-**Method**: `POST`
-
-**Request format**:
-```
-{ 
-  "latest": true, 
-  "token": "string" 
-}
-```
-- **latest** [`String`]: Indicates whether need only latest block. (For chain give as `false`)  
-- **token** [`String`]: Smart contract token hash.
-
-**Model request**:
-```
-{ 
-  "latest": true, 
-  "token": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
-}
-```
-**curl request**:  
-```
-curl -X 'POST' \ 
-  'http://localhost:20900/api/get-smart-contract-token-chain-data' \ 
-  -H 'accept: application/json' \ 
-  -H 'Content-Type: application/json' \ 
-  -d '{ 
-  "latest": true, 
-  "token": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
-}'
-```
-**Response**: 
-``` 
-{ 
-  "status": true, 
-  "message": "Fetched latest block smart contract data", 
-  "result": null, 
-  "SCTDataReply": [ 
-    { 
-      "BlockNo": 1, 
-      "BlockId": "1-96df30c70c5873e3751c593f35ec23e702339e6c721d42b7181adb8653dab21d", 
-      "SmartContractData": "Red", 
-      "Epoch": 1756375523, 
-      "InitiatorSignature": "3044022032786c4333d85492ac334f85ac597a67bf468bd20a40f01ba8febdd0aa30f0d1022010851bf1ff50f8b0db6f6cf11f543de27cf97aa8058551327a0e05db1b9bb4ea", 
-      "ExecutorDID": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-      "InitiatorSignData": "48c36408b85a59525095b95ccb2b0241a33f192a53642d740419fb16f3acd842" 
-    } 
-  ] 
-}
-```
----
-### Register callback URL
-
-Register a URL as a callback of execution
-
-**Endpoint**: `/api/register-callback-url`
-
-**Method**: `POST`
-
-**Request format**:
-```
-{ 
-  "CallBackURL": "string", 
-  "SmartContractToken": "string" 
-}
-```
-**Model request**:
-```
-{ 
-  "CallBackURL": "http://localhost:8080/api/contract-input", 
-  "SmartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
-}
-```
-**curl request**:  
-```
-curl -X 'POST' \ 
-  'http://localhost:20900/api/register-callback-url' \ 
-  -H 'accept: application/json' \ 
-  -H 'Content-Type: application/json' \ 
-  -d '{ 
-  "CallBackURL": "http://localhost:8080/api/contract-input", 
-  "SmartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE" 
-}'
-```
-**Response**: 
-```
-{ 
-  "status": true, 
-  "message": "Call back URL registered successfully", 
-  "result": null 
-}
-```
----
-### Fetch smart contract files
-
-To fetch all files related to a smart contract
-
-**Endpoint**: `/api/fetch-smart-contract`
-
-**Method**: `GET`
-
-Give the smart contract token hash as the value for the `smartContractToken` query parameter.
-
-**curl request**:  
-```
-curl -X 'GET' \ 
-  'http://localhost:20900/api/fetch-smart-contract?smartContractToken=QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE'\
-  -H 'accept: application/json'
-```
-**Response**: 
-```
-{ 
-  "status": true, 
-  "message": "Smart Contract fetched successfully", 
-  "result": null 
-}
-```
-A folder will be created with all the files related to the smart contract
-
----
-## FT
-### Creation of FTs
-
-To create an FT, you can use the following API endpoint:
-
-**Endpoint**: `api/create-ft`  
-
-**Method**: `POST`
-
-**Request format**:
-```
-{
-  "did": "string",
-  "ft_count": 0,
-  "ft_name": "string",
-  "token_count": 0
+  "CallBackURL": "http://localhost:8080/api/contract-input",
+  "SmartContractToken": "QmW83PT7dKWT5ccBvQvSmkSQJNbWR5hMheQ3n6vckwDFkE"
 }
 ```
 
-- **did** [`String`]: The DID of the user creating the FTs.  
-- **ft_count** [`Integer`]: The total supply of FTs to be created.  
-- **ft_name** [`String`]: The name/symbol of the FT being created.  
-- **token_count** [`Integer`]: The amount of native token RBT required for the creation process, ensure sufficient RBT funds are available.  
+### Fetch Smart Contract
 
-**Model request**:
-```
-{
-  "did": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
-  "ft_count": 100,
-  "ft_name": "apple",
-  "token_count": 1
-}
-```
+**Endpoint**: `GET /rubix/v1/smart_contracts/fetch?smartContractToken=...`
 
-**Model curl request**:  
-```
-curl --location 'localhost:20000/api/create-ft' \
---header 'Content-Type: application/json' \
---data '{
-  "did": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
-  "ft_count": 100,
-  "ft_name": "apple",
-  "token_count": 1
-}'
-```
+Downloads all files related to the smart contract into a local folder.
 
-**Response**
-```
-{
-  "message": "string",
-  "result": "string",
-  "status": true
-}
-```
+### Deploy / Execute Smart Contract
+
+Both operations now go through the unified [`POST /rubix/v1/tx`](#initiate-transaction) endpoint with a `tokens.smartContract` entry. See the [smart contract execution example](#initiate-transaction) above.
 
 ---
 
-### Transfer of FTs
+## NFTs
 
-To transfer an FT from one DID to another, you can use:
+### Create NFT
 
-**Endpoint**: `/api/initiate-ft-transfer`  
+**Endpoint**: `POST /rubix/v1/nfts/generate`
 
-**Method**: `POST`
+`multipart/form-data` request.
 
-**Request format**:
-```
-{
-  "comment": "string",
-  "creatorDID": "string",
-  "ft_count": 0,
-  "ft_name": "string",
-  "password": "string",
-  "quorum_type": 0,
-  "receiver": "string",
-  "sender": "string"
-}
-```
+Form fields:
+- **`did`** [`string`]: DID creating the NFT.
+- **`metadata`** [`file`]: JSON file with NFT metadata.
+- **`artifact`** [`file`]: The actual NFT file (image, etc.).
 
-- **ft_count** [`Integer`]: Total number of FTs to be transferred.  
-- **ft_name** [`String`]: Name/symbol of the FT being transferred.  
-- **comment** [`String`]: Optional message regarding the transfer.  
-- **password** [`String`]: Password to authorize the transfer (default “ ”).  
-- **receiver** [`String`]: Address of the recipient receiving the FT.  
-- **sender** [`String`]: Address of the user initiating the transfer.  
-- **quorum_type** [`Integer`]: Type of quorum for the transaction.  
-  - **1**: Randomly picked quorums.  
-  - **2**: Specified by the sender.  
-- **creatorDID** [`String`]: Defines the creator of an FT.
-
-**Model request**:
-```
-{
-  "comment": "",
-  "creatorDID": "",
-  "ft_count": 8,
-  "ft_name": "ARR",
-  "password": "",
-  "quorum_type": 2,
-  "receiver": "bafybmicdvgacsdsscn63eaq3faqdtimros23b4j7bpj2m2wsmjjaxoj47i",
-  "sender": "bafybmig7cmpfdcxqbvn3wutczeby2a6o46cnfzmcyoy6imgbnt7qzfwxp4"
-}
-```
-
-**Model curl request**:  
-```
-curl --location 'localhost:20051/api/initiate-ft-transfer' \
---header 'Content-Type: application/json' \
---data '{
-  "comment": "",
-  "creatorDID": "",
-  "ft_count": 3,
-  "ft_name": "ARR",
-  "password": "",
-  "quorum_type": 2,
-  "receiver": "bafybmicdvgacsdsscn63eaq3faqdtimros23b4j7bpj2m2wsmjjaxoj47i",
-  "sender": "bafybmig7cmpfdcxqbvn3wutczeby2a6o46cnfzmcyoy6imgbnt7qzfwxp4"
-}'
-```
-
-**Response**
-
-```
-{
-  "message": "string",
-  "result": "string",
-  "status": true
-}
-```
-
-**NOTES:**
-- `password` is mandatory when you have a password created during the creation of DID.  
-- `creatorDID` is mandatory when you have multiple FTs with the same FT Name.  
-- Default port: `20000`. Adjust if needed.  
-
----
-
-### Preview of FT Token chain
-
-Provide the FT token ID as the value for the `tokenID` query parameter.  
-
-**Endpoint**: `/api/get-ft-token-chain`  
-
-**Method**: `GET`
-
-**Model curl request**:  
-```
-curl --location 'localhost:20000/api/get-ft-token-chain?tokenID=QmWxBMRbW2uyD27Czm5Bor49hnjvyRHMd1sEHTk8UGbe7i'
-```
-
-**Response**
-
-```
-{
-  "message": "string",
-  "result": "string",
-  "status": true,
-  "tokenChainData": [
-    "string"
-  ]
-}
-```
-
----
-
-### Get FT's Balance
-
-Provide the user DID as the value for the `did` query parameter.
-
-**Endpoint**: `/api/get-ft-info-by-did`  
-
-**Method**: `GET`
-
-**Model curl request**:  
-```
-curl --location 'localhost:20000/api/get-ft-info-by-did?did=bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom'
-```
-
-**Response**
-
-```
-{
-  "ft_info": [
-    {
-      "creator_did": "string",
-      "ft_count": 0,
-      "ft_name": "string"
-    }
-  ],
-  "message": "string",
-  "result": "string",
-  "status": true
-}
-```
----
-## NFT
-### Generation of NFT
-
-To Generate an NFT, you can use the following API endpoint
-
-**Endpoint**: `/api/create-nft`
-
-**Method**: `POST`
-
-**Request format**: 
-
-image of NFT creation request
-
-**curl request**:
-```
-curl -X 'POST' \
-  'http://localhost:20900/api/create-nft' \ 
-  -H 'accept: multipart/form-data' \ 
-  -H 'Content-Type: multipart/form-data' \ 
-  -F 'did=bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui' \ 
-  -F 'metadata=@632498430230723.json;type=application/json' \ 
-  -F 'artifact=@20250730_114411.jpg;type=image/jpeg' 
-```
-**Response**:
-```
-{ 
-  "status": true, 
-  "message": "NFT Token generated successfully", 
-  "result": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1" 
-} 
-```
-### Deployment of NFT
-
-To deploy an NFT, you can use the following endpoint:
-
-**Endpoint**: `/api/deploy-nft`
-
-**Method**: `POST`
-
-**Request format**:
-```
-{ 
-  "did": "string", 
-  "nft": "string", 
-  "nft_data": "string", 
-  "nft_file_name": "string", 
-  "nft_metadata": "string", 
-  "nft_value": 0, 
-  "quorum_type": 0 
-} 
-```
-- **did** [`String`]: DID of the deployer of NFT
-- **nft** [`String`]: NFT token ID
-- **nft_data** [`String`]: Arbitary data for the NFT during deployment
-- **nft_file_name** [`String`]: File name of the actual NFT
-- **nft_metadata** [`String`]: Metadata of the NFT data
-- **nft_value** [`Integer`]: Value of the NFT during deployment
-- **quorum_type** [`Integer`]: Type of quorum for the NFT deployment.  
-  - **1**: Randomly picked quorums.  
-  - **2**: Specified by the sender.
-
-**Model request**:
-```
-{ 
-  "did": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1", 
-  "nft_data": "test nft", 
-  "nft_file_name": "20250730_114411.jpg", 
-  "nft_metadata": "", 
-  "nft_value": 1, 
-  "quorum_type": 2 
-}
-```
-**curl request**:
-```
-curl -X 'POST'  
-'http://localhost:20900/api/deploy-nft'  
--H 'accept: application/json'  
--H 'Content-Type: application/json'  
--d '{ 
-  "did": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1", 
-  "nft_data": "test nft", 
-  "nft_file_name": "20250730_114411.jpg", 
-  "nft_metadata": "", 
-  "nft_value": 1, 
-  "quorum_type": 2 
-}'
-```
-**Response**:
-```
-{
-  "status": true,
-  "message": "Password needed",
-  "result": {
-    "id": "823A1C97-736F-482D-B911-79F4B5AC205E",
-    "mode": 4,
-    "hash": null,
-    "only_priv_key": false
-  }
-}
-```
-NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
-
-```
-{
-  "status": true,
-  "message": "NFT Deployed successfully in 53.368924154s with trnxid 7eec78f9f16f5b6ebc6757f9d21af0c000c53f1d6e6254897a2d71832e8c2260",
-  "result": null
-}
-```
-### Execution/Tranfer of NFT
-
-For transferring an NFT, use the following API endpoint:
-
-**Endpoint**: `/api/execute-nft`
-
-**Method**: `POST`
-
-**Request format**:
-```
-{ 
-  "comment": "string", 
-  "executor": "string", 
-  "nft": "string", 
-  "nft_data": "string", 
-  "nft_value": 0, 
-  "quorum_type": 0, 
-  "receiver": "string" 
-}
-```
-- **comment** [`String`]: Any comment during execution process.  
-- **executor** [`String`]: DID of the executor of the NFT
-- **nft** [`String`]: NFT token ID
-- **nft_data** [`String`]: Arbitary data for the NFT during deployment
-- **nft_value** [`Integer`]: Value of the NFT during deployment
-- **quorum_type** [`Integer`]: Type of quorum for the NFT deployment.  
-  - **1**: Randomly picked quorums.  
-  - **2**: Specified by the sender.
-- **receiver** [`String`]: DID of the receiver of the NFT.
-
-**Model request**:
-```
-{ 
-  "comment": "testing execute", 
-  "executor": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1", 
-  "nft_data": "test nft", 
-  "nft_value": 1, 
-  "quorum_type": 2, 
-  "receiver": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui" 
-}
-```
-**curl request**:
-```
-curl -X 'POST' \ 
-  'http://localhost:20900/api/execute-nft' \ 
-  -H 'accept: application/json' \ 
-  -H 'Content-Type: application/json' \ 
-  -d '{ 
-  "comment": "testing execute", 
-  "executor": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi", 
-  "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1", 
-  "nft_data": "test nft", 
-  "nft_value": 1, 
-  "quorum_type": 2, 
-  "receiver": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui" 
-}'
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/nfts/generate' \
+  -F 'did=bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui' \
+  -F 'metadata=@./metadata.json' \
+  -F 'artifact=@./image.jpg'
 ```
 
 **Response**:
-```
-{ "status": true, 
-  "message": "Password needed", 
-  "result": { 
-    "id": "85EDB8E8-FD06-4E12-816F-86C6A195F821", 
-    "mode": 4, 
-    "hash": null, 
-    "only_priv_key": false 
-  } 
+```json
+{
+  "status": true,
+  "message": "NFT Token generated successfully",
+  "result": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1"
 }
 ```
-NOTE: Use the `id` in the `api/signature-Response` with password if created (default password: mypassword).
+
+### List NFTs
+
+**Endpoint**: `GET /rubix/v1/nfts`
+
+### Get NFT Chain
+
+**Endpoint**: `GET /rubix/v1/nfts/{nft_id}/chain`
+
+**curl**:
+```bash
+curl -X GET 'http://localhost:20000/rubix/v1/nfts/QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1/chain'
 ```
-{ 
-  "status": true, 
-  "message": "NFT Executed successfully in 1m2.131491535s", 
-  "result": null 
-}
-```
+
+### Get Child NFTs
+
+**Endpoint**: `GET /rubix/v1/nfts/{nft_id}/children`
+
+Returns NFTs whose parent is the given NFT. Originator-only.
+
+### Get Parent NFT
+
+**Endpoint**: `GET /rubix/v1/nfts/{nft_id}/parent`
+
+Returns the parent NFT (id + value), or `null` if none. Originator-only.
+
+### Subscribe to NFT
+
+**Endpoint**: `GET /rubix/v1/nfts/subscribe?nft=<nft_id>`
 
 ### Fetch NFT
 
-For Fetching NFT details, use the following API endpoint
+**Endpoint**: `GET /rubix/v1/fetch-nft?nft=<nft_id>`
 
-**Endpoint**: `api/fetch-nft`
+Downloads NFT files into a local folder.
 
-**Method**: `GET`
+### Deploy / Execute / Transfer NFT
 
-Give the NFT ID as the value for the `nft` query parameter.
+All NFT transactions now go through the unified [`POST /rubix/v1/tx`](#initiate-transaction) endpoint with a `tokens.nft` entry.
 
-**curl request**:  
-```
-curl -X 'GET' \
-  'http://localhost:21000/api/fetch-nft?nft=QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1' \ 
-  -H 'accept: application/json'
-```
-**Response**:
-```
-{ 
-  "status": true, 
-  "message": "NFT fetched successfully", 
-  "result": null 
+---
+
+## FTs
+
+### Mint FT
+
+**Endpoint**: `POST /rubix/v1/fts/mint`
+
+This is an [async signature flow](#asynchronous-signature-flow).
+
+**Request body**:
+```json
+{
+  "did": "string",
+  "ft_name": "string",
+  "ft_count": 0,
+  "token_count": 0,
+  "ft_num_start_index": 0
 }
 ```
-### Getting NFT token chain Data
 
-For getting an NFT token chain data, you can use the following API endpoint
+- **`did`** [`string`]: Creator DID.
+- **`ft_name`** [`string`]: Name / symbol.
+- **`ft_count`** [`int`]: Total supply to mint.
+- **`token_count`** [`int`]: RBT amount to back the FTs.
+- **`ft_num_start_index`** [`int`]: Starting index for FT numbering.
 
-**Endpoint**: `/api/get-nft-token-chain-data`
-
-**Method**: `GET`
-
-There are two query parameters for this API:
-
-- **nft**[`String`]: NFT token ID
-- **latest**[`Boolean`]: 
-  - Use `true` for getting latest block
-  - Use `false` for getting entire token chain
-
-**curl request**:
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/fts/mint' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "did": "bafybmidhjebpnarqite2pf7akpb333svhdkhnyucalxv3aelg3c6iq6aom",
+    "ft_name": "apple",
+    "ft_count": 100,
+    "token_count": 1
+  }'
 ```
-curl -X 'GET' \ 
-  'http://localhost:20800/api/get-nft-token-chain-data?nft=QmUPAe9qQFe6n8RtoB467bDvGZUhUEWd1xbdXqTq25RNuC&latest=true' \ 
-  -H 'accept: application/json'
-```
-**Response**:
-```
-{ 
-  "status": true, 
-  "message": "Fetched NFT data", 
-  "result": null, 
-  "NFTDataReply": [ 
-    { 
-      "BlockNo": 1, 
-      "BlockId": "1-4baef7c5c0448bc45dd4935f3684503d0c5b8ec2090eff2c88e231e1bda399fb", 
-      "NFTData": "test nft", 
-      "NFTOwner": "bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui", 
-      "NFTValue": 1, 
-      "Epoch": 1756457355, 
-      "TransactionID": "089b31686a01e8d8479a141546ea6da80a9053e8636ec3ec5d9c7efb135110fe" 
-    } 
-  ] 
+
+### List FTs
+
+**Endpoint**: `GET /rubix/v1/fts`
+
+### Transfer FT
+
+FT transfers go through the unified [`POST /rubix/v1/tx`](#initiate-transaction) endpoint with a `tokens.ft` entry.
+
+---
+
+## Node, Bootstrap & Quorum Management
+
+These operational endpoints manage the node, its peers, bootstrap list, quorums, and local/test token minting. Like everything else, they are served under `/rubix/v1/...`.
+
+### Node
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/rubix/v1/node/start` | GET | Start the core. No input. |
+| `/rubix/v1/node/shutdown` | POST | Shut down the node. No input. |
+| `/rubix/v1/node/peer_id` | GET | Returns this node's Peer ID. No input. |
+
+**Ping** — `GET /rubix/v1/node/ping?peerID=<peer_id>`
+
+Ping a peer by its Peer ID. Query param `peerID` is required.
+
+**Add Peer Details** — `POST /rubix/v1/node/add_peers`
+
+Manually add a peer's DID → Peer ID mapping. The field names are matched case-insensitively, so `did`/`peerID` work as well as `DID`/`PeerID`.
+
+```json
+{
+  "DID": "string",
+  "PeerID": "string"
 }
 ```
-### Subscribing for an NFT
 
-For subscribing for getting updates of an NFT, you can use the following API endpoint:
+### Bootstrap
 
-**Endpoint**: `/api/subscribe-nft`
+**Add / Remove Bootstrap** — `POST /rubix/v1/bootstrap/add`, `POST /rubix/v1/bootstrap/remove`
 
-**Method**: `POST`
+Add or remove bootstrap peers. Each peer must be a full multiaddress (starting with `/`).
 
-**Request format**:
-```
-{ 
-  "nft": "string" 
+```json
+{
+  "peers": ["/ip4/127.0.0.1/tcp/4001/p2p/12D3KooW..."]
 }
 ```
-- **nft**[`String`]: NFT Token ID
 
-**Model request**:
+| Endpoint | Method | Description |
+|---|---|---|
+| `/rubix/v1/bootstrap` | GET | List all bootstrap peers. No input. |
+| `/rubix/v1/bootstrap/remove_all` | POST | Remove all bootstrap peers. No input. |
+
+### Quorums
+
+**Add Quorum** — `POST /rubix/v1/quorums/add`
+
+Add a single quorum DID to the node's quorum list. Call once per quorum.
+
+```json
+{ "did": "string" }
 ```
-{ 
-  "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1" 
+
+**Setup Quorum** — `POST /rubix/v1/quorums/setup`
+
+Set the node's own DID up as a quorum.
+
+```json
+{
+  "did": "string",
+  "password": "string",
+  "priv_password": "string"
 }
 ```
-**curl request**:
-```
-curl -X 'POST' \ 
-  'http://localhost:20900/api/subscribe-nft' \ 
-  -H 'accept: application/json' \ 
-  -H 'Content-Type: application/json' \ 
-  -d '{ 
-  "nft": "QmRjtbUxw8yh1DN2JjzDqm3wuedVECv5B3jDUzWq9QUEK1" 
-}'
-```
-**Response**:
-```
-{ 
-  "status": true, 
-  "message": "NFT subscribed successfully", 
-  "result": null 
+
+**Check Quorum Status** — `GET /rubix/v1/quorums/status?quorumAddress=<did>`
+
+Check whether a quorum is reachable and set up. Query param `quorumAddress` is the quorum's DID.
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/rubix/v1/quorums` | GET | List all configured quorums. No input. |
+| `/rubix/v1/quorums/remove_all` | GET | Remove all quorums. No input. |
+
+### Tokens
+
+**Generate Local RBT** — `POST /rubix/v1/tokens/generate_local_rbt`
+
+Mint RBT on a localnet for testing. This is an [async signature flow](#asynchronous-signature-flow).
+
+```json
+{
+  "did": "string",
+  "number_of_tokens": 1,
+  "start_index": 0
 }
 ```
+
+**Generate Faucet Test Tokens** — `POST /rubix/v1/tokens/generate_faucet_test`
+
+Issue testnet RBT via the faucet flow. This is an [async signature flow](#asynchronous-signature-flow).
+
+```json
+{
+  "did": "string",
+  "token_count": 1
+}
+```
+
+**Get All Tokens** — `GET /rubix/v1/tokens?type=<token_type>&did=<did>`
+
+Returns all tokens of the given type for a DID. Query params: `type`, `did`.
+
+### Setup DID from Key Files
+
+**Endpoint**: `POST /rubix/v1/dids/setup`
+
+Set up a DID from existing key files. `multipart/form-data` with a `did_config` field (JSON) plus the key files.

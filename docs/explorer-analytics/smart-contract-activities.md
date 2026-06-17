@@ -12,7 +12,11 @@ Smart Contracts on Rubix are compiled to WebAssembly (WASM) and executed directl
 - Gas/Credit Usage  
 - Event Triggers  
 
-![SmartContract Info](/img/explorer-images/smart-contract-info.png)
+:::note 📸 Screenshot needed
+**Capture:** A smart contract detail/activity page (search a contract token or transaction on [explorer.rubix.net](https://explorer.rubix.net)).
+**Save as:** `static/img/explorer-images/smart-contract-info.png`, then replace this note with `![Smart contract info](/img/explorer-images/smart-contract-info.png)`.
+:::
+
 ## Usage
 1. Navigate to **Smart Contracts** in the Explorer menu.  
 2. Enter the contract address or search by transaction.  

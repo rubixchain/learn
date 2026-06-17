@@ -4,104 +4,90 @@ title: Run Full Node
 ---
 # Run a Full Node
 
-This guide walks you through the complete fullnode setup: fetching Rubix executables, installing PostgreSQL, preparing your database, and running the fullnode.
+A full node receives all published transactions and tokenchain details from the network. This guide walks you through setting up a full node.
 
-To install the required Rubix binaries (Rubix Node, IPFS, swarm key etc.), refer to:  
-[Install Rubix](../../developer-guides/setup/install-rubix.md)
+## Prerequisites
 
+Before proceeding, make sure you have:
 
+- Installed the Rubix binaries — see [Install Rubix](./install-rubix.md)
+- Docker installed — see [Install Docker](./install-rubix.md#install-docker) in the install guide
+- Completed the basic [Run Rubix Locally](./run-locally.md) flow at least once
 
-## 1. Install PostgreSQL
+The setup flow for a full node is the same as a regular node, with one extra flag at the end.
+
+## 1. Init Config
 
 ```bash
-sudo apt update
-sudo apt install postgresql
-```
-## 2.Create PostgreSQL User and Database 
-Switch to the postgres user:
-```
-sudo -i -u postgres
-psql
-```
-Create a database user, password, and database.
-You may choose any username, password, and database name.
-
-Example (replace placeholders):
-```
-CREATE USER <your_username> WITH PASSWORD '<your_password>';
-CREATE DATABASE <your_database_name>;
-GRANT ALL PRIVILEGES ON DATABASE <your_database_name> TO <your_username>;
-```
-## 3. Run the fullnode
-Start your fullnode by passing your PostgreSQL username and password:
-```
-./rubixgoplatform run \
-  -p <fullnode_name> \
-  -n <port_number> \
-  -s \
-  -grpcPort <grpcPort_number> \
-  -testNet \
-  -fullnode \
-  -pgsqlDBName <your_DB_Name> \
-  -pgsqlDBUserName <your_username> \
-  -pgsqlDBPassword <your_password>
-``` 
-Arguments explained:
-
-- `-p`: node name
-
-- `-n`: port for Rubix node(default is 20000, if we pass 100 node will run on 20100)
-
-- `-s`: enable HTTP server
-
-- `-grpcPort`: port number for grpc communication
-
-- `-testNet` or `-mainNet`: If you want to run testnet fullnode, use `-testNet` as flag, to run mainnet fullnode use `-mainNet` as flag.
-
-- `-fullnode`: to run as a fullnode
-
-- `-pgsqlDBUserName` / `-pgsqlDBPassword`/ `-pgsqlDBName`: PostgreSQL credentials
-
-If you get any permission issues while running the fullnode, do the following:
-
-1. Enter PostgreSQL shell again:
-```
-sudo -u postgres psql
-```
-2. Connect to your database:
-```
-\c <your_database_name>
-
-```
-3. Grant required privilages:
-```
-ALTER SCHEMA public OWNER TO <your_username>;
-
-GRANT ALL ON SCHEMA public TO <your_username>;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO <your_username>;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO <your_username>;
-
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO <your_username>;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO <your_username>;
-
-```
-4. Verify:
-```
-\dn+
-
-```
-you should see:
-```
-public | <your_username> | ...
-```
-5.Exit:
-```
-\q
+./rubixgoplatform init -p fullnode0
 ```
 
+Edit the generated `config.toml` inside the `fullnode0/` directory:
 
+```toml
+[core]
+node_index = 0
+network_mode = "testnet"
+enable_trusted_network = false
 
+[db]
+host = "localhost"
+username = "rubix"
+password = "rubixpass"
+db_name = "rubix"
+```
 
+Set `network_mode` to `"testnet"` or `"mainnet"` depending on which network the full node should operate on.
 
+For the full `config.toml` field reference, see [Run Rubix Locally — Configuration Reference](./run-locally.md#configuration-reference).
 
+## 2. Setup Postgres
 
+Run Postgres in Docker. Match the host port to your `node_index` (formula: `5433 + node_index`):
+
+```bash
+docker run --name fullnode-postgres \
+  -e POSTGRES_PASSWORD=rubixpass \
+  -e POSTGRES_USER=rubix \
+  -e POSTGRES_DB=rubix \
+  -p 5433:5432 \
+  -v fullnode-pgdata:/var/lib/postgresql \
+  --restart always \
+  -d postgres
+```
+
+The `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB` values must match the `[db]` section of your `config.toml`.
+
+## 3. Run the Full Node
+
+Start your node with the `-fullnode` flag:
+
+```bash
+./rubixgoplatform run -p fullnode0 -fullnode
+```
+
+**Flags:**
+
+| Flag | Description |
+|---|---|
+| `-p` | Path to the node directory (where `config.toml` lives). |
+| `-fullnode` | Run the node as a full node — subscribes to all published transactions and tokenchain details. |
+| `-defaultSetup` | (Optional) Add default faucet quorums for testing. |
+
+## Troubleshooting
+
+### Postgres container won't start
+
+Check if another container is already using the host port:
+
+```bash
+docker ps -a
+```
+
+Stop the conflicting container, or assign a different `node_index` (which shifts the expected Postgres port).
+
+### Connection refused from Rubix to Postgres
+
+- Verify the container is running: `docker ps`
+- Verify the host port matches `(5433 + node_index)`
+- Verify the credentials in `config.toml` match the `docker run` environment variables

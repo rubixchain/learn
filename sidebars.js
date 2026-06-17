@@ -100,8 +100,7 @@ module.exports = {
         'explorer-analytics/validator-performance-and-logs',
         'explorer-analytics/did-chain-and-identity-insights',
         'explorer-analytics/rbt-supply-and-credit-metrics',
-        'explorer-analytics/network-health-dashboard',
-        'explorer-analytics/smart-contract-activities',
+        // 'explorer-analytics/smart-contract-activities', // hidden until the SC explorer screenshot is added
       ],
     },
     {

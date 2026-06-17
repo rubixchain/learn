@@ -14,10 +14,13 @@ Key metrics include:
 - Block production status  
 - Network Uptime  
 
-![Explorer Home](/img/explorer-images/explorer-home-1.png)
+:::note 📸 Screenshot needed
+**Capture:** The network health dashboard (select **Dashboard** from the menu on [explorer.rubix.net](https://explorer.rubix.net)).
+**Save as:** `static/img/explorer-images/network-health-dashboard.png`, then replace this note with `![Network health dashboard](/img/explorer-images/network-health-dashboard.png)`.
+:::
 
 
 ## Usage
-1. Open [Rubix Explorer](https://rubixexplorer.com).  
+1. Open [Rubix Explorer](https://explorer.rubix.net).  
 2. Select **Dashboard** from the menu.  
 3. Monitor validator uptime, TPS, and subnet activity in real time.  

@@ -7,12 +7,13 @@ sidebar_label: DIDs
 
 DIDs (Decentralized Identifiers) are the identity layer of Rubix, each maintaining its own chain.  
 
-To explore a DID, select **DID Explorer** in the menu and enter the DID ID.  
-The result shows:  
-- DID address & metadata  
-- Public keys and updates  
-- On-chain history, including token creation and transactions  
+To explore a DID, enter it in the Explorer's **search bar** (it accepts DIDs, tokens, or transactions).  
+The **DID Explorer** page shows:  
+- The DID address  
+- A balance summary — **RBT Balance**, **Pledged Value**, **FT Balance**, **NFTs**, and **SC Deployed**  
+- A **Transactions** tab listing the DID's transactions (from / to, time, amount)  
+- An **FT Holdings** tab  
 
-This allows full transparency of identity activities without compromising privacy.  
+This gives a transparent view of a DID's activity and holdings.  
 
-![DID Info](/img/explorer-images/DID-Info.png)
+![DID info](/img/explorer-images/did-info.png)

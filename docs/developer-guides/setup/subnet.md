@@ -7,7 +7,7 @@ sidebar_label: Set Up Your Subnet
 
 This is an advanced guide for creating a private, isolated network. This is useful for enterprise applications or private testing environments that require a controlled group of validators.
 
-A subnet works exactly like connecting to the testnet or mainnet — the only difference is that you supply your **own** swarm key and your **own** bootstrap nodes instead of the official Rubix ones. A subnet runs in `localnet` mode, so the node looks for a `localnetswarm.key` file in its root folder. Only nodes that share the same swarm key can discover and connect to each other, which is what isolates your subnet from the public network.
+A subnet works exactly like connecting to the testnet or mainnet. The only difference is that you supply your **own** swarm key and your **own** bootstrap nodes instead of the official Rubix ones. A subnet runs in `localnet` mode, so the node looks for a `localnetswarm.key` file in its root folder. Only nodes that share the same swarm key can discover and connect to each other, which is what isolates your subnet from the public network.
 
 ## 1. Create a custom Swarm Key
 
@@ -25,7 +25,7 @@ A subnet works exactly like connecting to the testnet or mainnet — the only di
 
 ## 2. Distribute the Key
 
-Every node that should be part of your subnet needs a copy of the **same** `localnetswarm.key` file in its root folder (the directory you run `rubixgoplatform` from). A node with a different key — or no key — cannot join the subnet.
+Every node that should be part of your subnet needs a copy of the **same** `localnetswarm.key` file in its root folder (the directory you run `rubixgoplatform` from). A node with a different key, or no key, cannot join the subnet.
 
 ## 3. Configure each node
 

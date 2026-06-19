@@ -13,7 +13,7 @@ The foundation of being a validator is running a node on the network. First init
 
 ```bash
 ./rubixgoplatform init -p <node_name>
-# edit <node_name>/config.toml — set network_mode = "mainnet"
+# edit <node_name>/config.toml and set network_mode = "mainnet"
 ./rubixgoplatform run -p <node_name>
 ```
 
@@ -60,7 +60,7 @@ Publish your DID across the network by registering it:
     width="120"
   />
 </a>
-{/* Blofin temporarily unavailable — re-enable when listed again
+{/* Blofin temporarily unavailable. Re-enable when listed again
 <a
   href="https://blofin.com/spot/RBT-USDT"
   target="_blank"
@@ -86,11 +86,11 @@ Visit Rubix Faucet below for getting test tokens. You can purchase a free Rubix 
 
 ## Setting Up a Validator Node in Subnet
 
-Ensure you are on the correct subnet by verifying the **swarm key fingerprint** in your node logs. (A subnet runs in `localnet` mode with a custom `localnetswarm.key` — see [Set Up Your Subnet](../developer-guides/setup/subnet.md).)
+Ensure you are on the correct subnet by verifying the **swarm key fingerprint** in your node logs. (A subnet runs in `localnet` mode with a custom `localnetswarm.key`; see [Set Up Your Subnet](../developer-guides/setup/subnet.md).)
 
 ![swarm-fingerprint](/img/swarm-fingerprint.png)
 
-In mainnet, the quorum is randomly picked. In a subnet, you choose and define the set of validators that make up the quorum. Each validator in the set must already be set up as a validator node:
+In mainnet, the quorum is determined by the network. In a subnet, you choose and define the set of validators that make up the quorum. Each validator in the set must already be set up as a validator node:
 
 - Running of Node
 - Creation of DID

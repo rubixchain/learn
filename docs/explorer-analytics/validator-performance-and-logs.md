@@ -7,10 +7,10 @@ sidebar_label: Validators
 
 Validators (quorum members) secure consensus and verify transactions on the Rubix Network.  
 
-To inspect the validators behind a transaction, search for any Transaction ID in the Explorer and open the **Quorums** tab on the transaction page. There you’ll see:  
+To inspect the validators behind a transaction, search for any Transaction ID in the Explorer and open the **Quorums** tab on the transaction page. There you'll see:  
 - The validating quorum's DID  
-- The tokens that quorum staked for the transaction — shown as "N tokens staked" and expandable under **Staked Tokens**  
+- The tokens the quorum pledged for the transaction, with the count shown and the full list expandable  
 
-This makes the set of validators and their stake for each transaction fully transparent.  
+This makes the set of validators and their pledge for each transaction fully transparent.  
 
-![Validator quorum and staked tokens](/img/explorer-images/validator-logs.png)
+![Validator quorum and pledged tokens](/img/explorer-images/validator-logs.png)

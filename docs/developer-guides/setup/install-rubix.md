@@ -14,15 +14,15 @@ aliases:
 
 To **install and run a Rubix node**, you will need the following components:
 
-- **`rubixgoplatform`** — Rubix node executable binary  
-- **Docker** — Required to run the PostgreSQL backend used by the node  
+- **`rubixgoplatform`**: Rubix node executable binary  
+- **Docker**: Required to run the PostgreSQL backend used by the node  
 
 {/*
 IPFS and the swarm keys are not part of the v1.0.1 release (executable + README + license only),
 so the following are commented out for now. Restore them when a full bundle is hosted again:
 
-- **`ipfs`** — IPFS binary for storage and data synchronization
-- **`swarm.key`** and **`testnetswarm.key`** — Swarm key files for connecting to the mainnet and testnet respectively
+- **`ipfs`**: IPFS binary for storage and data synchronization
+- **`swarm.key`** and **`testnetswarm.key`**: Swarm key files for connecting to the mainnet and testnet respectively
 
 The Rubix binaries and key files are provided together as a compressed package for your OS and architecture. Docker is installed separately.
 */}
@@ -30,8 +30,8 @@ The Rubix binaries and key files are provided together as a compressed package f
 :::note
 The **v1.0.1 release download below contains only the `rubixgoplatform` executable** (plus README and license). You also need, obtained separately:
 
-- **IPFS** — compatible version **v0.19.0** ([IPFS Kubo v0.19.0](https://dist.ipfs.tech/kubo/v0.19.0/)).
-- **`swarm.key`** and **`testnetswarm.key`** — from the Rubix repo: [swarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/swarm.key) and [testnetswarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/testnetswarm.key).
+- **IPFS**: compatible version **v0.19.0** ([IPFS Kubo v0.19.0](https://dist.ipfs.tech/kubo/v0.19.0/)).
+- **`swarm.key`** and **`testnetswarm.key`**: from the Rubix repo: [swarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/swarm.key) and [testnetswarm.key](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/testnetswarm.key).
 
 Docker is installed separately (see below).
 :::
@@ -146,7 +146,7 @@ Verify your installation:
 docker --version
 ```
 
-The PostgreSQL container itself is launched as part of the node startup flow — see [Run Rubix Locally](./run-locally.md) for the exact command.
+The PostgreSQL container itself is launched as part of the node startup flow. See [Run Rubix Locally](./run-locally.md) for the exact command.
 
 Once you have successfully installed Rubix and Docker, you can proceed to [start a Rubix Node](./run-locally.md).
 

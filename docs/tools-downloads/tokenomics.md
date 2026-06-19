@@ -6,9 +6,9 @@ sidebar_label: RBT Tokenomics Sheet
 <!-- File: docs/tools-downloads/tokenomics.md -->
 # RBT Tokenomics Sheet
 
-# Difficulty Threshold Table (Proof Credits)
+# Difficulty Threshold Table (Credits)
 
-| Level | Cumulative Tokens | Tokens Awarded | PCs/Token |
+| Level | Cumulative Tokens | Tokens Awarded | Credits/Token |
 |-------|---------------------------|------------------------|-----------|
 | 1 | 4,300,000 | 4,300,000 | 0 |
 | 2 | 6,725,000 | 2,425,000 | 16 |

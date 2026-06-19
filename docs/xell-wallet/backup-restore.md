@@ -8,7 +8,7 @@ sidebar_label: Back Up and Restore Wallets
 1. **Store the Mnemonic Phrase:**
 - Write it on paper and Store in a secure location.
 - store as encrypted file, if you are storing the digital copy of the encrypted file.
-- Consider splitting the phrase across multiple locations using Shamir’s
+- Consider splitting the phrase across multiple locations using Shamir's
 Secret Sharing (SLIP39) for added security.
 
 **Warning:** Do not store your mnemonic digitally unless encrypted.

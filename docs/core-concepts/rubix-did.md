@@ -8,7 +8,7 @@ sidebar_label: Rubix DID
 
 ## Decentralized Identity
 
-Each Rubix node is identified by a Decentralized Identity (DID) a self-generated, cryptographically verifiable public key that anchors the node’s presence and authority in the network.
+Each Rubix node is identified by a Decentralized Identity (DID) a self-generated, cryptographically verifiable public key that anchors the node's presence and authority in the network.
 
 ## Creating a DID in Rubix
 
@@ -17,5 +17,5 @@ In Rubix, a Decentralized Identifier (DID) is created by generating a public key
 ## Key characteristics of Rubix DID
 
 - Self-issued and does not rely on any central certificate authority.
-- DID acts as the node’s permanent, verifiable identifier 
+- DID acts as the node's permanent, verifiable identifier 
 - Shared with peers across the network to enable secure validation and communication.

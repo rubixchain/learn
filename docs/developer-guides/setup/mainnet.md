@@ -52,7 +52,7 @@ Note: Do not use `"testnet"` as the `network_mode` for mainnet. Ensure it is set
     width="120"
   />
 </a>
-{/* Blofin temporarily unavailable — re-enable when listed again
+{/* Blofin temporarily unavailable. Re-enable when listed again
 <a
   href="https://blofin.com/spot/RBT-USDT"
   target="_blank"

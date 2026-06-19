@@ -16,5 +16,5 @@ The stat cards at the top of the Explorer show:
 ![RBT supply and economic metrics](/img/explorer-images/rbt-dashboard.png)
 
 ## Usage
-1. Open [explorer.rubix.net](https://explorer.rubix.net) — the stat cards are shown at the top of the home page.  
+1. Open [explorer.rubix.net](https://explorer.rubix.net) - the stat cards are shown at the top of the home page.  
 2. Use the **Holders** tab to see token holders, or the **Tokens** tab to browse tokens.  

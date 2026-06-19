@@ -7,7 +7,7 @@ sidebar_label: Connect to Rubix Testnet
 
 The testnet is a development environment for testing your applications without risking real assets.
 
-Connecting to a network is the same process for every network — testnet, mainnet, or a private subnet. You set the `network_mode` in `config.toml` and place the matching swarm key file in your node's root folder. The swarm key forms a private IPFS network so only nodes sharing the same key can connect. The file the node looks for depends on the network:
+Connecting to a network is the same process for every network, whether testnet, mainnet, or a private subnet. You set the `network_mode` in `config.toml` and place the matching swarm key file in your node's root folder. The swarm key forms a private IPFS network so only nodes sharing the same key can connect. The file the node looks for depends on the network:
 
 | `network_mode` | Swarm key file |
 |---|---|

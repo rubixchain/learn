@@ -9,7 +9,7 @@ sidebar_label: Rubix CLI Binaries
 📦 **Download the Rubix node executable below**  
 
 :::note
-The download provides the `rubixgoplatform` executable only (plus README and license). You also need **IPFS** (compatible version **v0.19.0**) and the swarm key files — [`swarm.key`](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/swarm.key) and [`testnetswarm.key`](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/testnetswarm.key) — from the Rubix repo. See [Install Rubix](../developer-guides/setup/install-rubix.md) for the full setup.
+The download provides the `rubixgoplatform` executable only (plus README and license). You also need **IPFS** (compatible version **v0.19.0**) and the swarm key files - [`swarm.key`](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/swarm.key) and [`testnetswarm.key`](https://github.com/rubixchain/rubixgoplatform/blob/v1.0.1/testnetswarm.key) - from the Rubix repo. See [Install Rubix](../developer-guides/setup/install-rubix.md) for the full setup.
 :::
 
 import Tabs from '@theme/Tabs';

@@ -4,9 +4,9 @@ title: API Reference
 
 # API Reference
 
-The Rubix node exposes a single RESTful HTTP API, served entirely under **`/rubix/v1/...`** — DIDs, balances, transactions, NFTs, FTs, smart contracts, signatures, and node / bootstrap / quorum / token management.
+The Rubix node exposes a single RESTful HTTP API, served entirely under **`/rubix/v1/...`**: DIDs, balances, transactions, NFTs, FTs, smart contracts, signatures, and node, bootstrap, quorum, and token management.
 
-The node listens on port `20000 + node_index` (see [Run Rubix Locally](./developer-guides/setup/run-locally.md#port-assignment)). All examples below use port `20000` — adjust to match your node.
+The node listens on port `20000 + node_index` (see [Run Rubix Locally](./developer-guides/setup/run-locally.md#configuration-reference)). All examples below use port `20000`. Adjust to match your node.
 
 ## Common Response Envelope
 
@@ -20,9 +20,9 @@ Every endpoint returns the same envelope:
 }
 ```
 
-- **`status`** — `true` on success, `false` on failure.
-- **`message`** — human-readable status.
-- **`result`** — endpoint-specific payload (object, array, string, or `null`).
+- **`status`**: `true` on success, `false` on failure.
+- **`message`**: human-readable status.
+- **`result`**: endpoint-specific payload (object, array, string, or `null`).
 
 ## Asynchronous Signature Flow
 
@@ -175,7 +175,7 @@ curl -X GET 'http://localhost:20000/rubix/v1/dids/bafybmiaflq2dxcg5frq5o5myoqtk6
 
 ## Transactions
 
-The transactions API is unified — a single endpoint handles RBT transfers, FT transfers, NFT transfers, and smart contract deployments/executions.
+The transactions API is unified: a single endpoint handles RBT transfers, FT transfers, NFT transfers, and smart contract deployments/executions.
 
 ### Initiate Transaction
 
@@ -205,8 +205,8 @@ This is an [async signature flow](#asynchronous-signature-flow). The body specif
 }
 ```
 
-- **`initiator`** [`string`]: DID initiating the transaction (sender / deployer / executor).
-- **`owner`** [`string`]: DID that will own the result (receiver / new contract owner).
+- **`initiator`** [`string`]: DID initiating the transaction (sender, deployer, or executor).
+- **`owner`** [`string`]: DID that will own the result (receiver, or new contract owner).
 - **`tokens.rbt`** [`float`]: RBT amount to transfer (set to `0` if not transferring RBT).
 - **`tokens.ft`** [`array`]: Fungible tokens being transferred.
 - **`tokens.nft`** [`array`]: NFTs being transferred. Set `parentNFTId` to mint a child NFT linked to the named parent.
@@ -214,7 +214,7 @@ This is an [async signature flow](#asynchronous-signature-flow). The body specif
 - **`tokens.transferNftOwnership`** [`bool`]: Whether to transfer ownership (vs. just executing) of the NFT.
 - **`memo`** [`string`]: Optional memo attached to the transaction.
 
-**Example — RBT transfer**:
+**RBT transfer example**:
 ```json
 {
   "initiator": "bafybmigxslkovkt3rirvtpvscskor4ys223fjdetkzu3drbrxhp3s7t5ui",
@@ -224,7 +224,7 @@ This is an [async signature flow](#asynchronous-signature-flow). The body specif
 }
 ```
 
-**Example — FT transfer**:
+**FT transfer example**:
 ```json
 {
   "initiator": "bafybmig7cmpfdcxqbvn3wutczeby2a6o46cnfzmcyoy6imgbnt7qzfwxp4",
@@ -235,7 +235,7 @@ This is an [async signature flow](#asynchronous-signature-flow). The body specif
 }
 ```
 
-**Example — Smart contract execution**:
+**Smart contract execution example**:
 ```json
 {
   "initiator": "bafybmicggfkxfz667vnra3datk5h3y5el24ir7gx7tciciaaoniaxnadwi",
@@ -279,8 +279,8 @@ curl -X GET 'http://localhost:20000/rubix/v1/tx/aee95cdb9db8794b988063e29400198c
 **Endpoint**: `GET /rubix/v1/tx/{did}/{token_type}`
 
 Path params:
-- **`did`** — DID to filter by.
-- **`token_type`** — one of `rbt`, `nft`, `ft`, `smartContract`.
+- **`did`**: DID to filter by.
+- **`token_type`**: one of `rbt`, `nft`, `ft`, `smartContract`.
 
 **curl**:
 ```bash
@@ -422,7 +422,7 @@ curl -X GET 'http://localhost:20000/rubix/v1/smart_contracts/QmW83PT7dKWT5ccBvQv
 
 Downloads all files related to the smart contract into a local folder.
 
-### Deploy / Execute Smart Contract
+### Deploy and Execute Smart Contract
 
 Both operations now go through the unified [`POST /rubix/v1/tx`](#initiate-transaction) endpoint with a `tokens.smartContract` entry. See the [smart contract execution example](#initiate-transaction) above.
 
@@ -493,7 +493,7 @@ Returns the parent NFT (id + value), or `null` if none. Originator-only.
 
 Downloads NFT files into a local folder.
 
-### Deploy / Execute / Transfer NFT
+### Deploy, Execute, and Transfer NFT
 
 All NFT transactions now go through the unified [`POST /rubix/v1/tx`](#initiate-transaction) endpoint with a `tokens.nft` entry.
 
@@ -519,7 +519,7 @@ This is an [async signature flow](#asynchronous-signature-flow).
 ```
 
 - **`did`** [`string`]: Creator DID.
-- **`ft_name`** [`string`]: Name / symbol.
+- **`ft_name`** [`string`]: Name or symbol.
 - **`ft_count`** [`int`]: Total supply to mint.
 - **`token_count`** [`int`]: RBT amount to back the FTs.
 - **`ft_num_start_index`** [`int`]: Starting index for FT numbering.
@@ -558,13 +558,13 @@ These operational endpoints manage the node, its peers, bootstrap list, quorums,
 | `/rubix/v1/node/shutdown` | POST | Shut down the node. No input. |
 | `/rubix/v1/node/peer_id` | GET | Returns this node's Peer ID. No input. |
 
-**Ping** — `GET /rubix/v1/node/ping?peerID=<peer_id>`
+**Ping**: `GET /rubix/v1/node/ping?peerID=<peer_id>`
 
 Ping a peer by its Peer ID. Query param `peerID` is required.
 
-**Add Peer Details** — `POST /rubix/v1/node/add_peers`
+**Add Peer Details**: `POST /rubix/v1/node/add_peers`
 
-Manually add a peer's DID → Peer ID mapping. The field names are matched case-insensitively, so `did`/`peerID` work as well as `DID`/`PeerID`.
+Manually add a mapping from a peer's DID to its Peer ID. The field names are matched case-insensitively, so `did` and `peerID` work as well as `DID` and `PeerID`.
 
 ```json
 {
@@ -575,7 +575,7 @@ Manually add a peer's DID → Peer ID mapping. The field names are matched case-
 
 ### Bootstrap
 
-**Add / Remove Bootstrap** — `POST /rubix/v1/bootstrap/add`, `POST /rubix/v1/bootstrap/remove`
+**Add / Remove Bootstrap**: `POST /rubix/v1/bootstrap/add`, `POST /rubix/v1/bootstrap/remove`
 
 Add or remove bootstrap peers. Each peer must be a full multiaddress (starting with `/`).
 
@@ -592,7 +592,7 @@ Add or remove bootstrap peers. Each peer must be a full multiaddress (starting w
 
 ### Quorums
 
-**Add Quorum** — `POST /rubix/v1/quorums/add`
+**Add Quorum**: `POST /rubix/v1/quorums/add`
 
 Add a single quorum DID to the node's quorum list. Call once per quorum.
 
@@ -600,7 +600,7 @@ Add a single quorum DID to the node's quorum list. Call once per quorum.
 { "did": "string" }
 ```
 
-**Setup Quorum** — `POST /rubix/v1/quorums/setup`
+**Setup Quorum**: `POST /rubix/v1/quorums/setup`
 
 Set the node's own DID up as a quorum.
 
@@ -612,7 +612,7 @@ Set the node's own DID up as a quorum.
 }
 ```
 
-**Check Quorum Status** — `GET /rubix/v1/quorums/status?quorumAddress=<did>`
+**Check Quorum Status**: `GET /rubix/v1/quorums/status?quorumAddress=<did>`
 
 Check whether a quorum is reachable and set up. Query param `quorumAddress` is the quorum's DID.
 
@@ -623,7 +623,7 @@ Check whether a quorum is reachable and set up. Query param `quorumAddress` is t
 
 ### Tokens
 
-**Generate Local RBT** — `POST /rubix/v1/tokens/generate_local_rbt`
+**Generate Local RBT**: `POST /rubix/v1/tokens/generate_local_rbt`
 
 Mint RBT on a localnet for testing. This is an [async signature flow](#asynchronous-signature-flow).
 
@@ -635,7 +635,7 @@ Mint RBT on a localnet for testing. This is an [async signature flow](#asynchron
 }
 ```
 
-**Generate Faucet Test Tokens** — `POST /rubix/v1/tokens/generate_faucet_test`
+**Generate Faucet Test Tokens**: `POST /rubix/v1/tokens/generate_faucet_test`
 
 Issue testnet RBT via the faucet flow. This is an [async signature flow](#asynchronous-signature-flow).
 
@@ -646,7 +646,7 @@ Issue testnet RBT via the faucet flow. This is an [async signature flow](#asynch
 }
 ```
 
-**Get All Tokens** — `GET /rubix/v1/tokens?type=<token_type>&did=<did>`
+**Get All Tokens**: `GET /rubix/v1/tokens?type=<token_type>&did=<did>`
 
 Returns all tokens of the given type for a DID. Query params: `type`, `did`.
 

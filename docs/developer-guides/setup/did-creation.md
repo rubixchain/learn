@@ -5,7 +5,7 @@ sidebar_label: DID Creation & Key Management
 
 # Create a DID (Decentralized Identity)
 
-Each Rubix node is identified by a Decentralized Identity (DID) — a self-generated, cryptographically verifiable public key that anchors the node's presence and authority in the network.
+Each Rubix node is identified by a Decentralized Identity (DID), a self-generated, cryptographically verifiable public key that anchors the node's presence and authority in the network.
 
 Once your node is [running](./run-locally.md), open a new terminal in the same directory as the `rubixgoplatform` executable.
 

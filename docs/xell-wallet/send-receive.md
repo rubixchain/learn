@@ -7,7 +7,7 @@ sidebar_label: Perform Transactions
 # Perform Transactions
 
 ## Sending RBT or FT Tokens 
-1. Open Xell Wallet and ensure you’re on the correct network (mainnet for real
+1. Open Xell Wallet and ensure you're on the correct network (mainnet for real
 transactions, testnet for faucet RBTs).
 2. Login to your account using your pin.
 
@@ -58,8 +58,8 @@ https://testnet.trie.network/dashboard/datasets
 - Browse and select the dataset or AI model you wish to purchase.
 
 2. Initiate Purchase:
-- Click the “Buy Now” button on the dataset listing.
-- The dApp will request a transaction to transfer TRIE tokens to the seller’s address.
+- Click the "Buy Now" button on the dataset listing.
+- The dApp will request a transaction to transfer TRIE tokens to the seller's address.
 3. Approve with Xell Extension:
 - The Xell browser extension will display a pop-up prompting you to approve the transaction.
 - Enter your Xell PIN (the pin set during wallet creation) to authorize the signature.

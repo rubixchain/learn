@@ -95,7 +95,7 @@ Get the contract Token ID from the output (example: `QmXyz...`)
 
 ### 4. Subscribe to Smart Contract
 
-In Rubix’s stateless, event-driven architecture, not all nodes are aware of every smart contract by default. To participate in or track the execution of a specific contract, a node must explicitly subscribe to it. This subscription uses a publish-subscribe (pub-sub) mechanism that ensures only interested nodes receive updates or execution events related to the contract. By subscribing, a node signals that it wants to stay in sync with the contract’s state transitions and be notified when actions like execution or deployment occur. Without subscribing, a node would remain unaware of these updates, as Rubix does not broadcast all contract activity globally like traditional blockchains.
+In Rubix's stateless, event-driven architecture, not all nodes are aware of every smart contract by default. To participate in or track the execution of a specific contract, a node must explicitly subscribe to it. This subscription uses a publish-subscribe (pub-sub) mechanism that ensures only interested nodes receive updates or execution events related to the contract. By subscribing, a node signals that it wants to stay in sync with the contract's state transitions and be notified when actions like execution or deployment occur. Without subscribing, a node would remain unaware of these updates, as Rubix does not broadcast all contract activity globally like traditional blockchains.
 
 ---
 
@@ -132,7 +132,7 @@ curl -X POST 'http://localhost:20000/rubix/v1/smart_contracts/register_callback'
 
 ### 6. Deploy the Smart Contract
 
-Deploy the contract from the Deployer node, committing 1 RBT to it. Deployment is a transaction through the unified `/rubix/v1/tx` endpoint with a `smartContract` token — an [asynchronous signature flow](../../api.md#asynchronous-signature-flow).
+Deploy the contract from the Deployer node, committing 1 RBT to it. Deployment is a transaction through the unified `/rubix/v1/tx` endpoint with a `smartContract` token. This is an [asynchronous signature flow](../../api.md#asynchronous-signature-flow).
 
 ```bash
 curl -X POST 'http://localhost:20000/rubix/v1/tx' \
@@ -164,7 +164,7 @@ curl -X POST 'http://localhost:20000/rubix/v1/signature' \
 
 ### 7. Execute the Smart Contract
 
-Now execute the contract with "Red" as a vote. Execution uses the **same** `/rubix/v1/tx` endpoint as deployment — only the `data` differs.
+Now execute the contract with "Red" as a vote. Execution uses the **same** `/rubix/v1/tx` endpoint as deployment. Only the `data` differs.
 
 ```bash
 curl -X POST 'http://localhost:20000/rubix/v1/tx' \
@@ -256,7 +256,7 @@ static mut VOTES: Option<Vec<Vote>> = None;
 ````
 
 * `ContractResponse` and `ContractError` are used to serialize success or error messages.
-* `Vote` stores a single voter’s choice.
+* `Vote` stores a single voter's choice.
 * `CastAndTally` is the struct used for deserializing inputs to the `cast_and_tally` function.
 * `VOTES` stores the in-memory list of all vote entries globally.
 
@@ -483,11 +483,11 @@ func castAndTally(payload map[string]interface{}, c *gin.Context) {
 ```
 
 The `cast_and_tally` function is implemented natively in Go for faster execution and easy debugging.
-- **Vote Recording** – Saves the incoming vote (`voter_id → color`) into an in-memory map (voteStore).
-- **Duplicate Handling** – If a voter casts multiple votes, their latest choice automatically overwrites the old one (ensuring one vote per voter).
-- **Tallying** – Iterates over all votes in the map and counts the number of votes per color.
-- **Winner Calculation** – Finds the color with the maximum votes and marks it as the current winner.
-- **Thread-Safety** – Uses a mutex (`storeLock`) to ensure consistency when multiple users vote simultaneously.
+- **Vote Recording**: Saves the incoming vote (`voter_id` to `color`) into an in-memory map (voteStore).
+- **Duplicate Handling**: If a voter casts multiple votes, their latest choice automatically overwrites the old one (ensuring one vote per voter).
+- **Tallying**: Iterates over all votes in the map and counts the number of votes per color.
+- **Winner Calculation**: Finds the color with the maximum votes and marks it as the current winner.
+- **Thread-Safety**: Uses a mutex (`storeLock`) to ensure consistency when multiple users vote simultaneously.
 
 ### 6. WASM Invocation (Default Case)
 

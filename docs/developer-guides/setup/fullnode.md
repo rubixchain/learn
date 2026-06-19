@@ -10,8 +10,8 @@ A full node receives all published transactions and tokenchain details from the 
 
 Before proceeding, make sure you have:
 
-- Installed the Rubix binaries — see [Install Rubix](./install-rubix.md)
-- Docker installed — see [Install Docker](./install-rubix.md#install-docker) in the install guide
+- Installed the Rubix binaries (see [Install Rubix](./install-rubix.md))
+- Docker installed (see [Install Docker](./install-rubix.md#install-docker) in the install guide)
 - Completed the basic [Run Rubix Locally](./run-locally.md) flow at least once
 
 The setup flow for a full node is the same as a regular node, with one extra flag at the end.
@@ -39,7 +39,7 @@ db_name = "rubix"
 
 Set `network_mode` to `"testnet"` or `"mainnet"` depending on which network the full node should operate on.
 
-For the full `config.toml` field reference, see [Run Rubix Locally — Configuration Reference](./run-locally.md#configuration-reference).
+For the full `config.toml` field reference, see the [Configuration Reference](./run-locally.md#configuration-reference) in Run Rubix Locally.
 
 ## 2. Setup Postgres
 
@@ -71,7 +71,7 @@ Start your node with the `-fullnode` flag:
 | Flag | Description |
 |---|---|
 | `-p` | Path to the node directory (where `config.toml` lives). |
-| `-fullnode` | Run the node as a full node — subscribes to all published transactions and tokenchain details. |
+| `-fullnode` | Run the node as a full node - subscribes to all published transactions and tokenchain details. |
 | `-defaultSetup` | (Optional) Add default faucet quorums for testing. |
 
 ## Troubleshooting

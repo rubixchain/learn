@@ -40,9 +40,9 @@ The compiled WebAssembly code is then deployed onto a blockchain platform. The c
 ### About Deploy and Subscribe Contract
 
 #### DeployContract
-`Generate` is an offline setup event that happens before a contract enters the network. Once a Smart Contract Token ID is created, the owner deploys the contract by submitting a **transaction** that commits RBT to it. Deploy and execute both go through the unified transaction endpoint `POST /rubix/v1/tx` with a `tokens.smartContract` entry — **deployment is simply the contract's first such transaction**, which creates the first element in the tokenchain and pledges the genesis state of the token.
+`Generate` is an offline setup event that happens before a contract enters the network. Once a Smart Contract Token ID is created, the owner deploys the contract by submitting a **transaction** that commits RBT to it. Deploy and execute both go through the unified transaction endpoint `POST /rubix/v1/tx` with a `tokens.smartContract` entry. **Deployment is simply the contract's first such transaction**, which creates the first element in the tokenchain and pledges the genesis state of the token.
 
-**Endpoint:** `POST /rubix/v1/tx` — this is an [asynchronous signature flow](../../api.md#asynchronous-signature-flow).
+**Endpoint:** `POST /rubix/v1/tx`. This is an [asynchronous signature flow](../../api.md#asynchronous-signature-flow).
 
 ```bash
 curl -X POST 'http://localhost:20000/rubix/v1/tx' \
@@ -80,12 +80,12 @@ curl -X GET 'http://localhost:20000/rubix/v1/smart_contracts/subscribe?smartCont
 ```
 
 ## 4. Execution
-When a user or another contract interacts with the deployed smart contract, the contract’s functions are called via transactions. These transactions contain input data that specifies which function of the contract to execute and with what parameters.
+When a user or another contract interacts with the deployed smart contract, the contract's functions are called via transactions. These transactions contain input data that specifies which function of the contract to execute and with what parameters.
 
 ### About Execute Contract
 
 #### ExecuteContract
-Executing a contract uses the **same** `POST /rubix/v1/tx` endpoint as deployment — the only difference is that `data` carries the execution input (the function/parameters to run). Each execution appends a new block to the contract's tokenchain.
+Executing a contract uses the **same** `POST /rubix/v1/tx` endpoint as deployment. The only difference is that `data` carries the execution input (the function/parameters to run). Each execution appends a new block to the contract's tokenchain.
 
 ```bash
 curl -X POST 'http://localhost:20000/rubix/v1/tx' \
@@ -108,10 +108,10 @@ As with deployment, complete the transaction with `POST /rubix/v1/signature` usi
 The transaction is validated by the quorum to ensure it follows the rules of the protocol. Once validated, the transaction and the associated smart contract state change are processed by the nodes.
 
 ### About Publishing Contract State
-Publishing is automatic. Once an execute/deploy transaction is approved via consensus, the initiating node automatically publishes the state update to all subscribed peers over the pub-sub mechanism — there is no separate "publish" API call to make.
+Publishing is automatic. Once an execute/deploy transaction is approved via consensus, the initiating node automatically publishes the state update to all subscribed peers over the pub-sub mechanism. There is no separate "publish" API call to make.
 
 ## 6. State Changes and Output
-Smart contracts can read data from the blockchain’s state and modify it as per the logic defined in their functions. They can also produce output data, typically returned to the caller after execution.
+Smart contracts can read data from the blockchain's state and modify it as per the logic defined in their functions. They can also produce output data, typically returned to the caller after execution.
 
 The smart contract is executed on the DApp side. The DApp should expose an HTTP endpoint, which is registered with the node via the **register callback** API. Once registered, each time an execution happens on the token chain, the states in all subscribed nodes are updated as per the contract logic.
 
@@ -127,4 +127,4 @@ curl -X POST 'http://localhost:20000/rubix/v1/smart_contracts/register_callback'
 ```
 
 ## 7. Immutable Execution
-Once deployed, the logic of a smart contract, represented by its WebAssembly bytecode, is immutable. This means it cannot be changed. If you need to update the contract’s logic, a new version of the contract needs to be deployed.
+Once deployed, the logic of a smart contract, represented by its WebAssembly bytecode, is immutable. This means it cannot be changed. If you need to update the contract's logic, a new version of the contract needs to be deployed.

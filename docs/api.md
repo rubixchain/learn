@@ -26,7 +26,7 @@ Every endpoint returns the same envelope:
 
 ## Asynchronous Signature Flow
 
-Several operations (RBT transfer, DID registration, smart contract deploy/execute, NFT create, FT create) are asynchronous and require a password to complete. They follow this two-step flow:
+Several operations (RBT transfer, DID registration, wallet recovery, smart contract deploy/execute, NFT create, FT create) are asynchronous and require a password to complete. They follow this two-step flow:
 
 1. Call the operation endpoint. The response contains an `id` and `"message": "Password needed"`.
 2. Call `POST /rubix/v1/signature` with the `id` and the private key password (default: `mypassword`) to complete the operation.
@@ -173,6 +173,36 @@ curl -X GET 'http://localhost:20000/rubix/v1/dids/bafybmiaflq2dxcg5frq5o5myoqtk6
 
 ---
 
+## Recovery
+
+### Sync Wallet from a Fullnode
+
+**Endpoint**: `POST /rubix/v1/sync`
+
+:::note
+Requires **rubixgoplatform v1.0.3 or later**.
+:::
+
+Rebuilds a DID's local wallet state by pulling its owned tokens (status `Free` or `Pledged`) from an active published fullnode. This is intended for a node that lost its local database but still has its DID — for example, after [restoring the DID from its mnemonic](./developer-guides/setup/did-creation.md#restore-from-mnemonic). Ownership is proven with a signed challenge, so this is an [async signature flow](#asynchronous-signature-flow): the node responds with an `id` and a signature request, which you complete via [`POST /rubix/v1/signature`](#signatures). The final response summarizes the recovered tokens.
+
+**Request body**:
+```json
+{
+  "did": "string"
+}
+```
+
+- **`did`** [`string`]: DID whose wallet should be recovered.
+
+**curl**:
+```bash
+curl -X POST 'http://localhost:20000/rubix/v1/sync' \
+  -H 'Content-Type: application/json' \
+  -d '{"did":"bafybmibieftxw5tesd7s5d4l7wiustue44u6r2qepmb22krbx6sanhbc2a"}'
+```
+
+---
+
 ## Transactions
 
 The transactions API is unified: a single endpoint handles RBT transfers, FT transfers, NFT transfers, and smart contract deployments/executions.
@@ -282,9 +312,17 @@ Path params:
 - **`did`**: DID to filter by.
 - **`token_type`**: one of `rbt`, `nft`, `ft`, `smartContract`.
 
+**Optional query params** (rubixgoplatform v1.0.3+) to narrow the results:
+- **`latest`** [`int`]: return only the N most recent transactions (by epoch, descending).
+- **`start_date`** / **`end_date`** [`string`]: inclusive date range, formatted `YYYY-MM-DD` (UTC).
+- **`start_epoch`** / **`end_epoch`** [`int`]: inclusive epoch (Unix time) range.
+
 **curl**:
 ```bash
 curl -X GET 'http://localhost:20000/rubix/v1/tx/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/rbt'
+
+# with filters: the 10 most recent rbt transactions within a date range
+curl -X GET 'http://localhost:20000/rubix/v1/tx/bafybmiaflq2dxcg5frq5o5myoqtk6zle65okfnwb6y2tjpav4lsfwgknui/rbt?latest=10&start_date=2026-01-01&end_date=2026-06-30'
 ```
 
 ### Sync Transaction Chain

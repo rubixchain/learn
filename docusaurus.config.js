@@ -8,6 +8,14 @@ module.exports = {
   favicon: 'img/logo.png',
   organizationName: 'rubixchain',
   projectName: 'learn',
+  plugins: [
+    // Exposes the resolved docs sidebar tree via global data so the homepage
+    // can render the real <DocSidebar> (see src/plugins/docs-sidebar-global-data.js).
+    require.resolve('./src/plugins/docs-sidebar-global-data'),
+    // Fetches the latest rubixgoplatform release at build time so download
+    // pages track the current version (see src/plugins/rubix-release.js).
+    require.resolve('./src/plugins/rubix-release'),
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',

@@ -1,11 +1,8 @@
 /* Container and layout styles */
 .container {
   display: flex;
-  flex-direction: row; 
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: calc(100vh - 60px);
-  
+  flex-direction: row;
+  min-height: calc(100vh - var(--ifm-navbar-height));
 }
 
 .logo {
@@ -15,111 +12,36 @@
   vertical-align: middle;
 }
 
-
-.sidebar {
-  width: 250px;
-  min-width: 280px;
-  background: var(--ifm-background-color);
-  border-right: 1px solid var(--ifm-color-emphasis-200);
-  overflow-y: auto;
-  height: calc(100vh - 60px);
-  position: sticky;
-  top: 0;
+/*
+ * Homepage sidebar wrapper. Mirrors the docs theme's
+ * `.theme-doc-sidebar-container` / `.sidebarViewport` so the real <DocSidebar>
+ * rendered here behaves exactly like it does on documentation pages.
+ */
+.sidebarContainer {
+  display: none;
 }
 
-.sidebarNav {
-  padding: 1rem 0;
-}
+@media (min-width: 997px) {
+  .sidebarContainer {
+    display: block;
+    width: var(--doc-sidebar-width);
+    margin-top: calc(-1 * var(--ifm-navbar-height));
+    border-right: 1px solid var(--ifm-toc-border-color);
+  }
 
-.sidebarList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebarItem {
-  margin: 0;
-}
-
-.categoryButton {
-  width: 100%;
-  text-align: left;
-  padding: 0.75rem 1rem;
-  background: none;
-  border: none;
-  color: var(--ifm-color-primary); /* Highlights brand color */
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.07rem;
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s ease;
-  border-radius: 4px;
-  position: relative;
-}
-
-.categoryButton:hover {
-  color: var(--ifm-color-primary);
-  background-color: var(--ifm-color-emphasis-100);
-}
-
-.categoryButton:focus {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: -2px;
-}
-
-.arrow {
-  font-size: 0.7rem;
-  color: var(--ifm-color-emphasis-600);
-  transition: transform 0.2s ease;
-}
-
-.nestedList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background: var(--ifm-color-emphasis-50);
-}
-
-.nestedItem {
-  margin: 0;
-}
-
-.nestedLink {
-  color: var(--ifm-color-emphasis-700) !important;
-  text-decoration: none;
-  display: block;
-  padding: 0.5rem 1rem 0.5rem 2rem;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
-}
-
-.nestedLink:hover {
-  color: var(--ifm-color-primary) !important;
-  background-color: var(--ifm-color-emphasis-200);
-}
-
-.topLevelLink {
-  color: var(--ifm-color-emphasis-800) !important;
-  text-decoration: none;
-  display: block;
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
-
-.topLevelLink:hover {
-  color: var(--ifm-color-primary) !important;
-  background-color: var(--ifm-color-emphasis-100);
+  .sidebarViewport {
+    top: 0;
+    position: sticky;
+    height: 100%;
+    max-height: 100vh;
+  }
 }
 
 /* Main content area */
 .mainContent {
   flex: 1;
   padding: 2rem;
+  min-width: 0;
 }
 
 .contentWrapper {
@@ -236,48 +158,8 @@
   transform: translateX(3px);
 }
 
-/* Active state styles */
-.nestedLink[aria-current="page"],
-.topLevelLink[aria-current="page"] {
-  color: var(--ifm-color-primary) !important;
-  background-color: var(--ifm-color-primary-lighter);
-  font-weight: 600;
-}
-
-/* Scrollbar styling for sidebar */
-.sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: var(--ifm-color-emphasis-100);
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: var(--ifm-color-emphasis-300);
-  border-radius: 3px;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background: var(--ifm-color-emphasis-400);
-}
-
 /* Responsive design */
 @media (max-width: 996px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    min-width: auto;
-    height: auto;
-    max-height: 50vh;
-    position: relative;
-    border-right: none;
-    border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  }
-
   .contentWrapper {
     padding: 1.5rem;
   }
@@ -308,24 +190,9 @@
   .card {
     padding: 1.5rem 1rem;
   }
-
-  .categoryButton,
-  .topLevelLink {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.85rem;
-  }
-
-  .nestedLink {
-    padding: 0.4rem 0.8rem 0.4rem 1.6rem;
-    font-size: 0.8rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .sidebar {
-    max-height: 40vh;
-  }
-
   .heroTitle {
     font-size: 1.5rem;
   }
@@ -343,33 +210,4 @@
 
 [data-theme='dark'] .card:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme='dark'] .nestedList {
-  background: var(--ifm-color-emphasis-200);
-}
-
-/* Animation for category expansion */
-@keyframes expandCategory {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 500px;
-  }
-}
-
-.nestedList {
-  animation: expandCategory 0.3s ease-out;
-} 
-
-.nestedList .categoryButton{
-  font-size: 14px !important;
-  padding-left: 30px;
-}
-
-.nestedList .sidebarItem{
-  padding-left: 15px !important;
 }

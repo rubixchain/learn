@@ -1,70 +1,31 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
+import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
+import {useLocation} from '@docusaurus/router';
+import {usePluginData} from '@docusaurus/useGlobalData';
+import DocSidebar from '@theme/DocSidebar';
 import styles from './index.module.css';
 
-// Import the sidebar configuration
-const sidebars = require('../../sidebars.js');
+const noop = () => {};
 
-function SidebarItem({ item, level = 0 }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  if (item.type === 'category') {
-    return (
-      <li className={styles.sidebarItem}>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={styles.categoryButton}
-          aria-expanded={isOpen}
-        >
-          {item.label}
-          <span className={styles.arrow}>{isOpen ? '▼' : '▶'}</span>
-        </button>
-        {isOpen && item.items && (
-          <ul className={styles.nestedList}>
-            {item.items.map((subItem, index) => (
-              <SidebarItem key={index} item={subItem} level={level + 1} />
-            ))}
-          </ul>
-        )}
-      </li>
-    );
-  }
-
+// Renders the real Docusaurus docs sidebar so the homepage rail is identical
+// to the one shown on every documentation page (same component, styling,
+// labels and collapse behavior). The sidebar tree comes from the
+// docs-sidebar-global-data plugin (the layout hook only exposes a summary).
+function HomeSidebar() {
+  const {sidebar} = usePluginData('docs-sidebar-global-data');
+  const {pathname} = useLocation();
   return (
-    <li className={styles.sidebarItem}>
-      <Link
-        to={`/docs/${item}`}
-        className={styles.topLevelLink}
-      >
-        {formatLinkText(item)}
-      </Link>
-    </li>
-  );
-}
-
-function formatLinkText(item) {
-  // Convert kebab-case to readable text
-  return item
-    .split('/')
-    .pop()
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, l => l.toUpperCase());
-}
-
-function Sidebar() {
-  const sidebarItems = sidebars.docs;
-  return (
-    <aside className={styles.sidebar}>
-      <nav className={styles.sidebarNav}>
-        <ul className={styles.sidebarList}>
-          {sidebarItems.map((item, index) => (
-            <SidebarItem key={index} item={item} />
-          ))}
-        </ul>
-      </nav>
+    <aside className={styles.sidebarContainer}>
+      <div className={styles.sidebarViewport}>
+        <DocSidebar
+          sidebar={sidebar}
+          path={pathname}
+          onCollapse={noop}
+          isHidden={false}
+        />
+      </div>
     </aside>
   );
 }
@@ -130,7 +91,7 @@ export default function Home() {
       description="Learn, Build & Grow with Rubix - Comprehensive blockchain education platform"
     >
       <main className={styles.container}>
-        <Sidebar />
+        <HomeSidebar />
         <MainContent />
       </main>
     </Layout>

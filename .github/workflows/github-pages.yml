@@ -3,6 +3,19 @@ on:
   push:
     branches:
       - main
+  # Rebuild weekly so the download pages pick up new rubixgoplatform releases
+  # (the rubix-release plugin fetches the latest version at build time).
+  schedule:
+    - cron: '0 6 * * 1'
+  # Allow a manual rebuild from the Actions tab.
+  workflow_dispatch:
+  # Allow an external trigger, e.g. from the rubixgoplatform release workflow:
+  #   curl -X POST -H "Authorization: Bearer <PAT>" \
+  #     -H "Accept: application/vnd.github+json" \
+  #     https://api.github.com/repos/rubixchain/learn/dispatches \
+  #     -d '{"event_type":"rubix-release"}'
+  repository_dispatch:
+    types: [rubix-release]
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,6 +32,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          # Lets the rubix-release plugin call the GitHub API with a higher rate limit.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

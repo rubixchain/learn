@@ -61,6 +61,10 @@ Example:
 ./rubixgoplatform createdid -mnemonic "abandon ability able about above absent absorb abstract absurd abuse access accident" -port 20001
 ```
 
+:::tip
+Restoring the mnemonic recreates your keys but not the tokens the DID owned. To rebuild your token balance, see [Wallet Recovery](./recover-wallet.md).
+:::
+
 ## Create from Public Key
 
 You can also create a DID by providing an existing public key:

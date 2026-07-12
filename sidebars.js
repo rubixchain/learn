@@ -32,6 +32,7 @@ module.exports = {
             'developer-guides/setup/install-rubix',
             'developer-guides/setup/run-locally',
             'developer-guides/setup/did-creation',
+            'developer-guides/setup/recover-wallet',
             'developer-guides/setup/testnet',
             'developer-guides/setup/mainnet',
             'developer-guides/setup/subnet',
